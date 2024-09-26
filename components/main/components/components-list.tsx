@@ -183,7 +183,7 @@ export default function ComponentsList({ components }: ComponentsListProps) {
               className="relative max-h-[600px] min-h-[500px] overflow-auto p-4"
             >
               <Tabs defaultValue={`${component.codeSnippets[0].id || ""}`}>
-                <TabsList className="sticky top-0 z-20 mx-auto flex w-fit items-center justify-center rounded-full border bg-background/60 backdrop-blur-sm">
+                <TabsList className="sticky top-0 z-30 mx-auto flex w-fit items-center justify-center rounded-full border bg-background/60 backdrop-blur-sm">
                   {component.codeSnippets.map((snippet) => {
                     return (
                       <TabsTrigger
@@ -206,7 +206,7 @@ export default function ComponentsList({ components }: ComponentsListProps) {
                 {component.codeSnippets.map((snippet) => {
                   return (
                     <TabsContent key={snippet.id} value={snippet.id}>
-                      <div className="sticky right-4 top-0 z-30 -mt-6 flex justify-end">
+                      <div className="sticky right-4 top-0 z-20 -mt-6 flex justify-end">
                         <Button
                           size={"icon"}
                           onClick={() => copyToClipboard(snippet.code)}
