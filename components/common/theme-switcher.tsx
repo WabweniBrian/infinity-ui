@@ -16,7 +16,7 @@ const ThemeSwicher = () => {
   if (!mounted) return null;
   return (
     <Tabs defaultValue={theme}>
-      <TabsList className="!h-fit flex-col gap-0 rounded-full border shadow-xl dark:bg-slate-900/80">
+      <TabsList className="!h-fit flex-col gap-0 rounded-full border shadow-xl backdrop-blur-sm dark:bg-slate-900/50">
         <TabsTrigger
           value="light"
           onClick={() => setTheme("light")}
