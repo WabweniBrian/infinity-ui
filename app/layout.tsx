@@ -44,6 +44,7 @@ const thicccboi = localFont({
 });
 
 export const firaCode = Fira_Code({
+  subsets: ["latin", "cyrillic"],
   variable: "--font-firaCode",
 });
 
