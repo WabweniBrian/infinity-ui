@@ -3,11 +3,14 @@
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Component } from "@/data/components";
+import useClipboard from "@/hooks/use-clipboard";
 import { getExtensionIcon, generateSlug } from "@/lib/utils";
 import { TabsContent } from "@radix-ui/react-tabs";
 import {
   ArrowUpRightFromSquare,
+  CheckCheck,
   Code,
+  Copy,
   Eye,
   Laptop,
   Layers,
@@ -30,6 +33,8 @@ export default function ComponentsList({ components }: ComponentsListProps) {
   const [previewSizes, setPreviewSizes] = useState<{
     [key: string]: PreviewSize;
   }>({});
+
+  const { copied, copyToClipboard } = useClipboard();
 
   const changePreviewSize = (componentId: string, size: PreviewSize) => {
     setPreviewSizes((prev) => ({
@@ -201,6 +206,22 @@ export default function ComponentsList({ components }: ComponentsListProps) {
                 {component.codeSnippets.map((snippet) => {
                   return (
                     <TabsContent key={snippet.id} value={snippet.id}>
+                      <div className="sticky right-4 top-0 z-30 -mt-6 flex justify-end">
+                        <Button
+                          size={"icon"}
+                          onClick={() => copyToClipboard(snippet.code)}
+                          className="h-8 w-8 !outline-none !ring-0 !ring-offset-0"
+                          title="Copy to clipboard"
+                        >
+                          <span>
+                            {copied ? (
+                              <CheckCheck className="h-4 w-4" />
+                            ) : (
+                              <Copy className="h-4 w-4" />
+                            )}
+                          </span>
+                        </Button>
+                      </div>
                       <SyntaxHighlighter
                         language={snippet.language}
                         style={vscDarkPlus}
