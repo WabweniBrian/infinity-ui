@@ -50,7 +50,7 @@ export const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://infinity-ui.vercel.app"),
+  metadataBase: new URL("https://infinityui.vercel.app"),
   title: {
     template: "%s | Infinity UI",
     default: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
@@ -96,14 +96,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://infinity-ui.vercel.app",
+    url: "https://infinityui.vercel.app",
     siteName: "Infinity UI",
     title: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
     description:
       "Elevate your SaaS startup with Infinity UI! Beautifully Designed React/Next.js UI Blocks",
     images: [
       {
-        url: "https://infinity-ui.vercel.app/logo.png",
+        url: "https://infinityui.vercel.app/logo.png",
         width: 1200,
         height: 630,
         alt: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
@@ -118,7 +118,7 @@ export const metadata: Metadata = {
       "Infinityui - Uganda's Leading Car Infinityuil & Moving Services Platform",
     description:
       "Find trusted car infinityuils and property movers in Uganda. Compare prices, and get the best deals for your transportation and moving needs.",
-    images: ["https://infinity-ui.vercel.app/logo.png"],
+    images: ["https://infinityui.vercel.app/logo.png"],
   },
   robots: {
     index: true,
@@ -143,8 +143,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Infinity UI",
-            url: "https://infinity-ui.vercel.app",
-            logo: "https://infinity-ui.vercel.app/logo.png",
+            url: "https://infinityui.vercel.app",
+            logo: "https://infinityui.vercel.app/logo.png",
             sameAs: [
               "https://www.facebook.com/infinity-ui",
               "https://www.twitter.com/infinity-ui",
