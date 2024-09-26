@@ -20,10 +20,79 @@ model User {
   emailVerified        DateTime?
   isEmailVerified      Boolean?  @default(false)
   image                String?
+  hasPurchased         Boolean   @default(false)
   role                 UserRole  @default(User)
   verificationCode     String?
   resetPasswordToken   String?   @unique
   resetPasswordExpires DateTime?
   createdAt            DateTime  @default(now())
   updatedAt            DateTime  @updatedAt
+
+  purchases Purchase[]
+}
+
+model Component {
+  id            String   @id @default(uuid())
+  categoryId    String
+  name          String
+  slug          String
+  description   String?
+  Componentpath String
+  dependencies  String[]
+  styling       String[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  codeSnippets CodeSnippet[]
+
+  @@index([categoryId])
+}
+
+enum CategoryType {
+  Marketing_And_Ecommerce
+  Dashboard
+}
+
+model Category {
+  id           String       @id @default(uuid())
+  name         String
+  description  String?
+  image        String?
+  categoryType CategoryType @default(Marketing_And_Ecommerce)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  Component    Component[]
+}
+
+model CodeSnippet {
+  id          String   @id @default(uuid())
+  componentId String
+  fileName    String
+  extension   String
+  language    String
+  code        String   @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  component Component @relation(fields: [componentId], references: [id], onDelete: Cascade)
+
+  @@index([componentId])
+}
+
+model Purchase {
+  id          String   @id @default(uuid())
+  userId      String
+  amount      Float
+  date        DateTime
+  address     String?
+  zipCode     String?
+  orderNumber String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }

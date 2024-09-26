@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Component } from "@/data/components";
 import useClipboard from "@/hooks/use-clipboard";
-import { getExtensionIcon, generateSlug } from "@/lib/utils";
+import { generateSlug, getExtensionIcon } from "@/lib/utils";
 import { TabsContent } from "@radix-ui/react-tabs";
 import {
   ArrowUpRightFromSquare,
@@ -18,7 +18,6 @@ import {
   Tablet,
 } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -61,7 +60,7 @@ export default function ComponentsList({ components }: ComponentsListProps) {
         <div key={component.id}>
           <div className="mb-4 flex items-center justify-between gap-4">
             <a
-              href={`/components/preview/${component.category}/${component.slug}`}
+              href={`/preview/${component.category}/${component.slug}`}
               className="flex-1 truncate text-xl font-semibold text-brand hover:underline md:text-2xl"
               target="_blank"
             >
@@ -106,7 +105,7 @@ export default function ComponentsList({ components }: ComponentsListProps) {
                 title="Open in New Tab"
               >
                 <a
-                  href={`/components/preview/${component.category}/${component.slug}`}
+                  href={`/preview/${component.category}/${component.slug}`}
                   className="font-semibold hover:text-brand hover:underline"
                   target="_blank"
                 >
@@ -172,7 +171,7 @@ export default function ComponentsList({ components }: ComponentsListProps) {
               className="max-h-[600px] min-h-[500px]"
             >
               <iframe
-                src={`/components/preview/${component.category}/${component.slug}`}
+                src={`/preview/${component.category}/${component.slug}`}
                 className={`mx-auto max-h-[600px] min-h-[500px] border ${getPreviewWidth(previewSizes[component.id] || "desktop")} transition-all duration-300 ease-in-out`}
                 title={component.name}
               />
