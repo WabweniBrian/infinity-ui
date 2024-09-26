@@ -1,6 +1,6 @@
 # Infinity UI - Web Block Elements for React/Next.js Projects
 
-![Screenshot](screenshot.png)
+![Logo](public/logo.png)
 
 Infinity UI offers a collection of beautifully designed UI web block elements for Next.js projects, including navbars, hero sections, CTAs, features, sections, dashboard pages, components, forms, and more. These blocks are responsive, support dark mode, and can be easily browsed, copied, and pasted into projects.
 
