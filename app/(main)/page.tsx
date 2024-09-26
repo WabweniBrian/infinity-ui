@@ -12,6 +12,9 @@ const Home = () => {
         <Button asChild variant="outline">
           <Link href="/sign-up">Sign Up</Link>
         </Button>
+        <Button asChild variant="ghost">
+          <Link href="/components">Components</Link>
+        </Button>
       </div>
     </main>
   );
