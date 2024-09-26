@@ -60,12 +60,13 @@ export default function ComponentsList({ components }: ComponentsListProps) {
       {components.map((component) => (
         <div key={component.id}>
           <div className="mb-4 flex items-center justify-between gap-4">
-            <Link
+            <a
               href={`/components/preview/${component.category}/${component.slug}`}
               className="flex-1 truncate text-xl font-semibold text-brand hover:underline md:text-2xl"
+              target="_blank"
             >
               {component.name}
-            </Link>
+            </a>
             <div className="gap-x-2 flex-align-center">
               <Tabs
                 value={previewSizes[component.id] || "desktop"}
