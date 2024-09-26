@@ -32,7 +32,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        poppins: "var(--font-poppins)",
+        firaCode: "var(--font-firaCode)",
         thicccboi: "var(--font-thicccboi)",
       },
       gridTemplateColumns: {

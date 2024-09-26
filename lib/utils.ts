@@ -128,3 +128,15 @@ export const trimFileName = (fileName: string, maxLength: number): string => {
 
   return trimmedFileName + extension;
 };
+
+export const getExtensionIcon = (extension: string) => {
+  if (extension === "jsx" || extension === "tsx") {
+    return "/images/react.png";
+  } else if (extension === "js") {
+    return "/images/javascript.png";
+  } else if (extension === "css") {
+    return "/images/css.png";
+  } else {
+    return "/images/react.png";
+  }
+};

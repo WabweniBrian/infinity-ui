@@ -3,14 +3,22 @@
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Component } from "@/data/components";
+import { getExtensionIcon, generateSlug } from "@/lib/utils";
+import { TabsContent } from "@radix-ui/react-tabs";
 import {
   ArrowUpRightFromSquare,
+  Code,
+  Eye,
   Laptop,
+  Layers,
   Smartphone,
   Tablet,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type PreviewSize = "mobile" | "tablet" | "desktop";
 
@@ -102,33 +110,116 @@ export default function ComponentsList({ components }: ComponentsListProps) {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-xl border">
-            <div className="flex items-center justify-between rounded-t-xl bg-accent/30 px-2 py-1 backdrop-blur-sm">
-              <div className="flex items-center space-x-2">
-                <div
-                  className="h-3 w-3 rounded-full bg-red-500"
-                  title="Close"
-                ></div>
-                <div
-                  className="h-3 w-3 rounded-full bg-yellow-500"
-                  title="Minimize"
-                ></div>
-                <div
-                  className="h-3 w-3 rounded-full bg-green-500"
-                  title="Maximize"
-                ></div>
-                <span className="ml-2 text-lg font-medium">
-                  {component.name}
-                </span>
-              </div>
-            </div>
+          <Tabs
+            className="overflow-hidden rounded-xl border"
+            defaultValue="preview"
+          >
+            <TabsList className="w-full justify-start rounded-t-xl bg-accent/30 px-2 py-1 backdrop-blur-sm">
+              <TabsTrigger value="buttons" asChild disabled>
+                <div className="flex items-center space-x-2">
+                  <div
+                    className="h-3 w-3 rounded-full bg-red-500"
+                    title="Close"
+                  ></div>
+                  <div
+                    className="h-3 w-3 rounded-full bg-yellow-500"
+                    title="Minimize"
+                  ></div>
+                  <div
+                    className="h-3 w-3 rounded-full bg-green-500"
+                    title="Maximize"
+                  ></div>
+                </div>
+              </TabsTrigger>
 
-            <iframe
-              src={`/components/preview/${component.category}/${component.slug}`}
-              className={`mx-auto h-[500px] border ${getPreviewWidth(previewSizes[component.id] || "desktop")} transition-all duration-300 ease-in-out`}
-              title={component.name}
-            />
-          </div>
+              {/* Preview */}
+              <TabsTrigger
+                value="preview"
+                className="border-brand data-[state=active]:border-b data-[state=active]:bg-gray-300/80 data-[state=active]:backdrop-blur-sm dark:data-[state=active]:bg-gray-900/90"
+              >
+                <Eye className="mr-2 h-4 w-4" />
+                <span>Preview</span>
+              </TabsTrigger>
+
+              {/* Code */}
+              <TabsTrigger
+                value="code"
+                className="border-brand data-[state=active]:border-b data-[state=active]:bg-gray-300/80 data-[state=active]:backdrop-blur-sm dark:data-[state=active]:bg-gray-900/90"
+              >
+                <Code className="mr-2 h-4 w-4" />
+                <span>Code</span>
+              </TabsTrigger>
+
+              {/* Deps */}
+              <TabsTrigger
+                value="deps"
+                className="ml-2 border-brand data-[state=active]:border-b data-[state=active]:bg-gray-300/80 data-[state=active]:backdrop-blur-sm dark:data-[state=active]:bg-gray-900/90"
+              >
+                <Layers className="mr-2 h-4 w-4" />
+                <span>Deps</span>
+              </TabsTrigger>
+            </TabsList>
+
+            {/* Preview */}
+            <TabsContent
+              value="preview"
+              className="max-h-[600px] min-h-[500px]"
+            >
+              <iframe
+                src={`/components/preview/${component.category}/${component.slug}`}
+                className={`mx-auto max-h-[600px] min-h-[500px] border ${getPreviewWidth(previewSizes[component.id] || "desktop")} transition-all duration-300 ease-in-out`}
+                title={component.name}
+              />
+            </TabsContent>
+
+            {/* Code */}
+            <TabsContent
+              value="code"
+              className="relative max-h-[600px] min-h-[500px] overflow-auto p-4"
+            >
+              <Tabs defaultValue={`${component.codeSnippets[0].id || ""}`}>
+                <TabsList className="sticky top-0 z-20 mx-auto flex w-fit items-center justify-center rounded-full border bg-background/60 backdrop-blur-sm">
+                  {component.codeSnippets.map((snippet) => {
+                    return (
+                      <TabsTrigger
+                        value={snippet.id}
+                        key={snippet.id}
+                        className="rounded-full backdrop-blur-sm data-[state=active]:bg-gray-300/80 dark:data-[state=active]:bg-gray-900/90"
+                      >
+                        <Image
+                          src={getExtensionIcon(snippet.extension)}
+                          alt={generateSlug(snippet.fileName)}
+                          width={16}
+                          height={16}
+                          className="object-contain"
+                        />
+                        <span className="ml-2">{snippet.fileName}</span>
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+                {component.codeSnippets.map((snippet) => {
+                  return (
+                    <TabsContent key={snippet.id} value={snippet.id}>
+                      <SyntaxHighlighter
+                        language={snippet.language}
+                        style={vscDarkPlus}
+                        showLineNumbers={true}
+                        wrapLines={true}
+                      >
+                        {snippet.code}
+                      </SyntaxHighlighter>
+                    </TabsContent>
+                  );
+                })}
+              </Tabs>
+            </TabsContent>
+
+            {/* Deps */}
+            <TabsContent value="deps" className="min-h-[500px] p-4">
+              <h1 className="text-2xl font-bold md:text-3xl">Dependencies</h1>
+            </TabsContent>
+          </Tabs>
         </div>
       ))}
     </div>

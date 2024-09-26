@@ -140,3 +140,11 @@ input[type="radio"]:checked {
 .form-radio:focus {
   @apply !ring-brand focus:!ring-offset-background;
 }
+
+pre {
+  @apply !font-firaCode !bg-transparent;
+}
+
+pre span {
+  @apply !font-firaCode !opacity-100;
+}

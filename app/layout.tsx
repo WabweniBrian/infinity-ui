@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Fira_Code } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
@@ -43,10 +43,9 @@ const thicccboi = localFont({
   variable: "--font-thicccboi",
 });
 
-export const poppins = Poppins({
+export const firaCode = Fira_Code({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  variable: "--font-firaCode",
 });
 
 export const metadata: Metadata = {
@@ -167,7 +166,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
           storageKey="infinityui-theme"
