@@ -1,12 +1,12 @@
 {
-  "theme_color": "#FF3A44",
+  "theme_color": "#11ACBB",
   "background_color": "#fff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "Infinityui",
-  "description": "Infinityui is a Ugandan-based platform that connects users with trusted car infinityuil services and property movers, making it easy to find and book the right service for their needs.",
-  "short_name": "Infinityui",
+  "name": "Infinity UI",
+  "description": "Beautifully Designed React/Next.js UI Blocks",
+  "short_name": "Infinity UI",
   "icons": [
     {
       "src": "/icon-192x192.png",
