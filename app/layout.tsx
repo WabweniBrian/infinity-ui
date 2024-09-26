@@ -175,7 +175,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           {children}
           <BackToTopButton />
 
-          <div className="fixed bottom-2 right-2 z-[999]">
+          <div className="fixed bottom-10 right-2 z-[999]">
             <ThemeSwicher />
           </div>
         </ThemeProvider>
