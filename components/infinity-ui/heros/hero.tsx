@@ -66,7 +66,7 @@ export default function Hero() {
 
       {/* Decorative Elements */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="absolute h-[50rem] w-[90rem] -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute h-[50rem] w-[90rem] -translate-y-1/2 rounded-full bg-brand/5 blur-3xl" />
       </div>
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
     </div>

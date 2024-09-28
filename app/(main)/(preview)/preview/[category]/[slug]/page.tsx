@@ -1,4 +1,3 @@
-import { componentsData } from "@/data/components";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
