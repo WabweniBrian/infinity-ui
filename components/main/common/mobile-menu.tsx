@@ -63,7 +63,7 @@ const MobileMenu = () => {
                   <Link
                     href={link.url}
                     className={cn(
-                      "transition-all hover:text-brand",
+                      "font-semibold transition-all hover:text-brand",
                       isActive && "text-brand",
                     )}
                   >

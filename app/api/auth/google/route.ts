@@ -34,11 +34,15 @@ export async function POST(request: Request) {
     });
   }
 
-  const token = await createToken({ id: user.id });
+  const token = await createToken({ id: user.id, role: user.role });
   setAuthCookie(token);
+
+  const redirectUrl = user.role === "Admin" ? "/admin" : "/dashboard";
+  const finalCallbackUrl =
+    callbackUrl && callbackUrl !== "" ? callbackUrl : redirectUrl;
 
   return NextResponse.json({
     user: { id: user.id, email: user.email, name: user.name },
-    callbackUrl: callbackUrl || "/dashboard",
+    callbackUrl: finalCallbackUrl,
   });
 }

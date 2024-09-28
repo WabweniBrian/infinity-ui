@@ -51,6 +51,7 @@ const config = {
         brand: "#11ACBB",
         "brand-yellow": "#F6A71A",
         "brand-pink": "#DB3066",
+        main: "#f5f5f9",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,6 +1,7 @@
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 generator client {
@@ -35,7 +36,7 @@ model Component {
   id            String   @id @default(uuid())
   categoryId    String
   name          String
-  slug          String
+  slug          String   @unique
   description   String?
   Componentpath String
   dependencies  String[]

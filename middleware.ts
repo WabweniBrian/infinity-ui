@@ -7,7 +7,10 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const isAuthPage = pathname === "/sign-in" || pathname === "/sign-up";
-  const isProtectedRoute = pathname.startsWith("/dashboard");
+  const isProtectedRoute =
+    pathname.startsWith("/dashboard") || pathname.startsWith("/admin");
+  const isUserDashboard = pathname.startsWith("/dashboard");
+  const isAdminRoute = pathname.startsWith("/admin");
 
   if (pathname.startsWith("/api")) {
     return NextResponse.next();
@@ -18,7 +21,17 @@ export async function middleware(request: NextRequest) {
 
     if (payload) {
       if (isAuthPage) {
-        return NextResponse.redirect(new URL("/dashboard", request.url));
+        if (payload.role === "Admin") {
+          return NextResponse.redirect(new URL("/admin", request.url));
+        } else {
+          return NextResponse.redirect(new URL("/dashboard", request.url));
+        }
+      }
+      if (isAdminRoute && payload.role !== "Admin") {
+        return NextResponse.redirect(new URL("/", request.url));
+      }
+      if (isUserDashboard && payload.role === "Admin") {
+        return NextResponse.redirect(new URL("/admin", request.url));
       }
       return NextResponse.next();
     } else {

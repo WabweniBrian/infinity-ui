@@ -7,8 +7,8 @@ export const navbarLinks = [
     linkText: "components",
     url: "/components",
   },
-  {
-    linkText: "Faqs",
-    url: "/faqs",
-  },
+  // {
+  //   linkText: "Faqs",
+  //   url: "/faqs",
+  // },
 ];

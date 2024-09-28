@@ -28,7 +28,7 @@ const SignIn = () => {
   const searchParams = useSearchParams();
 
   const message = searchParams.get("message");
-  const callbackUrl = searchParams?.get("callbackUrl") || "/dashboard";
+  const callbackUrl = searchParams?.get("callbackUrl");
 
   const form = useForm<UserLoginSchemaType>({
     resolver: zodResolver(userLoginSchema),
@@ -36,13 +36,14 @@ const SignIn = () => {
 
   const onSubmit = async (values: UserLoginSchemaType) => {
     try {
-      await axios.post("/api/auth/sign-in", {
+      const res = await axios.post("/api/auth/sign-in", {
         email: values.email,
         password: values.password,
         callbackUrl,
       });
       setError(null);
-      router.push(callbackUrl);
+      console.log(res.data);
+      router.push(res.data.callbackUrl);
     } catch (error: any) {
       setError(error.response.data);
     }

@@ -17,13 +17,19 @@ export async function POST(request: Request) {
       return new NextResponse("Invalid credentials", { status: 400 });
     }
 
-    const token = await createToken({ id: user.id });
+    const token = await createToken({ id: user.id, role: user.role });
     setAuthCookie(token);
 
+    const redirectUrl = user.role === "Admin" ? "/admin" : "/dashboard";
+
+    const finalCallbackUrl =
+      callbackUrl && callbackUrl !== "" ? callbackUrl : redirectUrl;
+
     return NextResponse.json({
-      callbackUrl: callbackUrl || "/dashboard",
+      callbackUrl: finalCallbackUrl,
     });
   } catch (error) {
+    console.error("Login error:", error);
     return new NextResponse("Server error", { status: 500 });
   }
 }

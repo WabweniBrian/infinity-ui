@@ -10,7 +10,7 @@ import MobileMenu from "./mobile-menu";
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <header className="fixed left-0 top-0 z-[999] w-full py-2 backdrop-blur-lg border-b">
+    <header className="fixed left-0 top-0 z-[999] w-full border-b py-2 backdrop-blur-lg">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-3">
         {/* Logo */}
         <div>
@@ -20,12 +20,12 @@ const Navbar = () => {
           >
             <Image
               src="/logo.png"
-              width={50}
-              height={50}
+              width={80}
+              height={80}
               alt="Infinity UI Logo"
               className="object-contain"
             />
-            <span className="hidden text-xl sm:block">Infinity UI</span>
+            <span className="hidden text-2xl sm:block">Infinity UI</span>
           </Link>
         </div>
 
@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Link
                   href={link.url}
                   className={cn(
-                    "transition-all hover:text-brand",
+                    "font-semibold transition-all hover:text-brand",
                     isActive && "text-brand",
                   )}
                 >

@@ -142,9 +142,20 @@ input[type="radio"]:checked {
 }
 
 pre {
-  @apply !font-firaCode !bg-transparent;
+  @apply !bg-transparent !font-firaCode;
 }
 
 pre span {
   @apply !font-firaCode !opacity-100;
+}
+
+.curved {
+  @apply relative z-0 box-border min-h-[20%] w-full bg-brand after:absolute after:left-0 after:top-0 after:-z-[1] after:h-full after:w-full after:bg-inherit;
+}
+
+.curved:after {
+  @apply translate-x-0 translate-y-[40%] sm:translate-y-[60%];
+  transform-origin: top left;
+  border-bottom-left-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
 }

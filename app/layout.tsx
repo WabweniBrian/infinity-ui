@@ -8,6 +8,7 @@ import BackToTopButton from "@/components/common/back-button";
 import localFont from "next/font/local";
 import ThemeSwicher from "@/components/common/theme-switcher";
 import { SchemaMarkup } from "@/components/common/schema-markup";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 
 export const viewport: Viewport = {
   themeColor: "#11ACBB",
@@ -156,7 +157,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             },
           }}
         />
-        <NextTopLoader color={"#11ACBB"} zIndex={9999} />
+        <NextTopLoader color={"#F6A71A"} zIndex={9999} />
         <Toaster
           toastOptions={{
             className:
@@ -171,7 +172,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           disableTransitionOnChange
           storageKey="infinityui-theme"
         >
-          {children}
+          <EdgeStoreProvider>{children}</EdgeStoreProvider>
           <BackToTopButton />
 
           <div className="fixed bottom-10 right-2 z-[999]">

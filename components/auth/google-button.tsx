@@ -1,6 +1,7 @@
 "use client";
 
 import { useGoogleLogin } from "@react-oauth/google";
+import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -12,27 +13,17 @@ const GoogleButton = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const callbackUrl = searchParams?.get("callbackUrl") || "/dashboard";
+  const callbackUrl = searchParams?.get("callbackUrl");
 
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       setLoading(true);
-      const res = await fetch("/api/auth/google", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_token: tokenResponse.access_token,
-          callbackUrl,
-        }),
+      const res = await axios.post("/api/auth/google", {
+        access_token: tokenResponse.access_token,
+        callbackUrl,
       });
       setLoading(false);
-      if (res.ok) {
-        router.push(callbackUrl);
-      } else {
-        setError("Google login failed, try again");
-      }
+      router.push(res.data.callbackUrl);
     },
     onError: () => {
       setError("Google login failed, try again");
