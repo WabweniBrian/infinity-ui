@@ -1,4 +1,5 @@
 import { componentsData } from "@/data/components";
+import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
 interface PreviewPageProps {
@@ -19,19 +20,20 @@ const loadComponent = async (componentPath: string) => {
 };
 
 export default async function PreviewPage({ params }: PreviewPageProps) {
-  const { slug, category } = params;
+  const { slug } = params;
 
   // Find the component data from the mock dataset
-  const componentData = componentsData.find(
-    (component) => component.slug === slug && component.category === category,
-  );
+  const componentData = await prisma.component.findUnique({
+    where: { slug },
+    select: { Componentpath: true },
+  });
 
   if (!componentData) {
     notFound();
   }
 
   // Dynamically import the component
-  const Component = await loadComponent(componentData!.componentPath);
+  const Component = await loadComponent(componentData!.Componentpath);
 
   return <Component />;
 }
