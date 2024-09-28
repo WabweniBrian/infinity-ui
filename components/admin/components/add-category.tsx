@@ -65,6 +65,7 @@ const AddCategoryDialog = () => {
       toast.success("Category created");
       setOpen(false);
       form.reset();
+      setImage("");
     } else {
       toast.error(results.message);
     }
