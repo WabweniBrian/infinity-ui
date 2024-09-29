@@ -42,7 +42,7 @@ const MobileMenu = () => {
   return (
     <div ref={mobileMenuRef}>
       <button
-        className="cursor-default rounded-lg bg-gray-800 p-2 hover:bg-gray-900 sm:cursor-pointer md:hidden"
+        className="cursor-default rounded-lg bg-gray-300 p-2 transition-a hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-900 sm:cursor-pointer md:hidden"
         onClick={toggleMobileMenu}
       >
         {isMobileMenuOpen ? <TagCross /> : <HambergerMenu />}
@@ -50,7 +50,7 @@ const MobileMenu = () => {
 
       <div
         ref={mobileWrapperRef}
-        className="absolute left-0 top-full h-0 w-full overflow-hidden bg-gray-800 transition-all duration-300"
+        className="absolute left-0 top-full h-0 w-full overflow-hidden bg-white transition-all duration-300 dark:bg-gray-800"
       >
         <div ref={mobileNavRef} className="p-4" onClick={closeMobileMenu}>
           <ul className="nav-links space-y-4">

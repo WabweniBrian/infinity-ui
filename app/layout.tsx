@@ -114,10 +114,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@infinity-ui",
     creator: "@infinity-ui",
-    title:
-      "Infinityui - Uganda's Leading Car Infinityuil & Moving Services Platform",
+    title: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
     description:
-      "Find trusted car infinityuils and property movers in Uganda. Compare prices, and get the best deals for your transportation and moving needs.",
+      "Elevate your SaaS startup with Infinity UI! Beautifully Designed React/Next.js UI Blocks",
     images: ["https://infinityui.vercel.app/logo.png"],
   },
   robots: {
