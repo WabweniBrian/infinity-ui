@@ -52,8 +52,13 @@ model Component {
 }
 
 enum CategoryType {
-  Marketing_And_Ecommerce
+  Landing_And_Marketing
   Dashboard
+  SaaS
+  Ecommerce
+  Blogging
+  Portfolio
+  Forms_And_Authentication
 }
 
 model Category {
@@ -61,7 +66,7 @@ model Category {
   name         String
   description  String?
   image        String?
-  categoryType CategoryType @default(Marketing_And_Ecommerce)
+  categoryType CategoryType @default(Landing_And_Marketing)
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
   Component    Component[]

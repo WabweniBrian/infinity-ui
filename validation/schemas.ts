@@ -110,9 +110,20 @@ export const categorySchema = z.object({
     message: "Category name must be at least 2 characters.",
   }),
   description: z.string().optional(),
-  categoryType: z.enum(["Marketing_And_Ecommerce", "Dashboard"], {
-    required_error: "Please select a category type.",
-  }),
+  categoryType: z.enum(
+    [
+      "Landing_And_Marketing",
+      "Dashboard",
+      "SaaS",
+      "Ecommerce",
+      "Blogging",
+      "Portfolio",
+      "Forms_And_Authentication",
+    ],
+    {
+      required_error: "Please select a category type.",
+    },
+  ),
 });
 
 // Components -------------------------------------------------------------------------------------------------------

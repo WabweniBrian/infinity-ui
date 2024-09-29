@@ -39,6 +39,37 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { ImSpinner2 } from "react-icons/im";
 
+const categoryTypes = [
+  {
+    value: "Landing_And_Marketing",
+    label: "Landing and Marketing",
+  },
+  {
+    value: "Dashboard",
+    label: "Dashboard",
+  },
+  {
+    value: "SaaS",
+    label: "SaaS",
+  },
+  {
+    value: "Forms_And_Authentication",
+    label: "Forms And Authentication",
+  },
+  {
+    value: "Ecommerce",
+    label: "E-commerce",
+  },
+  {
+    value: "Blogging",
+    label: "Blogging",
+  },
+  {
+    value: "Portfolio",
+    label: "Portfolio",
+  },
+];
+
 type Category = {
   id: string;
   name: string;
@@ -143,10 +174,11 @@ const EditCategoryDialog = ({
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="Marketing_And_Ecommerce">
-                        Marketing and Ecommerce
-                      </SelectItem>
-                      <SelectItem value="Dashboard">Dashboard</SelectItem>
+                      {categoryTypes.map((type) => (
+                        <SelectItem key={type.value} value={type.value}>
+                          {type.label}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                   <FormMessage />
