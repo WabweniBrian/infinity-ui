@@ -3,6 +3,23 @@ import SearchInput from "@/components/common/search-input";
 import ComponentsList from "@/components/main/components/components-list";
 import { prisma } from "@/lib/prisma";
 import { formatWord } from "@/lib/utils";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { category: string };
+}): Promise<Metadata> {
+  const category = params.category;
+  try {
+    return {
+      title: formatWord(category),
+    };
+  } catch (error) {
+    return notFound();
+  }
+}
 
 const Components = async ({
   params,

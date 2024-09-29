@@ -1,5 +1,22 @@
 import { prisma } from "@/lib/prisma";
+import { formatWord } from "@/lib/utils";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const slug = params.slug;
+  try {
+    return {
+      title: formatWord(slug),
+    };
+  } catch (error) {
+    return notFound();
+  }
+}
 
 interface PreviewPageProps {
   params: {

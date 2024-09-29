@@ -5,6 +5,10 @@ import { formatWord, generateSlug } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Components",
+};
+
 export default async function PublicComponentsPage({
   searchParams,
 }: {
