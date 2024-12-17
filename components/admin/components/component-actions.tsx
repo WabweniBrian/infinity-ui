@@ -18,6 +18,7 @@ type Component = {
   categoryId: string;
   name: string;
   slug: string;
+  image: string | null;
   description: string | null;
   Componentpath: string;
   dependencies: string[];

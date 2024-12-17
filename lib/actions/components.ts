@@ -79,6 +79,7 @@ export const getFormComponent = async (id: string) => {
       id: true,
       name: true,
       slug: true,
+      image: true,
       description: true,
       Componentpath: true,
       dependencies: true,
@@ -126,6 +127,7 @@ export async function addComponent(data: {
   keywords: string[];
   name: string;
   slug: string;
+  image: string;
   categoryId: string;
   componentPath: string;
   codeSnippets: {
@@ -142,6 +144,7 @@ export async function addComponent(data: {
       data: {
         name: data.name,
         slug: generateSlug(uniqueSlug),
+        image: data.image,
         description: data.description,
         categoryId: data.categoryId,
         Componentpath: data.componentPath,
@@ -198,6 +201,7 @@ export async function updateComponent(
   data: {
     name?: string;
     slug?: string;
+    image: string;
     description?: string;
     categoryId?: string;
     componentPath?: string;
@@ -223,6 +227,7 @@ export async function updateComponent(
       data: {
         name: data.name,
         slug: data.slug,
+        image: data.image,
         description: data.description,
         categoryId: data.categoryId,
         Componentpath: data.componentPath,

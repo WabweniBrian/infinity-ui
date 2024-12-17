@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { ImageUpload } from "@/components/common/image-upload";
 import Modal from "@/components/custom/modal";
 import Select from "@/components/custom/select";
 import { Button } from "@/components/ui/button";
@@ -16,11 +18,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { updateComponent } from "@/lib/actions/components";
+import { useEdgeStore } from "@/lib/edgestore";
 import { generateSlug } from "@/lib/utils";
 import { ComponentSchemaType } from "@/types";
 import { componentSchema } from "@/validation/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Tag, TagInput } from "emblor";
+import { X } from "lucide-react";
 import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -34,6 +38,7 @@ type Category = {
 type Component = {
   id: string;
   name: string;
+  image: string | null;
   slug: string;
   description: string | null;
   Componentpath: string;
@@ -63,6 +68,9 @@ const EditComponentForm = ({
   setEditModal,
   component,
 }: EditComponentFormProps) => {
+  const [image, setImage] = useState(component.image || "");
+  const { edgestore } = useEdgeStore();
+  const [deleting, setDeleting] = useState(false);
   const [keywords, setKeywords] = useState<Tag[]>(
     component.keywords.map((k) => ({ id: k, text: k })),
   );
@@ -109,6 +117,7 @@ const EditComponentForm = ({
       styling: styling?.map((tag) => tag.text) as string[],
       keywords: keywords?.map((tag) => tag.text) as string[],
       slug: generateSlug(values.name),
+      image,
     };
     const results = await updateComponent(component.id, formattedValues);
     if (results.success) {
@@ -116,6 +125,22 @@ const EditComponentForm = ({
       setEditModal(false);
     } else {
       toast.error(results.message);
+    }
+  };
+
+  const deleteFile = async () => {
+    try {
+      setDeleting(true);
+      await edgestore.publicFiles.delete({
+        url: image,
+      });
+      setImage("");
+      toast.success("Image deleted");
+    } catch (error: any) {
+      toast.error(error.message);
+      console.log(error);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -395,6 +420,38 @@ const EditComponentForm = ({
             >
               Add Code Snippet
             </Button>
+          </div>
+
+          <div className="mt-6">
+            <label htmlFor="image">
+              Image (Delete old image to upload new one)
+            </label>
+            {image && (
+              <div className="relative">
+                <img
+                  src={image}
+                  alt="Image"
+                  className="mx-auto my-2 h-[150px] w-full object-cover"
+                />
+                <div
+                  className="group absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform cursor-pointer"
+                  onClick={deleteFile}
+                >
+                  <div className="border-border0 flex h-5 w-5 items-center justify-center rounded-md border bg-white transition-all duration-300 hover:h-6 hover:w-6 dark:bg-black">
+                    {deleting ? (
+                      <ImSpinner2 className="animate-spin text-sm text-gray-500 dark:text-gray-400" />
+                    ) : (
+                      <X
+                        className="text-gray-500 dark:text-gray-400"
+                        width={16}
+                        height={16}
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+            {!image && <ImageUpload setImage={setImage} />}
           </div>
 
           <Button
