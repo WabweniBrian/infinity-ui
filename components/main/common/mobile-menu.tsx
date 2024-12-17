@@ -1,13 +1,17 @@
 "use client";
 
-import { navbarLinks } from "@/data/navbar-links";
-import { cn } from "@/lib/utils";
-import { HambergerMenu, TagCross } from "iconsax-react";
+import { Button } from "@/components/ui/button";
+import { cn, generateSlug } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const MobileMenu = () => {
+interface MobileMenuProps {
+  categories: { id: string; name: string }[];
+}
+
+const MobileMenu = ({ categories }: MobileMenuProps) => {
   const mobileWrapperRef = useRef<HTMLDivElement>(null);
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -15,7 +19,7 @@ const MobileMenu = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    mobileWrapperRef.current!.style.height = isMobileMenuOpen ? "100vh" : "0px";
+    mobileWrapperRef.current!.style.height = isMobileMenuOpen ? "60vh" : "0px";
     const handleOutsideClick = (event: MouseEvent) => {
       if (
         mobileMenuRef.current &&
@@ -42,37 +46,53 @@ const MobileMenu = () => {
   return (
     <div ref={mobileMenuRef}>
       <button
-        className="cursor-default rounded-lg bg-gray-300 p-2 transition-a hover:bg-gray-400 dark:bg-gray-800 dark:hover:bg-gray-900 sm:cursor-pointer md:hidden"
-        onClick={toggleMobileMenu}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="inline-flex items-center justify-center rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500 dark:hover:bg-gray-900"
       >
-        {isMobileMenuOpen ? <TagCross /> : <HambergerMenu />}
+        {isMobileMenuOpen ? (
+          <X className="block h-5 w-5" />
+        ) : (
+          <Menu className="block h-5 w-5" />
+        )}
       </button>
 
       <div
         ref={mobileWrapperRef}
-        className="absolute left-0 top-full h-0 w-full overflow-hidden bg-white transition-all duration-300 dark:bg-gray-800"
+        className={cn(
+          "absolute left-0 top-full mt-2 h-0 w-full overflow-hidden rounded-xl bg-white transition-all duration-300 dark:bg-gray-950",
+          isMobileMenuOpen && "border",
+        )}
       >
         <div ref={mobileNavRef} className="p-4" onClick={closeMobileMenu}>
-          <ul className="nav-links space-y-4">
-            {navbarLinks.map((link) => {
+          <ul className="nav-links space-y-4 pb-4">
+            {categories.map((link) => {
+              const href = `/categories/${generateSlug(link.name)}`;
               const isActive =
-                pathname === link.url ||
-                (pathname.startsWith(link.url) && link.url !== "/");
+                pathname === href ||
+                (pathname.startsWith(href) && href !== "/");
               return (
-                <li key={link.linkText}>
+                <li key={link.id}>
                   <Link
-                    href={link.url}
+                    href={href}
                     className={cn(
                       "font-semibold transition-all hover:text-brand",
                       isActive && "text-brand",
                     )}
                   >
-                    {link.linkText}
+                    {link.name}
                   </Link>
                 </li>
               );
             })}
           </ul>
+          <div className="flex flex-col space-y-2 border-t pt-6">
+            <Button variant="secondary" asChild>
+              <Link href="/sign-in">Sign in</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/sign-up">Sign up</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

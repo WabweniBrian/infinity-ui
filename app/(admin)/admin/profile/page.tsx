@@ -17,7 +17,7 @@ const Profile = async () => {
             user={{ name: user?.name!, email: user?.email! }}
           />
           <PasswordChangeForm />
-          <DeleteAccount />
+          {/* <DeleteAccount /> */}
         </div>
       </div>
     </>

@@ -19,6 +19,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { ImSpinner2 } from "react-icons/im";
 
 const SignInForm = () => {
@@ -42,7 +43,7 @@ const SignInForm = () => {
         callbackUrl,
       });
       setError(null);
-      console.log(res.data);
+      toast.success("Login sucess, redirecting...");
       router.push(res.data.callbackUrl);
     } catch (error: any) {
       setError(error.response.data);

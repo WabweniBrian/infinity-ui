@@ -1,7 +1,6 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { CategoryType } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
 export async function getCategories(search?: string) {
@@ -19,12 +18,11 @@ export async function getCategories(search?: string) {
       name: true,
       description: true,
       image: true,
-      categoryType: true,
       _count: {
-        select: { Component: true },
+        select: { components: true },
       },
     },
-    orderBy: { createdAt: "desc" },
+    orderBy: { createdAt: "asc" },
   });
 }
 export async function getFormCategories() {
@@ -45,7 +43,6 @@ export async function getCategory(id: string) {
       name: true,
       description: true,
       image: true,
-      categoryType: true,
     },
   });
 }
@@ -54,7 +51,6 @@ export async function addCategory(data: {
   name: string;
   description?: string;
   image?: string;
-  categoryType: CategoryType;
 }) {
   try {
     await prisma.category.create({
@@ -62,7 +58,6 @@ export async function addCategory(data: {
         name: data.name,
         description: data.description,
         image: data.image,
-        categoryType: data.categoryType,
       },
     });
     revalidatePath("/admin/components");
@@ -82,7 +77,6 @@ export async function updateCategory(
     name?: string;
     description?: string;
     image?: string;
-    categoryType?: CategoryType;
   },
 ) {
   try {
@@ -92,7 +86,6 @@ export async function updateCategory(
         name: data.name,
         description: data.description,
         image: data.image,
-        categoryType: data.categoryType,
       },
     });
     revalidatePath("/admin/components");

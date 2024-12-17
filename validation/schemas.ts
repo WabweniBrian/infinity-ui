@@ -110,20 +110,6 @@ export const categorySchema = z.object({
     message: "Category name must be at least 2 characters.",
   }),
   description: z.string().optional(),
-  categoryType: z.enum(
-    [
-      "Landing_And_Marketing",
-      "Dashboard",
-      "SaaS",
-      "Ecommerce",
-      "Blogging",
-      "Portfolio",
-      "Forms_And_Authentication",
-    ],
-    {
-      required_error: "Please select a category type.",
-    },
-  ),
 });
 
 // Components -------------------------------------------------------------------------------------------------------
@@ -134,26 +120,12 @@ const codeSnippetSchema = z.object({
   code: z.string().min(1, "Code snippet is required"),
 });
 
-const dependencySchema = z.object({
-  value: z.string().min(1, "Dependency is required"),
-});
-
-const stylingSchema = z.object({
-  value: z.string().min(1, "Styling option is required"),
-});
-
 export const componentSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  slug: z.string().min(2, "Slug must be at least 2 characters"),
   description: z.string().optional(),
+  isfree: z.boolean().default(true),
   categoryId: z.string().uuid("Invalid category ID"),
   componentPath: z.string().min(1, "Component path is required"),
-  dependencies: z
-    .array(dependencySchema)
-    .min(1, "At least one dependency is required"),
-  styling: z
-    .array(stylingSchema)
-    .min(1, "At least one styling option is required"),
   codeSnippets: z
     .array(codeSnippetSchema)
     .min(1, "At least one code snippet is required"),

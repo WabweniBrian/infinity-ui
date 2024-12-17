@@ -32,50 +32,17 @@ import { useEdgeStore } from "@/lib/edgestore";
 import { CategorySchemaType } from "@/types";
 import { categorySchema } from "@/validation/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CategoryType } from "@prisma/client";
 import { X } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { ImSpinner2 } from "react-icons/im";
 
-const categoryTypes = [
-  {
-    value: "Landing_And_Marketing",
-    label: "Landing and Marketing",
-  },
-  {
-    value: "Dashboard",
-    label: "Dashboard",
-  },
-  {
-    value: "SaaS",
-    label: "SaaS",
-  },
-  {
-    value: "Forms_And_Authentication",
-    label: "Forms And Authentication",
-  },
-  {
-    value: "Ecommerce",
-    label: "E-commerce",
-  },
-  {
-    value: "Blogging",
-    label: "Blogging",
-  },
-  {
-    value: "Portfolio",
-    label: "Portfolio",
-  },
-];
-
 type Category = {
   id: string;
   name: string;
   description: string | null;
   image: string | null;
-  categoryType: CategoryType;
 };
 
 interface EditCategoryDialogProps {
@@ -97,7 +64,6 @@ const EditCategoryDialog = ({
     resolver: zodResolver(categorySchema),
     defaultValues: {
       name: category.name,
-      categoryType: category.categoryType,
       description: category.description || "",
     },
   });
@@ -107,7 +73,6 @@ const EditCategoryDialog = ({
       name: values.name,
       description: values.description,
       image,
-      categoryType: values.categoryType,
     });
     if (results.success) {
       toast.success("Category updated");
@@ -158,33 +123,7 @@ const EditCategoryDialog = ({
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="categoryType"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Category Type</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a category type" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {categoryTypes.map((type) => (
-                        <SelectItem key={type.value} value={type.value}>
-                          {type.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+
             <FormField
               control={form.control}
               name="description"

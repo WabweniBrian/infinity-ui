@@ -1,12 +1,12 @@
 "use client";
 
 import RowActions from "@/components/common/row-actions";
-import { getComponent } from "@/lib/actions/components";
+import { getFormCategories } from "@/lib/actions/categories";
+import { getFormComponent } from "@/lib/actions/components";
 import { useState } from "react";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import DeleteComponent from "./delete-component";
 import EditComponentDialog from "./edit-component";
-import { getFormCategories } from "@/lib/actions/categories";
 
 type Category = {
   id: string;
@@ -15,13 +15,14 @@ type Category = {
 
 type Component = {
   id: string;
+  categoryId: string;
   name: string;
   slug: string;
   description: string | null;
   Componentpath: string;
   dependencies: string[];
   styling: string[];
-  categoryId: string;
+  keywords: string[];
   codeSnippets: {
     id: string;
     fileName: string;
@@ -41,9 +42,8 @@ const ComponentActions = ({ id }: { id: string }) => {
     setDeleteModal(true);
   };
 
-
   const onEdit = async () => {
-    const component = await getComponent(id);
+    const component = await getFormComponent(id);
     const categories = await getFormCategories();
     setComponent(component);
     setCategories(categories);

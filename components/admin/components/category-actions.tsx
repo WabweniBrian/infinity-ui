@@ -2,7 +2,6 @@
 
 import RowActions from "@/components/common/row-actions";
 import { getCategory } from "@/lib/actions/categories";
-import { CategoryType } from "@prisma/client";
 import { useState } from "react";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import DeleteCategory from "./delete-category";
@@ -13,7 +12,6 @@ type Category = {
   name: string;
   description: string | null;
   image: string | null;
-  categoryType: CategoryType;
 };
 
 const CategoryActions = ({ id }: { id: string }) => {

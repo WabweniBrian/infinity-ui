@@ -40,37 +40,6 @@ import { X } from "lucide-react";
 import { CategorySchemaType } from "@/types";
 import { categorySchema } from "@/validation/schemas";
 
-const categoryTypes = [
-  {
-    value: "Landing_And_Marketing",
-    label: "Landing and Marketing",
-  },
-  {
-    value: "Dashboard",
-    label: "Dashboard",
-  },
-  {
-    value: "SaaS",
-    label: "SaaS",
-  },
-  {
-    value: "Forms_And_Authentication",
-    label: "Forms And Authentication",
-  },
-  {
-    value: "Ecommerce",
-    label: "E-commerce",
-  },
-  {
-    value: "Blogging",
-    label: "Blogging",
-  },
-  {
-    value: "Portfolio",
-    label: "Portfolio",
-  },
-];
-
 const AddCategoryDialog = () => {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState("");
@@ -81,7 +50,6 @@ const AddCategoryDialog = () => {
     resolver: zodResolver(categorySchema),
     defaultValues: {
       name: "",
-      categoryType: undefined,
     },
   });
 
@@ -90,7 +58,6 @@ const AddCategoryDialog = () => {
       name: values.name,
       description: values.description,
       image,
-      categoryType: values.categoryType,
     });
     if (results.success) {
       toast.success("Category created");
@@ -142,33 +109,6 @@ const AddCategoryDialog = () => {
                   <FormControl>
                     <Input placeholder="Enter category name" {...field} />
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="categoryType"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Category Type</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a category type" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {categoryTypes.map((type) => (
-                        <SelectItem key={type.value} value={type.value}>
-                          {type.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

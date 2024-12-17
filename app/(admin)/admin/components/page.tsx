@@ -13,8 +13,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getCategories } from "@/lib/actions/categories";
-import { getComponents } from "@/lib/actions/components";
-import { formatWord } from "@/lib/utils";
+import { getComponentCategories } from "@/lib/actions/components";
+import { generateSlug } from "@/lib/utils";
 import Link from "next/link";
 
 type SearchParams = {
@@ -26,28 +26,12 @@ type SearchParams = {
 export default async function ComponentsAndCategoriesPage({
   searchParams,
 }: SearchParams) {
-  const components = await getComponents(searchParams.search);
+  const componentCategories = await getComponentCategories(searchParams.search);
   const categories = await getCategories(searchParams.search);
   const formCategories = categories.map((category) => ({
     value: category.id,
     label: category.name,
   }));
-
-  const groupedComponents = components.reduce(
-    (acc, component) => {
-      const categoryType = component.category.categoryType;
-      const categoryName = component.category.name;
-      if (!acc[categoryType]) {
-        acc[categoryType] = {};
-      }
-      if (!acc[categoryType][categoryName]) {
-        acc[categoryType][categoryName] = [];
-      }
-      acc[categoryType][categoryName].push(component);
-      return acc;
-    },
-    {} as Record<string, Record<string, typeof components>>,
-  );
 
   return (
     <Tabs defaultValue="components" className="w-full">
@@ -64,84 +48,90 @@ export default async function ComponentsAndCategoriesPage({
             <AddComponentForm categories={formCategories} />
           </div>
           <div>
-            {components.length === 0 && (
-              <NoResults title="No components found" className="min-h-[60vh]" />
+            {componentCategories.length === 0 && (
+              <NoResults
+                title="No component categories found"
+                className="min-h-[60vh]"
+              />
             )}
-            {components.length !== 0 && (
+            {componentCategories.length !== 0 && (
               <>
-                {Object.entries(groupedComponents).map(
-                  ([categoryType, categories]) => (
-                    <div key={categoryType} className="my-10 first:mt-8">
-                      <h2 className="mb-4 text-2xl font-semibold">
-                        {formatWord(categoryType)}
-                      </h2>
-                      <Accordion type="multiple" className="space-y-4">
-                        {Object.entries(categories).map(
-                          ([categoryName, components]) => (
-                            <AccordionItem
-                              key={categoryName}
-                              value={categoryName}
-                              className="my-2 rounded-xl border bg-accent/30 px-3 first:mt-0"
-                            >
-                              <AccordionTrigger className="text-xl font-medium">
-                                {categoryName}
-                              </AccordionTrigger>
-                              <AccordionContent>
-                                <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                                  {components.map((component) => (
-                                    <div
-                                      key={component.id}
-                                      className="rounded-xl border bg-white/80 p-4 dark:bg-accent/20"
-                                    >
-                                      <div>
-                                        <div className="flex-center-between">
-                                          <h1 className="flex-1 truncate text-lg">
-                                            {component.name}
-                                          </h1>
-                                          <ComponentActions id={component.id} />
-                                        </div>
-                                        <p>{component?.description || ""}</p>
-                                      </div>
-
-                                      <div className="mt-2">
-                                        <div className="mb-2 flex flex-wrap gap-2">
-                                          {component.dependencies.map((dep) => (
-                                            <Badge
-                                              key={dep}
-                                              variant="secondary"
-                                            >
-                                              {dep}
-                                            </Badge>
-                                          ))}
-                                        </div>
-                                        <div className="flex flex-wrap gap-2">
-                                          {component.styling.map((style) => (
-                                            <Badge
-                                              key={style}
-                                              variant="outline"
-                                            >
-                                              {style}
-                                            </Badge>
-                                          ))}
-                                        </div>
-                                        <Link
-                                          href={`/preview/${component.category.name}/${component.slug}`}
-                                          className="mt-4 inline-block text-blue-600 hover:underline"
-                                        >
-                                          View Component
-                                        </Link>
-                                      </div>
-                                    </div>
-                                  ))}
+                <Accordion type="multiple" className="mt-4 space-y-4">
+                  {componentCategories.map((category) => (
+                    <AccordionItem
+                      key={category.id}
+                      value={category.id}
+                      className="my-2 rounded-xl border bg-accent/30 px-3 first:mt-0"
+                    >
+                      <AccordionTrigger className="text-xl font-medium">
+                        {category.name} ({category.components.length})
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        {category?.components.length !== 0 ? (
+                          <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                            {category?.components.map((component) => (
+                              <div
+                                key={component.id}
+                                className="rounded-xl border bg-white/80 p-4 dark:bg-accent/20"
+                              >
+                                <div>
+                                  <div className="flex-center-between">
+                                    <h1 className="flex-1 truncate text-lg">
+                                      {component.name}
+                                    </h1>
+                                    <ComponentActions id={component.id} />
+                                  </div>
+                                  <p>{component?.description || ""}</p>
                                 </div>
-                              </AccordionContent>
-                            </AccordionItem>
-                          ),
+
+                                <div className="mt-2">
+                                  {component.keywords.length !== 0 && (
+                                    <div className="mb-2 flex flex-wrap gap-2">
+                                      {component.keywords.map((keyword) => {
+                                        if (keyword.length === 0) return null;
+                                        return (
+                                          <Badge
+                                            key={keyword}
+                                            variant="secondary"
+                                          >
+                                            {keyword}
+                                          </Badge>
+                                        );
+                                      })}
+                                    </div>
+                                  )}
+                                  {component.styling.length !== 0 && (
+                                    <div className="flex flex-wrap gap-2">
+                                      {component.styling.map((style) => {
+                                        if (style.length === 0) return null;
+                                        return (
+                                          <Badge key={style} variant="outline">
+                                            {style}
+                                          </Badge>
+                                        );
+                                      })}
+                                    </div>
+                                  )}
+                                  <Link
+                                    href={`/preview/${generateSlug(category.name)}/${component.slug}`}
+                                    className="mt-4 inline-block text-blue-600 hover:underline"
+                                  >
+                                    View Component
+                                  </Link>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <NoResults
+                            title="No component found"
+                            className="min-h-[60vh]"
+                          />
                         )}
-                      </Accordion>
-                    </div>
-                  ),
-                )}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </>
             )}
           </div>
@@ -171,10 +161,9 @@ export default async function ComponentsAndCategoriesPage({
                         </h1>
                         <CategoryActions id={category.id} />
                       </div>
-                      <p>{formatWord(category.categoryType)}</p>
                     </div>
                     <div className="mt-2">
-                      <p>Components: {category._count.Component}</p>
+                      <p>Components: {category._count.components}</p>
                     </div>
                   </div>
                 ))}

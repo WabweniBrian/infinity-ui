@@ -4,16 +4,23 @@ import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { generateSlug } from "../utils";
 
-export const getComponents = async (search?: string) => {
-  return await prisma.component.findMany({
+export const getComponentCategories = async (search?: string) => {
+  return await prisma.category.findMany({
     where: search
       ? {
           OR: [
             { name: { contains: search, mode: "insensitive" } },
             { description: { contains: search, mode: "insensitive" } },
             {
-              category: {
-                name: { contains: search, mode: "insensitive" },
+              components: {
+                some: { name: { contains: search, mode: "insensitive" } },
+              },
+            },
+            {
+              components: {
+                some: {
+                  description: { contains: search, mode: "insensitive" },
+                },
               },
             },
           ],
@@ -22,24 +29,50 @@ export const getComponents = async (search?: string) => {
     select: {
       id: true,
       name: true,
-      slug: true,
       description: true,
-      Componentpath: true,
-      dependencies: true,
-      styling: true,
-      category: {
+      components: {
         select: {
           id: true,
           name: true,
-          categoryType: true,
+          slug: true,
+          description: true,
+          Componentpath: true,
+          dependencies: true,
+          styling: true,
+          keywords: true,
         },
       },
     },
-    orderBy: { createdAt: "desc" },
+    orderBy: { createdAt: "asc" },
   });
 };
 
 export const getComponent = async (id: string) => {
+  return await prisma.component.findUnique({
+    where: { id },
+    select: {
+      id: true,
+      slug: true,
+      name: true,
+      category: {
+        select: {
+          name: true,
+        },
+      },
+      codeSnippets: {
+        select: {
+          id: true,
+          fileName: true,
+          extension: true,
+          language: true,
+          code: true,
+        },
+      },
+    },
+  });
+};
+
+export const getFormComponent = async (id: string) => {
   return await prisma.component.findUnique({
     where: { id },
     select: {
@@ -50,6 +83,7 @@ export const getComponent = async (id: string) => {
       Componentpath: true,
       dependencies: true,
       styling: true,
+      keywords: true,
       categoryId: true,
       codeSnippets: {
         select: {
@@ -89,6 +123,7 @@ const generateUniqueSlug = async (baseSlug: string): Promise<string> => {
 export async function addComponent(data: {
   dependencies: string[];
   styling: string[];
+  keywords: string[];
   name: string;
   slug: string;
   categoryId: string;
@@ -112,6 +147,7 @@ export async function addComponent(data: {
         Componentpath: data.componentPath,
         dependencies: data.dependencies,
         styling: data.styling,
+        keywords: data.keywords,
         codeSnippets: {
           create: data.codeSnippets,
         },
@@ -167,6 +203,7 @@ export async function updateComponent(
     componentPath?: string;
     dependencies?: string[];
     styling?: string[];
+    keywords?: string[];
     codeSnippets?: {
       id?: string;
       fileName: string;
@@ -191,6 +228,7 @@ export async function updateComponent(
         Componentpath: data.componentPath,
         dependencies: data.dependencies,
         styling: data.styling,
+        keywords: data.keywords,
         codeSnippets: {
           deleteMany: {},
           create: data.codeSnippets?.map((snippet) => ({

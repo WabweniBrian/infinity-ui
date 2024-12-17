@@ -1,7 +1,7 @@
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DATABASE_URL_UNPOOLED")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 generator client {
@@ -36,11 +36,14 @@ model Component {
   id            String   @id @default(uuid())
   categoryId    String
   name          String
+  image         String?
   slug          String   @unique
   description   String?
   Componentpath String
+  isfree        Boolean  @default(true)
   dependencies  String[]
   styling       String[]
+  keywords      String[]
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -51,25 +54,15 @@ model Component {
   @@index([categoryId])
 }
 
-enum CategoryType {
-  Landing_And_Marketing
-  Dashboard
-  SaaS
-  Ecommerce
-  Blogging
-  Portfolio
-  Forms_And_Authentication
-}
-
 model Category {
-  id           String       @id @default(uuid())
-  name         String
-  description  String?
-  image        String?
-  categoryType CategoryType @default(Landing_And_Marketing)
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
-  Component    Component[]
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  image       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  components Component[]
 }
 
 model CodeSnippet {
@@ -78,6 +71,7 @@ model CodeSnippet {
   fileName    String
   extension   String
   language    String
+  isfree      Boolean  @default(true)
   code        String   @db.Text
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

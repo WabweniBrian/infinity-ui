@@ -108,7 +108,7 @@ const Modal: React.FC<ModalProps> = ({
       <AnimatePresence>
         {(isOpen || isInternalOpen) && (
           <motion.div
-            className="fixed inset-0 z-[99] flex items-center justify-center bg-slate-950/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[999] flex items-center justify-center bg-slate-950/80 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
