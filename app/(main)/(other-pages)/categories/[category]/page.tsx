@@ -72,7 +72,7 @@ const CategoryComponents = async ({
         <div>
           {components.length > 0 ? (
             <div>
-              <ul className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <ul className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
                 {components.map((component: SearchResult) => (
                   <ComponentCard component={component} key={component.id} />
                 ))}

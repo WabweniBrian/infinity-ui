@@ -21,6 +21,7 @@ type Component = {
   image: string | null;
   description: string | null;
   Componentpath: string;
+  isfree: boolean;
   dependencies: string[];
   styling: string[];
   keywords: string[];

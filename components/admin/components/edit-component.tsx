@@ -42,6 +42,7 @@ type Component = {
   slug: string;
   description: string | null;
   Componentpath: string;
+  isfree: boolean;
   dependencies: string[];
   styling: string[];
   keywords: string[];
@@ -97,6 +98,7 @@ const EditComponentForm = ({
       description: component.description || "",
       categoryId: component.categoryId,
       componentPath: component.Componentpath,
+      isfree: component.isfree,
       codeSnippets: component.codeSnippets.map((c) => ({ ...c })),
     },
   });
