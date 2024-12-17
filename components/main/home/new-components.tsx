@@ -11,8 +11,13 @@ type Component = {
   category_name: string;
 };
 
-const NewComponentsSection = async () => {
+const NewComponentsSection = async ({ search }: { search: string }) => {
   const components = await prisma.component.findMany({
+    where: search
+      ? {
+          name: { contains: search, mode: "insensitive" },
+        }
+      : {},
     take: 6,
     orderBy: {
       createdAt: "desc",

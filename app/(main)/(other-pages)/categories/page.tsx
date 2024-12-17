@@ -10,8 +10,18 @@ export const metadata = {
   description: "Explore our wide range of UI component categories",
 };
 
-const CategoriesPage = async () => {
+const CategoriesPage = async ({
+  searchParams,
+}: {
+  searchParams: { search: string };
+}) => {
+  const { search } = searchParams;
   const categories = await prisma.category.findMany({
+    where: search
+      ? {
+          name: { contains: search, mode: "insensitive" },
+        }
+      : {},
     select: { id: true, name: true, description: true },
     orderBy: { createdAt: "asc" },
   });

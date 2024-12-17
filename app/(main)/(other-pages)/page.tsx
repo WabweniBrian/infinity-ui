@@ -6,7 +6,7 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
-const Home = () => {
+const Home = ({ searchParams }: { searchParams: { search: string } }) => {
   return (
     <>
       <Hero />
@@ -25,7 +25,7 @@ const Home = () => {
               </div>
             }
           >
-            <NewComponentsSection />
+            <NewComponentsSection search={searchParams.search} />
           </Suspense>
 
           <div className="mt-12 text-center">
