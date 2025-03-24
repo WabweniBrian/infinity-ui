@@ -239,7 +239,7 @@ export const NotificationsTable = ({
           <div className="text-sm text-gray-500 dark:text-gray-400">
             Showing{" "}
             <span className="font-medium">
-              {offset} - {offset + notifications.length}
+              {offset + 1} - {offset + notifications.length}
             </span>{" "}
             of <span className="font-medium">{totalNotifications}</span>{" "}
             notifications
