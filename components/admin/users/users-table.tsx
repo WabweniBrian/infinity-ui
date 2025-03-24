@@ -241,7 +241,7 @@ export const UsersTable = ({
           <div className="text-sm text-gray-500 dark:text-gray-400">
             Showing{" "}
             <span className="font-medium">
-              {offset} - {users.length}
+              {offset} - {offset + users.length}
             </span>{" "}
             of <span className="font-medium">{totalUsers}</span> users
           </div>
