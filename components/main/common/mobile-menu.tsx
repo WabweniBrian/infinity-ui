@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn, generateSlug } from "@/lib/utils";
+import { SessionUser } from "@/types";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,9 +10,10 @@ import { useEffect, useRef, useState } from "react";
 
 interface MobileMenuProps {
   categories: { id: string; name: string }[];
+  user: SessionUser;
 }
 
-const MobileMenu = ({ categories }: MobileMenuProps) => {
+const MobileMenu = ({ categories, user }: MobileMenuProps) => {
   const mobileWrapperRef = useRef<HTMLDivElement>(null);
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -85,14 +87,26 @@ const MobileMenu = ({ categories }: MobileMenuProps) => {
               );
             })}
           </ul>
-          <div className="flex flex-col space-y-2 border-t pt-6">
-            <Button variant="secondary" asChild>
-              <Link href="/sign-in">Sign in</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/sign-up">Sign up</Link>
-            </Button>
-          </div>
+          {user ? (
+            <div className="border-t pt-6">
+              <Button variant="secondary" asChild className="w-full">
+                <Link
+                  href={`${user.role === "Admin" ? "/admin" : "/dashboard"}`}
+                >
+                  {user.role === "Admin" ? "Admin Panel" : "Dashboard"}
+                </Link>
+              </Button>
+            </div>
+          ) : (
+            <div className="flex flex-col space-y-2 border-t pt-6">
+              <Button variant="secondary" asChild>
+                <Link href="/sign-in">Sign in</Link>
+              </Button>
+              <Button asChild>
+                <Link href="/sign-up">Sign up</Link>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>

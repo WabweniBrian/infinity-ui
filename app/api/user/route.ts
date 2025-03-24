@@ -15,6 +15,8 @@ export async function GET() {
     email: user.email,
     image: user.image,
     role: user.role,
+    hasPurchased: user.hasPurchased,
+    purchasedComponents: user.purchasedComponents,
   });
 }
 
@@ -39,6 +41,17 @@ export async function PATCH(req: NextRequest) {
       {} as Partial<typeof updatedData>,
     );
 
+    // Check if the user email already exists
+    if (filteredData.email) {
+      const existingUser = await prisma.user.findFirst({
+        where: { email: filteredData.email },
+      });
+
+      if (existingUser && existingUser.id !== currentUser.id) {
+        return new NextResponse("Email already exists", { status: 400 });
+      }
+    }
+
     const updatedUser = await prisma.user.update({
       where: { id: currentUser.id },
       data: filteredData,
@@ -48,9 +61,6 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json(updatedUser);
   } catch (error) {
     console.error("Failed to update user", error);
-    return NextResponse.json(
-      { error: "Internal Server Error" },
-      { status: 500 },
-    );
+    return new NextResponse("Internal Server Error", { status: 500 });
   }
 }

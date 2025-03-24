@@ -16,7 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { EyeIcon, EyeOff } from "lucide-react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -25,7 +25,6 @@ import { ImSpinner2 } from "react-icons/im";
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const message = searchParams.get("message");
@@ -43,8 +42,8 @@ const SignInForm = () => {
         callbackUrl,
       });
       setError(null);
-      toast.success("Login sucess, redirecting...");
-      router.push(res.data.callbackUrl);
+      toast.success("Login success, redirecting...");
+      location.assign(res.data.callbackUrl);
     } catch (error: any) {
       setError(error.response.data);
     }

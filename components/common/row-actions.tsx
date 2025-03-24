@@ -15,6 +15,7 @@ interface RowAction {
   link?: boolean;
   url?: string;
   onclick?: () => void;
+  disabled?: boolean;
 }
 
 const RowActions = ({ actions }: { actions: RowAction[] }) => {
@@ -25,18 +26,22 @@ const RowActions = ({ actions }: { actions: RowAction[] }) => {
           <Button
             variant="secondary"
             size="icon"
-            className="w-8 h-8  bg-transparent !border-0"
+            className="h-8 w-8 !border-0 bg-transparent"
           >
             <MoreHorizontal />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           {actions.map((action) => (
-            <DropdownMenuItem key={action.text} asChild>
+            <DropdownMenuItem
+              key={action.text}
+              asChild
+              disabled={action.disabled}
+            >
               {action.link ? (
                 <Link
                   href={action.url || ""}
-                  className="flex-align-center gap-x-2"
+                  className="gap-x-2 flex-align-center"
                 >
                   {action.icon}
                   <span>{action.text}</span>
@@ -44,8 +49,8 @@ const RowActions = ({ actions }: { actions: RowAction[] }) => {
               ) : (
                 <div
                   className={cn(
-                    "flex-align-center gap-x-2",
-                    action.text === "Delete" && "!text-red-500"
+                    "gap-x-2 flex-align-center",
+                    action.text === "Delete" && "!text-red-500",
                   )}
                   onClick={action.onclick}
                 >

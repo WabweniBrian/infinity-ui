@@ -458,7 +458,7 @@ const EditComponentForm = ({
 
           <Button
             type="submit"
-            className="mt-5"
+            className="mt-5 w-full"
             disabled={form.formState.isSubmitting}
           >
             {form.formState.isSubmitting ? (

@@ -162,7 +162,11 @@ const AddCategoryDialog = () => {
               {!image && <ImageUpload setImage={setImage} />}
             </div>
             <DialogFooter>
-              <Button type="submit" disabled={form.formState.isSubmitting}>
+              <Button
+                type="submit"
+                disabled={form.formState.isSubmitting}
+                className="w-full"
+              >
                 {form.formState.isSubmitting ? (
                   <div className="gap-x-2 flex-center-center">
                     <ImSpinner2 className="animate-spin text-lg" />

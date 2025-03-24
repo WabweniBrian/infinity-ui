@@ -1,12 +1,11 @@
-import Link from "next/link";
 import {
   Facebook,
-  Twitter,
   GitlabIcon as GitHub,
   Linkedin,
+  Twitter,
 } from "lucide-react";
 import Image from "next/image";
-import { generateSlug } from "@/lib/utils";
+import Link from "next/link";
 
 const legalLinks = [
   { name: "Privacy Policy", href: "/privacy-policy" },
@@ -20,7 +19,7 @@ const resourceLinks = [
 ];
 
 interface FooterProps {
-  categories: { id: string; name: string }[];
+  categories: { id: string; name: string; slug: string }[];
 }
 
 const Footer = ({ categories }: FooterProps) => {
@@ -65,7 +64,7 @@ const Footer = ({ categories }: FooterProps) => {
             </h3>
             <ul className="mt-4 space-y-4">
               {categories.map((category) => {
-                const href = `/categories/${generateSlug(category.name)}`;
+                const href = `/categories/${category.slug}`;
                 return (
                   <li key={category.name}>
                     <Link

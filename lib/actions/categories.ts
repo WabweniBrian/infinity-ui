@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { generateSlug } from "../utils";
 
 export async function getCategories(search?: string) {
   return await prisma.category.findMany({
@@ -53,8 +54,19 @@ export async function addCategory(data: {
   image?: string;
 }) {
   try {
+    const existingCategory = await prisma.category.findFirst({
+      where: { name: data.name },
+    });
+    if (existingCategory) {
+      return {
+        message: "Category already exists",
+        success: false,
+      };
+    }
+
     await prisma.category.create({
       data: {
+        slug: generateSlug(data.name),
         name: data.name,
         description: data.description,
         image: data.image,
@@ -80,9 +92,20 @@ export async function updateCategory(
   },
 ) {
   try {
+    const existingCategory = await prisma.category.findFirst({
+      where: { name: data.name, id: { not: id } },
+    });
+    if (existingCategory) {
+      return {
+        message: "Category already exists",
+        success: false,
+      };
+    }
+
     await prisma.category.update({
       where: { id },
       data: {
+        slug: generateSlug(data.name!),
         name: data.name,
         description: data.description,
         image: data.image,

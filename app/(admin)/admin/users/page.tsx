@@ -1,68 +1,57 @@
-import AddUser from "@/components/admin/users/add-user-modal";
-import UserActions from "@/components/admin/users/user-actions";
-import Avatar from "@/components/common/avatar";
-import NoResults from "@/components/common/no-results";
-import SearchInput from "@/components/common/search-input";
-import { Badge } from "@/components/ui/badge";
-import { getUsers } from "@/lib/actions/users";
-import React from "react";
-import { FcGoogle } from "react-icons/fc";
+import { UsersStats } from "@/components/admin/users/user-stats";
+import { UsersFilters } from "@/components/admin/users/users-filters";
+import { UsersHeader } from "@/components/admin/users/users-header";
+import { UsersTable } from "@/components/admin/users/users-table";
+import { getUsers } from "@/lib/actions/admin/users";
+import { prisma } from "@/lib/prisma";
 
-const Users = async ({
-  searchParams,
-}: {
-  searchParams: { search: string };
-}) => {
-  const users = await getUsers(searchParams.search);
+export const metadata = {
+  title: "Users",
+};
+
+type SearchParams = {
+  searchParams: {
+    search?: string;
+    role?: string;
+    verification?: string;
+    purchase?: string;
+    authMethod?: string;
+    joinDateFrom?: string;
+    joinDateTo?: string;
+    page?: string;
+  };
+};
+
+const UsersPage = async ({ searchParams }: SearchParams) => {
+  const limit = 10;
+  const skip = (Number(searchParams.page || "1") - 1) * limit || 0;
+
+  const { users, usersCount, totalUsers } = await getUsers({
+    search: searchParams.search,
+    role: searchParams.role,
+    verification: searchParams.verification,
+    purchase: searchParams.purchase,
+    authMethod: searchParams.authMethod,
+    joinDateFrom: searchParams.joinDateFrom,
+    joinDateTo: searchParams.joinDateTo,
+    limit,
+    skip,
+  });
 
   return (
-    <div>
-      <div className="rounded-xl border bg-white/60 p-4 flex-center-between dark:bg-accent/20">
-        <div className="flex-1">
-          <SearchInput className="w-full" />
-        </div>
-        <AddUser />
-      </div>
-      <div>
-        {users.length === 0 && (
-          <NoResults title="No users found" className="min-h-[60vh]" />
-        )}
-        {users.length !== 0 && (
-          <>
-            {users.map((user) => (
-              <div
-                key={user.id}
-                className="my-3 rounded-xl border bg-white/80 p-3 dark:bg-accent/20"
-              >
-                <div className="flex gap-2">
-                  <div>
-                    {user.image ? (
-                      <Avatar size="small" src={user.image} />
-                    ) : (
-                      <Avatar size="small" />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex-center-between">
-                      <h1 className="flex-1 truncate text-lg">{user.name}</h1>
-                      <UserActions id={user.id} />
-                    </div>
-                    <p>{user.email}</p>
-                    <div className="gap-2 flex-align-center">
-                      <Badge className="font-normal" variant={"outline"}>
-                        {user.role}
-                      </Badge>
-                      {!user.password && <FcGoogle className="text-xl" />}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </>
-        )}
-      </div>
+    <div className="space-y-6">
+      <UsersHeader />
+      <UsersStats />
+      <UsersFilters />
+      <UsersTable
+        users={users}
+        usersCount={usersCount}
+        totalUsers={totalUsers}
+        totalPages={Math.ceil(usersCount / limit)}
+        offset={skip}
+      />
     </div>
   );
 };
 
-export default Users;
+export default UsersPage;

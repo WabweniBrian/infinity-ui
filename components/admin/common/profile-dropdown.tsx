@@ -9,15 +9,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useAuth } from "@/hooks/use-auth";
+import { SessionUser } from "@/types";
 import { Globe, LogOut, UserCircle } from "lucide-react";
 import Link from "next/link";
 
 interface ProfileDropdownProps {
-  user: {
-    name: string;
-    email: string;
-    image: string;
-  };
+  user: SessionUser;
 }
 
 const ProfileDropdown = ({ user }: ProfileDropdownProps) => {
@@ -25,16 +22,27 @@ const ProfileDropdown = ({ user }: ProfileDropdownProps) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="!outline-none">
-        {user?.image ? (
-          <Avatar size="small" src={user?.image} />
-        ) : (
-          <Avatar size="small" />
-        )}
+      <DropdownMenuTrigger className="!outline-none" asChild>
+        <button
+          className="flex items-center gap-2 rounded-xl p-1 text-left hover:bg-gray-100 dark:hover:bg-gray-900"
+          aria-label="User menu"
+        >
+          {user?.image ? (
+            <Avatar size="small" src={user?.image} />
+          ) : (
+            <Avatar size="small" />
+          )}
+          <div className="hidden md:block">
+            <div className="text-sm font-medium">{user?.name}</div>
+            <div className="text-xs text-gray-500 dark:text-gray-400">
+              {user?.email}
+            </div>
+          </div>
+        </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="rounded-xl dark:border-gray-700 dark:bg-accent"
+        className="rounded-2xl dark:border-gray-700 dark:bg-accent"
       >
         <DropdownMenuItem>
           <Link

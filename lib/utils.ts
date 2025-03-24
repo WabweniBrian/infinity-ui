@@ -132,10 +132,12 @@ export const trimFileName = (fileName: string, maxLength: number): string => {
 export const getExtensionIcon = (extension: string) => {
   if (extension === "jsx" || extension === "tsx") {
     return "/images/react.png";
-  } else if (extension === "js") {
-    return "/images/javascript.png";
+  } else if (extension === "ts") {
+    return "/images/typescript.png";
   } else if (extension === "css") {
     return "/images/css.png";
+  } else if (extension === "js") {
+    return "/images/javascript.png";
   } else {
     return "/images/react.png";
   }

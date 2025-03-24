@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/popover";
 import { useRouter } from "next/navigation";
 import { useDebounce } from "@/hooks/use-debounce";
-import { getAutocompleteSuggestions } from "@/lib/actions/search";
+import { getAutocompleteSuggestions } from "@/lib/actions/home/search";
 
 const NavbarSearch = () => {
   const [open, setOpen] = useState(false);
@@ -32,12 +32,12 @@ const NavbarSearch = () => {
 
   const handleSelect = (item: string) => {
     setOpen(false);
-    router.push(`/search?q=${encodeURIComponent(item)}`);
+    router.push(`/components?q=${encodeURIComponent(item)}`);
   };
 
   const handleSearch = () => {
     setOpen(false);
-    router.push(`/search?q=${encodeURIComponent(query)}`);
+    router.push(`/components?q=${encodeURIComponent(query)}`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

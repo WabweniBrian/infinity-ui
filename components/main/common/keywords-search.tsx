@@ -1,12 +1,12 @@
-import { getKeywords } from "@/lib/actions/getKeyWords";
+import { getKeywordsBySpecificCategory } from "@/lib/actions/home/keywords";
 import KeywordList from "./keyword-list";
 
 interface KeywordsSearchProps {
-  category?: string;
+  category: string;
 }
 
 const KeywordsSearch = async ({ category }: KeywordsSearchProps) => {
-  const keywords = await getKeywords(category);
+  const keywords = await getKeywordsBySpecificCategory(category);
 
   return (
     <div>

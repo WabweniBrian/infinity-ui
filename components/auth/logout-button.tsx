@@ -7,7 +7,6 @@ import { useAuth } from "@/hooks/use-auth";
 const LogoutButton = () => {
   const { user, logout } = useAuth();
 
-  console.log(user);
   return (
     <Button onClick={logout} className="mx-auto mt-4 w-max">
       Logout

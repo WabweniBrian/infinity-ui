@@ -3,16 +3,19 @@ import { NextResponse } from "next/server";
 
 export async function PUT(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, code } = await request.json();
 
     const user = await prisma.user.findUnique({
       where: {
         email,
+        verificationCode: code,
       },
     });
 
     if (!user) {
-      return new NextResponse("User not found", { status: 404 });
+      return new NextResponse("Verification failed, invalid email or code", {
+        status: 400,
+      });
     }
 
     await prisma.user.update({

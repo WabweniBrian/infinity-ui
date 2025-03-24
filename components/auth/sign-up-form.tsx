@@ -24,6 +24,7 @@ import { ImSpinner2 } from "react-icons/im";
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const message = "You can now proceed to login";
 
   const form = useForm<UserRegistrationSchemaType>({
     resolver: zodResolver(userRegistrationSchema),
@@ -37,7 +38,7 @@ const SignUpForm = () => {
       await axios.post("/api/auth/sign-up", {
         ...values,
       });
-      router.push(`/verify-message?email=${values.email}`);
+      router.push(`/sign-in?message=${message}`);
     } catch (error: any) {
       setError(error.response.data);
     }

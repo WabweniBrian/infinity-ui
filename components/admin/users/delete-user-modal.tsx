@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { deleteUser } from "@/lib/actions/users";
+import { deleteUser } from "@/lib/actions/admin/users";
 import React, { useTransition } from "react";
 import toast from "react-hot-toast";
 import { ImSpinner2 } from "react-icons/im";

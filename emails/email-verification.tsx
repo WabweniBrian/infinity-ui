@@ -32,7 +32,7 @@ export const EmailVerification = ({ url }: { url: string }) => {
           theme: {
             extend: {
               colors: {
-                brand: "#FF3A44",
+                brand: "#11ACBB",
               },
             },
           },
@@ -69,7 +69,7 @@ export const EmailVerification = ({ url }: { url: string }) => {
             {url}
           </Link>
           <Text className="mt-4 border-t border-t-slate-500 pt-3 text-sm text-slate-600">
-            ©{new Date().getFullYear()} Auth
+            ©{new Date().getFullYear()} InfinityUI
           </Text>
         </Container>
       </Tailwind>

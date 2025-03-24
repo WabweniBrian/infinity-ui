@@ -26,6 +26,7 @@ const SearchInput = ({
       const params = new URLSearchParams(searchParams);
       params.set(name, value);
       if (!value) params.delete(name);
+      params.delete("page");
       return params.toString();
     },
     [searchParams],

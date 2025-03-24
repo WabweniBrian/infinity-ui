@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     const hashedPassword = await hashPassword(password);
     const verificationCode = crypto.randomInt(100000, 999999).toString();
 
-    await prisma.user.create({
+    const user = await prisma.user.create({
       data: {
         name,
         email,
@@ -30,9 +30,19 @@ export async function POST(request: Request) {
       },
     });
 
-    await sendEmailVerification(email);
+    // await sendEmailVerification(email);
 
-    return NextResponse.json("A verification link was sent to your email");
+    await prisma.notification.create({
+      data: {
+        title: "User Registration",
+        userId: user.id,
+        message: `User with email ${user.email} has just registered to the platform with email and password.`,
+        type: "user_registration",
+        isAdmin: true,
+      },
+    });
+
+    return NextResponse.json("Account created successfully");
   } catch (error: any) {
     console.log(error.message);
     return new NextResponse("Server error", { status: 500 });

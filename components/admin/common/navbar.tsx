@@ -1,41 +1,50 @@
-import { getCurrentUser } from "@/lib/auth";
-import Links from "./links";
-import Logo from "./logo";
-import MobileMenu from "./mobile-menu";
+import { SessionUser } from "@/types";
+import { Menu } from "lucide-react";
+import DarkModeToggle from "./dark-mode-toggle";
+import NotificationsDropdown from "./notifications-dropdown";
 import ProfileDropdown from "./profile-dropdown";
 
-const AdminNavbar = async () => {
-  const user = await getCurrentUser();
+type Notification = {
+  id: string;
+  isRead: boolean | null;
+  title: string;
+  message: string;
+  createdAt: Date;
+};
+
+interface NavbarProps {
+  toggleSidebar: () => void;
+  user: SessionUser;
+  unreadNotifications: number;
+  notifications: Notification[];
+}
+
+export const Navbar = ({
+  toggleSidebar,
+  user,
+  notifications,
+  unreadNotifications,
+}: NavbarProps) => {
   return (
-    <header className="sticky top-2 z-30 -mt-4 px-2 py-2">
-      <nav className="mx-auto max-w-7xl rounded-xl border bg-white px-3 py-2 shadow-sm backdrop-blur-sm flex-center-between dark:bg-accent">
-        {/* Logo */}
-        <Logo />
+    <header className="sticky top-0 z-30 border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-950">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
+        <h1 className="hidden text-lg font-semibold lg:block">Dashboard</h1>
+        <button
+          className="rounded-xl p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 lg:hidden"
+          onClick={toggleSidebar}
+        >
+          <Menu className="h-6 w-6" />
+        </button>
 
-        {/* Links */}
-        <div className="hidden md:block">
-          <Links />
-        </div>
-
-        {/* Right Menu */}
-        <div className="gap-x-2 flex-align-center">
-          {/* Profile Dropdown */}
-          <ProfileDropdown
-            user={{
-              name: user?.name!,
-              email: user?.email!,
-              image: user?.image!,
-            }}
+        <div className="flex items-center gap-3">
+          <DarkModeToggle />
+          <NotificationsDropdown
+            notifications={notifications}
+            unreadNotifications={unreadNotifications}
           />
-
-          {/* Mobile Menu */}
-          <div className="md:hidden">
-            <MobileMenu />
-          </div>
+          <ProfileDropdown user={user} />
         </div>
-      </nav>
+      </div>
     </header>
   );
 };
-
-export default AdminNavbar;

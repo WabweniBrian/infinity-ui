@@ -1,53 +1,17 @@
+import BackToTopButton from "@/components/common/back-button";
+import { SchemaMarkup } from "@/components/common/schema-markup";
+import { ThemeProvider } from "@/components/common/theme-provider";
+import ThemeSwicher from "@/components/common/theme-switcher";
+import { EdgeStoreProvider } from "@/lib/edgestore";
 import type { Metadata, Viewport } from "next";
-import { Fira_Code } from "next/font/google";
-import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
-import { ThemeProvider } from "@/components/common/theme-provider";
-import BackToTopButton from "@/components/common/back-button";
-import localFont from "next/font/local";
-import ThemeSwicher from "@/components/common/theme-switcher";
-import { SchemaMarkup } from "@/components/common/schema-markup";
-import { EdgeStoreProvider } from "@/lib/edgestore";
+import { thicccboi } from "./font";
+import "./globals.css";
 
 export const viewport: Viewport = {
   themeColor: "#11ACBB",
 };
-
-const thicccboi = localFont({
-  src: [
-    {
-      path: "../public/fonts/THICCCBOI-Regular.ttf",
-      weight: "400",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-Medium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-SemiBold.ttf",
-      weight: "600",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-Bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-ExtraBold.ttf",
-      weight: "800",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-Black.ttf",
-      weight: "900",
-    },
-  ],
-  variable: "--font-thicccboi",
-});
-
-export const firaCode = Fira_Code({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-firaCode",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://infinityui.vercel.app"),
@@ -166,7 +130,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem={false}
           disableTransitionOnChange
           storageKey="infinityui-theme"
@@ -174,9 +138,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <EdgeStoreProvider>{children}</EdgeStoreProvider>
           <BackToTopButton />
 
-          <div className="fixed bottom-10 right-2 z-[999]">
+          {/* <div className="fixed bottom-10 right-2 z-[999]">
             <ThemeSwicher />
-          </div>
+          </div> */}
         </ThemeProvider>
       </body>
     </html>

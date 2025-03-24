@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 
-const FreeComponentToggle = () => {
+const FreeComponentToggle = ({ className = "" }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -16,16 +17,12 @@ const FreeComponentToggle = () => {
   }, [searchParams]);
 
   const toggleFree = () => {
-    const current = new URLSearchParams(Array.from(searchParams.entries()));
+    const params = new URLSearchParams(Array.from(searchParams.entries()));
 
-    if (isfree) {
-      current.delete("isfree");
-    } else {
-      current.set("isfree", "true");
-    }
+    if (isfree) params.delete("isfree");
+    else params.set("isfree", "true");
 
-    const search = current.toString();
-    const query = search ? `?${search}` : "";
+    const query = params.toString();
     router.push(`${pathname}?${query}`);
   };
 
@@ -36,7 +33,12 @@ const FreeComponentToggle = () => {
         checked={isfree}
         onCheckedChange={toggleFree}
       />
-      <Label htmlFor="free-component-toggle">Show only free components</Label>
+      <Label
+        htmlFor="free-component-toggle"
+        className={cn("cursor-pointer", className)}
+      >
+        Free
+      </Label>
     </div>
   );
 };

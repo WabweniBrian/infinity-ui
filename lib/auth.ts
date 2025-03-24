@@ -8,11 +8,13 @@ const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET!);
 interface JWTPayload {
   id: string;
   role: string;
-  [key: string]: string | number | boolean;
+  hasPurchased: boolean;
+  purchasedComponents: string[];
+  [key: string]: string | number | boolean | string[];
 }
 
 export async function hashPassword(password: string): Promise<string> {
-  return hash(password, 12);
+  return hash(password, 10);
 }
 
 export async function verifyPassword(
@@ -25,12 +27,19 @@ export async function verifyPassword(
 export async function createToken(user: {
   id: string;
   role: string;
+  hasPurchased: boolean;
+  purchasedComponents: string[];
 }): Promise<string> {
-  const payload: JWTPayload = { id: user.id, role: user.role };
+  const payload: JWTPayload = {
+    id: user.id,
+    role: user.role,
+    hasPurchased: user.hasPurchased,
+    purchasedComponents: user.purchasedComponents || [],
+  };
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("1d")
+    .setExpirationTime("90d")
     .sign(JWT_SECRET);
 }
 
@@ -39,7 +48,7 @@ export function setAuthCookie(token: string): void {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
-    maxAge: 86400, // 1 day
+    maxAge: 60 * 60 * 24 * 90, // 90 days - 3 months
     path: "/",
   });
 }
@@ -65,8 +74,35 @@ export async function getCurrentUser() {
 
   const user = await prisma.user.findUnique({
     where: { id: session.id },
-    select: { id: true, name: true, email: true, image: true, role: true },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      image: true,
+      role: true,
+      hasPurchased: true,
+      purchases: {
+        where: {
+          isComponent: true,
+          status: "SUCCESS",
+        },
+        select: {
+          componentId: true,
+        },
+      },
+    },
   });
 
-  return user;
+  if (!user) return null;
+
+  // Extract purchased component IDs
+  const purchasedComponents = user.purchases
+    .filter((purchase) => purchase.componentId !== null)
+    .map((purchase) => purchase.componentId as string);
+
+  return {
+    ...user,
+    purchasedComponents,
+    purchases: undefined, // Remove the purchases array from the returned user object
+  };
 }

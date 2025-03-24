@@ -32,7 +32,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        firaCode: "var(--font-firaCode)",
+        mono: ["var(--font-firaCode)"],
         thicccboi: "var(--font-thicccboi)",
       },
       gridTemplateColumns: {

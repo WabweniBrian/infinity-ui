@@ -2,31 +2,45 @@
 
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import { ImSpinner2 } from "react-icons/im";
 
 const GoogleButton = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const callbackUrl = searchParams?.get("callbackUrl");
 
   const login = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
-      setLoading(true);
-      const res = await axios.post("/api/auth/google", {
-        access_token: tokenResponse.access_token,
-        callbackUrl,
-      });
-      setLoading(false);
-      router.push(res.data.callbackUrl);
+      try {
+        setLoading(true);
+        setError(null); // Reset previous errors
+
+        const res = await axios.post("/api/auth/google", {
+          access_token: tokenResponse.access_token,
+          callbackUrl,
+        });
+
+        toast.success("Google login success, redirecting...");
+        location.assign(res.data.callbackUrl);
+      } catch (err: any) {
+        console.error("Google login error:", err);
+        setError(err.response?.data || "An unexpected error occurred.");
+        toast.error(
+          err.response?.data || "Google login failed. Please try again.",
+        );
+      } finally {
+        setLoading(false);
+      }
     },
     onError: () => {
-      setError("Google login failed, try again");
+      setError("Google login failed. Please try again.");
+      toast.error("Google login failed. Please try again.");
     },
   });
 

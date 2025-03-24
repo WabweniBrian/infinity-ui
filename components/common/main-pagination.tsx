@@ -2,7 +2,7 @@
 
 import Pagination from "@/components/custom/pagination";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 
 const MainPagination = ({ pages }: { pages: number }) => {
   const router = useRouter();
@@ -12,33 +12,52 @@ const MainPagination = ({ pages }: { pages: number }) => {
     Number(searchParams.get("page")) || 1,
   );
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
+  // Store previous params as a stringified object for comparison
+  const previousParamsRef = useRef("");
+
+  const handlePageChange = useCallback(
+    (page: number) => {
       const params = new URLSearchParams(searchParams);
-      params.set(name, value);
-      if (Number(value) === 1) params.delete(name);
-      return params.toString();
+      if (page === 1) {
+        params.delete("page");
+      } else {
+        params.set("page", page.toString());
+      }
+      router.push(`${pathname}?${params.toString()}`, {
+        scroll: false,
+      });
     },
-    [searchParams],
+    [pathname, router, searchParams],
   );
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    router.push(`${pathname}?${createQueryString("page", page.toString())}`, {
-      scroll: false,
-    });
-  };
+  useEffect(() => {
+    const page = searchParams.get("page");
+    const newPage = page ? Number(page) : 1;
+
+    // Create a copy of current params without the page parameter
+    const currentParamsWithoutPage = new URLSearchParams(searchParams);
+    currentParamsWithoutPage.delete("page");
+    const currentParamsString = currentParamsWithoutPage.toString();
+
+    // If any filter params changed (excluding page), reset to page 1
+    if (currentParamsString !== previousParamsRef.current) {
+      previousParamsRef.current = currentParamsString;
+      if (newPage !== 1) {
+        handlePageChange(1);
+        return;
+      }
+    }
+
+    setCurrentPage(newPage);
+  }, [searchParams, handlePageChange]);
 
   return (
-    <div className="mt-3">
-      <Pagination
-        currentPage={currentPage}
-        totalPages={pages}
-        onPageChange={handlePageChange}
-        icons
-        rounded
-      />
-    </div>
+    <Pagination
+      currentPage={currentPage}
+      totalPages={pages}
+      onPageChange={handlePageChange}
+      icons
+    />
   );
 };
 

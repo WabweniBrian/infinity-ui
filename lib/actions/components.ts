@@ -141,6 +141,11 @@ export async function addComponent(data: {
   description?: string | undefined;
 }) {
   try {
+    const categories = await prisma.category.findUnique({
+      where: { id: data.categoryId },
+      select: { slug: true },
+    });
+    const isAI = categories?.slug === "ai";
     const uniqueSlug = await generateUniqueSlug(data.slug);
     await prisma.component.create({
       data: {
@@ -154,6 +159,7 @@ export async function addComponent(data: {
         dependencies: data.dependencies,
         styling: data.styling,
         keywords: data.keywords,
+        isAI,
         codeSnippets: {
           create: data.codeSnippets,
         },

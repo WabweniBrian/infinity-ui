@@ -1,7 +1,7 @@
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DATABASE_URL_UNPOOLED")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 generator client {
@@ -13,34 +13,54 @@ enum UserRole {
   Admin
 }
 
+enum AuthMenthod {
+  google
+  email_password
+}
+
 model User {
-  id                   String    @id @default(uuid())
+  id                   String      @id @default(uuid())
   name                 String
-  email                String    @unique
+  email                String      @unique
   password             String?
   emailVerified        DateTime?
-  isEmailVerified      Boolean?  @default(false)
+  isEmailVerified      Boolean?    @default(false)
   image                String?
-  hasPurchased         Boolean   @default(false)
-  role                 UserRole  @default(User)
+  hasPurchased         Boolean     @default(false)
+  isActive             Boolean     @default(true)
+  role                 UserRole    @default(User)
+  method               AuthMenthod @default(email_password)
+  lastLogin            DateTime?
   verificationCode     String?
-  resetPasswordToken   String?   @unique
+  resetPasswordToken   String?     @unique
   resetPasswordExpires DateTime?
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
 
-  purchases Purchase[]
+  purchases     Purchase[]
+  notifications Notification[]
+
+  @@index([role, isActive])
+  @@index([hasPurchased])
+  @@index([lastLogin])
+  @@index([name])
 }
 
 model Component {
   id            String   @id @default(uuid())
   categoryId    String
   name          String
+  views         Int      @default(0)
   image         String?
   slug          String   @unique
   description   String?
   Componentpath String
+  price         Float?
   isfree        Boolean  @default(true)
+  isFeatured    Boolean  @default(false)
+  isNew         Boolean  @default(false)
+  isAI          Boolean  @default(false)
+  show          Boolean  @default(true)
   dependencies  String[]
   styling       String[]
   keywords      String[]
@@ -50,19 +70,31 @@ model Component {
   category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
 
   codeSnippets CodeSnippet[]
+  purchases    Purchase[]
 
-  @@index([categoryId])
+  @@index([categoryId, name])
+  @@index([views])
+  @@index([isfree])
+  @@index([isFeatured])
+  @@index([isNew])
+  @@index([isAI])
+  @@index([price])
+  @@index([createdAt])
 }
 
 model Category {
   id          String   @id @default(uuid())
   name        String
+  slug        String   @default("")
   description String?
   image       String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   components Component[]
+
+  @@index([name])
+  @@index([slug])
 }
 
 model CodeSnippet {
@@ -79,20 +111,69 @@ model CodeSnippet {
   component Component @relation(fields: [componentId], references: [id], onDelete: Cascade)
 
   @@index([componentId])
+  @@index([language])
+  @@index([isfree])
 }
 
 model Purchase {
-  id          String   @id @default(uuid())
-  userId      String
-  amount      Float
-  date        DateTime
-  address     String?
-  zipCode     String?
-  orderNumber String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              String        @id @default(uuid())
+  userId          String
+  componentId     String?
+  isBundle        Boolean       @default(true)
+  isPack          Boolean       @default(false)
+  isComponent     Boolean       @default(false)
+  pack            Pack?
+  amount          Float
+  date            DateTime
+  address         String?
+  phone           String?
+  status          PaymentStatus
+  zipCode         String?
+  orderNumber     String?
+  paymentProvider String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  component Component? @relation(fields: [componentId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+  @@index([componentId])
+  @@index([status])
+  @@index([date])
+  @@index([pack])
+  @@index([paymentProvider])
+}
+
+enum Pack {
+  MARKETING
+  DASHBOARD_APP
+  FORMS
+  AI
+  ECOMMERCE
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String?
+  type      String
+  isRead    Boolean? @default(false)
+  isAdmin   Boolean? @default(false)
+  title     String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+  @@index([isAdmin])
+  @@index([createdAt])
+  @@index([type])
 }

@@ -1,10 +1,11 @@
 "use client";
 
+import { firaCode } from "@/app/font";
 import Modal from "@/components/custom/modal";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import useClipboard from "@/hooks/use-clipboard";
-import { generateSlug, getExtensionIcon } from "@/lib/utils";
+import { cn, generateSlug, getExtensionIcon } from "@/lib/utils";
 import { Component } from "@/types";
 import { TabsContent } from "@radix-ui/react-tabs";
 import {
@@ -189,7 +190,11 @@ const ComponentPreview = ({
               </TabsList>
               {component.codeSnippets.map((snippet) => {
                 return (
-                  <TabsContent key={snippet.id} value={snippet.id}>
+                  <TabsContent
+                    key={snippet.id}
+                    value={snippet.id}
+                    className="bg-gray-950"
+                  >
                     <div className="sticky right-4 top-0 z-20 -mt-6 flex justify-end">
                       <Button
                         size={"icon"}
@@ -206,14 +211,16 @@ const ComponentPreview = ({
                         </span>
                       </Button>
                     </div>
-                    <SyntaxHighlighter
-                      language={snippet.language}
-                      style={vscDarkPlus}
-                      showLineNumbers={true}
-                      wrapLines={true}
-                    >
-                      {snippet.code}
-                    </SyntaxHighlighter>
+                    <div className={cn(firaCode.className)}>
+                      <SyntaxHighlighter
+                        language={snippet.language}
+                        style={vscDarkPlus}
+                        showLineNumbers={true}
+                        wrapLines={true}
+                      >
+                        {snippet.code}
+                      </SyntaxHighlighter>
+                    </div>
                   </TabsContent>
                 );
               })}

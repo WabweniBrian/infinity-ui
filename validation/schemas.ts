@@ -130,3 +130,12 @@ export const componentSchema = z.object({
     .array(codeSnippetSchema)
     .min(1, "At least one code snippet is required"),
 });
+
+// Notification schema for validation
+export const notificationSchema = z.object({
+  title: z.string().min(1, "Title is required"),
+  message: z.string().min(1, "Message is required"),
+  type: z.string().min(1, "Type is required"),
+  userId: z.string().optional(),
+  isAdmin: z.boolean().default(false),
+});

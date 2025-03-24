@@ -4,11 +4,13 @@ import { verifyToken } from "./lib/auth";
 
 export async function middleware(request: NextRequest) {
   const token = request.cookies.get("infinityui_session_token")?.value;
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl; // Get pathname and search params
 
   const isAuthPage = pathname === "/sign-in" || pathname === "/sign-up";
   const isProtectedRoute =
-    pathname.startsWith("/dashboard") || pathname.startsWith("/admin");
+    pathname.startsWith("/dashboard") ||
+    pathname.startsWith("/admin") ||
+    pathname.startsWith("/checkout");
   const isUserDashboard = pathname.startsWith("/dashboard");
   const isAdminRoute = pathname.startsWith("/admin");
 
@@ -42,7 +44,8 @@ export async function middleware(request: NextRequest) {
   } else {
     if (isProtectedRoute) {
       const url = new URL("/sign-in", request.url);
-      url.searchParams.set("callbackUrl", pathname);
+      const callbackUrl = `${pathname}?${searchParams.toString()}`; // Preserve search params
+      url.searchParams.set("callbackUrl", callbackUrl);
       return NextResponse.redirect(url);
     }
   }

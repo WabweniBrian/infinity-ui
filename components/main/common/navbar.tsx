@@ -1,19 +1,20 @@
 "use client";
 
-import { navbarLinks } from "@/data/navbar-links";
-import { cn, generateSlug } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileMenu from "./mobile-menu";
-import { Button } from "@/components/ui/button";
 import NavbarSearch from "./navbar-search";
+import { SessionUser } from "@/types";
 
 interface NavbarProps {
-  categories: { id: string; name: string }[];
+  categories: { id: string; name: string; slug: string }[];
+  user: SessionUser;
 }
 
-const Navbar = ({ categories }: NavbarProps) => {
+const Navbar = ({ categories, user }: NavbarProps) => {
   const pathname = usePathname();
   return (
     <header className="fixed left-0 top-0 z-50 w-full px-2">
@@ -41,7 +42,7 @@ const Navbar = ({ categories }: NavbarProps) => {
           <div className="gap-x-3 flex-align-center">
             <ul className="nav-links flex space-x-6">
               {categories.map((link) => {
-                const href = `/categories/${generateSlug(link.name)}`;
+                const href = `/categories/${link.slug}`;
                 const isActive =
                   pathname === href ||
                   (pathname.startsWith(href) && href !== "/");
@@ -62,21 +63,29 @@ const Navbar = ({ categories }: NavbarProps) => {
             </ul>
             <NavbarSearch />
           </div>
-          <div className="gap-x-2 flex-align-center">
+          {user ? (
             <Button variant="secondary" asChild>
-              <Link href="/sign-in">Sign in</Link>
+              <Link href={`${user.role === "Admin" ? "/admin" : "/dashboard"}`}>
+                {user.role === "Admin" ? "Admin Panel" : "Dashboard"}
+              </Link>
             </Button>
-            <Button asChild>
-              <Link href="/sign-up">Sign up</Link>
-            </Button>
-          </div>
+          ) : (
+            <div className="gap-x-2 flex-align-center">
+              <Button variant="secondary" asChild>
+                <Link href="/sign-in">Sign in</Link>
+              </Button>
+              <Button asChild>
+                <Link href="/sign-up">Sign up</Link>
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Mobile Links */}
         <div className="md:hidden">
           <div className="gap-x-2 flex-align-center">
             <NavbarSearch />
-            <MobileMenu categories={categories} />
+            <MobileMenu categories={categories} user={user} />
           </div>
         </div>
       </nav>
