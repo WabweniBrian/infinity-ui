@@ -81,7 +81,7 @@ const CategoryComponents = async ({ params, searchParams }: Params) => {
       </header>
       <div>
         <div className="mx-auto mt-4 max-w-7xl px-3">
-          <KeywordsSearch category={formatWord(params.category)} />
+          <KeywordsSearch category={params.category} />
         </div>
         <div className="mx-auto max-w-[1360px] px-4">
           {components.length > 0 ? (
