@@ -15,13 +15,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://infinityui.vercel.app"),
-  title: {
-    template: "%s | Infinity UI",
-    default: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
-  },
+  title: "📌 Infinity UI - Beautiful UI That Converts More",
   description:
-    "Elevate your SaaS startup with Infinity UI! Discover a curated collection of stunning web block elements for React and Next.js projects, including navbars, hero sections, CTAs, and more. Our responsive, dark mode-compatible components are designed for effortless integration, allowing you to focus on what matters most—building your vision. Designed with tailwind css, shadcn ui, typescript",
+    "🚀 Infinity UI offers modern, high-converting UI components designed for seamless user experiences. Build faster, enhance engagement, and boost conversions with stunning, accessible design",
   keywords: [
+    "infinity ui",
+    "infinityui",
     "react ui blocks",
     "next.js ui blocks",
     "react ui components",
