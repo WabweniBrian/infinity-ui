@@ -37,7 +37,7 @@ const loadComponent = async (componentPath: string) => {
 export default async function PreviewPage({ params }: PreviewPageProps) {
   const { slug } = params;
   const componentData = await prisma.component.findUnique({
-    where: { slug },
+    where: { slug, show: true },
     select: { Componentpath: true },
   });
 
