@@ -105,7 +105,7 @@ const ContentDownloadCta = () => {
                   <div className="absolute inset-0 -rotate-3 transform rounded-lg bg-white shadow-lg">
                     <div className="absolute inset-1 overflow-hidden rounded-md">
                       <Image
-                        src="/placeholder.svg?height=400&width=300&text=Ebook+Cover"
+                        src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo3JI3nfinxiU6go0sC7ruqpFVbwdtL8eaYXJG"
                         alt="Ebook cover"
                         fill
                         className="object-cover"

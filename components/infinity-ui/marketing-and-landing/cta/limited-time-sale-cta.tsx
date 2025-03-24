@@ -120,7 +120,7 @@ const LimitedTimeSaleCta = () => {
                   className="relative h-[250px] w-[250px] md:h-[300px] md:w-[300px]"
                 >
                   <Image
-                    src="/images/hp.png"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoUN8phfoA947ETyM0KGYhZL6VrnjqdJgelUkc"
                     alt="Product"
                     fill
                     className="object-contain"

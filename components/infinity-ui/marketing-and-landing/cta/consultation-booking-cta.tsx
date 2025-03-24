@@ -104,7 +104,7 @@ const ConsultationBookingCta = () => {
               >
                 <div className="h-16 w-16 overflow-hidden rounded-full border-2 border-white/30">
                   <Image
-                    src="/placeholder.svg?height=64&width=64&text=JD"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv"
                     alt="Consultant"
                     width={64}
                     height={64}
@@ -112,7 +112,7 @@ const ConsultationBookingCta = () => {
                   />
                 </div>
                 <div>
-                  <div className="font-medium">Jennifer Davis</div>
+                  <div className="font-medium">Wabweni Brian</div>
                   <div className="text-sm text-blue-200">
                     Senior Strategy Consultant
                   </div>
@@ -179,7 +179,7 @@ const ConsultationBookingCta = () => {
                 <div className="flex items-center gap-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full border border-white/30">
                     <Image
-                      src="/placeholder.svg?height=40&width=40&text=MR"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZPrIJnh2BRxjvs0lePWdUT3JIKoAfbgqLw8z"
                       alt="Client"
                       width={40}
                       height={40}

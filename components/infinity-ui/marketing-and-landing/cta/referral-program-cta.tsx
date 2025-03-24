@@ -222,7 +222,7 @@ const ReferralProgramCta = () => {
 
                 <div className="space-y-3">
                   {[
-                    { name: "Jessica T.", count: 24, amount: "$1,200" },
+                    { name: "Wabweni B.", count: 24, amount: "$1,200" },
                     { name: "Michael R.", count: 18, amount: "$900" },
                     { name: "David K.", count: 15, amount: "$750" },
                   ].map((user, index) => (

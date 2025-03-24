@@ -107,7 +107,7 @@ const CommunityMembershipCta = () => {
                         className="h-8 w-8 overflow-hidden rounded-full border-2 border-teal-500"
                       >
                         <Image
-                          src={`/images/1.png`}
+                          src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv"
                           alt={`Member ${i + 1}`}
                           width={32}
                           height={32}
@@ -187,7 +187,7 @@ const CommunityMembershipCta = () => {
                 <div className="flex items-center gap-2">
                   <div className="h-8 w-8 overflow-hidden rounded-full">
                     <Image
-                      src="/images/1.png"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoPGeGY9LRmqDpgTYnlJ0VQxFuAyXbhka81jzw"
                       alt="Member"
                       width={32}
                       height={32}

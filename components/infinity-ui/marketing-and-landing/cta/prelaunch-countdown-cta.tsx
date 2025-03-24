@@ -1,39 +1,54 @@
-"use client"
+"use client";
 
-import { motion, useAnimation } from "framer-motion"
-import { ArrowRight, Bell } from "lucide-react"
-import { useEffect, useState } from "react"
+import { motion, useAnimation } from "framer-motion";
+import { ArrowRight, Bell } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const PrelaunchCountdownCta = () => {
-  const controls = useAnimation()
-  const [email, setEmail] = useState("")
+  const controls = useAnimation();
+  const [email, setEmail] = useState("");
   const [timeLeft, setTimeLeft] = useState({
     days: 14,
     hours: 23,
     minutes: 59,
     seconds: 59,
-  })
+  });
 
   // Update countdown timer
   useEffect(() => {
     const timer = setTimeout(() => {
       if (timeLeft.seconds > 0) {
-        setTimeLeft({ ...timeLeft, seconds: timeLeft.seconds - 1 })
+        setTimeLeft({ ...timeLeft, seconds: timeLeft.seconds - 1 });
       } else if (timeLeft.minutes > 0) {
-        setTimeLeft({ ...timeLeft, minutes: timeLeft.minutes - 1, seconds: 59 })
+        setTimeLeft({
+          ...timeLeft,
+          minutes: timeLeft.minutes - 1,
+          seconds: 59,
+        });
       } else if (timeLeft.hours > 0) {
-        setTimeLeft({ ...timeLeft, hours: timeLeft.hours - 1, minutes: 59, seconds: 59 })
+        setTimeLeft({
+          ...timeLeft,
+          hours: timeLeft.hours - 1,
+          minutes: 59,
+          seconds: 59,
+        });
       } else if (timeLeft.days > 0) {
-        setTimeLeft({ ...timeLeft, days: timeLeft.days - 1, hours: 23, minutes: 59, seconds: 59 })
+        setTimeLeft({
+          ...timeLeft,
+          days: timeLeft.days - 1,
+          hours: 23,
+          minutes: 59,
+          seconds: 59,
+        });
       }
-    }, 1000)
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  }, [timeLeft])
+    return () => clearTimeout(timer);
+  }, [timeLeft]);
 
   useEffect(() => {
-    controls.start("visible")
-  }, [controls])
+    controls.start("visible");
+  }, [controls]);
 
   // Animation variants
   const containerVariants = {
@@ -45,7 +60,7 @@ const PrelaunchCountdownCta = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -54,10 +69,10 @@ const PrelaunchCountdownCta = () => {
       opacity: 1,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   return (
-    <div className="w-full bg-gradient-to-b from-blue-900 to-indigo-900 py-12">
+    <div className="min-h-screen w-full bg-gradient-to-b from-blue-900 to-indigo-900 py-12">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -78,7 +93,10 @@ const PrelaunchCountdownCta = () => {
                 COMING SOON
               </motion.div>
 
-              <motion.h2 variants={itemVariants} className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl">
+              <motion.h2
+                variants={itemVariants}
+                className="mb-4 text-3xl font-bold text-gray-900 sm:text-4xl"
+              >
                 Our New App Launches In
               </motion.h2>
 
@@ -95,18 +113,27 @@ const PrelaunchCountdownCta = () => {
                       <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 text-2xl font-bold text-white sm:h-20 sm:w-20 sm:text-3xl">
                         {item.value.toString().padStart(2, "0")}
                       </div>
-                      <div className="mt-2 text-xs font-medium text-gray-500">{item.label}</div>
+                      <div className="mt-2 text-xs font-medium text-gray-500">
+                        {item.label}
+                      </div>
                     </div>
                   ))}
                 </div>
               </motion.div>
 
-              <motion.p variants={itemVariants} className="mx-auto mb-8 max-w-lg text-gray-600">
-                Be the first to know when we launch. Sign up for early access and receive exclusive offers and benefits.
+              <motion.p
+                variants={itemVariants}
+                className="mx-auto mb-8 max-w-lg text-gray-600"
+              >
+                Be the first to know when we launch. Sign up for early access
+                and receive exclusive offers and benefits.
               </motion.p>
 
               {/* Email signup */}
-              <motion.div variants={itemVariants} className="mx-auto mb-6 max-w-md">
+              <motion.div
+                variants={itemVariants}
+                className="mx-auto mb-6 max-w-md"
+              >
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <input
                     type="email"
@@ -131,7 +158,12 @@ const PrelaunchCountdownCta = () => {
                 className="flex items-center justify-center gap-6 text-sm text-gray-500"
               >
                 <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg
+                    className="h-5 w-5 text-blue-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -142,7 +174,12 @@ const PrelaunchCountdownCta = () => {
                   <span>Early access benefits</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="h-5 w-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg
+                    className="h-5 w-5 text-blue-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -158,8 +195,7 @@ const PrelaunchCountdownCta = () => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PrelaunchCountdownCta
-
+export default PrelaunchCountdownCta;

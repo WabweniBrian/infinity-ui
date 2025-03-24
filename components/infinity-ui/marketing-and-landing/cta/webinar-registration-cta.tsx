@@ -160,25 +160,28 @@ const WebinarRegistrationCta = () => {
                 <div className="space-y-6">
                   {[
                     {
-                      name: "Dr. Sarah Johnson",
+                      name: "Dr. Wabweni Brian",
                       role: "AI Research Director, TechCorp",
-                      image: "/images/1.png",
+                      image:
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv",
                     },
                     {
-                      name: "Michael Chen",
+                      name: "Dr. Sarah Johnson",
                       role: "Founder & CEO, AI Ventures",
-                      image: "/images/1.png",
+                      image:
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxC0nRZtFC1a2S06AJNu9MsdPXG8D5oerTblR",
                     },
                     {
                       name: "Jessica Williams",
                       role: "Head of Innovation, Future Labs",
-                      image: "/images/1.png",
+                      image:
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoPGeGY9LRmqDpgTYnlJ0VQxFuAyXbhka81jzw",
                     },
                   ].map((speaker, index) => (
                     <div key={index} className="flex items-center gap-4">
                       <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-white/30">
                         <Image
-                          src={speaker.image || "/placeholder.svg"}
+                          src={speaker.image || "/images/default-avatar.png"}
                           alt={speaker.name}
                           width={80}
                           height={80}

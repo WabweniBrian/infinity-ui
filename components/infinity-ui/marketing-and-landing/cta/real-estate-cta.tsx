@@ -163,7 +163,7 @@ const RealEstateCta = () => {
                     onClick={() => setActiveImage(index)}
                   >
                     <Image
-                      src={image || "/placeholder.svg"}
+                      src={image || "/default-image.jpg"}
                       alt={`Property thumbnail ${index + 1}`}
                       fill
                       className="object-cover"
@@ -313,7 +313,7 @@ const RealEstateCta = () => {
                     <div className="mb-6 flex items-center gap-4">
                       <div className="h-16 w-16 overflow-hidden rounded-full">
                         <Image
-                          src="/images/1.png"
+                          src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv"
                           alt="Real Estate Agent"
                           width={64}
                           height={64}
@@ -322,7 +322,7 @@ const RealEstateCta = () => {
                       </div>
                       <div>
                         <div className="text-lg font-medium text-gray-900">
-                          Jennifer Davis
+                          Wabweni Brian
                         </div>
                         <div className="text-sm text-gray-500">
                           Luxury Property Specialist

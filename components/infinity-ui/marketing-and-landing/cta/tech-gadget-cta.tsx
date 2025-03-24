@@ -158,7 +158,7 @@ const TechGadgetCta = () => {
                 onHoverEnd={() => setIsHovering(false)}
               >
                 <Image
-                  src="/images/phone2.png"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZZixTgh2BRxjvs0lePWdUT3JIKoAfbgqLw8z"
                   alt="Next-Gen Smartphone"
                   fill
                   className="object-contain"

@@ -92,7 +92,7 @@ const TravelCta = () => {
       {/* Background image with parallax effect */}
       <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
         <Image
-          src="/images/travel.jpg"
+          src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZLO51Yh2BRxjvs0lePWdUT3JIKoAfbgqLw8z"
           alt="Tropical beach destination"
           fill
           className="object-cover"
@@ -190,7 +190,7 @@ const TravelCta = () => {
               <div className="flex items-center gap-2">
                 <div className="h-8 w-8 overflow-hidden rounded-full bg-white/20">
                   <Image
-                    src="/images/1.png"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv"
                     alt="Customer"
                     width={32}
                     height={32}
@@ -198,7 +198,7 @@ const TravelCta = () => {
                   />
                 </div>
                 <div>
-                  <div className="text-sm font-medium">Jessica & David</div>
+                  <div className="text-sm font-medium">Jessica & Brian</div>
                   <div className="flex items-center gap-1 text-xs text-white/70">
                     {[1, 2, 3, 4, 5].map((_, i) => (
                       <svg

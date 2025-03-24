@@ -135,7 +135,10 @@ const SocialProofCta = () => {
                         <div className="flex items-center gap-3">
                           <div className="h-10 w-10 overflow-hidden rounded-full">
                             <Image
-                              src={testimonial.avatar || "/placeholder.svg"}
+                              src={
+                                testimonial.avatar ||
+                                "/images/default-avatar.png"
+                              }
                               alt={testimonial.author}
                               width={40}
                               height={40}
@@ -198,7 +201,7 @@ const SocialProofCta = () => {
                   {companyLogos.map((logo, index) => (
                     <div key={index} className="h-8">
                       <Image
-                        src={logo || "/placeholder.svg"}
+                        src={logo || "/default-image.jpg"}
                         alt={`Company ${index + 1}`}
                         width={120}
                         height={40}
