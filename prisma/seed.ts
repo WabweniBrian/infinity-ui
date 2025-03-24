@@ -3,30 +3,16 @@ const bcrypt = require("bcryptjs");
 
 const prisma = new PrismaClient();
 async function main() {
-  // Check if admin user already exists
-  const existingAdmin = await prisma.user.findFirst({
-    where: {
+  const hashedPassword = await bcrypt.hash("superadmin", 10);
+  await prisma.user.create({
+    data: {
+      email: "superadmin@example.com",
+      name: "Super Admin",
+      password: hashedPassword,
       role: "Admin",
     },
   });
-
-  // Only create admin if none exists
-  if (!existingAdmin) {
-    const hashedPassword = await bcrypt.hash("superadmin", 10);
-    await prisma.user.create({
-      data: {
-        email: "superadmin@example.com",
-        name: "Super Admin",
-        password: hashedPassword,
-        role: "Admin",
-      },
-    });
-    console.log(
-      "🟢 Super admin user created with email: superadmin@example.com",
-    );
-  } else {
-    console.log("🟡  Admin user already exists, skipping creation");
-  }
+  console.log("🟢 Super admin user created with email: superadmin@example.com");
 }
 
 main()
