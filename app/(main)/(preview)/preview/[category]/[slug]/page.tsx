@@ -1,4 +1,3 @@
-import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { formatWord } from "@/lib/utils";
 import { Metadata } from "next";
@@ -49,10 +48,5 @@ export default async function PreviewPage({ params }: PreviewPageProps) {
   // Dynamically import the component
   const Component = await loadComponent(componentData.Componentpath);
 
-  return (
-    <>
-      <Component />
-      <p></p>
-    </>
-  );
+  return <Component />;
 }
