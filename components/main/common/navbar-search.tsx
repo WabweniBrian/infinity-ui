@@ -51,9 +51,9 @@ const NavbarSearch = () => {
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="w-9 px-0 md:w-60 md:justify-start md:px-3"
+          className="h-8 w-8 px-0 md:w-60 md:justify-start md:px-3"
         >
-          <Search className="h-4 w-4 md:mr-2" />
+          <Search className="h-4 w-4 shrink-0 md:mr-2" />
           <span className="hidden md:inline-flex">Search components...</span>
         </Button>
       </PopoverTrigger>
