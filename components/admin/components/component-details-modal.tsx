@@ -99,7 +99,7 @@ export const ComponentDetailsModal = ({
             <div className="flex items-center">
               <div className="relative mr-4 h-12 w-12 overflow-hidden rounded-md">
                 <Image
-                  src={component.image || "/default-image"}
+                  src={component.image || "/default-image.jpg"}
                   alt={component.name}
                   fill
                   className="object-cover"
