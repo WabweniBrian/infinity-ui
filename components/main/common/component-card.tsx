@@ -204,7 +204,7 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
             </div>
           </div>
           {component.description && (
-            <p className="mt-4">{component.description}</p>
+            <p className="my-4">{component.description}</p>
           )}
         </div>
 
