@@ -2,10 +2,12 @@ import AdminLayout from "@/components/admin/common/layout";
 import { getUnreadNotificationsCount } from "@/lib/actions/admin/notifications";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const AdminMainLayout = async ({ children }: { children: React.ReactNode }) => {
   const user = await getCurrentUser();
+  if (!user) redirect("/sign-in");
   const notifications = await prisma.notification.findMany({
     select: {
       id: true,
