@@ -27,11 +27,11 @@ const RealEstateCta = () => {
 
   // Property images
   const propertyImages = [
-    "/images/h1.avif",
-    "/images/h2.webp",
-    "/images/h3.webp",
-    "/images/h4.webp",
-    "/images/h5.jpg",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo66WwfRzvhV0osXNSKE3eCpjGD9ukzWbgBlRm",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypopVXi2QTMstyAN5nWO1VuQDxjmXLf6dJzBC8i",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypox9xCXXtFC1a2S06AJNu9MsdPXG8D5oerTblR",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoNw1FxtevQcXsCAeDKuhTdZ6t5Ln07OGN1iEa",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoDCA6BA2OeWJqXBEQTpvwrsimgD836Ro5tMP4",
   ];
 
   // Calculate monthly payment
