@@ -120,40 +120,10 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
     <>
       <div>
         <div>
-          <div className="mb-2 flex-center-between">
-            <div className="flex flex-col">
-              <h1 className="truncate text-xl font-semibold flex-align-center md:text-2xl">
-                {component.name}
-              </h1>
-              <div className="mt-1 flex items-center">
-                {component.isFree && (
-                  <span className="rounded-md bg-gradient-to-r from-rose-500 to-pink-600 px-3 py-1 text-sm font-bold text-white shadow-sm transition-all hover:shadow-md dark:from-green-600 dark:to-emerald-700">
-                    FREE
-                  </span>
-                )}
-                {component.price && (
-                  <div className="gap-2 flex-align-center">
-                    <span className="rounded-md bg-gradient-to-r from-rose-500 to-pink-600 px-3 py-1 text-lg font-bold text-white shadow-sm transition-all hover:shadow-md dark:from-blue-600 dark:to-indigo-700">
-                      ${component.price}
-                    </span>
-                    <Button asChild className="gap-2">
-                      <Link
-                        href={`/checkout/?paymentFor=component&componentId=${component.id}`}
-                      >
-                        <ShoppingCart className="h-4 w-4" />
-                        Buy for ${component.price}
-                      </Link>
-                    </Button>
-                  </div>
-                )}
-                {!component.isFree && !component.price && (
-                  <span className="flex animate-pulse items-center gap-1.5 rounded-md border border-purple-300/20 bg-gradient-to-r from-purple-600 to-indigo-600 px-3 py-1 text-sm font-bold text-white shadow-md transition-all hover:shadow-lg">
-                    <Crown className="h-4 w-4 text-yellow-300" />
-                    PREMIUM
-                  </span>
-                )}
-              </div>
-            </div>
+          <div className="mb-2 gap-2 flex-align-center">
+            <h1 className="flex-1 truncate text-xl font-semibold md:text-2xl">
+              {component.name}
+            </h1>
             <div className="gap-x-2 flex-center-center">
               <Tabs
                 value={previewSizes[component.id] || "desktop"}
@@ -202,6 +172,35 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
                 </a>
               </Button>
             </div>
+          </div>
+
+          <div className="my-3 flex items-center">
+            {component.isFree && (
+              <span className="rounded-md bg-gradient-to-r from-rose-500 to-pink-600 px-3 py-1 text-sm font-bold text-white shadow-sm transition-all hover:shadow-md dark:from-green-600 dark:to-emerald-700">
+                FREE
+              </span>
+            )}
+            {component.price && (
+              <div className="gap-2 flex-align-center">
+                <span className="rounded-md bg-gradient-to-r from-rose-500 to-pink-600 px-3 py-1 text-lg font-bold text-white shadow-sm transition-all hover:shadow-md dark:from-blue-600 dark:to-indigo-700">
+                  ${component.price}
+                </span>
+                <Button asChild className="gap-2">
+                  <Link
+                    href={`/checkout/?paymentFor=component&componentId=${component.id}`}
+                  >
+                    <ShoppingCart className="h-4 w-4" />
+                    Buy for ${component.price}
+                  </Link>
+                </Button>
+              </div>
+            )}
+            {!component.isFree && !component.price && (
+              <span className="flex animate-pulse items-center gap-1.5 rounded-md border border-purple-300/20 bg-gradient-to-r from-purple-600 to-indigo-600 px-3 py-1 text-sm font-bold text-white shadow-md transition-all hover:shadow-lg">
+                <Crown className="h-4 w-4 text-yellow-300" />
+                PREMIUM
+              </span>
+            )}
           </div>
           {component.description && (
             <p className="my-4">{component.description}</p>
