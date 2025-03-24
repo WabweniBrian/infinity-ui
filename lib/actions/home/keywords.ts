@@ -79,7 +79,7 @@ export const getKeywordsBySpecificCategory = async (
   // Find the category by name
   const category = await prisma.category.findFirst({
     where: {
-      name: categoryName,
+      slug: categoryName,
     },
     select: {
       components: {
