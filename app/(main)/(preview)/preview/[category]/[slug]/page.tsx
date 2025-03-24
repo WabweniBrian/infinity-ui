@@ -36,36 +36,18 @@ const loadComponent = async (componentPath: string) => {
 };
 
 export default async function PreviewPage({ params }: PreviewPageProps) {
-  const currentUser = await getCurrentUser();
   const { slug } = params;
   const componentData = await prisma.component.findUnique({
     where: { slug },
-    select: { id: true, Componentpath: true, isfree: true, price: true },
+    select: { Componentpath: true },
   });
 
   if (!componentData) {
     notFound();
   }
 
-  // Check if component requires premium access (not free)
-  const requiresAccess = !componentData.isfree;
-
-  // Check if user has access to this component
-  const hasAccess =
-    // Free components are accessible to everyone
-    componentData.isfree ||
-    // Premium components with no price are part of a bundle subscription
-    (!componentData.isfree &&
-      !componentData.price &&
-      currentUser?.hasPurchased) ||
-    // Components with individual prices are accessible if purchased individually
-    (componentData.price &&
-      currentUser?.purchasedComponents?.includes(componentData.id));
-
   // Dynamically import the component
-  const Component = await loadComponent(
-    "infinity-ui/ai/ai-policy-brief-system",
-  );
+  const Component = await loadComponent(componentData.Componentpath);
 
   return (
     <>

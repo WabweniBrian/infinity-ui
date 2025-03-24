@@ -61,7 +61,7 @@ const AddComponentForm = ({ categories }: AddComponentFormProps) => {
     resolver: zodResolver(componentSchema),
     defaultValues: {
       name: "",
-      isfree: true,
+      isfree: false,
       description: "",
       categoryId: "",
       componentPath: "",
