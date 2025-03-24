@@ -23,9 +23,7 @@ const MainPagination = ({ pages }: { pages: number }) => {
       } else {
         params.set("page", page.toString());
       }
-      router.push(`${pathname}?${params.toString()}`, {
-        scroll: false,
-      });
+      router.push(`${pathname}?${params.toString()}`);
     },
     [pathname, router, searchParams],
   );
