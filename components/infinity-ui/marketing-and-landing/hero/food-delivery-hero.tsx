@@ -427,7 +427,7 @@ const FoodDeliveryHero = () => {
                 <div className="flex items-center gap-2">
                   <div className="h-8 w-8 overflow-hidden rounded-full">
                     <Image
-                      src="/images/food3.webp"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoTG5LrKxINGL43Bmkhwazp7exFWUt06ZryRuJ"
                       alt="Restaurant"
                       width={32}
                       height={32}
