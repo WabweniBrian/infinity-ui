@@ -128,7 +128,7 @@ const EducationCta = () => {
               >
                 <div className="h-12 w-12 overflow-hidden rounded-full">
                   <Image
-                    src="/images/1.png"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv"
                     alt="Instructor"
                     width={48}
                     height={48}
@@ -137,7 +137,7 @@ const EducationCta = () => {
                 </div>
                 <div>
                   <div className="font-medium text-gray-900">
-                    Dr. Jason Smith
+                    Dr. Wabweni Brian
                   </div>
                   <div className="text-sm text-gray-500">
                     Senior Developer & Educator
@@ -367,7 +367,7 @@ const EducationCta = () => {
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 overflow-hidden rounded-full">
                         <Image
-                          src="/images/1.png"
+                          src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBr65FLq9k2zJh4F5OKicHTlarv3YGQjpDZbw"
                           alt="Student"
                           width={40}
                           height={40}
@@ -403,7 +403,7 @@ const EducationCta = () => {
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 overflow-hidden rounded-full">
                         <Image
-                          src="/images/1.png"
+                          src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoHRKBF64LPQRizs519hDeHlYBAUcyNFxWk2M6"
                           alt="Student"
                           width={40}
                           height={40}
