@@ -1,24 +1,34 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Instagram, Twitter, Facebook, Linkedin, Github, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  Instagram,
+  Twitter,
+  Facebook,
+  Linkedin,
+  Github,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 
 const RetroWaveFooter = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
 
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
-    <footer className="relative bg-gray-900 text-white overflow-hidden">
+    <footer className="relative overflow-hidden bg-gray-900 text-white">
       {/* Retro grid background */}
       <div
         className="absolute inset-0 z-0"
@@ -49,7 +59,7 @@ const RetroWaveFooter = () => {
 
       {/* Sun/circle */}
       <div
-        className="absolute left-1/2 bottom-0 z-0 w-96 h-48 rounded-t-full"
+        className="absolute bottom-0 left-1/2 z-0 h-48 w-96 rounded-t-full"
         style={{
           background: "linear-gradient(to top, #ff00cc, #ff8800)",
           transform: "translateX(-50%)",
@@ -58,7 +68,7 @@ const RetroWaveFooter = () => {
         }}
       />
 
-      <div className="relative z-10 container mx-auto px-6 pt-16 pb-8">
+      <div className="container relative z-10 mx-auto px-6 pb-8 pt-16">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <motion.div
@@ -71,32 +81,36 @@ const RetroWaveFooter = () => {
               <motion.h2
                 className="text-3xl font-bold"
                 style={{
-                  textShadow: "0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc",
+                  textShadow:
+                    "0 0 10px #ff00cc, 0 0 20px #ff00cc, 0 0 30px #ff00cc",
                 }}
               >
                 INFINITY UI
               </motion.h2>
-              <div className="h-1 w-32 bg-gradient-to-r from-pink-500 to-blue-500 mt-2"></div>
+              <div className="mt-2 h-1 w-32 bg-gradient-to-r from-pink-500 to-blue-500"></div>
             </div>
             <p className="text-gray-300">
-              Retro-futuristic UI components for your next web project. Bringing the 80s back with a modern twist.
+              Retro-futuristic UI components for your next web project. Bringing
+              the 80s back with a modern twist.
             </p>
             <div className="flex space-x-4">
-              {[Twitter, Facebook, Instagram, Linkedin, Github].map((Icon, i) => (
-                <motion.a
-                  key={i}
-                  href="#"
-                  whileHover={{
-                    y: -5,
-                    scale: 1.1,
-                    filter: "drop-shadow(0 0 8px #ff00cc)",
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-2 transition-colors rounded-full bg-gray-800/50 hover:bg-pink-500/50"
-                >
-                  <Icon size={18} />
-                </motion.a>
-              ))}
+              {[Twitter, Facebook, Instagram, Linkedin, Github].map(
+                (Icon, i) => (
+                  <motion.a
+                    key={i}
+                    href="#"
+                    whileHover={{
+                      y: -5,
+                      scale: 1.1,
+                      filter: "drop-shadow(0 0 8px #ff00cc)",
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="rounded-full bg-gray-800/50 p-2 transition-colors hover:bg-pink-500/50"
+                  >
+                    <Icon size={18} />
+                  </motion.a>
+                ),
+              )}
             </div>
           </motion.div>
 
@@ -116,9 +130,23 @@ const RetroWaveFooter = () => {
               NAVIGATE
             </h3>
             <ul className="space-y-2">
-              {["Home", "About", "Services", "Portfolio", "Blog", "Contact"].map((item, i) => (
-                <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                  <Link href="#" className="block transition-colors hover:text-pink-400 flex items-center">
+              {[
+                "Home",
+                "About",
+                "Services",
+                "Portfolio",
+                "Blog",
+                "Contact",
+              ].map((item, i) => (
+                <motion.li
+                  key={i}
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link
+                    href="#"
+                    className="flex items-center transition-colors hover:text-pink-400"
+                  >
                     <ArrowRight size={14} className="mr-2 text-blue-400" />
                     {item}
                   </Link>
@@ -143,9 +171,23 @@ const RetroWaveFooter = () => {
               RESOURCES
             </h3>
             <ul className="space-y-2">
-              {["Documentation", "Tutorials", "Components", "Templates", "Support", "FAQ"].map((item, i) => (
-                <motion.li key={i} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                  <Link href="#" className="block transition-colors hover:text-pink-400 flex items-center">
+              {[
+                "Documentation",
+                "Tutorials",
+                "Components",
+                "Templates",
+                "Support",
+                "FAQ",
+              ].map((item, i) => (
+                <motion.li
+                  key={i}
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link
+                    href="#"
+                    className="flex items-center transition-colors hover:text-pink-400"
+                  >
                     <ArrowRight size={14} className="mr-2 text-blue-400" />
                     {item}
                   </Link>
@@ -200,9 +242,10 @@ const RetroWaveFooter = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="p-6 mt-12 rounded-xl"
+          className="mt-12 rounded-xl p-6"
           style={{
-            background: "linear-gradient(135deg, rgba(51, 51, 255, 0.2), rgba(255, 0, 204, 0.2))",
+            background:
+              "linear-gradient(135deg, rgba(51, 51, 255, 0.2), rgba(255, 0, 204, 0.2))",
             backdropFilter: "blur(10px)",
             border: "1px solid rgba(255, 255, 255, 0.1)",
           }}
@@ -217,13 +260,15 @@ const RetroWaveFooter = () => {
               >
                 JOIN OUR NETWORK
               </h3>
-              <p className="text-gray-300">Stay updated with the latest retro UI trends and components</p>
+              <p className="text-gray-300">
+                Stay updated with the latest retro UI trends and components
+              </p>
             </div>
             <div className="flex w-full max-w-md">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full px-4 py-2 text-white bg-gray-800/70 border border-pink-500/30 rounded-l-md focus:outline-none focus:border-pink-500"
+                className="w-full rounded-l-md border border-pink-500/30 bg-gray-800/70 px-4 py-2 text-white focus:border-pink-500 focus:outline-none"
               />
               <motion.button
                 whileHover={{
@@ -231,7 +276,7 @@ const RetroWaveFooter = () => {
                   boxShadow: "0 0 15px rgba(255, 0, 204, 0.7)",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-4 py-2 font-medium text-white rounded-r-md"
+                className="rounded-r-md px-4 py-2 font-medium text-white"
                 style={{
                   background: "linear-gradient(to right, #ff00cc, #3333ff)",
                 }}
@@ -247,28 +292,31 @@ const RetroWaveFooter = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="pt-8 mt-12 text-center border-t border-white/10"
+          className="mt-12 border-t border-white/10 pt-8 text-center"
         >
-          <p className="text-gray-400">© {new Date().getFullYear()} INFINITY UI. All rights reserved.</p>
-          <div className="flex justify-center mt-4 space-x-6 text-sm">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item, i) => (
-              <Link
-                key={i}
-                href="#"
-                className="transition-colors text-gray-400 hover:text-pink-400"
-                style={{
-                  textShadow: "0 0 5px rgba(255, 0, 204, 0.5)",
-                }}
-              >
-                {item}
-              </Link>
-            ))}
+          <p className="text-gray-400">
+            © {new Date().getFullYear()} INFINITY UI. All rights reserved.
+          </p>
+          <div className="mt-4 flex justify-center space-x-6 text-sm">
+            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+              (item, i) => (
+                <Link
+                  key={i}
+                  href="#"
+                  className="text-gray-400 transition-colors hover:text-pink-400"
+                  style={{
+                    textShadow: "0 0 5px rgba(255, 0, 204, 0.5)",
+                  }}
+                >
+                  {item}
+                </Link>
+              ),
+            )}
           </div>
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default RetroWaveFooter
-
+export default RetroWaveFooter;

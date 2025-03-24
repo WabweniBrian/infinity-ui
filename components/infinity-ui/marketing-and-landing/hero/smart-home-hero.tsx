@@ -1,29 +1,57 @@
-"use client"
+"use client";
 
-import { motion, useAnimation } from "framer-motion"
-import { ArrowRight, BellRing, Home, Lightbulb, Lock, Thermometer, Wifi } from "lucide-react"
-import Image from "next/image"
-import { useEffect, useState } from "react"
+import { motion, useAnimation } from "framer-motion";
+import {
+  ArrowRight,
+  BellRing,
+  Home,
+  Lightbulb,
+  Lock,
+  Thermometer,
+  Wifi,
+} from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const SmartHomeHero = () => {
-  const controls = useAnimation()
-  const [activeRoom, setActiveRoom] = useState(0)
-  const [lightBrightness, setLightBrightness] = useState(80)
-  const [temperature, setTemperature] = useState(72)
-  const [securityStatus, setSecurityStatus] = useState(true)
+  const controls = useAnimation();
+  const [activeRoom, setActiveRoom] = useState(0);
+  const [lightBrightness, setLightBrightness] = useState(80);
+  const [temperature, setTemperature] = useState(72);
+  const [securityStatus, setSecurityStatus] = useState(true);
 
   // Rooms data
   const rooms = [
-    { name: "Living Room", devices: 6, image: "/placeholder.svg?height=300&width=400&text=LivingRoom" },
-    { name: "Kitchen", devices: 4, image: "/placeholder.svg?height=300&width=400&text=Kitchen" },
-    { name: "Bedroom", devices: 5, image: "/placeholder.svg?height=300&width=400&text=Bedroom" },
-    { name: "Office", devices: 3, image: "/placeholder.svg?height=300&width=400&text=Office" },
-  ]
+    {
+      name: "Living Room",
+      devices: 6,
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoKLZxKsFM6wEXh7LJj93cm4UaIW2nQN1uCVTb",
+    },
+    {
+      name: "Kitchen",
+      devices: 4,
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoa6ZRtsl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    },
+    {
+      name: "Bedroom",
+      devices: 5,
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoHlDwWX4LPQRizs519hDeHlYBAUcyNFxWk2M6",
+    },
+    {
+      name: "Office",
+      devices: 3,
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoeKlMSg9BGZljIQpV8xdfgatbs5J3rcz1Tw6F",
+    },
+  ];
 
   // Start animations when component mounts
   useEffect(() => {
-    controls.start("visible")
-  }, [controls])
+    controls.start("visible");
+  }, [controls]);
 
   // Animation variants
   const containerVariants = {
@@ -35,7 +63,7 @@ const SmartHomeHero = () => {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -44,7 +72,7 @@ const SmartHomeHero = () => {
       opacity: 1,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   return (
     <div className="relative w-full overflow-hidden bg-gradient-to-b from-slate-50 to-white py-20">
@@ -108,18 +136,41 @@ const SmartHomeHero = () => {
               </span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="mb-8 max-w-lg text-lg text-gray-600">
-              Transform your living space with our integrated smart home solutions. Control lighting, temperature,
-              security, and more from a single intuitive app.
+            <motion.p
+              variants={itemVariants}
+              className="mb-8 max-w-lg text-lg text-gray-600"
+            >
+              Transform your living space with our integrated smart home
+              solutions. Control lighting, temperature, security, and more from
+              a single intuitive app.
             </motion.p>
 
             {/* Smart home features */}
-            <motion.div variants={itemVariants} className="mb-8 grid gap-4 sm:grid-cols-2">
+            <motion.div
+              variants={itemVariants}
+              className="mb-8 grid gap-4 sm:grid-cols-2"
+            >
               {[
-                { icon: Lightbulb, title: "Smart Lighting", desc: "Automate and control your lights" },
-                { icon: Thermometer, title: "Climate Control", desc: "Perfect temperature, always" },
-                { icon: Lock, title: "Security System", desc: "Keep your home safe and secure" },
-                { icon: Wifi, title: "Seamless Connectivity", desc: "All devices work together" },
+                {
+                  icon: Lightbulb,
+                  title: "Smart Lighting",
+                  desc: "Automate and control your lights",
+                },
+                {
+                  icon: Thermometer,
+                  title: "Climate Control",
+                  desc: "Perfect temperature, always",
+                },
+                {
+                  icon: Lock,
+                  title: "Security System",
+                  desc: "Keep your home safe and secure",
+                },
+                {
+                  icon: Wifi,
+                  title: "Seamless Connectivity",
+                  desc: "All devices work together",
+                },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
@@ -129,13 +180,18 @@ const SmartHomeHero = () => {
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
                     <feature.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mb-1 text-lg font-medium text-gray-900">{feature.title}</h3>
+                  <h3 className="mb-1 text-lg font-medium text-gray-900">
+                    {feature.title}
+                  </h3>
                   <p className="text-sm text-gray-600">{feature.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4"
+            >
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
@@ -156,11 +212,15 @@ const SmartHomeHero = () => {
             </motion.div>
 
             {/* Stats */}
-            <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-8">
+            <motion.div
+              variants={itemVariants}
+              className="mt-8 flex flex-wrap items-center gap-8"
+            >
               <div className="flex items-center gap-2">
                 <Wifi className="h-5 w-5 text-blue-500" />
                 <span className="text-sm text-gray-600">
-                  <span className="font-semibold text-gray-900">1M+</span> Homes Connected
+                  <span className="font-semibold text-gray-900">1M+</span> Homes
+                  Connected
                 </span>
               </div>
 
@@ -169,7 +229,8 @@ const SmartHomeHero = () => {
               <div className="flex items-center gap-2">
                 <BellRing className="h-5 w-5 text-blue-500" />
                 <span className="text-sm text-gray-600">
-                  <span className="font-semibold text-gray-900">24/7</span> Support
+                  <span className="font-semibold text-gray-900">24/7</span>{" "}
+                  Support
                 </span>
               </div>
             </motion.div>
@@ -197,7 +258,7 @@ const SmartHomeHero = () => {
                   <div className="flex items-center gap-3">
                     <div className="h-10 w-10 overflow-hidden rounded-full bg-white">
                       <Image
-                        src="/placeholder.svg?height=40&width=40&text=U"
+                        src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBr65FLq9k2zJh4F5OKicHTlarv3YGQjpDZbw"
                         alt="User"
                         width={40}
                         height={40}
@@ -206,14 +267,18 @@ const SmartHomeHero = () => {
                     </div>
                     <div>
                       <div className="font-medium">Welcome back, Alex</div>
-                      <div className="text-xs text-white/80">All systems normal</div>
+                      <div className="text-xs text-white/80">
+                        All systems normal
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Room selection */}
                 <div className="p-4">
-                  <div className="mb-4 text-sm font-medium text-gray-700">Select Room</div>
+                  <div className="mb-4 text-sm font-medium text-gray-700">
+                    Select Room
+                  </div>
                   <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
                     {rooms.map((room, index) => (
                       <motion.button
@@ -229,7 +294,9 @@ const SmartHomeHero = () => {
                       >
                         <Home className="mb-1 h-5 w-5" />
                         <div className="text-xs font-medium">{room.name}</div>
-                        <div className="text-xs opacity-70">{room.devices} devices</div>
+                        <div className="text-xs opacity-70">
+                          {room.devices} devices
+                        </div>
                       </motion.button>
                     ))}
                   </div>
@@ -238,7 +305,7 @@ const SmartHomeHero = () => {
                   <div className="mb-6 overflow-hidden rounded-xl">
                     <div className="relative h-40 w-full">
                       <Image
-                        src={rooms[activeRoom].image || "/placeholder.svg"}
+                        src={rooms[activeRoom].image || "/default-image.jpg"}
                         alt={rooms[activeRoom].name}
                         fill
                         className="object-cover"
@@ -246,8 +313,12 @@ const SmartHomeHero = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
                       <div className="absolute bottom-3 left-3 text-white">
-                        <div className="font-medium">{rooms[activeRoom].name}</div>
-                        <div className="text-xs">{rooms[activeRoom].devices} connected devices</div>
+                        <div className="font-medium">
+                          {rooms[activeRoom].name}
+                        </div>
+                        <div className="text-xs">
+                          {rooms[activeRoom].devices} connected devices
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -261,9 +332,13 @@ const SmartHomeHero = () => {
                           <Lightbulb
                             className={`h-5 w-5 ${lightBrightness > 0 ? "text-yellow-500" : "text-gray-400"}`}
                           />
-                          <span className="font-medium text-gray-900">Smart Lighting</span>
+                          <span className="font-medium text-gray-900">
+                            Smart Lighting
+                          </span>
                         </div>
-                        <div className="text-xs text-gray-500">{lightBrightness}%</div>
+                        <div className="text-xs text-gray-500">
+                          {lightBrightness}%
+                        </div>
                       </div>
 
                       <input
@@ -271,7 +346,9 @@ const SmartHomeHero = () => {
                         min="0"
                         max="100"
                         value={lightBrightness}
-                        onChange={(e) => setLightBrightness(Number.parseInt(e.target.value))}
+                        onChange={(e) =>
+                          setLightBrightness(Number.parseInt(e.target.value))
+                        }
                         className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200"
                         style={{
                           background: `linear-gradient(to right, #facc15 0%, #facc15 ${lightBrightness}%, #e5e7eb ${lightBrightness}%, #e5e7eb 100%)`,
@@ -284,32 +361,42 @@ const SmartHomeHero = () => {
                       <div className="mb-2 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <Thermometer className="h-5 w-5 text-blue-500" />
-                          <span className="font-medium text-gray-900">Temperature</span>
+                          <span className="font-medium text-gray-900">
+                            Temperature
+                          </span>
                         </div>
-                        <div className="text-xs text-gray-500">{temperature}°F</div>
+                        <div className="text-xs text-gray-500">
+                          {temperature}°F
+                        </div>
                       </div>
 
                       <div className="flex items-center justify-between">
                         <motion.button
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          onClick={() => setTemperature(Math.max(60, temperature - 1))}
+                          onClick={() =>
+                            setTemperature(Math.max(60, temperature - 1))
+                          }
                           className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
                         >
                           -
                         </motion.button>
 
-                        <div className="h-2 flex-1 rounded-full bg-gray-200 mx-3">
+                        <div className="mx-3 h-2 flex-1 rounded-full bg-gray-200">
                           <div
                             className="h-full rounded-full bg-blue-500"
-                            style={{ width: `${((temperature - 60) / 30) * 100}%` }}
+                            style={{
+                              width: `${((temperature - 60) / 30) * 100}%`,
+                            }}
                           />
                         </div>
 
                         <motion.button
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          onClick={() => setTemperature(Math.min(90, temperature + 1))}
+                          onClick={() =>
+                            setTemperature(Math.min(90, temperature + 1))
+                          }
                           className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200"
                         >
                           +
@@ -321,8 +408,12 @@ const SmartHomeHero = () => {
                     <div className="rounded-lg border border-gray-200 p-3">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <Lock className={`h-5 w-5 ${securityStatus ? "text-green-500" : "text-gray-400"}`} />
-                          <span className="font-medium text-gray-900">Security System</span>
+                          <Lock
+                            className={`h-5 w-5 ${securityStatus ? "text-green-500" : "text-gray-400"}`}
+                          />
+                          <span className="font-medium text-gray-900">
+                            Security System
+                          </span>
                         </div>
 
                         <button
@@ -340,7 +431,9 @@ const SmartHomeHero = () => {
                       </div>
 
                       <div className="mt-2 text-xs text-gray-500">
-                        {securityStatus ? "System armed and active" : "System disarmed"}
+                        {securityStatus
+                          ? "System armed and active"
+                          : "System disarmed"}
                       </div>
                     </div>
                   </div>
@@ -359,7 +452,9 @@ const SmartHomeHero = () => {
                     <Lightbulb className="h-4 w-4" />
                   </div>
                   <div className="text-xs">
-                    <div className="font-medium text-gray-900">Energy Saving</div>
+                    <div className="font-medium text-gray-900">
+                      Energy Saving
+                    </div>
                     <div className="text-gray-600">-32% this month</div>
                   </div>
                 </div>
@@ -376,7 +471,9 @@ const SmartHomeHero = () => {
                     <BellRing className="h-4 w-4" />
                   </div>
                   <div className="text-xs">
-                    <div className="font-medium text-gray-900">Motion Detected</div>
+                    <div className="font-medium text-gray-900">
+                      Motion Detected
+                    </div>
                     <div className="text-gray-600">Front door - 2m ago</div>
                   </div>
                 </div>
@@ -386,8 +483,7 @@ const SmartHomeHero = () => {
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SmartHomeHero
-
+export default SmartHomeHero;
