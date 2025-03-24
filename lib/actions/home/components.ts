@@ -102,7 +102,7 @@ export const getComponents = async ({
     ORDER BY 
       rank DESC,
       similarity DESC,
-      RANDOM()
+      c."createdAt" DESC
     LIMIT ${limit} OFFSET ${skip};
   `;
 

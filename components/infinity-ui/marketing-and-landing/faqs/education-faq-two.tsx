@@ -1,23 +1,16 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import {
   BookOpen,
-  GraduationCap,
-  Users,
-  Calendar,
-  FileText,
   BrainCircuit,
-  School,
+  FileText,
+  GraduationCap,
   Lightbulb,
+  School,
+  Users,
 } from "lucide-react";
-
-type FAQItem = {
-  id: number;
-  question: string;
-  answer: string;
-};
+import { useRef, useState } from "react";
 
 const faqGroups = [
   {
