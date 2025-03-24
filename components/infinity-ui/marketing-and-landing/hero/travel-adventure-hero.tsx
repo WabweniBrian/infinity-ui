@@ -25,19 +25,22 @@ const TravelAdventureHero = () => {
       name: "Santorini",
       country: "Greece",
       rating: 4.9,
-      image: "/images/travel1.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoGN72GXUOFxW0BEUNidYtMQ9Sya4s1cmfhDkw",
     },
     {
       name: "Kyoto",
       country: "Japan",
       rating: 4.8,
-      image: "/images/travel2.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoDP5AHm2OeWJqXBEQTpvwrsimgD836Ro5tMP4",
     },
     {
       name: "Bali",
       country: "Indonesia",
       rating: 4.7,
-      image: "/images/travel3.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoJz95ne6b1LpRdOliukBZ9PyAEtqcV2GD7hTC",
     },
   ];
 
@@ -212,7 +215,7 @@ const TravelAdventureHero = () => {
                 >
                   <div className="relative mb-3 h-[200px] w-full overflow-hidden rounded-xl">
                     <Image
-                      src={destination.image || "/placeholder.svg"}
+                      src={destination.image || "/default-image.jpg"}
                       alt={destination.name}
                       fill
                       className="object-cover transition-all duration-700 hover:scale-110"
