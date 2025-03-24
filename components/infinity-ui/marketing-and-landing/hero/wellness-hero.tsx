@@ -216,7 +216,7 @@ const WellnessHero = () => {
               {/* Main circular image */}
               <div className="relative h-full w-full overflow-hidden rounded-full border-8 border-white shadow-xl">
                 <Image
-                  src="/images/wellness-j.jpg"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo1YHpHeZzfEpmIkG3Q9nNcdoiOUZFRY8MTybl"
                   alt="Wellness Journey"
                   width={600}
                   height={600}
