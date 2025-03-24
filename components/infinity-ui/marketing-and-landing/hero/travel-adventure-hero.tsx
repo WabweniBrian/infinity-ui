@@ -55,7 +55,7 @@ const TravelAdventureHero = () => {
         style={{ opacity, y: y1 }}
       >
         <Image
-          src="/images/travel.jpg"
+          src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoGN72GXUOFxW0BEUNidYtMQ9Sya4s1cmfhDkw"
           alt="Travel destination background"
           fill
           className="object-cover object-center"
