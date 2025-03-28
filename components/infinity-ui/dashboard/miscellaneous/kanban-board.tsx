@@ -451,9 +451,9 @@ const KanbanBoard = () => {
                         transition={{ duration: 0.2 }}
                         className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-3 shadow-sm hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
                         draggable
-                        onDragStart={(e) => {
-                          e.dataTransfer.setData("taskId", task.id);
-                        }}
+                        // onDragStart={(e) => {
+                        //   e.dataTransfer.setData("taskId", task.id);
+                        // }}
                       >
                         <div className="mb-2 flex items-center justify-between">
                           <span
