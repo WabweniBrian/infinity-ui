@@ -311,7 +311,10 @@ const NFTMintingWizard = ({
                   {imagePreview ? (
                     <div className="relative mx-auto mb-4 h-48 w-48">
                       <Image
-                        src={imagePreview || "/placeholder.svg"}
+                        src={
+                          imagePreview ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt="NFT Preview"
                         fill
                         className="rounded-lg object-contain"
@@ -664,7 +667,10 @@ const NFTMintingWizard = ({
               {imagePreview && (
                 <div className="relative mx-auto mb-8 h-48 w-48">
                   <Image
-                    src={imagePreview || "/placeholder.svg"}
+                    src={
+                      imagePreview ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={name}
                     fill
                     className="rounded-lg object-contain"

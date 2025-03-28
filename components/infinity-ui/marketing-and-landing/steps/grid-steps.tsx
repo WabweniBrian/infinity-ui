@@ -1,21 +1,30 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
-import { ClipboardCheck, FolderKanban, PenLine, Laptop, Megaphone, ArrowUpRight } from "lucide-react"
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  ClipboardCheck,
+  FolderKanban,
+  PenLine,
+  Laptop,
+  Megaphone,
+  ArrowUpRight,
+} from "lucide-react";
 
 const stepsData = [
   {
     id: 1,
     title: "Requirements Gathering",
-    description: "We collect and analyze your business requirements to define project scope and objectives.",
+    description:
+      "We collect and analyze your business requirements to define project scope and objectives.",
     icon: <ClipboardCheck className="h-6 w-6" />,
     color: "blue",
   },
   {
     id: 2,
     title: "Project Scoping",
-    description: "Our team creates a detailed project roadmap with timelines, milestones, and resource allocation.",
+    description:
+      "Our team creates a detailed project roadmap with timelines, milestones, and resource allocation.",
     icon: <FolderKanban className="h-6 w-6" />,
     color: "indigo",
   },
@@ -30,60 +39,65 @@ const stepsData = [
   {
     id: 4,
     title: "Development",
-    description: "Our developers build your solution using modern technologies and agile methodologies.",
+    description:
+      "Our developers build your solution using modern technologies and agile methodologies.",
     icon: <Laptop className="h-6 w-6" />,
     color: "teal",
   },
   {
     id: 5,
     title: "Deployment & Marketing",
-    description: "We launch your product and implement effective marketing strategies to drive engagement.",
+    description:
+      "We launch your product and implement effective marketing strategies to drive engagement.",
     icon: <Megaphone className="h-6 w-6" />,
     color: "rose",
   },
-]
+];
 
 const GridSteps = () => {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-24"
+    >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         <motion.div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 -translate-y-1/3 translate-x-1/3"
+          className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         />
 
         <motion.div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-teal-50 to-emerald-50 translate-y-1/3 -translate-x-1/4"
+          className="absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/4 translate-y-1/3 rounded-full bg-gradient-to-tr from-teal-50 to-emerald-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         />
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
             From Concept to Completion
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Our proven methodology delivers exceptional results at every stage
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {stepsData.map((step, index) => (
             <motion.div
               key={step.id}
@@ -101,7 +115,7 @@ const GridSteps = () => {
             >
               <div className="relative h-full">
                 <div
-                  className={`absolute -inset-1 opacity-70 blur-sm rounded-xl bg-gradient-to-r ${
+                  className={`absolute -inset-1 rounded-xl bg-gradient-to-r opacity-70 blur-sm ${
                     step.color === "blue"
                       ? "from-blue-400 to-sky-400"
                       : step.color === "indigo"
@@ -111,14 +125,14 @@ const GridSteps = () => {
                           : step.color === "teal"
                             ? "from-teal-400 to-emerald-400"
                             : "from-rose-400 to-pink-400"
-                  } opacity-0 group-hover:opacity-100 transition duration-300`}
+                  } opacity-0 transition duration-300 group-hover:opacity-100`}
                 />
 
-                <div className="relative h-full bg-white rounded-xl border border-gray-100 p-8 shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="relative h-full rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow duration-300 hover:shadow-lg">
                   {/* Step number */}
-                  <div className="absolute top-0 right-0 -mt-3 -mr-3">
+                  <div className="absolute right-0 top-0 -mr-3 -mt-3">
                     <div
-                      className={`w-9 h-9 rounded-full flex items-center justify-center shadow-md ${
+                      className={`flex h-9 w-9 items-center justify-center rounded-full shadow-md ${
                         step.color === "blue"
                           ? "bg-blue-500"
                           : step.color === "indigo"
@@ -128,7 +142,7 @@ const GridSteps = () => {
                               : step.color === "teal"
                                 ? "bg-teal-500"
                                 : "bg-rose-500"
-                      } text-white font-bold text-sm`}
+                      } text-sm font-bold text-white`}
                     >
                       {step.id}
                     </div>
@@ -136,7 +150,7 @@ const GridSteps = () => {
 
                   {/* Icon */}
                   <div
-                    className={`mb-5 inline-flex items-center justify-center p-3 rounded-lg group-hover:scale-110 transition-transform duration-300 ${
+                    className={`mb-5 inline-flex items-center justify-center rounded-lg p-3 transition-transform duration-300 group-hover:scale-110 ${
                       step.color === "blue"
                         ? "bg-blue-100 text-blue-500"
                         : step.color === "indigo"
@@ -152,9 +166,11 @@ const GridSteps = () => {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
+                  <h3 className="mb-3 text-xl font-bold text-gray-900">
+                    {step.title}
+                  </h3>
 
-                  <p className="text-gray-600 mb-5">{step.description}</p>
+                  <p className="mb-5 text-gray-600">{step.description}</p>
 
                   {/* Learn more link */}
                   <div className="mt-auto">
@@ -173,7 +189,7 @@ const GridSteps = () => {
                       }`}
                     >
                       <span>Learn more</span>
-                      <ArrowUpRight className="ml-1 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      <ArrowUpRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                     </a>
                   </div>
                 </div>
@@ -189,11 +205,13 @@ const GridSteps = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-gray-600 mb-6 text-lg">Ready to start your project journey with us?</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="mb-6 text-lg text-gray-600">
+            Ready to start your project journey with us?
+          </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <motion.a
               href="#"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-medium rounded-xl shadow-lg shadow-blue-200/50 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-4 font-medium text-white shadow-lg shadow-blue-200/50 transition-all"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.3)",
@@ -204,7 +222,7 @@ const GridSteps = () => {
             </motion.a>
             <motion.a
               href="#"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium rounded-xl transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-8 py-4 font-medium text-gray-700 transition-all hover:bg-gray-50"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -214,8 +232,7 @@ const GridSteps = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default GridSteps
-
+export default GridSteps;

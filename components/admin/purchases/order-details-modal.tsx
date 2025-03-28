@@ -276,7 +276,10 @@ export const OrderDetailsModal = ({
                 <div className="mb-6 flex items-center">
                   <div className="relative mr-4 h-16 w-16 overflow-hidden rounded-full">
                     <Image
-                      src={order.user.image || "/placeholder.svg"}
+                      src={
+                        order.user.image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                      }
                       alt={order.user.name}
                       fill
                       className="object-cover"

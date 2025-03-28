@@ -349,7 +349,10 @@ const ElearningHero = () => {
                       >
                         <div className="relative h-32 w-full overflow-hidden">
                           <Image
-                            src={course.image || "/default-image.jpg"}
+                            src={
+                              course.image ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={course.title}
                             fill
                             className="object-cover"

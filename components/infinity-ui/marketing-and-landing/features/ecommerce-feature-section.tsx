@@ -11,6 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const EcommerceFeatureSection = () => {
   const sectionRef = useRef(null);
@@ -52,7 +53,8 @@ const EcommerceFeatureSection = () => {
       price: "$249",
       rating: 4.8,
       reviews: 124,
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "bg-amber-100 dark:bg-amber-900/30",
     },
     {
@@ -60,7 +62,8 @@ const EcommerceFeatureSection = () => {
       price: "$89",
       rating: 4.7,
       reviews: 86,
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "bg-rose-100 dark:bg-rose-900/30",
     },
     {
@@ -68,7 +71,8 @@ const EcommerceFeatureSection = () => {
       price: "$349",
       rating: 4.9,
       reviews: 215,
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "bg-blue-100 dark:bg-blue-900/30",
     },
   ];
@@ -76,8 +80,11 @@ const EcommerceFeatureSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
+      className="relative min-h-screen overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
+
       {/* Abstract Background Elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute right-0 top-0 h-1/2 w-1/2 bg-gradient-to-b from-rose-100/30 to-transparent dark:from-rose-900/10 dark:to-transparent"></div>
@@ -255,7 +262,10 @@ const EcommerceFeatureSection = () => {
                             }}
                           >
                             <Image
-                              src={product.image || "/default-image.jpg"}
+                              src={
+                                product.image ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt={product.name}
                               width={80}
                               height={80}
@@ -307,7 +317,7 @@ const EcommerceFeatureSection = () => {
               </div>
 
               <div className="relative h-48 overflow-hidden bg-gradient-to-r from-rose-500 to-amber-500">
-                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=800')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=400&width=800')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
                 <div className="relative flex h-full items-center p-8">
@@ -375,7 +385,7 @@ const EcommerceFeatureSection = () => {
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage:
-                      "url('/placeholder.svg?height=600&width=800')",
+                      "url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')",
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent dark:from-gray-800"></div>

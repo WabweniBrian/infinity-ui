@@ -34,7 +34,7 @@ const ProfilePreferences = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [avatarPreview, setAvatarPreview] = useState(
-    "/placeholder.svg?height=100&width=100",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   );
   const [formData, setFormData] = useState({
     name: "Alex Johnson",

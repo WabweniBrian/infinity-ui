@@ -468,7 +468,10 @@ const MusicEntertainmentHero = () => {
                     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md">
                       <div className="relative h-48 w-full">
                         <Image
-                          src={event.image || "/default-image.jpg"}
+                          src={
+                            event.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={event.name}
                           fill
                           className="object-cover"

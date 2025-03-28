@@ -81,7 +81,7 @@ const TestimonialsMosaicGrid = () => {
     },
     {
       content:
-        "We've seen a 200% ROI since implementing this solution. The analytics features alone have paid for the investment.",
+        "We&apos;ve seen a 200% ROI since implementing this solution. The analytics features alone have paid for the investment.",
       author: "Emma Johnson",
       position: "CEO at StartupX",
       rating: 5,
@@ -268,7 +268,10 @@ const TestimonialsMosaicGrid = () => {
                     <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
                       {testimonial.image ? (
                         <Image
-                          src={testimonial.image || "/placeholder.svg"}
+                          src={
+                            testimonial.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={testimonial.author}
                           fill
                           className="h-full w-full object-cover"

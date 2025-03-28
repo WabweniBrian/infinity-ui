@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, Activity, Brain, Heart, Shield } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const HealthcareSection = () => {
   const sectionRef = useRef(null);
@@ -70,6 +71,9 @@ const HealthcareSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24 dark:from-gray-950 dark:to-gray-900"
     >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-1/3 w-1/3 rounded-full bg-gradient-to-b from-rose-100/50 to-transparent blur-3xl dark:from-rose-900/20 dark:to-transparent"></div>
@@ -114,7 +118,7 @@ const HealthcareSection = () => {
               <div className="absolute -inset-4 rotate-2 transform rounded-3xl bg-gradient-to-r from-rose-500/20 to-teal-500/20 blur-xl"></div>
               <div className="relative h-[300px] w-full">
                 <Image
-                  src="/placeholder.svg"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoRSzf21QKqOivkN1uM6C3empEstycaIU2hRAr"
                   alt="Healthcare Dashboard"
                   layout="fill"
                   objectFit="cover"
@@ -211,10 +215,10 @@ const HealthcareSection = () => {
               <div className="relative overflow-hidden rounded-3xl">
                 <div className="absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-gradient-to-br from-rose-500 to-teal-500"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                   alt="Healthcare Professional"
-                  width={400}
-                  height={400}
+                  width={600}
+                  height={600}
                   className="relative z-10 h-auto w-full rounded-3xl object-cover"
                 />
               </div>

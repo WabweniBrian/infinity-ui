@@ -244,7 +244,10 @@ const BlogSection = () => {
                 <div className="relative aspect-[4/3] lg:aspect-auto">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-500 opacity-20"></div>
                   <Image
-                    src={featuredPost.image || "/default-image.jpg"}
+                    src={
+                      featuredPost.image ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={featuredPost.title}
                     fill
                     className="h-full w-full object-cover"
@@ -322,7 +325,10 @@ const BlogSection = () => {
                     <div className="relative aspect-[16/9] overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-500 opacity-20"></div>
                       <Image
-                        src={post.image || "/default-image.jpg"}
+                        src={
+                          post.image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={post.title}
                         fill
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"

@@ -29,7 +29,7 @@ const NoResults = ({
   const defaultContent = {
     search: {
       title: "No results found",
-      message: "We couldn't find what you're looking for",
+      message: "We couldn't find what you&apos;re looking for",
       suggestion: "Try using different keywords or check for typos",
       icon: <SearchX className="h-12 w-12 text-gray-400" />,
     },

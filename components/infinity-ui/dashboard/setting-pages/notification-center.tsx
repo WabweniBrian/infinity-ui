@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Bell,
   BellOff,
@@ -25,44 +25,50 @@ import {
   ChevronUp,
   Settings,
   Eye,
-} from "lucide-react"
-import { Switch } from "@/components/ui/switch"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
+} from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
 
 type NotificationType = {
-  id: string
-  title: string
-  description: string
-  time: string
-  type: "message" | "alert" | "info" | "calendar" | "success"
-  read: boolean
-}
+  id: string;
+  title: string;
+  description: string;
+  time: string;
+  type: "message" | "alert" | "info" | "calendar" | "success";
+  read: boolean;
+};
 
 type ChannelType = {
-  id: string
-  name: string
-  icon: React.ReactNode
-  enabled: boolean
-  priority: "high" | "medium" | "low"
-  sound: boolean
-  desktop: boolean
-  mobile: boolean
-  email: boolean
+  id: string;
+  name: string;
+  icon: React.ReactNode;
+  enabled: boolean;
+  priority: "high" | "medium" | "low";
+  sound: boolean;
+  desktop: boolean;
+  mobile: boolean;
+  email: boolean;
   quiet: {
-    enabled: boolean
-    from: string
-    to: string
-  }
-}
+    enabled: boolean;
+    from: string;
+    to: string;
+  };
+};
 
 const NotificationCenter = () => {
-  const [activeTab, setActiveTab] = useState("notifications")
-  const [loading, setLoading] = useState(false)
-  const [filter, setFilter] = useState("all")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [expandedChannel, setExpandedChannel] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState("notifications");
+  const [loading, setLoading] = useState(false);
+  const [filter, setFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [expandedChannel, setExpandedChannel] = useState<string | null>(null);
 
   const [notifications, setNotifications] = useState<NotificationType[]>([
     {
@@ -105,7 +111,7 @@ const NotificationCenter = () => {
       type: "info",
       read: true,
     },
-  ])
+  ]);
 
   const [channels, setChannels] = useState<ChannelType[]>([
     {
@@ -172,7 +178,7 @@ const NotificationCenter = () => {
         to: "08:00",
       },
     },
-  ])
+  ]);
 
   const [settings, setSettings] = useState({
     globalMute: false,
@@ -181,27 +187,35 @@ const NotificationCenter = () => {
     deleteAfter: "30days",
     showBadges: true,
     showPreview: true,
-  })
+  });
 
   const handleMarkAsRead = (id: string) => {
-    setNotifications(notifications.map((notif) => (notif.id === id ? { ...notif, read: true } : notif)))
-  }
+    setNotifications(
+      notifications.map((notif) =>
+        notif.id === id ? { ...notif, read: true } : notif,
+      ),
+    );
+  };
 
   const handleMarkAllAsRead = () => {
-    setNotifications(notifications.map((notif) => ({ ...notif, read: true })))
-  }
+    setNotifications(notifications.map((notif) => ({ ...notif, read: true })));
+  };
 
   const handleDeleteNotification = (id: string) => {
-    setNotifications(notifications.filter((notif) => notif.id !== id))
-  }
+    setNotifications(notifications.filter((notif) => notif.id !== id));
+  };
 
   const handleClearAll = () => {
-    setNotifications([])
-  }
+    setNotifications([]);
+  };
 
   const handleChannelToggle = (id: string) => {
-    setChannels(channels.map((channel) => (channel.id === id ? { ...channel, enabled: !channel.enabled } : channel)))
-  }
+    setChannels(
+      channels.map((channel) =>
+        channel.id === id ? { ...channel, enabled: !channel.enabled } : channel,
+      ),
+    );
+  };
 
   const handleChannelSettingToggle = (
     id: string,
@@ -217,24 +231,35 @@ const NotificationCenter = () => {
                 ...channel.quiet,
                 enabled: !channel.quiet.enabled,
               },
-            }
+            };
           } else {
             return {
               ...channel,
               [setting]: !channel[setting],
-            }
+            };
           }
         }
-        return channel
+        return channel;
       }),
-    )
-  }
+    );
+  };
 
-  const handleChannelPriorityChange = (id: string, priority: "high" | "medium" | "low") => {
-    setChannels(channels.map((channel) => (channel.id === id ? { ...channel, priority } : channel)))
-  }
+  const handleChannelPriorityChange = (
+    id: string,
+    priority: "high" | "medium" | "low",
+  ) => {
+    setChannels(
+      channels.map((channel) =>
+        channel.id === id ? { ...channel, priority } : channel,
+      ),
+    );
+  };
 
-  const handleQuietHoursChange = (id: string, field: "from" | "to", value: string) => {
+  const handleQuietHoursChange = (
+    id: string,
+    field: "from" | "to",
+    value: string,
+  ) => {
     setChannels(
       channels.map((channel) => {
         if (channel.id === id) {
@@ -244,62 +269,64 @@ const NotificationCenter = () => {
               ...channel.quiet,
               [field]: value,
             },
-          }
+          };
         }
-        return channel
+        return channel;
       }),
-    )
-  }
+    );
+  };
 
   const handleSettingChange = (setting: string, value: any) => {
     setSettings({
       ...settings,
       [setting]: value,
-    })
-  }
+    });
+  };
 
   const handleSaveSettings = async () => {
-    setLoading(true)
+    setLoading(true);
     // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setLoading(false)
-  }
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    setLoading(false);
+  };
 
   const getFilteredNotifications = () => {
-    let filtered = [...notifications]
+    let filtered = [...notifications];
 
     if (filter === "unread") {
-      filtered = filtered.filter((notif) => !notif.read)
+      filtered = filtered.filter((notif) => !notif.read);
     } else if (filter !== "all") {
-      filtered = filtered.filter((notif) => notif.type === filter)
+      filtered = filtered.filter((notif) => notif.type === filter);
     }
 
     if (searchQuery) {
-      const query = searchQuery.toLowerCase()
+      const query = searchQuery.toLowerCase();
       filtered = filtered.filter(
-        (notif) => notif.title.toLowerCase().includes(query) || notif.description.toLowerCase().includes(query),
-      )
+        (notif) =>
+          notif.title.toLowerCase().includes(query) ||
+          notif.description.toLowerCase().includes(query),
+      );
     }
 
-    return filtered
-  }
+    return filtered;
+  };
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
       case "message":
-        return <MessageSquare className="h-5 w-5 text-blue-500" />
+        return <MessageSquare className="h-5 w-5 text-blue-500" />;
       case "alert":
-        return <AlertTriangle className="h-5 w-5 text-red-500" />
+        return <AlertTriangle className="h-5 w-5 text-red-500" />;
       case "info":
-        return <Info className="h-5 w-5 text-purple-500" />
+        return <Info className="h-5 w-5 text-purple-500" />;
       case "calendar":
-        return <Calendar className="h-5 w-5 text-green-500" />
+        return <Calendar className="h-5 w-5 text-green-500" />;
       case "success":
-        return <CheckCircle className="h-5 w-5 text-green-500" />
+        return <CheckCircle className="h-5 w-5 text-green-500" />;
       default:
-        return <Bell className="h-5 w-5 text-gray-500" />
+        return <Bell className="h-5 w-5 text-gray-500" />;
     }
-  }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -310,7 +337,7 @@ const NotificationCenter = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -319,23 +346,23 @@ const NotificationCenter = () => {
       opacity: 1,
       transition: { type: "spring", stiffness: 100 },
     },
-  }
+  };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 rounded-xl shadow-lg bg-white">
+    <div className="mx-auto w-full max-w-6xl rounded-xl bg-white p-6 shadow-lg">
       <motion.div
-        className="flex justify-between items-center mb-8"
+        className="mb-8 flex items-center justify-between"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="text-3xl font-bold flex items-center gap-2">
+        <h1 className="flex items-center gap-2 text-3xl font-bold">
           <Bell className="h-7 w-7 text-blue-500" />
           Notification Center
         </h1>
 
         <motion.button
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50"
+          className="flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           disabled={loading}
@@ -356,8 +383,11 @@ const NotificationCenter = () => {
       </motion.div>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid grid-cols-3 mb-8">
-          <TabsTrigger value="notifications" className="flex items-center gap-2">
+        <TabsList className="mb-8 grid grid-cols-3">
+          <TabsTrigger
+            value="notifications"
+            className="flex items-center gap-2"
+          >
             <Bell className="h-4 w-4" />
             <span>Notifications</span>
           </TabsTrigger>
@@ -372,17 +402,25 @@ const NotificationCenter = () => {
         </TabsList>
 
         <TabsContent value="notifications">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6">
-            <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-between gap-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-6"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col justify-between gap-4 md:flex-row"
+            >
               <div className="flex items-center gap-2">
                 <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400" />
                   <input
                     type="text"
                     placeholder="Search notifications..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-4 py-2 border rounded-md w-full md:w-64"
+                    className="w-full rounded-md border py-2 pl-10 pr-4 md:w-64"
                   />
                 </div>
 
@@ -407,13 +445,13 @@ const NotificationCenter = () => {
 
               <div className="flex items-center gap-2">
                 <button
-                  className="px-3 py-1.5 text-sm border border-blue-500 text-blue-500 rounded-md hover:bg-blue-50"
+                  className="rounded-md border border-blue-500 px-3 py-1.5 text-sm text-blue-500 hover:bg-blue-50"
                   onClick={handleMarkAllAsRead}
                 >
                   Mark all as read
                 </button>
                 <button
-                  className="px-3 py-1.5 text-sm border border-red-500 text-red-500 rounded-md hover:bg-red-50"
+                  className="rounded-md border border-red-500 px-3 py-1.5 text-sm text-red-500 hover:bg-red-50"
                   onClick={handleClearAll}
                 >
                   Clear all
@@ -426,20 +464,28 @@ const NotificationCenter = () => {
                 getFilteredNotifications().map((notification) => (
                   <motion.div
                     key={notification.id}
-                    className={`p-4 border rounded-lg ${notification.read ? "bg-white" : "bg-blue-50 border-blue-200"}`}
+                    className={`rounded-lg border p-4 ${notification.read ? "bg-white" : "border-blue-200 bg-blue-50"}`}
                     whileHover={{ scale: 1.01 }}
                     layout
                   >
                     <div className="flex items-start gap-3">
-                      <div className="mt-1">{getNotificationIcon(notification.type)}</div>
+                      <div className="mt-1">
+                        {getNotificationIcon(notification.type)}
+                      </div>
                       <div className="flex-1">
                         <div className="flex justify-between">
-                          <h3 className={`font-medium ${notification.read ? "" : "font-semibold"}`}>
+                          <h3
+                            className={`font-medium ${notification.read ? "" : "font-semibold"}`}
+                          >
                             {notification.title}
                           </h3>
-                          <span className="text-xs text-gray-500">{notification.time}</span>
+                          <span className="text-xs text-gray-500">
+                            {notification.time}
+                          </span>
                         </div>
-                        <p className="text-sm text-gray-600 mt-1">{notification.description}</p>
+                        <p className="mt-1 text-sm text-gray-600">
+                          {notification.description}
+                        </p>
                       </div>
                       <div className="flex items-center gap-2">
                         {!notification.read && (
@@ -451,7 +497,9 @@ const NotificationCenter = () => {
                           </button>
                         )}
                         <button
-                          onClick={() => handleDeleteNotification(notification.id)}
+                          onClick={() =>
+                            handleDeleteNotification(notification.id)
+                          }
                           className="text-red-500 hover:text-red-700"
                         >
                           <Trash2 className="h-5 w-5" />
@@ -461,11 +509,15 @@ const NotificationCenter = () => {
                   </motion.div>
                 ))
               ) : (
-                <div className="text-center py-8">
-                  <BellOff className="h-12 w-12 mx-auto text-gray-300 mb-3" />
-                  <h3 className="text-lg font-medium text-gray-500">No notifications found</h3>
+                <div className="py-8 text-center">
+                  <BellOff className="mx-auto mb-3 h-12 w-12 text-gray-300" />
+                  <h3 className="text-lg font-medium text-gray-500">
+                    No notifications found
+                  </h3>
                   <p className="text-gray-400">
-                    {searchQuery || filter !== "all" ? "Try changing your search or filter" : "You're all caught up!"}
+                    {searchQuery || filter !== "all"
+                      ? "Try changing your search or filter"
+                      : "You&apos;re all caught up!"}
                   </p>
                 </div>
               )}
@@ -474,26 +526,35 @@ const NotificationCenter = () => {
         </TabsContent>
 
         <TabsContent value="channels">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-6"
+          >
             <motion.div variants={itemVariants} className="space-y-4">
               {channels.map((channel) => (
                 <motion.div
                   key={channel.id}
-                  className="border rounded-lg overflow-hidden"
+                  className="overflow-hidden rounded-lg border"
                   whileHover={{ scale: 1.01 }}
                   layout
                 >
                   <div
-                    className={`p-4 flex items-center justify-between cursor-pointer ${channel.enabled ? "" : "opacity-60"}`}
-                    onClick={() => setExpandedChannel(expandedChannel === channel.id ? null : channel.id)}
+                    className={`flex cursor-pointer items-center justify-between p-4 ${channel.enabled ? "" : "opacity-60"}`}
+                    onClick={() =>
+                      setExpandedChannel(
+                        expandedChannel === channel.id ? null : channel.id,
+                      )
+                    }
                   >
                     <div className="flex items-center gap-3">
                       {channel.icon}
                       <div>
                         <h3 className="font-medium">{channel.name}</h3>
-                        <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
+                        <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
                           <span
-                            className={`px-2 py-0.5 rounded-full ${
+                            className={`rounded-full px-2 py-0.5 ${
                               channel.priority === "high"
                                 ? "bg-red-100 text-red-700"
                                 : channel.priority === "medium"
@@ -501,13 +562,16 @@ const NotificationCenter = () => {
                                   : "bg-green-100 text-green-700"
                             }`}
                           >
-                            {channel.priority.charAt(0).toUpperCase() + channel.priority.slice(1)}
+                            {channel.priority.charAt(0).toUpperCase() +
+                              channel.priority.slice(1)}
                           </span>
                           {channel.desktop && <Laptop className="h-3 w-3" />}
                           {channel.mobile && <Smartphone className="h-3 w-3" />}
                           {channel.email && <Mail className="h-3 w-3" />}
                           {channel.sound && <span>🔊</span>}
-                          {channel.quiet.enabled && <Clock className="h-3 w-3" />}
+                          {channel.quiet.enabled && (
+                            <Clock className="h-3 w-3" />
+                          )}
                         </div>
                       </div>
                     </div>
@@ -530,11 +594,13 @@ const NotificationCenter = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="border-t p-4 bg-gray-50"
+                      className="border-t bg-gray-50 p-4"
                     >
                       <div className="space-y-4">
                         <div>
-                          <label className="block text-sm font-medium mb-2">Priority Level</label>
+                          <label className="mb-2 block text-sm font-medium">
+                            Priority Level
+                          </label>
                           <Select
                             value={channel.priority}
                             onValueChange={(value: "high" | "medium" | "low") =>
@@ -552,9 +618,11 @@ const NotificationCenter = () => {
                           </Select>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                           <div className="space-y-3">
-                            <h4 className="text-sm font-medium">Delivery Methods</h4>
+                            <h4 className="text-sm font-medium">
+                              Delivery Methods
+                            </h4>
 
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
@@ -563,7 +631,12 @@ const NotificationCenter = () => {
                               </div>
                               <Switch
                                 checked={channel.desktop}
-                                onCheckedChange={() => handleChannelSettingToggle(channel.id, "desktop")}
+                                onCheckedChange={() =>
+                                  handleChannelSettingToggle(
+                                    channel.id,
+                                    "desktop",
+                                  )
+                                }
                               />
                             </div>
 
@@ -574,7 +647,12 @@ const NotificationCenter = () => {
                               </div>
                               <Switch
                                 checked={channel.mobile}
-                                onCheckedChange={() => handleChannelSettingToggle(channel.id, "mobile")}
+                                onCheckedChange={() =>
+                                  handleChannelSettingToggle(
+                                    channel.id,
+                                    "mobile",
+                                  )
+                                }
                               />
                             </div>
 
@@ -585,7 +663,12 @@ const NotificationCenter = () => {
                               </div>
                               <Switch
                                 checked={channel.email}
-                                onCheckedChange={() => handleChannelSettingToggle(channel.id, "email")}
+                                onCheckedChange={() =>
+                                  handleChannelSettingToggle(
+                                    channel.id,
+                                    "email",
+                                  )
+                                }
                               />
                             </div>
 
@@ -595,38 +678,66 @@ const NotificationCenter = () => {
                               </div>
                               <Switch
                                 checked={channel.sound}
-                                onCheckedChange={() => handleChannelSettingToggle(channel.id, "sound")}
+                                onCheckedChange={() =>
+                                  handleChannelSettingToggle(
+                                    channel.id,
+                                    "sound",
+                                  )
+                                }
                               />
                             </div>
                           </div>
 
                           <div className="space-y-3">
                             <div className="flex items-center justify-between">
-                              <h4 className="text-sm font-medium">Quiet Hours</h4>
+                              <h4 className="text-sm font-medium">
+                                Quiet Hours
+                              </h4>
                               <Switch
                                 checked={channel.quiet.enabled}
-                                onCheckedChange={() => handleChannelSettingToggle(channel.id, "quiet.enabled")}
+                                onCheckedChange={() =>
+                                  handleChannelSettingToggle(
+                                    channel.id,
+                                    "quiet.enabled",
+                                  )
+                                }
                               />
                             </div>
 
                             {channel.quiet.enabled && (
-                              <div className="grid grid-cols-2 gap-3 mt-2">
+                              <div className="mt-2 grid grid-cols-2 gap-3">
                                 <div>
-                                  <label className="block text-xs text-gray-500 mb-1">From</label>
+                                  <label className="mb-1 block text-xs text-gray-500">
+                                    From
+                                  </label>
                                   <input
                                     type="time"
                                     value={channel.quiet.from}
-                                    onChange={(e) => handleQuietHoursChange(channel.id, "from", e.target.value)}
-                                    className="w-full p-2 border rounded-md"
+                                    onChange={(e) =>
+                                      handleQuietHoursChange(
+                                        channel.id,
+                                        "from",
+                                        e.target.value,
+                                      )
+                                    }
+                                    className="w-full rounded-md border p-2"
                                   />
                                 </div>
                                 <div>
-                                  <label className="block text-xs text-gray-500 mb-1">To</label>
+                                  <label className="mb-1 block text-xs text-gray-500">
+                                    To
+                                  </label>
                                   <input
                                     type="time"
                                     value={channel.quiet.to}
-                                    onChange={(e) => handleQuietHoursChange(channel.id, "to", e.target.value)}
-                                    className="w-full p-2 border rounded-md"
+                                    onChange={(e) =>
+                                      handleQuietHoursChange(
+                                        channel.id,
+                                        "to",
+                                        e.target.value,
+                                      )
+                                    }
+                                    className="w-full rounded-md border p-2"
                                   />
                                 </div>
                               </div>
@@ -643,7 +754,12 @@ const NotificationCenter = () => {
         </TabsContent>
 
         <TabsContent value="preferences">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-8"
+          >
             <motion.div variants={itemVariants} className="space-y-6">
               <h3 className="text-xl font-semibold">General Settings</h3>
 
@@ -655,7 +771,9 @@ const NotificationCenter = () => {
                   </div>
                   <Switch
                     checked={settings.globalMute}
-                    onCheckedChange={(checked) => handleSettingChange("globalMute", checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("globalMute", checked)
+                    }
                   />
                 </div>
 
@@ -666,7 +784,9 @@ const NotificationCenter = () => {
                   </div>
                   <Switch
                     checked={settings.batchNotifications}
-                    onCheckedChange={(checked) => handleSettingChange("batchNotifications", checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("batchNotifications", checked)
+                    }
                   />
                 </div>
 
@@ -677,7 +797,9 @@ const NotificationCenter = () => {
                   </div>
                   <Switch
                     checked={settings.showBadges}
-                    onCheckedChange={(checked) => handleSettingChange("showBadges", checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("showBadges", checked)
+                    }
                   />
                 </div>
 
@@ -688,7 +810,9 @@ const NotificationCenter = () => {
                   </div>
                   <Switch
                     checked={settings.showPreview}
-                    onCheckedChange={(checked) => handleSettingChange("showPreview", checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("showPreview", checked)
+                    }
                   />
                 </div>
               </div>
@@ -698,16 +822,22 @@ const NotificationCenter = () => {
               <h3 className="text-xl font-semibold">Sound & Volume</h3>
 
               <div>
-                <div className="flex justify-between items-center mb-2">
-                  <label className="text-sm font-medium">Notification Volume</label>
-                  <span className="text-sm">{settings.notificationVolume[0]}%</span>
+                <div className="mb-2 flex items-center justify-between">
+                  <label className="text-sm font-medium">
+                    Notification Volume
+                  </label>
+                  <span className="text-sm">
+                    {settings.notificationVolume[0]}%
+                  </span>
                 </div>
                 <Slider
                   value={settings.notificationVolume}
                   min={0}
                   max={100}
                   step={1}
-                  onValueChange={(value) => handleSettingChange("notificationVolume", value)}
+                  onValueChange={(value) =>
+                    handleSettingChange("notificationVolume", value)
+                  }
                 />
               </div>
             </motion.div>
@@ -716,10 +846,14 @@ const NotificationCenter = () => {
               <h3 className="text-xl font-semibold">Storage</h3>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Delete Notifications After</label>
+                <label className="mb-2 block text-sm font-medium">
+                  Delete Notifications After
+                </label>
                 <Select
                   value={settings.deleteAfter}
-                  onValueChange={(value) => handleSettingChange("deleteAfter", value)}
+                  onValueChange={(value) =>
+                    handleSettingChange("deleteAfter", value)
+                  }
                 >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select time period" />
@@ -738,8 +872,7 @@ const NotificationCenter = () => {
         </TabsContent>
       </Tabs>
     </div>
-  )
-}
+  );
+};
 
-export default NotificationCenter
-
+export default NotificationCenter;

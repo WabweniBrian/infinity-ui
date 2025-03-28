@@ -64,7 +64,7 @@ const QuizNewsletter = () => {
     {
       id: "complete",
       title: "Your personalized newsletter is ready!",
-      description: "We've tailored our content based on your preferences",
+      description: "We&apos;ve tailored our content based on your preferences",
       type: "complete",
     },
   ];

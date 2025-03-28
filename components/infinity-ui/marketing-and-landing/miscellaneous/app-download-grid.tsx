@@ -26,7 +26,7 @@ const AppDownloadGrid = () => {
     {
       title: "Seamless Sync",
       description:
-        "Your data syncs across all devices, so you're always up to date.",
+        "Your data syncs across all devices, so you&apos;re always up to date.",
       icon: "🔄",
     },
     {

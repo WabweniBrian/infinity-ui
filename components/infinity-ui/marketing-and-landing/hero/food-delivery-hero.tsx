@@ -334,7 +334,10 @@ const FoodDeliveryHero = () => {
                         >
                           <div className="relative mb-3 h-[150px] w-full overflow-hidden rounded-lg">
                             <Image
-                              src={dish.image || "/default-image.jpg"}
+                              src={
+                                dish.image ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt={dish.name}
                               fill
                               className="object-cover transition-all duration-700 hover:scale-110"

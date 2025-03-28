@@ -285,7 +285,8 @@ const MegaMenuNavbar = () => {
                                       src={
                                         megaMenus[
                                           activeMegaMenu as keyof typeof megaMenus
-                                        ].featured.image || "/default-image.jpg"
+                                        ].featured.image ||
+                                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                                       }
                                       alt="Featured"
                                       width={200}

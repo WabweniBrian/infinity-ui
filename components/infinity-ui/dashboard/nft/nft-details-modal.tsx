@@ -71,7 +71,10 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
 
                   <div className="relative overflow-hidden rounded-xl border border-slate-700/50">
                     <Image
-                      src={nft.image || "/default-image.jpg"}
+                      src={
+                        nft.image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                      }
                       alt={nft.name}
                       fill
                       className="object-cover"
@@ -82,7 +85,10 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
                   <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-slate-700/50 bg-slate-900/80 px-3 py-1.5 backdrop-blur-sm">
                     <div className="relative h-5 w-5 overflow-hidden rounded-full">
                       <Image
-                        src={nft.collectionImage || "/default-image.jpg"}
+                        src={
+                          nft.collectionImage ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={nft.collection!}
                         fill
                         className="object-cover"
@@ -136,7 +142,10 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
                       <div className="flex items-center gap-2">
                         <div className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-white">
                           <Image
-                            src={nft.creatorAvatar || "/default-image.jpg"}
+                            src={
+                              nft.creatorAvatar ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={nft.creator}
                             fill
                             className="object-cover"
@@ -157,7 +166,10 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
                       <div className="flex items-center gap-2">
                         <div className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-white">
                           <Image
-                            src={nft.ownerAvatar || "/default-image.jpg"}
+                            src={
+                              nft.ownerAvatar ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={nft.owner!}
                             fill
                             className="object-cover"

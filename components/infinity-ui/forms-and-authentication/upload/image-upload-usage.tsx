@@ -10,7 +10,7 @@ const ImageUploadUsage = () => {
   const handleImageUpload = async (imagesToUpload: File[]) => {
     console.log("Simulating upload to server:", imagesToUpload);
     // Here you would typically send the images to your server
-    // For this example, we'll just simulate a delay
+    // For this example, we&apos;ll just simulate a delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log("Upload complete");
     // Clear images after upload

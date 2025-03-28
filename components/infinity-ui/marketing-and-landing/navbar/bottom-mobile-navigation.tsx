@@ -279,7 +279,10 @@ const BottomMobileNavigation = () => {
                           className="flex items-center rounded-lg bg-gray-50 p-3"
                         >
                           <Image
-                            src={item.image || "/default-image.jpg"}
+                            src={
+                              item.image ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={item.name}
                             width={80}
                             height={80}
@@ -332,7 +335,10 @@ const BottomMobileNavigation = () => {
                             className="flex items-center rounded-lg bg-gray-50 p-3"
                           >
                             <Image
-                              src={item.image || "/default-image.jpg"}
+                              src={
+                                item.image ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt={item.name}
                               width={80}
                               height={80}

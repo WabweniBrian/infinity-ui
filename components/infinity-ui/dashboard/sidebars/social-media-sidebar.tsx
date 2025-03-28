@@ -382,7 +382,10 @@ const SocialMediaSidebar = () => {
                       >
                         <div className="flex items-center">
                           <Image
-                            src={friend.avatar || "/placeholder.svg"}
+                            src={
+                              friend.avatar ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={friend.name}
                             width={32}
                             height={32}

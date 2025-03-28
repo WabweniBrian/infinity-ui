@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useRef } from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Sparkles, Zap, Palette, Cpu, Rocket } from "lucide-react"
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Sparkles, Zap, Palette, Cpu, Rocket } from "lucide-react";
 
 type Step = {
-  id: number
-  title: string
-  description: string
-  icon: React.ReactNode
-  color: string
-}
+  id: number;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+};
 
 const steps: Step[] = [
   {
@@ -42,7 +42,8 @@ const steps: Step[] = [
   {
     id: 4,
     title: "Build",
-    description: "Our developers bring designs to life using cutting-edge technologies and best coding practices.",
+    description:
+      "Our developers bring designs to life using cutting-edge technologies and best coding practices.",
     icon: <Cpu className="h-6 w-6" />,
     color: "teal",
   },
@@ -54,47 +55,52 @@ const steps: Step[] = [
     icon: <Rocket className="h-6 w-6" />,
     color: "pink",
   },
-]
+];
 
 const LiquidBlobSteps = () => {
-  const [activeStep, setActiveStep] = useState(1)
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
+  const [activeStep, setActiveStep] = useState(1);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
 
   const handleStepClick = (id: number) => {
-    setActiveStep(id)
-  }
+    setActiveStep(id);
+  };
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24"
+    >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         <motion.div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-purple-50 to-blue-50 -translate-y-1/3 translate-x-1/3"
+          className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-purple-50 to-blue-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         />
 
         <motion.div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-amber-50 to-pink-50 translate-y-1/3 -translate-x-1/4"
+          className="absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/4 translate-y-1/3 rounded-full bg-gradient-to-tr from-amber-50 to-pink-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         />
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Our Creative Flow</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+            Our Creative Flow
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
             A fluid process that adapts to your unique project needs
           </p>
         </motion.div>
@@ -163,7 +169,7 @@ const LiquidBlobSteps = () => {
 
                     {/* Main blob */}
                     <motion.div
-                      className={`relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center ${
+                      className={`relative flex h-24 w-24 items-center justify-center md:h-32 md:w-32 ${
                         activeStep === step.id ? "scale-110" : "scale-100"
                       } transition-transform duration-300`}
                       animate={{
@@ -195,13 +201,17 @@ const LiquidBlobSteps = () => {
                       }}
                     >
                       <div
-                        className={`text-white flex flex-col items-center justify-center ${
+                        className={`flex flex-col items-center justify-center text-white ${
                           activeStep === step.id ? "scale-100" : "scale-90"
                         } transition-transform duration-300`}
                       >
                         <div className="mb-1">{step.icon}</div>
-                        <span className="font-medium text-sm md:text-base text-center">{step.title}</span>
-                        <span className="text-xs md:text-sm font-medium">Step {step.id}</span>
+                        <span className="text-center text-sm font-medium md:text-base">
+                          {step.title}
+                        </span>
+                        <span className="text-xs font-medium md:text-sm">
+                          Step {step.id}
+                        </span>
                       </div>
                     </motion.div>
                   </div>
@@ -209,7 +219,7 @@ const LiquidBlobSteps = () => {
 
                 {/* Connecting liquid line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 left-full h-1 bg-gradient-to-r from-gray-200 to-transparent -translate-y-1/2 w-8" />
+                  <div className="absolute left-full top-1/2 hidden h-1 w-8 -translate-y-1/2 bg-gradient-to-r from-gray-200 to-transparent md:block" />
                 )}
               </motion.div>
             ))}
@@ -217,10 +227,10 @@ const LiquidBlobSteps = () => {
         </motion.div>
 
         {/* Step content */}
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl">
           <AnimatePresence mode="wait">
             {steps.map((step) => {
-              if (step.id !== activeStep) return null
+              if (step.id !== activeStep) return null;
 
               return (
                 <motion.div
@@ -232,13 +242,13 @@ const LiquidBlobSteps = () => {
                   className="group"
                 >
                   <div className="relative">
-                    <div className="absolute -inset-4 rounded-[60%_40%_40%_60%/40%_50%_50%_60%] bg-gradient-to-r from-gray-100 to-white -z-10" />
+                    <div className="absolute -inset-4 -z-10 rounded-[60%_40%_40%_60%/40%_50%_50%_60%] bg-gradient-to-r from-gray-100 to-white" />
 
-                    <div className="relative rounded-xl overflow-hidden">
-                      <div className="relative bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 shadow-sm">
-                        <div className="flex items-center mb-6">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <div className="relative rounded-xl border border-gray-100 bg-white/80 p-8 shadow-sm backdrop-blur-sm">
+                        <div className="mb-6 flex items-center">
                           <div
-                            className={`p-3 rounded-full mr-4 ${
+                            className={`mr-4 rounded-full p-3 ${
                               step.color === "amber"
                                 ? "bg-amber-100 text-amber-500"
                                 : step.color === "purple"
@@ -252,15 +262,23 @@ const LiquidBlobSteps = () => {
                           >
                             {step.icon}
                           </div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-gray-900">{step.title}</h3>
+                          <h3 className="text-2xl font-bold text-gray-900 md:text-3xl">
+                            {step.title}
+                          </h3>
                         </div>
 
-                        <p className="text-gray-600 mb-6 text-lg">{step.description}</p>
+                        <p className="mb-6 text-lg text-gray-600">
+                          {step.description}
+                        </p>
 
                         <div className="flex flex-wrap gap-4">
                           <button
-                            onClick={() => handleStepClick(step.id === 1 ? steps.length : step.id - 1)}
-                            className="px-5 py-2 border border-gray-200 rounded-full text-gray-700 flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                            onClick={() =>
+                              handleStepClick(
+                                step.id === 1 ? steps.length : step.id - 1,
+                              )
+                            }
+                            className="flex items-center gap-2 rounded-full border border-gray-200 px-5 py-2 text-gray-700 transition-colors hover:bg-gray-50"
                           >
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -281,8 +299,12 @@ const LiquidBlobSteps = () => {
                           </button>
 
                           <button
-                            onClick={() => handleStepClick(step.id === steps.length ? 1 : step.id + 1)}
-                            className={`px-5 py-2 rounded-full text-white flex items-center gap-2 transition-colors ${
+                            onClick={() =>
+                              handleStepClick(
+                                step.id === steps.length ? 1 : step.id + 1,
+                              )
+                            }
+                            className={`flex items-center gap-2 rounded-full px-5 py-2 text-white transition-colors ${
                               step.color === "amber"
                                 ? "bg-gradient-to-r from-amber-400 to-amber-500"
                                 : step.color === "purple"
@@ -315,14 +337,13 @@ const LiquidBlobSteps = () => {
                     </div>
                   </div>
                 </motion.div>
-              )
+              );
             })}
           </AnimatePresence>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default LiquidBlobSteps
-
+export default LiquidBlobSteps;

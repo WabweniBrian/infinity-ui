@@ -37,7 +37,8 @@ const ProductComparisonTable = () => {
     {
       id: "product1",
       name: "Premium Pro X",
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       price: 1299,
       rating: 4.8,
       recommended: true,
@@ -48,7 +49,8 @@ const ProductComparisonTable = () => {
     {
       id: "product2",
       name: "Advanced Plus",
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       price: 899,
       rating: 4.5,
       recommended: false,
@@ -59,7 +61,8 @@ const ProductComparisonTable = () => {
     {
       id: "product3",
       name: "Essential",
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       price: 599,
       rating: 4.2,
       recommended: false,
@@ -69,7 +72,8 @@ const ProductComparisonTable = () => {
     {
       id: "product4",
       name: "Budget Friendly",
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       price: 399,
       rating: 3.9,
       recommended: false,
@@ -341,7 +345,10 @@ const ProductComparisonTable = () => {
                         className={`mb-3 h-1 w-full rounded-full ${product.color}`}
                       ></div>
                       <Image
-                        src={product.image || "/default-image.jpg"}
+                        src={
+                          product.image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={product.name}
                         width={64}
                         height={64}

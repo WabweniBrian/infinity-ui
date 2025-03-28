@@ -340,7 +340,10 @@ const RealEstateHero = () => {
                   >
                     <div className="relative h-48 w-full overflow-hidden rounded-t-2xl">
                       <Image
-                        src={property.image || "/default-image.jpg"}
+                        src={
+                          property.image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={property.title}
                         fill
                         className="object-cover transition-all duration-700 hover:scale-110"

@@ -41,7 +41,7 @@ const VideoBackgroundNewsletter = () => {
           loop
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
-          poster="/default-image.jpg"
+          poster="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
         >
           <source
             src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQxzTjtG1kacO0NKLwDbdX3BsVMlQynx9U58R"

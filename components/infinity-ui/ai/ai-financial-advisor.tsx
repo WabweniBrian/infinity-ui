@@ -137,7 +137,8 @@ type View =
 const user: User = {
   name: "Wabweni Brian",
   email: "wabweni@example.com",
-  avatar: "/images/default-avatar.png",
+  avatar:
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   plan: "premium",
 };
 
@@ -400,7 +401,7 @@ const aiRecommendations: AIRecommendation[] = [
     id: "4",
     title: "Shopping Budget Alert",
     description:
-      "You've exceeded your shopping budget by $112.80 this month. Review recent purchases and adjust next month's budget if needed.",
+      "You&apos;ve exceeded your shopping budget by $112.80 this month. Review recent purchases and adjust next month's budget if needed.",
     type: "budget",
     impact: "low",
     actionable: true,
@@ -426,7 +427,7 @@ const insightCards: InsightCard[] = [
   {
     id: "3",
     title: "Savings Rate",
-    description: "You're saving 22% of your income",
+    description: "You&apos;re saving 22% of your income",
     icon: <PieChart size={20} />,
     color: "#8b5cf6",
   },
@@ -613,7 +614,10 @@ const AIFinancialAdvisor = () => {
             <div className="mb-6 flex items-center">
               <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-indigo-600 to-violet-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}
@@ -2779,7 +2783,10 @@ const AIFinancialAdvisor = () => {
             <div className="flex items-center">
               <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-indigo-600 to-violet-600">
                 <Image
-                  src={user.avatar || "/placeholder.svg"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}

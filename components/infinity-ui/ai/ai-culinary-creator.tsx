@@ -266,7 +266,8 @@ const AICulinaryCreator = () => {
             time: 0,
           },
         ],
-        image: "/default-image.jpg",
+        image:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         saved: true,
         rating: 4.5,
       },
@@ -384,7 +385,8 @@ const AICulinaryCreator = () => {
           },
           { id: "step-15", text: "Serve hot with steamed rice.", time: 0 },
         ],
-        image: "/default-image.jpg",
+        image:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         saved: true,
         rating: 4.8,
       },
@@ -750,7 +752,8 @@ const AICulinaryCreator = () => {
       dietaryInfo: selectedDiets.map((diet) => diet.toLowerCase()),
       ingredients: newIngredients,
       steps: newSteps,
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       saved: false,
     };
 
@@ -1030,7 +1033,8 @@ const AICulinaryCreator = () => {
                               <div className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
                                 <Image
                                   src={
-                                    currentRecipe.image || "/default-image.jpg"
+                                    currentRecipe.image ||
+                                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                                   }
                                   alt={currentRecipe.name}
                                   width={192}
@@ -1704,7 +1708,10 @@ const AICulinaryCreator = () => {
                               <div className="flex items-start gap-3">
                                 <div className="relative h-16 w-16 overflow-hidden rounded-md">
                                   <Image
-                                    src={recipe.image || "/default-image.jpg"}
+                                    src={
+                                      recipe.image ||
+                                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                                    }
                                     alt={recipe.name}
                                     fill
                                     className="h-full w-full object-cover"

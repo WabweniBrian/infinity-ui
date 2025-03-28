@@ -46,7 +46,7 @@ const menuSections: MenuSection[] = [
         id: 2,
         question: "What are your hours of operation?",
         answer:
-          "We're open Tuesday through Sunday. Lunch is served from 11:30 AM to 2:30 PM, and dinner from 5:30 PM to 10:00 PM (11:00 PM on Friday and Saturday). Our bar remains open until midnight on weekends. We're closed on Mondays for staff rest and restaurant maintenance. During major holidays, we often offer special hours and prix fixe menus, which are announced on our website and social media channels.",
+          "We&apos;re open Tuesday through Sunday. Lunch is served from 11:30 AM to 2:30 PM, and dinner from 5:30 PM to 10:00 PM (11:00 PM on Friday and Saturday). Our bar remains open until midnight on weekends. We&apos;re closed on Mondays for staff rest and restaurant maintenance. During major holidays, we often offer special hours and prix fixe menus, which are announced on our website and social media channels.",
         icon: <Clock className="h-5 w-5" />,
       },
     ],
@@ -60,14 +60,14 @@ const menuSections: MenuSection[] = [
         id: 3,
         question: "Do I need a reservation?",
         answer:
-          "While we do accept walk-ins, reservations are highly recommended, especially for dinner service and weekends when we're typically at full capacity. You can make reservations up to 60 days in advance through our website, by phone, or using OpenTable. For parties of 8 or more, we require a reservation with a credit card to hold your table. We hold reserved tables for 15 minutes past the reservation time before releasing them to waiting guests.",
+          "While we do accept walk-ins, reservations are highly recommended, especially for dinner service and weekends when we&apos;re typically at full capacity. You can make reservations up to 60 days in advance through our website, by phone, or using OpenTable. For parties of 8 or more, we require a reservation with a credit card to hold your table. We hold reserved tables for 15 minutes past the reservation time before releasing them to waiting guests.",
         icon: <Clock className="h-5 w-5" />,
       },
       {
         id: 4,
         question: "Do you have outdoor seating?",
         answer:
-          "Yes, we offer a beautiful outdoor patio that seats up to 40 guests. The patio is open seasonally from May through October, weather permitting, and features heaters for cooler evenings. Patio seating is available on a first-come, first-served basis and cannot be specifically reserved. However, you can request outdoor seating when you arrive, and we'll accommodate your preference if possible. The patio is partially covered to provide shade during lunch service.",
+          "Yes, we offer a beautiful outdoor patio that seats up to 40 guests. The patio is open seasonally from May through October, weather permitting, and features heaters for cooler evenings. Patio seating is available on a first-come, first-served basis and cannot be specifically reserved. However, you can request outdoor seating when you arrive, and we&apos;ll accommodate your preference if possible. The patio is partially covered to provide shade during lunch service.",
         icon: <Users className="h-5 w-5" />,
       },
     ],
@@ -154,7 +154,7 @@ const FoodFAQ = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-[url('/placeholder.svg?height=800&width=1200')] bg-cover bg-fixed bg-center py-24"
+      className="relative overflow-hidden bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=800&width=1200')] bg-cover bg-fixed bg-center py-24"
       ref={sectionRef}
     >
       {/* Overlay */}

@@ -469,7 +469,10 @@ const HealthcareHero = () => {
                         >
                           <div className="h-12 w-12 overflow-hidden rounded-full">
                             <Image
-                              src={doctor.image || "/default-image.jpg"}
+                              src={
+                                doctor.image ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt={doctor.name}
                               width={48}
                               height={48}

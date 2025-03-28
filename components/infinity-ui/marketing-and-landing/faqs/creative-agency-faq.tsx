@@ -42,14 +42,14 @@ const faqData: FAQItem[] = [
     id: 3,
     question: "How long does a typical project take?",
     answer:
-      "Project timelines vary based on scope and complexity. A brand identity project typically takes 4-8 weeks, website design and development 8-12 weeks, and marketing campaigns 4-6 weeks for initial launch. During our initial consultation, we'll provide a detailed timeline specific to your project needs. We pride ourselves on meeting deadlines while maintaining the highest quality standards.",
+      "Project timelines vary based on scope and complexity. A brand identity project typically takes 4-8 weeks, website design and development 8-12 weeks, and marketing campaigns 4-6 weeks for initial launch. During our initial consultation, we&apos;ll provide a detailed timeline specific to your project needs. We pride ourselves on meeting deadlines while maintaining the highest quality standards.",
     icon: <Clock className="h-6 w-6" />,
   },
   {
     id: 4,
     question: "How do you price your services?",
     answer:
-      "We offer both project-based and retainer pricing models. Project-based pricing is determined by scope, complexity, and timeline. Retainer arrangements are ideal for ongoing services like marketing and maintenance. We provide detailed proposals with transparent pricing before any project begins. While we're not the cheapest option, our clients find exceptional value in our strategic approach and quality of execution.",
+      "We offer both project-based and retainer pricing models. Project-based pricing is determined by scope, complexity, and timeline. Retainer arrangements are ideal for ongoing services like marketing and maintenance. We provide detailed proposals with transparent pricing before any project begins. While we&apos;re not the cheapest option, our clients find exceptional value in our strategic approach and quality of execution.",
     icon: <Zap className="h-6 w-6" />,
   },
   {
@@ -63,7 +63,7 @@ const faqData: FAQItem[] = [
     id: 6,
     question: "What makes your agency different?",
     answer:
-      "What sets us apart is our strategic approach to creativity. We don't just create beautiful designs; we develop solutions that drive business results. Our team combines deep expertise across disciplines with a collaborative process that ensures all work is purposeful and impactful. We pride ourselves on building long-term partnerships with clients, becoming an extension of their team rather than just a vendor.",
+      "What sets us apart is our strategic approach to creativity. We don&apos;t just create beautiful designs; we develop solutions that drive business results. Our team combines deep expertise across disciplines with a collaborative process that ensures all work is purposeful and impactful. We pride ourselves on building long-term partnerships with clients, becoming an extension of their team rather than just a vendor.",
     icon: <Wand2 className="h-6 w-6" />,
   },
 ];

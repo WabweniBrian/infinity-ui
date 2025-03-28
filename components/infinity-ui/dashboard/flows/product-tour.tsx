@@ -40,7 +40,8 @@ const features: FeatureStep[] = [
     title: "Intuitive Dashboard",
     description:
       "Get a bird's-eye view of your entire workflow with our customizable dashboard. Drag and drop widgets to create the perfect layout for your team's needs.",
-    image: "/placeholder.svg?height=600&width=800",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     videoUrl: "",
     highlights: [
       "Real-time data visualization",
@@ -54,7 +55,8 @@ const features: FeatureStep[] = [
     title: "Seamless Collaboration",
     description:
       "Work together in real-time with your team members. Comment, share, and edit documents simultaneously without version conflicts.",
-    image: "/placeholder.svg?height=600&width=800",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     videoUrl: "",
     highlights: ["Real-time co-editing", "Comment threads", "Version history"],
     demoAction: "Add a comment to the document",
@@ -64,7 +66,8 @@ const features: FeatureStep[] = [
     title: "Powerful Automation",
     description:
       "Save time with intelligent automation workflows. Set up triggers and actions to automate repetitive tasks and focus on what matters.",
-    image: "/placeholder.svg?height=600&width=800",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     videoUrl: "",
     highlights: [
       "Visual workflow builder",
@@ -78,7 +81,8 @@ const features: FeatureStep[] = [
     title: "Advanced Analytics",
     description:
       "Make data-driven decisions with our comprehensive analytics suite. Track performance, identify trends, and generate insightful reports.",
-    image: "/placeholder.svg?height=600&width=800",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     videoUrl: "",
     highlights: [
       "Custom report builder",
@@ -92,7 +96,8 @@ const features: FeatureStep[] = [
     title: "Powerful Mobile Experience",
     description:
       "Stay productive on the go with our feature-rich mobile app. Access all your work and collaborate with your team from anywhere.",
-    image: "/placeholder.svg?height=600&width=800",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     videoUrl: "",
     highlights: [
       "Offline mode",
@@ -405,7 +410,10 @@ const InteractiveProductTour = () => {
                   </div>
                 ) : (
                   <Image
-                    src={features[currentStep].image || "/default-image.jpg"}
+                    src={
+                      features[currentStep].image ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={features[currentStep].title}
                     className="h-full w-full object-cover"
                     fill

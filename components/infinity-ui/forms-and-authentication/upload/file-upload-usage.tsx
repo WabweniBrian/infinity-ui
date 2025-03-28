@@ -9,7 +9,7 @@ const FileUploadUsage = () => {
   const handleFileUpload = async (filesToUpload: File[]) => {
     console.log("Simulating upload to S3:", filesToUpload);
     // Here you would typically send the files to your server or directly to S3
-    // For this example, we'll just simulate a delay
+    // For this example, we&apos;ll just simulate a delay
     await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log("Upload complete");
     // Clear files after upload

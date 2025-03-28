@@ -30,7 +30,8 @@ const RealEstateSection = () => {
       sqft: 4200,
       description:
         "Stunning contemporary villa with panoramic ocean views, infinity pool, gourmet kitchen, and smart home technology throughout. Floor-to-ceiling windows showcase breathtaking sunsets from every room.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       features: [
         "Ocean View",
         "Infinity Pool",
@@ -49,7 +50,8 @@ const RealEstateSection = () => {
       sqft: 2800,
       description:
         "Luxurious penthouse in the heart of the city with private rooftop terrace, floor-to-ceiling windows, and designer finishes. Includes 24/7 concierge service and exclusive access to building amenities.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       features: [
         "Rooftop Terrace",
         "Concierge",
@@ -68,7 +70,8 @@ const RealEstateSection = () => {
       sqft: 5800,
       description:
         "Magnificent mountain estate on 15 acres with breathtaking views, custom timber frame construction, and luxury finishes. Features include a gourmet kitchen, wine cellar, and outdoor entertainment areas.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       features: [
         "Mountain View",
         "15 Acres",
@@ -301,7 +304,10 @@ const RealEstateSection = () => {
               >
                 <div className="relative h-48">
                   <Image
-                    src={property.image || "/placeholder.svg"}
+                    src={
+                      property.image ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={property.title}
                     layout="fill"
                     objectFit="cover"
@@ -357,7 +363,8 @@ const RealEstateSection = () => {
                   <div className="relative h-64 lg:h-auto">
                     <Image
                       src={
-                        properties[activeProperty].image || "/placeholder.svg"
+                        properties[activeProperty].image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                       }
                       alt={properties[activeProperty].title}
                       layout="fill"

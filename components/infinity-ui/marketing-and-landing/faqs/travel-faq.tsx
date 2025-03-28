@@ -59,13 +59,13 @@ const destinations: Destination[] = [
         id: 3,
         question: "What vaccinations do I need for traveling to Asia?",
         answer:
-          "Recommended vaccinations for Asia vary by country but often include Hepatitis A and B, Typhoid, Tetanus, and Japanese Encephalitis. Some countries require proof of Yellow Fever vaccination if you're arriving from an endemic area. It's best to consult with a travel medicine specialist 4-8 weeks before your trip for personalized recommendations based on your specific itinerary, planned activities, and medical history.",
+          "Recommended vaccinations for Asia vary by country but often include Hepatitis A and B, Typhoid, Tetanus, and Japanese Encephalitis. Some countries require proof of Yellow Fever vaccination if you&apos;re arriving from an endemic area. It's best to consult with a travel medicine specialist 4-8 weeks before your trip for personalized recommendations based on your specific itinerary, planned activities, and medical history.",
       },
       {
         id: 4,
         question: "How can I navigate language barriers in Asian countries?",
         answer:
-          "To overcome language barriers, download translation apps like Google Translate (with offline language packs) before your trip. Learn basic phrases in the local language—even simple greetings and thank-yous are appreciated. Carry a pocket phrasebook or picture cards for common needs. In tourist areas, many people speak some English, especially younger generations. Consider hiring local guides for deeper cultural experiences, and don't underestimate the power of body language, smiles, and patience in cross-cultural communication.",
+          "To overcome language barriers, download translation apps like Google Translate (with offline language packs) before your trip. Learn basic phrases in the local language—even simple greetings and thank-yous are appreciated. Carry a pocket phrasebook or picture cards for common needs. In tourist areas, many people speak some English, especially younger generations. Consider hiring local guides for deeper cultural experiences, and don&apos;t underestimate the power of body language, smiles, and patience in cross-cultural communication.",
       },
     ],
   },
@@ -160,7 +160,7 @@ const TravelFAQ = () => {
     >
       {/* World map background */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] bg-center bg-no-repeat opacity-20" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=800&width=1200')] bg-center bg-no-repeat opacity-20" />
       </div>
 
       {/* Animated elements */}

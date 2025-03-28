@@ -276,7 +276,10 @@ const EducationPlatformSection = () => {
                 <div className="relative h-48">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                   <Image
-                    src={course.image || "/default-image.jpg"}
+                    src={
+                      course.image ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={course.title}
                     fill
                     className="h-full w-full object-cover"
@@ -403,7 +406,7 @@ const EducationPlatformSection = () => {
 
                   <div className="relative h-64 lg:h-auto">
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-blue-500"></div>
-                    <div className="absolute inset-0 bg-[url('/default-image.jpg?height=600&width=600')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+                    <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=600')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
 
                     <div className="absolute inset-0 flex items-center justify-center p-8">
                       <div className="max-w-md rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur-sm">

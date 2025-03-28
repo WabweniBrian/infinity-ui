@@ -273,7 +273,10 @@ const CreativeAgencySection = () => {
                         className={`absolute inset-0 bg-gradient-to-r ${works[activeWork].color} opacity-20 mix-blend-overlay`}
                       ></div>
                       <Image
-                        src={works[activeWork].image || "/default-image.jpg"}
+                        src={
+                          works[activeWork].image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={works[activeWork].title}
                         fill
                         className="h-full w-full object-cover"
@@ -386,7 +389,7 @@ const CreativeAgencySection = () => {
                   className="absolute inset-0 bg-cover bg-center opacity-50 mix-blend-overlay"
                   style={{
                     backgroundImage:
-                      "url('/placeholder.svg?height=400&width=600')",
+                      "url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')",
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

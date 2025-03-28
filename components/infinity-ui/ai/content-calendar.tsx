@@ -934,7 +934,10 @@ const ContentCalendar = ({
           {selectedPost.mediaUrls.length > 0 && (
             <div className="mt-4 overflow-hidden rounded-lg">
               <Image
-                src={selectedPost.mediaUrls[0] || "/default-image.jpg"}
+                src={
+                  selectedPost.mediaUrls[0] ||
+                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                }
                 alt={selectedPost.title}
                 width={400}
                 height={300}

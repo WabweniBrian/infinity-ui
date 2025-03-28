@@ -179,7 +179,7 @@ const AIWritingAssistant = () => {
         id: "proj-1",
         title: "Marketing Email Campaign",
         content:
-          "Dear valued customer,\n\nWe're excited to announce our new product line that will revolutionize how you work. Our latest innovations combine cutting-edge technology with user-friendly design to create tools that seamlessly integrate into your daily workflow.\n\nFor a limited time, we're offering an exclusive 20% discount for our loyal customers. Simply use the code LOYAL20 at checkout to claim your discount.\n\nThank you for your continued support.\n\nBest regards,\nThe Marketing Team",
+          "Dear valued customer,\n\nWe're excited to announce our new product line that will revolutionize how you work. Our latest innovations combine cutting-edge technology with user-friendly design to create tools that seamlessly integrate into your daily workflow.\n\nFor a limited time, we&apos;re offering an exclusive 20% discount for our loyal customers. Simply use the code LOYAL20 at checkout to claim your discount.\n\nThank you for your continued support.\n\nBest regards,\nThe Marketing Team",
         createdAt: "2023-06-15T14:30:00Z",
         updatedAt: "2023-06-15T16:45:00Z",
         category: "email",
@@ -199,7 +199,7 @@ const AIWritingAssistant = () => {
         id: "proj-3",
         title: "Product Description: Smart Home Hub",
         content:
-          "# SmartHub Pro: The Heart of Your Intelligent Home\n\nTransform your living space into a seamlessly connected smart home with the revolutionary SmartHub Pro. This elegant, compact device serves as the central command center for all your smart devices, offering unparalleled convenience and control.\n\n## Key Features\n\n- **Universal Compatibility**: Works with over 10,000 smart devices across all major brands\n- **Intuitive Voice Control**: Enhanced voice recognition technology understands natural language commands\n- **Advanced Automation**: Create sophisticated routines that respond to your lifestyle\n- **Energy Monitoring**: Track and optimize your home's energy consumption\n- **Bank-Level Security**: Military-grade encryption keeps your smart home network secure\n\n## Technical Specifications\n\n- Dimensions: 4.5\" x 4.5\" x 1.2\"\n- Connectivity: Wi-Fi 6, Bluetooth 5.2, Zigbee, Z-Wave, Thread\n- Power: AC adapter (included) with battery backup\n- Processor: Quad-core 2.0 GHz\n- Memory: 4GB RAM, 32GB storage\n\nThe SmartHub Pro doesn't just connect your devices—it creates a truly intelligent home that anticipates your needs and enhances your daily life. Whether you're a smart home enthusiast or just beginning your connected home journey, the SmartHub Pro offers the perfect balance of powerful functionality and user-friendly design.",
+          '# SmartHub Pro: The Heart of Your Intelligent Home\n\nTransform your living space into a seamlessly connected smart home with the revolutionary SmartHub Pro. This elegant, compact device serves as the central command center for all your smart devices, offering unparalleled convenience and control.\n\n## Key Features\n\n- **Universal Compatibility**: Works with over 10,000 smart devices across all major brands\n- **Intuitive Voice Control**: Enhanced voice recognition technology understands natural language commands\n- **Advanced Automation**: Create sophisticated routines that respond to your lifestyle\n- **Energy Monitoring**: Track and optimize your home\'s energy consumption\n- **Bank-Level Security**: Military-grade encryption keeps your smart home network secure\n\n## Technical Specifications\n\n- Dimensions: 4.5" x 4.5" x 1.2"\n- Connectivity: Wi-Fi 6, Bluetooth 5.2, Zigbee, Z-Wave, Thread\n- Power: AC adapter (included) with battery backup\n- Processor: Quad-core 2.0 GHz\n- Memory: 4GB RAM, 32GB storage\n\nThe SmartHub Pro doesn\'t just connect your devices—it creates a truly intelligent home that anticipates your needs and enhances your daily life. Whether you&apos;re a smart home enthusiast or just beginning your connected home journey, the SmartHub Pro offers the perfect balance of powerful functionality and user-friendly design.',
         createdAt: "2023-06-05T16:20:00Z",
         updatedAt: "2023-06-12T10:30:00Z",
         category: "product",
@@ -618,7 +618,7 @@ const AIWritingAssistant = () => {
           "Here's an introduction for your content:\n\nIn today's rapidly evolving digital landscape, staying ahead of the curve isn't just an advantage—it's a necessity. As technologies advance and consumer expectations shift, businesses must adapt their strategies to remain competitive and relevant. This article explores the key trends shaping the future of digital marketing and provides actionable insights for leveraging these developments to drive growth and engagement.";
       } else if (userPrompt.toLowerCase().includes("conclusion")) {
         aiResponse =
-          "Here's a conclusion for your content:\n\nAs we've explored throughout this discussion, the integration of these strategies into your business approach isn't optional in today's competitive environment—it's essential. By embracing innovation, prioritizing customer experience, and maintaining adaptability, your organization will be well-positioned to navigate the challenges and opportunities that lie ahead. Remember that success in this dynamic landscape isn't about predicting the future perfectly, but rather building the agility to respond effectively as it unfolds.";
+          "Here's a conclusion for your content:\n\nAs we&apos;ve explored throughout this discussion, the integration of these strategies into your business approach isn't optional in today's competitive environment—it's essential. By embracing innovation, prioritizing customer experience, and maintaining adaptability, your organization will be well-positioned to navigate the challenges and opportunities that lie ahead. Remember that success in this dynamic landscape isn't about predicting the future perfectly, but rather building the agility to respond effectively as it unfolds.";
       } else if (
         userPrompt.toLowerCase().includes("email") ||
         userPrompt.toLowerCase().includes("message")
@@ -725,7 +725,7 @@ const AIWritingAssistant = () => {
             break;
           case "simplify":
             improvedContent =
-              "Adding AI to everyday business operations is one of the biggest tech changes we're seeing today. Unlike earlier tech revolutions that mostly affected certain industries or job functions, AI can change almost every part of how businesses work—from customer service and making products to managing supply chains and making big decisions.";
+              "Adding AI to everyday business operations is one of the biggest tech changes we&apos;re seeing today. Unlike earlier tech revolutions that mostly affected certain industries or job functions, AI can change almost every part of how businesses work—from customer service and making products to managing supply chains and making big decisions.";
             break;
           case "formalize":
             improvedContent =

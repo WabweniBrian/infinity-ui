@@ -281,7 +281,10 @@ const CreativeAgencyHero = () => {
                   >
                     <div className="relative h-full w-full overflow-hidden rounded-2xl">
                       <Image
-                        src={project.image || "/default-image.jpg"}
+                        src={
+                          project.image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={project.title}
                         fill
                         className="object-cover transition-all duration-700 hover:scale-105"

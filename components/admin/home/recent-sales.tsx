@@ -52,7 +52,10 @@ export const RecentSales = ({ sales }: RecentSalesProps) => {
             <div className="gap-2 flex-align-center">
               <div className="relative h-10 w-10 overflow-hidden rounded-full">
                 <Image
-                  src={sale.customer.image || "/images/default-avatar.png"}
+                  src={
+                    sale.customer.image ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={sale.customer.name}
                   width={40}
                   height={40}

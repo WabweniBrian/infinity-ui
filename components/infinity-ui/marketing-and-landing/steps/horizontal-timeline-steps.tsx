@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { CheckCircle, ArrowRight } from "lucide-react";
 
 type Step = {
-  id: number
-  title: string
-  description: string
-}
+  id: number;
+  title: string;
+  description: string;
+};
 
 const steps: Step[] = [
   {
@@ -41,13 +41,13 @@ const steps: Step[] = [
     description:
       "We deploy your project and provide ongoing maintenance, updates, and technical support to ensure continued success.",
   },
-]
+];
 
 const HorizontalTimelineSteps = () => {
-  const [activeStep, setActiveStep] = useState(1)
-  const [progress, setProgress] = useState(0)
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
+  const [activeStep, setActiveStep] = useState(1);
+  const [progress, setProgress] = useState(0);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
 
   // Auto-progress through steps
   useEffect(() => {
@@ -55,72 +55,78 @@ const HorizontalTimelineSteps = () => {
       const interval = setInterval(() => {
         setActiveStep((prev) => {
           if (prev >= steps.length) {
-            return 1
+            return 1;
           }
-          return prev + 1
-        })
-      }, 4000)
+          return prev + 1;
+        });
+      }, 4000);
 
-      return () => clearInterval(interval)
+      return () => clearInterval(interval);
     }
-  }, [isInView])
+  }, [isInView]);
 
   // Update progress bar when active step changes
   useEffect(() => {
-    setProgress(((activeStep - 1) / (steps.length - 1)) * 100)
-  }, [activeStep])
+    setProgress(((activeStep - 1) / (steps.length - 1)) * 100);
+  }, [activeStep]);
 
   const handleStepClick = (stepId: number) => {
-    setActiveStep(stepId)
-  }
+    setActiveStep(stepId);
+  };
 
   return (
-    <section ref={sectionRef} className="py-24 px-4 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white px-4 py-24"
+    >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         <motion.div
-          className="absolute top-0 right-0 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-sky-50 to-indigo-50 -translate-y-1/2 translate-x-1/3"
+          className="absolute right-0 top-0 h-[800px] w-[800px] -translate-y-1/2 translate-x-1/3 rounded-full bg-gradient-to-br from-sky-50 to-indigo-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.6 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         />
 
         <motion.div
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-amber-50 to-red-50 translate-y-1/3 -translate-x-1/4"
+          className="absolute bottom-0 left-0 h-[600px] w-[600px] -translate-x-1/4 translate-y-1/3 rounded-full bg-gradient-to-tr from-amber-50 to-red-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.6 } : { opacity: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         />
       </div>
 
-      <div className="container mx-auto max-w-6xl relative z-10">
+      <div className="container relative z-10 mx-auto max-w-6xl">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Our Process</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            We follow a proven step-by-step methodology to deliver exceptional results
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+            Our Process
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
+            We follow a proven step-by-step methodology to deliver exceptional
+            results
           </p>
         </motion.div>
 
         {/* Timeline steps on larger screens */}
         <motion.div
-          className="hidden md:block mb-12 relative"
+          className="relative mb-12 hidden md:block"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {/* Progress bar background */}
-          <div className="absolute top-12 left-0 right-0 h-1 bg-gray-200 rounded-full" />
+          <div className="absolute left-0 right-0 top-12 h-1 rounded-full bg-gray-200" />
 
           {/* Animated progress overlay */}
           <motion.div
-            className="absolute top-12 left-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full"
+            className="absolute left-0 top-12 h-1 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600"
             style={{ width: `${progress}%` }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           />
@@ -147,14 +153,14 @@ const HorizontalTimelineSteps = () => {
                   aria-current={activeStep === step.id ? "step" : undefined}
                 >
                   <div
-                    className={`relative z-10 flex items-center justify-center w-10 h-10 mb-2 rounded-full ${
+                    className={`relative z-10 mb-2 flex h-10 w-10 items-center justify-center rounded-full ${
                       step.id <= activeStep
                         ? "bg-gradient-to-br from-blue-500 to-indigo-600 text-white"
-                        : "bg-white border-2 border-gray-300 text-gray-400"
+                        : "border-2 border-gray-300 bg-white text-gray-400"
                     } transition-colors duration-300`}
                   >
                     {step.id < activeStep ? (
-                      <CheckCircle className="w-5 h-5" />
+                      <CheckCircle className="h-5 w-5" />
                     ) : (
                       <span className="text-sm font-semibold">{step.id}</span>
                     )}
@@ -162,7 +168,7 @@ const HorizontalTimelineSteps = () => {
 
                   {/* Step title */}
                   <span
-                    className={`absolute top-14 text-sm font-medium text-center w-32 -ml-16 ${
+                    className={`absolute top-14 -ml-16 w-32 text-center text-sm font-medium ${
                       step.id === activeStep ? "text-gray-900" : "text-gray-500"
                     }`}
                   >
@@ -178,7 +184,7 @@ const HorizontalTimelineSteps = () => {
         <div className="relative mt-24">
           <AnimatePresence mode="wait">
             {steps.map((step) => {
-              if (step.id !== activeStep) return null
+              if (step.id !== activeStep) return null;
 
               return (
                 <motion.div
@@ -187,26 +193,30 @@ const HorizontalTimelineSteps = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="flex flex-col md:flex-row items-center gap-8 md:gap-16 py-8"
+                  className="flex flex-col items-center gap-8 py-8 md:flex-row md:gap-16"
                 >
                   <motion.div
-                    className="w-full md:w-1/3 relative"
+                    className="relative w-full md:w-1/3"
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <div className="aspect-square relative">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 blur-2xl opacity-20" />
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                    <div className="relative aspect-square">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 opacity-20 blur-2xl" />
+                      <div className="absolute inset-0 overflow-hidden rounded-2xl">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-indigo-600 opacity-90" />
-                        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=400')] bg-no-repeat bg-center bg-cover mix-blend-overlay opacity-10" />
+                        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-cover bg-center bg-no-repeat opacity-10 mix-blend-overlay" />
 
                         <div className="absolute inset-0 flex items-center justify-center text-white">
-                          <div className="text-center p-8">
-                            <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                              <span className="text-5xl font-bold">{step.id}</span>
+                          <div className="p-8 text-center">
+                            <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-full bg-white/10">
+                              <span className="text-5xl font-bold">
+                                {step.id}
+                              </span>
                             </div>
-                            <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+                            <h3 className="mb-2 text-2xl font-bold">
+                              {step.title}
+                            </h3>
                           </div>
                         </div>
                       </div>
@@ -219,43 +229,59 @@ const HorizontalTimelineSteps = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                   >
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:hidden">{step.title}</h3>
-                    <p className="text-lg text-gray-600 mb-6">{step.description}</p>
+                    <h3 className="mb-4 text-2xl font-bold text-gray-900 md:hidden md:text-3xl">
+                      {step.title}
+                    </h3>
+                    <p className="mb-6 text-lg text-gray-600">
+                      {step.description}
+                    </p>
 
                     <div className="flex space-x-4">
                       <button
-                        onClick={() => handleStepClick(step.id - 1 > 0 ? step.id - 1 : steps.length)}
-                        className="px-5 py-2 border border-gray-300 rounded-lg text-gray-700 flex items-center gap-2 hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        onClick={() =>
+                          handleStepClick(
+                            step.id - 1 > 0 ? step.id - 1 : steps.length,
+                          )
+                        }
+                        className="flex items-center gap-2 rounded-lg border border-gray-300 px-5 py-2 text-gray-700 transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                         disabled={step.id === 1}
                       >
-                        <ArrowRight className="w-4 h-4 rotate-180" />
+                        <ArrowRight className="h-4 w-4 rotate-180" />
                         <span>Previous</span>
                       </button>
 
                       <button
-                        onClick={() => handleStepClick(step.id + 1 <= steps.length ? step.id + 1 : 1)}
-                        className="px-5 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg text-white flex items-center gap-2 hover:from-blue-600 hover:to-indigo-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        onClick={() =>
+                          handleStepClick(
+                            step.id + 1 <= steps.length ? step.id + 1 : 1,
+                          )
+                        }
+                        className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 px-5 py-2 text-white transition-colors hover:from-blue-600 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-50"
                         disabled={step.id === steps.length}
                       >
                         <span>Next</span>
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className="h-4 w-4" />
                       </button>
                     </div>
                   </motion.div>
                 </motion.div>
-              )
+              );
             })}
           </AnimatePresence>
 
           {/* Mobile stepper */}
-          <div className="md:hidden flex justify-center mt-8">
+          <div className="mt-8 flex justify-center md:hidden">
             <div className="flex space-x-2">
               {steps.map((step) => (
                 <button
                   key={step.id}
                   onClick={() => handleStepClick(step.id)}
-                  className={`w-3 h-3 rounded-full ${
-                    step.id === activeStep ? "bg-blue-500" : step.id < activeStep ? "bg-blue-300" : "bg-gray-300"
+                  className={`h-3 w-3 rounded-full ${
+                    step.id === activeStep
+                      ? "bg-blue-500"
+                      : step.id < activeStep
+                        ? "bg-blue-300"
+                        : "bg-gray-300"
                   }`}
                   aria-label={`Go to step ${step.id}`}
                 />
@@ -265,8 +291,7 @@ const HorizontalTimelineSteps = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HorizontalTimelineSteps
-
+export default HorizontalTimelineSteps;

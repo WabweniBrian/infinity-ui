@@ -47,7 +47,7 @@ const faqData: FAQItem[] = [
     id: 4,
     question: "What makes your solution different from competitors?",
     answer:
-      "Our platform offers 99.99% uptime, 3x faster processing speeds, and a more intuitive developer experience. We're the only solution that combines real-time analytics, AI-powered insights, and seamless integration capabilities.",
+      "Our platform offers 99.99% uptime, 3x faster processing speeds, and a more intuitive developer experience. We&apos;re the only solution that combines real-time analytics, AI-powered insights, and seamless integration capabilities.",
     icon: <Sparkles className="h-5 w-5" />,
   },
 ];
@@ -82,7 +82,7 @@ const TechSaasFAQ = () => {
         />
 
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=20&width=20')] bg-[length:40px_40px] opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=20&width=20')] bg-[length:40px_40px] opacity-[0.03]" />
 
         {/* Floating icons */}
         <motion.div

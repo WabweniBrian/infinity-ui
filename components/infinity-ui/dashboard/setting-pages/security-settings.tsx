@@ -527,7 +527,7 @@ const SecuritySettings = () => {
                 <div className="mb-4 flex justify-center">
                   <div className="h-48 w-48 rounded-lg bg-white p-2">
                     <Image
-                      src="/placeholder.svg?height=180&width=180"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=180&width=180"
                       alt="QR Code"
                       height={192}
                       width={192}

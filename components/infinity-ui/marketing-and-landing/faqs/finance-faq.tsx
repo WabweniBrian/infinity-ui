@@ -20,7 +20,7 @@ const faqData = {
       id: 1,
       question: "How do I open a new account?",
       answer:
-        "Opening a new account is simple. You can apply online through our secure website, visit any of our branch locations, or call our customer service at (555) 123-4567. You'll need to provide a government-issued ID, your Social Security number, and an initial deposit (minimum amounts vary by account type).",
+        "Opening a new account is simple. You can apply online through our secure website, visit any of our branch locations, or call our customer service at (555) 123-4567. You&apos;ll need to provide a government-issued ID, your Social Security number, and an initial deposit (minimum amounts vary by account type).",
     },
     {
       id: 2,
@@ -40,13 +40,13 @@ const faqData = {
       id: 4,
       question: "How do I apply for a credit card?",
       answer:
-        "You can apply for a credit card online through our secure website, at any branch location, or by calling our application line at (555) 234-5678. The application process typically takes about 15 minutes, and you'll receive a decision within 1-3 business days in most cases.",
+        "You can apply for a credit card online through our secure website, at any branch location, or by calling our application line at (555) 234-5678. The application process typically takes about 15 minutes, and you&apos;ll receive a decision within 1-3 business days in most cases.",
     },
     {
       id: 5,
       question: "What should I do if my card is lost or stolen?",
       answer:
-        "If your card is lost or stolen, contact us immediately at our 24/7 hotline: (800) 555-9876. We'll deactivate your card to prevent unauthorized transactions and issue a replacement card. For added security, you can also freeze your card temporarily through our mobile app or online banking.",
+        "If your card is lost or stolen, contact us immediately at our 24/7 hotline: (800) 555-9876. We&apos;ll deactivate your card to prevent unauthorized transactions and issue a replacement card. For added security, you can also freeze your card temporarily through our mobile app or online banking.",
     },
     {
       id: 6,
@@ -66,7 +66,7 @@ const faqData = {
       id: 8,
       question: "How do I check my loan application status?",
       answer:
-        "You can check your loan application status by logging into your online banking account and navigating to the 'Applications' section. Alternatively, you can contact our loan department directly at (555) 345-6789 or visit any branch location. For most applications, you'll receive updates via email or text message if you've opted in for notifications.",
+        "You can check your loan application status by logging into your online banking account and navigating to the 'Applications' section. Alternatively, you can contact our loan department directly at (555) 345-6789 or visit any branch location. For most applications, you&apos;ll receive updates via email or text message if you&apos;ve opted in for notifications.",
     },
     {
       id: 9,
@@ -92,7 +92,7 @@ const faqData = {
       id: 12,
       question: "How can I protect myself from phishing and scams?",
       answer:
-        "To protect yourself from phishing and scams: Never share your password, PIN, or security codes with anyone, Be suspicious of unsolicited emails or calls requesting personal information, Verify that you're on our official website before entering credentials (check for https:// and our correct domain name), Use our mobile app instead of clicking links in emails, Enable account alerts to monitor for unusual activity. Remember, we will never call or email asking for your full account number, password, or security codes.",
+        "To protect yourself from phishing and scams: Never share your password, PIN, or security codes with anyone, Be suspicious of unsolicited emails or calls requesting personal information, Verify that you&apos;re on our official website before entering credentials (check for https:// and our correct domain name), Use our mobile app instead of clicking links in emails, Enable account alerts to monitor for unusual activity. Remember, we will never call or email asking for your full account number, password, or security codes.",
     },
   ],
 };
@@ -150,7 +150,7 @@ const FinanceFAQ = () => {
     >
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=20&width=20')] bg-[length:30px_30px] opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=20&width=20')] bg-[length:30px_30px] opacity-[0.03]" />
 
         <motion.div
           className="absolute right-0 top-0 h-[800px] w-[800px] -translate-y-1/2 translate-x-1/3 rounded-full bg-blue-500/5"

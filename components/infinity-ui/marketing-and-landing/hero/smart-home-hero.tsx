@@ -305,7 +305,10 @@ const SmartHomeHero = () => {
                   <div className="mb-6 overflow-hidden rounded-xl">
                     <div className="relative h-40 w-full">
                       <Image
-                        src={rooms[activeRoom].image || "/default-image.jpg"}
+                        src={
+                          rooms[activeRoom].image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={rooms[activeRoom].name}
                         fill
                         className="object-cover"

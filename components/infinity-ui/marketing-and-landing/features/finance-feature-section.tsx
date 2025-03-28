@@ -1,46 +1,58 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
-import { LineChart, PieChart, BarChart3, TrendingUp, ChevronRight, ArrowRight } from "lucide-react"
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
+  LineChart,
+  PieChart,
+  BarChart3,
+  TrendingUp,
+  ChevronRight,
+  ArrowRight,
+} from "lucide-react";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const FinanceFeatureSection = () => {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-  const [activeTab, setActiveTab] = useState(0)
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [activeTab, setActiveTab] = useState(0);
 
   const features = [
     {
       icon: LineChart,
       title: "Intelligent Investing",
-      description: "AI-powered portfolio recommendations based on your goals and risk tolerance.",
+      description:
+        "AI-powered portfolio recommendations based on your goals and risk tolerance.",
       color: "bg-blue-500",
     },
     {
       icon: PieChart,
       title: "Budget Analytics",
-      description: "Visualize spending patterns and optimize your budget with smart categorization.",
+      description:
+        "Visualize spending patterns and optimize your budget with smart categorization.",
       color: "bg-emerald-500",
     },
     {
       icon: TrendingUp,
       title: "Wealth Growth",
-      description: "Long-term planning tools to help you achieve your financial milestones.",
+      description:
+        "Long-term planning tools to help you achieve your financial milestones.",
       color: "bg-purple-500",
     },
     {
       icon: BarChart3,
       title: "Market Insights",
-      description: "Real-time data and expert analysis to inform your investment decisions.",
+      description:
+        "Real-time data and expert analysis to inform your investment decisions.",
       color: "bg-amber-500",
     },
-  ]
+  ];
 
   const tabs = [
     { name: "Overview", content: "overview" },
     { name: "Investments", content: "investments" },
     { name: "Budgeting", content: "budgeting" },
-  ]
+  ];
 
   const chartVariants = {
     hidden: { opacity: 0, pathLength: 0 },
@@ -49,23 +61,44 @@ const FinanceFeatureSection = () => {
       pathLength: 1,
       transition: { duration: 1.5, ease: "easeInOut" },
     },
-  }
+  };
 
   return (
-    <section ref={sectionRef} className="py-24 relative overflow-hidden bg-slate-50 dark:bg-gray-950">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen overflow-hidden bg-slate-50 py-24 dark:bg-gray-950"
+    >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
       {/* Abstract Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-full h-full">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute right-0 top-0 h-full w-full">
           <svg
-            className="absolute top-0 right-0 w-full h-full text-blue-500/5"
+            className="absolute right-0 top-0 h-full w-full text-blue-500/5"
             viewBox="0 0 1000 1000"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
+              <pattern
+                id="grid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 40 0 L 0 0 0 40"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                />
               </pattern>
-              <linearGradient id="fadeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient
+                id="fadeGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
                 <stop offset="0%" stopColor="currentColor" stopOpacity="0.1" />
                 <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
               </linearGradient>
@@ -77,63 +110,74 @@ const FinanceFeatureSection = () => {
 
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          animate={
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+          }
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-br from-blue-300/20 to-purple-300/20 dark:from-blue-900/10 dark:to-purple-900/10 blur-3xl"
+          className="absolute right-1/4 top-1/4 h-64 w-64 rounded-full bg-gradient-to-br from-blue-300/20 to-purple-300/20 blur-3xl dark:from-blue-900/10 dark:to-purple-900/10"
         ></motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          animate={
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
+          }
           transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
-          className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-tr from-emerald-300/20 to-amber-300/20 dark:from-emerald-900/10 dark:to-amber-900/10 blur-3xl"
+          className="absolute bottom-1/4 left-1/4 h-64 w-64 rounded-full bg-gradient-to-tr from-emerald-300/20 to-amber-300/20 blur-3xl dark:from-emerald-900/10 dark:to-amber-900/10"
         ></motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 text-blue-600 dark:text-blue-400 font-medium text-sm mb-4">
+            <span className="mb-4 inline-block rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-3 py-1 text-sm font-medium text-blue-600 dark:from-blue-500/20 dark:to-purple-500/20 dark:text-blue-400">
               Financial Freedom
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 dark:text-white md:text-5xl">
               Smart banking for a{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
                 smarter future
               </span>
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-10">
-              Take control of your finances with powerful tools designed to help you save, invest, and grow your wealth.
+            <p className="mb-10 text-xl text-gray-600 dark:text-gray-300">
+              Take control of your finances with powerful tools designed to help
+              you save, invest, and grow your wealth.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            <div className="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {features.map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                   className="group relative"
                   whileHover={{ y: -5 }}
                 >
-                  <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl shadow-lg transform transition-all duration-300 group-hover:shadow-xl"></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 dark:from-blue-500/10 dark:to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 transform rounded-2xl bg-white shadow-lg transition-all duration-300 group-hover:shadow-xl dark:bg-gray-800"></div>
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-blue-500/10 dark:to-purple-500/10"></div>
 
                   <div className="relative p-6">
                     <div
-                      className={`${feature.color} w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-5deg]`}
+                      className={`${feature.color} mb-4 flex h-12 w-12 transform items-center justify-center rounded-2xl transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110`}
                     >
-                      <feature.icon className="w-6 h-6 text-white" />
+                      <feature.icon className="h-6 w-6 text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-900 dark:text-white mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">{feature.description}</p>
+                    <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {feature.description}
+                    </p>
 
-                    <div className="mt-4 flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="mt-4 flex items-center text-sm font-medium text-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:text-blue-400">
                       <span>Learn more</span>
-                      <ChevronRight className="w-4 h-4 ml-1" />
+                      <ChevronRight className="ml-1 h-4 w-4" />
                     </div>
                   </div>
                 </motion.div>
@@ -145,10 +189,10 @@ const FinanceFeatureSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.6 }}
             >
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-medium transition-colors shadow-lg shadow-blue-600/20">
+              <button className="rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-3 font-medium text-white shadow-lg shadow-blue-600/20 transition-colors hover:from-blue-700 hover:to-purple-700">
                 Get started
               </button>
-              <button className="ml-4 text-blue-600 dark:text-blue-400 font-medium hover:underline">
+              <button className="ml-4 font-medium text-blue-600 hover:underline dark:text-blue-400">
                 Learn more →
               </button>
             </motion.div>
@@ -156,23 +200,27 @@ const FinanceFeatureSection = () => {
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            animate={
+              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+            }
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl transform rotate-2"></div>
-            <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+            <div className="absolute -inset-4 rotate-2 transform rounded-3xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-xl"></div>
+            <div className="relative overflow-hidden rounded-2xl bg-white shadow-xl dark:bg-gray-800">
               <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="font-bold text-xl text-gray-900 dark:text-white">Financial Dashboard</h3>
-                  <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+                <div className="mb-6 flex items-center justify-between">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                    Financial Dashboard
+                  </h3>
+                  <div className="flex rounded-lg bg-gray-100 p-1 dark:bg-gray-700">
                     {tabs.map((tab, index) => (
                       <button
                         key={index}
-                        className={`px-4 py-1.5 text-sm font-medium rounded-md transition-colors ${
+                        className={`rounded-md px-4 py-1.5 text-sm font-medium transition-colors ${
                           activeTab === index
-                            ? "bg-white dark:bg-gray-600 text-blue-600 dark:text-blue-400 shadow-sm"
-                            : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                            ? "bg-white text-blue-600 shadow-sm dark:bg-gray-600 dark:text-blue-400"
+                            : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
                         }`}
                         onClick={() => setActiveTab(index)}
                       >
@@ -192,13 +240,17 @@ const FinanceFeatureSection = () => {
                   >
                     {activeTab === 0 && (
                       <div>
-                        <div className="flex justify-between items-center mb-4">
+                        <div className="mb-4 flex items-center justify-between">
                           <div>
-                            <h4 className="text-sm text-gray-500 dark:text-gray-400">Total Balance</h4>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white">$24,568.80</div>
-                            <div className="text-sm text-emerald-600 dark:text-emerald-400 flex items-center">
+                            <h4 className="text-sm text-gray-500 dark:text-gray-400">
+                              Total Balance
+                            </h4>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                              $24,568.80
+                            </div>
+                            <div className="flex items-center text-sm text-emerald-600 dark:text-emerald-400">
                               <svg
-                                className="w-3 h-3 mr-1"
+                                className="mr-1 h-3 w-3"
                                 viewBox="0 0 12 12"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -215,9 +267,9 @@ const FinanceFeatureSection = () => {
                             </div>
                           </div>
                           <div className="flex space-x-2">
-                            <button className="bg-blue-600 text-white p-2 rounded-lg">
+                            <button className="rounded-lg bg-blue-600 p-2 text-white">
                               <svg
-                                className="w-5 h-5"
+                                className="h-5 w-5"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -231,9 +283,9 @@ const FinanceFeatureSection = () => {
                                 />
                               </svg>
                             </button>
-                            <button className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 p-2 rounded-lg">
+                            <button className="rounded-lg bg-gray-100 p-2 text-gray-600 dark:bg-gray-700 dark:text-gray-300">
                               <svg
-                                className="w-5 h-5"
+                                className="h-5 w-5"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -250,8 +302,8 @@ const FinanceFeatureSection = () => {
                           </div>
                         </div>
 
-                        <div className="h-64 relative">
-                          <svg className="w-full h-full" viewBox="0 0 400 200">
+                        <div className="relative h-64">
+                          <svg className="h-full w-full" viewBox="0 0 400 200">
                             <motion.path
                               d="M0,150 C50,120 100,180 150,120 C200,60 250,80 300,40 C350,0 400,20 400,50"
                               fill="none"
@@ -271,9 +323,23 @@ const FinanceFeatureSection = () => {
                               animate={isInView ? "visible" : "hidden"}
                             />
                             <defs>
-                              <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
-                                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                              <linearGradient
+                                id="gradient"
+                                x1="0%"
+                                y1="0%"
+                                x2="0%"
+                                y2="100%"
+                              >
+                                <stop
+                                  offset="0%"
+                                  stopColor="#3b82f6"
+                                  stopOpacity="0.5"
+                                />
+                                <stop
+                                  offset="100%"
+                                  stopColor="#3b82f6"
+                                  stopOpacity="0"
+                                />
                               </linearGradient>
                             </defs>
                           </svg>
@@ -292,13 +358,17 @@ const FinanceFeatureSection = () => {
 
                     {activeTab === 1 && (
                       <div>
-                        <div className="flex justify-between items-center mb-4">
+                        <div className="mb-4 flex items-center justify-between">
                           <div>
-                            <h4 className="text-sm text-gray-500 dark:text-gray-400">Portfolio Value</h4>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white">$18,245.30</div>
-                            <div className="text-sm text-emerald-600 dark:text-emerald-400 flex items-center">
+                            <h4 className="text-sm text-gray-500 dark:text-gray-400">
+                              Portfolio Value
+                            </h4>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                              $18,245.30
+                            </div>
+                            <div className="flex items-center text-sm text-emerald-600 dark:text-emerald-400">
                               <svg
-                                className="w-3 h-3 mr-1"
+                                className="mr-1 h-3 w-3"
                                 viewBox="0 0 12 12"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -316,79 +386,111 @@ const FinanceFeatureSection = () => {
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                        <div className="mb-4 grid grid-cols-2 gap-4">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-2">
-                                  <span className="text-blue-600 dark:text-blue-400 font-bold text-xs">S</span>
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50">
+                                  <span className="text-xs font-bold text-blue-600 dark:text-blue-400">
+                                    S
+                                  </span>
                                 </div>
-                                <span className="font-medium text-gray-900 dark:text-white">Stocks</span>
+                                <span className="font-medium text-gray-900 dark:text-white">
+                                  Stocks
+                                </span>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">60%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                60%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-blue-500 rounded-full"
+                                className="h-full rounded-full bg-blue-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "60%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "60%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.5 }}
                               ></motion.div>
                             </div>
                           </div>
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center mr-2">
-                                  <span className="text-purple-600 dark:text-purple-400 font-bold text-xs">B</span>
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/50">
+                                  <span className="text-xs font-bold text-purple-600 dark:text-purple-400">
+                                    B
+                                  </span>
                                 </div>
-                                <span className="font-medium text-gray-900 dark:text-white">Bonds</span>
+                                <span className="font-medium text-gray-900 dark:text-white">
+                                  Bonds
+                                </span>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">25%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                25%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-purple-500 rounded-full"
+                                className="h-full rounded-full bg-purple-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "25%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "25%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.6 }}
                               ></motion.div>
                             </div>
                           </div>
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center mr-2">
-                                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xs">R</span>
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50">
+                                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                                    R
+                                  </span>
                                 </div>
-                                <span className="font-medium text-gray-900 dark:text-white">Real Estate</span>
+                                <span className="font-medium text-gray-900 dark:text-white">
+                                  Real Estate
+                                </span>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">10%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                10%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-emerald-500 rounded-full"
+                                className="h-full rounded-full bg-emerald-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "10%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "10%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.7 }}
                               ></motion.div>
                             </div>
                           </div>
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center mr-2">
-                                  <span className="text-amber-600 dark:text-amber-400 font-bold text-xs">C</span>
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 dark:bg-amber-900/50">
+                                  <span className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                                    C
+                                  </span>
                                 </div>
-                                <span className="font-medium text-gray-900 dark:text-white">Cash</span>
+                                <span className="font-medium text-gray-900 dark:text-white">
+                                  Cash
+                                </span>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">5%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                5%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-amber-500 rounded-full"
+                                className="h-full rounded-full bg-amber-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "5%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "5%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.8 }}
                               ></motion.div>
                             </div>
@@ -399,13 +501,17 @@ const FinanceFeatureSection = () => {
 
                     {activeTab === 2 && (
                       <div>
-                        <div className="flex justify-between items-center mb-4">
+                        <div className="mb-4 flex items-center justify-between">
                           <div>
-                            <h4 className="text-sm text-gray-500 dark:text-gray-400">Monthly Budget</h4>
-                            <div className="text-3xl font-bold text-gray-900 dark:text-white">$4,250.00</div>
-                            <div className="text-sm text-amber-600 dark:text-amber-400 flex items-center">
+                            <h4 className="text-sm text-gray-500 dark:text-gray-400">
+                              Monthly Budget
+                            </h4>
+                            <div className="text-3xl font-bold text-gray-900 dark:text-white">
+                              $4,250.00
+                            </div>
+                            <div className="flex items-center text-sm text-amber-600 dark:text-amber-400">
                               <svg
-                                className="w-3 h-3 mr-1"
+                                className="mr-1 h-3 w-3"
                                 viewBox="0 0 12 12"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -424,12 +530,12 @@ const FinanceFeatureSection = () => {
                         </div>
 
                         <div className="space-y-4">
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-2">
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50">
                                   <svg
-                                    className="w-4 h-4 text-blue-600 dark:text-blue-400"
+                                    className="h-4 w-4 text-blue-600 dark:text-blue-400"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -443,28 +549,36 @@ const FinanceFeatureSection = () => {
                                   </svg>
                                 </div>
                                 <div>
-                                  <span className="font-medium text-gray-900 dark:text-white">Housing</span>
-                                  <div className="text-xs text-gray-500 dark:text-gray-400">$1,500 / $1,500</div>
+                                  <span className="font-medium text-gray-900 dark:text-white">
+                                    Housing
+                                  </span>
+                                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                                    $1,500 / $1,500
+                                  </div>
                                 </div>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">100%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                100%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-blue-500 rounded-full"
+                                className="h-full rounded-full bg-blue-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "100%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "100%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.5 }}
                               ></motion.div>
                             </div>
                           </div>
 
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center mr-2">
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/50">
                                   <svg
-                                    className="w-4 h-4 text-emerald-600 dark:text-emerald-400"
+                                    className="h-4 w-4 text-emerald-600 dark:text-emerald-400"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -478,28 +592,36 @@ const FinanceFeatureSection = () => {
                                   </svg>
                                 </div>
                                 <div>
-                                  <span className="font-medium text-gray-900 dark:text-white">Food & Dining</span>
-                                  <div className="text-xs text-gray-500 dark:text-gray-400">$680 / $800</div>
+                                  <span className="font-medium text-gray-900 dark:text-white">
+                                    Food & Dining
+                                  </span>
+                                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                                    $680 / $800
+                                  </div>
                                 </div>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">85%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                85%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-emerald-500 rounded-full"
+                                className="h-full rounded-full bg-emerald-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "85%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "85%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.6 }}
                               ></motion.div>
                             </div>
                           </div>
 
-                          <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
-                            <div className="flex items-center justify-between mb-2">
+                          <div className="rounded-xl bg-gray-50 p-4 dark:bg-gray-700/50">
+                            <div className="mb-2 flex items-center justify-between">
                               <div className="flex items-center">
-                                <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center mr-2">
+                                <div className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/50">
                                   <svg
-                                    className="w-4 h-4 text-purple-600 dark:text-purple-400"
+                                    className="h-4 w-4 text-purple-600 dark:text-purple-400"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -519,17 +641,25 @@ const FinanceFeatureSection = () => {
                                   </svg>
                                 </div>
                                 <div>
-                                  <span className="font-medium text-gray-900 dark:text-white">Entertainment</span>
-                                  <div className="text-xs text-gray-500 dark:text-gray-400">$250 / $300</div>
+                                  <span className="font-medium text-gray-900 dark:text-white">
+                                    Entertainment
+                                  </span>
+                                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                                    $250 / $300
+                                  </div>
                                 </div>
                               </div>
-                              <span className="text-sm text-gray-500 dark:text-gray-400">83%</span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                83%
+                              </span>
                             </div>
-                            <div className="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+                            <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-600">
                               <motion.div
-                                className="h-full bg-purple-500 rounded-full"
+                                className="h-full rounded-full bg-purple-500"
                                 initial={{ width: 0 }}
-                                animate={isInView ? { width: "83%" } : { width: 0 }}
+                                animate={
+                                  isInView ? { width: "83%" } : { width: 0 }
+                                }
                                 transition={{ duration: 1, delay: 0.7 }}
                               ></motion.div>
                             </div>
@@ -540,12 +670,12 @@ const FinanceFeatureSection = () => {
                   </motion.div>
                 </AnimatePresence>
 
-                <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+                <div className="mt-6 border-t border-gray-100 pt-6 dark:border-gray-700">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/50">
                         <svg
-                          className="w-5 h-5 text-blue-600 dark:text-blue-400"
+                          className="h-5 w-5 text-blue-600 dark:text-blue-400"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -559,13 +689,17 @@ const FinanceFeatureSection = () => {
                         </svg>
                       </div>
                       <div className="ml-3">
-                        <div className="text-sm font-medium text-gray-900 dark:text-white">Financial Advisor</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Available now</div>
+                        <div className="text-sm font-medium text-gray-900 dark:text-white">
+                          Financial Advisor
+                        </div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
+                          Available now
+                        </div>
                       </div>
                     </div>
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center">
+                    <button className="flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
                       <span>Chat now</span>
-                      <ArrowRight className="w-4 h-4 ml-1" />
+                      <ArrowRight className="ml-1 h-4 w-4" />
                     </button>
                   </div>
                 </div>
@@ -580,71 +714,80 @@ const FinanceFeatureSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="relative mt-20"
         >
-          <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
-          <div className="relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl">
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl"></div>
+          <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl dark:bg-gray-800">
             <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-8 p-8 md:p-12">
-                <span className="inline-block py-1 px-3 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 text-blue-600 dark:text-blue-400 font-medium text-sm mb-4">
+              <div className="p-8 md:p-12 lg:col-span-8">
+                <span className="mb-4 inline-block rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-3 py-1 text-sm font-medium text-blue-600 dark:from-blue-500/20 dark:to-purple-500/20 dark:text-blue-400">
                   Personalized Insights
                 </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                <h3 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white md:text-4xl">
                   Your financial future, reimagined
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-                  Our AI-powered platform analyzes your spending habits, income, and financial goals to create a
-                  personalized roadmap to financial freedom. Get started today and see the difference.
+                <p className="mb-8 max-w-2xl text-gray-600 dark:text-gray-300">
+                  Our AI-powered platform analyzes your spending habits, income,
+                  and financial goals to create a personalized roadmap to
+                  financial freedom. Get started today and see the difference.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-3">
                   <div className="flex flex-col">
-                    <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-4xl font-bold text-transparent dark:from-blue-400 dark:to-purple-400">
                       94%
                     </div>
-                    <div className="text-gray-600 dark:text-gray-300 text-sm">
+                    <div className="text-sm text-gray-600 dark:text-gray-300">
                       of users save more money within 3 months
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-4xl font-bold text-transparent dark:from-blue-400 dark:to-purple-400">
                       $1.2B
                     </div>
-                    <div className="text-gray-600 dark:text-gray-300 text-sm">
+                    <div className="text-sm text-gray-600 dark:text-gray-300">
                       in total customer investments managed
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-4xl font-bold text-transparent dark:from-blue-400 dark:to-purple-400">
                       4.9/5
                     </div>
-                    <div className="text-gray-600 dark:text-gray-300 text-sm">
+                    <div className="text-sm text-gray-600 dark:text-gray-300">
                       average rating from over 10,000 reviews
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-medium transition-colors shadow-lg shadow-blue-600/20">
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <button className="rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-medium text-white shadow-lg shadow-blue-600/20 transition-colors hover:from-blue-700 hover:to-purple-700">
                     Create free account
                   </button>
-                  <button className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-600 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                  <button className="rounded-xl border border-gray-200 bg-white px-6 py-3 font-medium text-gray-900 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
                     Watch demo
                   </button>
                 </div>
               </div>
 
-              <div className="lg:col-span-4 relative">
+              <div className="relative lg:col-span-4">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600"></div>
                 <div
-                  className="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-20"
-                  style={{ backgroundImage: "url('/placeholder.svg?height=600&width=400')" }}
+                  className="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay"
+                  style={{
+                    backgroundImage:
+                      "url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=400')",
+                  }}
                 ></div>
 
-                <div className="relative h-full flex items-center justify-center p-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 shadow-2xl">
-                    <div className="flex items-center justify-between mb-6">
+                <div className="relative flex h-full items-center justify-center p-8">
+                  <div className="rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur-sm">
+                    <div className="mb-6 flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
+                          <svg
+                            className="h-5 w-5 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
                             <path
                               strokeLinecap="round"
                               strokeLinejoin="round"
@@ -654,22 +797,28 @@ const FinanceFeatureSection = () => {
                           </svg>
                         </div>
                         <div className="ml-3">
-                          <h4 className="text-white font-bold">Investment Growth</h4>
-                          <p className="text-white/80 text-xs">Last 12 months</p>
+                          <h4 className="font-bold text-white">
+                            Investment Growth
+                          </h4>
+                          <p className="text-xs text-white/80">
+                            Last 12 months
+                          </p>
                         </div>
                       </div>
-                      <div className="text-white font-bold">+24.8%</div>
+                      <div className="font-bold text-white">+24.8%</div>
                     </div>
 
                     <div className="space-y-4">
-                      <div className="bg-white/10 rounded-lg p-3">
-                        <div className="flex justify-between items-center mb-2">
-                          <div className="text-white text-sm font-medium">Tech Stocks</div>
-                          <div className="text-emerald-300 text-sm">+32.4%</div>
+                      <div className="rounded-lg bg-white/10 p-3">
+                        <div className="mb-2 flex items-center justify-between">
+                          <div className="text-sm font-medium text-white">
+                            Tech Stocks
+                          </div>
+                          <div className="text-sm text-emerald-300">+32.4%</div>
                         </div>
-                        <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/20">
                           <motion.div
-                            className="h-full bg-emerald-400 rounded-full"
+                            className="h-full rounded-full bg-emerald-400"
                             initial={{ width: 0 }}
                             animate={isInView ? { width: "80%" } : { width: 0 }}
                             transition={{ duration: 1, delay: 0.8 }}
@@ -677,14 +826,16 @@ const FinanceFeatureSection = () => {
                         </div>
                       </div>
 
-                      <div className="bg-white/10 rounded-lg p-3">
-                        <div className="flex justify-between items-center mb-2">
-                          <div className="text-white text-sm font-medium">Index Funds</div>
-                          <div className="text-emerald-300 text-sm">+18.2%</div>
+                      <div className="rounded-lg bg-white/10 p-3">
+                        <div className="mb-2 flex items-center justify-between">
+                          <div className="text-sm font-medium text-white">
+                            Index Funds
+                          </div>
+                          <div className="text-sm text-emerald-300">+18.2%</div>
                         </div>
-                        <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/20">
                           <motion.div
-                            className="h-full bg-emerald-400 rounded-full"
+                            className="h-full rounded-full bg-emerald-400"
                             initial={{ width: 0 }}
                             animate={isInView ? { width: "65%" } : { width: 0 }}
                             transition={{ duration: 1, delay: 0.9 }}
@@ -692,14 +843,16 @@ const FinanceFeatureSection = () => {
                         </div>
                       </div>
 
-                      <div className="bg-white/10 rounded-lg p-3">
-                        <div className="flex justify-between items-center mb-2">
-                          <div className="text-white text-sm font-medium">Crypto</div>
-                          <div className="text-rose-300 text-sm">-5.7%</div>
+                      <div className="rounded-lg bg-white/10 p-3">
+                        <div className="mb-2 flex items-center justify-between">
+                          <div className="text-sm font-medium text-white">
+                            Crypto
+                          </div>
+                          <div className="text-sm text-rose-300">-5.7%</div>
                         </div>
-                        <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
+                        <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/20">
                           <motion.div
-                            className="h-full bg-rose-400 rounded-full"
+                            className="h-full rounded-full bg-rose-400"
                             initial={{ width: 0 }}
                             animate={isInView ? { width: "30%" } : { width: 0 }}
                             transition={{ duration: 1, delay: 1 }}
@@ -715,8 +868,7 @@ const FinanceFeatureSection = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FinanceFeatureSection
-
+export default FinanceFeatureSection;

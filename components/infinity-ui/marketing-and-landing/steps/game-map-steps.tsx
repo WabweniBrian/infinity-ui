@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useRef } from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Map, Flag, Trophy, Compass, Star } from "lucide-react"
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Map, Flag, Trophy, Compass, Star } from "lucide-react";
 
 type Step = {
-  id: number
-  title: string
-  description: string
-  icon: React.ReactNode
-  color: string
-  position: { x: number; y: number }
-}
+  id: number;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  color: string;
+  position: { x: number; y: number };
+};
 
 const steps: Step[] = [
   {
@@ -55,73 +55,79 @@ const steps: Step[] = [
   {
     id: 5,
     title: "Victory",
-    description: "We launch your product and implement strategies to ensure market success and continuous improvement.",
+    description:
+      "We launch your product and implement strategies to ensure market success and continuous improvement.",
     icon: <Trophy className="h-6 w-6" />,
     color: "red",
     position: { x: 90, y: 50 },
   },
-]
+];
 
 const GameMapSteps = () => {
-  const [activeStep, setActiveStep] = useState(1)
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
+  const [activeStep, setActiveStep] = useState(1);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
 
   const handleStepClick = (id: number) => {
-    setActiveStep(id)
-  }
+    setActiveStep(id);
+  };
 
   return (
-    <section ref={sectionRef} className="py-24 bg-gradient-to-b from-indigo-50 to-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-gradient-to-b from-indigo-50 to-white py-24"
+    >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         <motion.div
-          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-indigo-100 to-blue-50 -translate-y-1/3 translate-x-1/3"
+          className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-indigo-100 to-blue-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         />
 
         <motion.div
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-emerald-50 to-teal-50 translate-y-1/3 -translate-x-1/4"
+          className="absolute bottom-0 left-0 h-[500px] w-[500px] -translate-x-1/4 translate-y-1/3 rounded-full bg-gradient-to-tr from-emerald-50 to-teal-50"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 0.7 } : { opacity: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         />
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <div className="container relative z-10 mx-auto max-w-6xl px-4">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Your Project Adventure</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+            Your Project Adventure
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Navigate through our proven process to achieve your business goals
           </p>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col items-center gap-12 lg:flex-row">
           {/* Game map */}
           <motion.div
-            className="w-full lg:w-1/2 relative"
+            className="relative w-full lg:w-1/2"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="aspect-square relative max-w-xl mx-auto">
+            <div className="relative mx-auto aspect-square max-w-xl">
               {/* Map background with path */}
-              <div className="absolute inset-0 rounded-xl overflow-hidden border-4 border-amber-800/20 shadow-xl">
-                <div className="absolute inset-0 bg-[url('/placeholder.svg?height=600&width=600')] bg-no-repeat bg-center bg-cover opacity-20" />
+              <div className="absolute inset-0 overflow-hidden rounded-xl border-4 border-amber-800/20 shadow-xl">
+                <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=600')] bg-cover bg-center bg-no-repeat opacity-20" />
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-blue-50 to-indigo-50" />
 
                 {/* Path connecting points */}
                 <svg
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 h-full w-full"
                   viewBox="0 0 100 100"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +154,14 @@ const GameMapSteps = () => {
                     transition={{ duration: 2, delay: 0.5 }}
                   />
                   <defs>
-                    <linearGradient id="gradient-path" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                    <linearGradient
+                      id="gradient-path"
+                      x1="0"
+                      y1="0"
+                      x2="100"
+                      y2="100"
+                      gradientUnits="userSpaceOnUse"
+                    >
                       <stop stopColor="#10B981" />
                       <stop offset="0.25" stopColor="#3B82F6" />
                       <stop offset="0.5" stopColor="#8B5CF6" />
@@ -161,22 +174,22 @@ const GameMapSteps = () => {
                 {/* Decorative elements */}
                 <div className="absolute inset-0">
                   {/* Trees, mountains, clouds, etc. */}
-                  <div className="absolute top-[15%] left-[15%] w-6 h-6 text-emerald-500 opacity-30">
+                  <div className="absolute left-[15%] top-[15%] h-6 w-6 text-emerald-500 opacity-30">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2L4 20h16L12 2z" />
                     </svg>
                   </div>
-                  <div className="absolute top-[65%] left-[25%] w-8 h-8 text-emerald-600 opacity-30">
+                  <div className="absolute left-[25%] top-[65%] h-8 w-8 text-emerald-600 opacity-30">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2L4 20h16L12 2z" />
                     </svg>
                   </div>
-                  <div className="absolute top-[25%] right-[20%] w-10 h-5 text-blue-300 opacity-30">
+                  <div className="absolute right-[20%] top-[25%] h-5 w-10 text-blue-300 opacity-30">
                     <svg viewBox="0 0 24 12" fill="currentColor">
                       <path d="M0 12 A 12 6 0 0 1 24 12 Z" />
                     </svg>
                   </div>
-                  <div className="absolute bottom-[30%] right-[30%] w-12 h-6 text-blue-300 opacity-30">
+                  <div className="absolute bottom-[30%] right-[30%] h-6 w-12 text-blue-300 opacity-30">
                     <svg viewBox="0 0 24 12" fill="currentColor">
                       <path d="M0 12 A 12 6 0 0 1 24 12 Z" />
                     </svg>
@@ -186,13 +199,13 @@ const GameMapSteps = () => {
 
               {/* Step markers */}
               {steps.map((step, index) => {
-                const isActive = step.id === activeStep
-                const isCompleted = step.id < activeStep
+                const isActive = step.id === activeStep;
+                const isCompleted = step.id < activeStep;
 
                 return (
                   <motion.div
                     key={step.id}
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2"
+                    className="absolute -translate-x-1/2 -translate-y-1/2 transform"
                     style={{
                       left: `${step.position.x}%`,
                       top: `${step.position.y}%`,
@@ -213,7 +226,11 @@ const GameMapSteps = () => {
                         : { scale: 0 }
                     }
                   >
-                    <button onClick={() => handleStepClick(step.id)} className="relative group" aria-pressed={isActive}>
+                    <button
+                      onClick={() => handleStepClick(step.id)}
+                      className="group relative"
+                      aria-pressed={isActive}
+                    >
                       {/* Pulse animation for active step */}
                       {isActive && (
                         <motion.div
@@ -242,11 +259,7 @@ const GameMapSteps = () => {
 
                       {/* Step marker */}
                       <div
-                        className={`
-                        relative flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full
-                        transition-all duration-300 shadow-lg
-                        ${isActive ? "scale-110 border-4 border-white" : "scale-100 border-2 border-white/70"}
-                        ${
+                        className={`relative flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all duration-300 md:h-16 md:w-16 ${isActive ? "scale-110 border-4 border-white" : "scale-100 border-2 border-white/70"} ${
                           isCompleted
                             ? step.color === "green"
                               ? "bg-green-500"
@@ -266,27 +279,20 @@ const GameMapSteps = () => {
                                   : step.color === "orange"
                                     ? "bg-orange-400"
                                     : "bg-red-400"
-                        }
-                      `}
+                        } `}
                       >
                         <div className="text-white">{step.icon}</div>
                       </div>
 
                       {/* Step title tooltip */}
                       <div
-                        className={`
-                        absolute top-full left-1/2 -translate-x-1/2 mt-2
-                        px-3 py-1 rounded-full bg-white shadow-md border border-gray-100
-                        text-xs font-medium whitespace-nowrap
-                        ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
-                        transition-opacity duration-200
-                      `}
+                        className={`absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-100 bg-white px-3 py-1 text-xs font-medium shadow-md ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"} transition-opacity duration-200`}
                       >
                         {step.title}
                       </div>
                     </button>
                   </motion.div>
-                )
+                );
               })}
             </div>
           </motion.div>
@@ -295,7 +301,7 @@ const GameMapSteps = () => {
           <div className="w-full lg:w-1/2">
             <AnimatePresence mode="wait">
               {steps.map((step) => {
-                if (step.id !== activeStep) return null
+                if (step.id !== activeStep) return null;
 
                 return (
                   <motion.div
@@ -307,10 +313,10 @@ const GameMapSteps = () => {
                     className="group"
                   >
                     <div className="relative">
-                      <div className="rounded-xl overflow-hidden">
-                        <div className="relative bg-white rounded-xl p-8 border border-gray-100 shadow-md">
+                      <div className="overflow-hidden rounded-xl">
+                        <div className="relative rounded-xl border border-gray-100 bg-white p-8 shadow-md">
                           <div
-                            className={`absolute top-0 left-0 w-full h-1 ${
+                            className={`absolute left-0 top-0 h-1 w-full ${
                               step.color === "green"
                                 ? "bg-green-500"
                                 : step.color === "blue"
@@ -323,9 +329,9 @@ const GameMapSteps = () => {
                             }`}
                           />
 
-                          <div className="flex items-center mb-6">
+                          <div className="mb-6 flex items-center">
                             <div
-                              className={`p-3 rounded-full mr-4 ${
+                              className={`mr-4 rounded-full p-3 ${
                                 step.color === "green"
                                   ? "bg-green-100 text-green-500"
                                   : step.color === "blue"
@@ -341,7 +347,7 @@ const GameMapSteps = () => {
                             </div>
                             <div>
                               <span
-                                className={`inline-block text-xs font-semibold rounded-full px-2 py-0.5 mb-1 ${
+                                className={`mb-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${
                                   step.color === "green"
                                     ? "bg-green-100 text-green-700"
                                     : step.color === "blue"
@@ -355,16 +361,24 @@ const GameMapSteps = () => {
                               >
                                 Step {step.id}
                               </span>
-                              <h3 className="text-2xl font-bold text-gray-900">{step.title}</h3>
+                              <h3 className="text-2xl font-bold text-gray-900">
+                                {step.title}
+                              </h3>
                             </div>
                           </div>
 
-                          <p className="text-gray-600 mb-6 text-lg">{step.description}</p>
+                          <p className="mb-6 text-lg text-gray-600">
+                            {step.description}
+                          </p>
 
                           <div className="flex space-x-4">
                             <button
-                              onClick={() => handleStepClick(step.id === 1 ? steps.length : step.id - 1)}
-                              className="px-5 py-2 border border-gray-200 rounded-lg text-gray-700 flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                              onClick={() =>
+                                handleStepClick(
+                                  step.id === 1 ? steps.length : step.id - 1,
+                                )
+                              }
+                              className="flex items-center gap-2 rounded-lg border border-gray-200 px-5 py-2 text-gray-700 transition-colors hover:bg-gray-50"
                               disabled={step.id === 1}
                             >
                               <svg
@@ -386,8 +400,12 @@ const GameMapSteps = () => {
                             </button>
 
                             <button
-                              onClick={() => handleStepClick(step.id === steps.length ? 1 : step.id + 1)}
-                              className={`px-5 py-2 rounded-lg text-white flex items-center gap-2 transition-colors ${
+                              onClick={() =>
+                                handleStepClick(
+                                  step.id === steps.length ? 1 : step.id + 1,
+                                )
+                              }
+                              className={`flex items-center gap-2 rounded-lg px-5 py-2 text-white transition-colors ${
                                 step.color === "green"
                                   ? "bg-green-500 hover:bg-green-600"
                                   : step.color === "blue"
@@ -421,15 +439,14 @@ const GameMapSteps = () => {
                       </div>
                     </div>
                   </motion.div>
-                )
+                );
               })}
             </AnimatePresence>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default GameMapSteps
-
+export default GameMapSteps;

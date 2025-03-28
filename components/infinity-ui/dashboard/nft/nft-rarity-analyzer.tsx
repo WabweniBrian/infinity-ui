@@ -106,7 +106,10 @@ const NFTRarityAnalyzer = ({
           <div className="md:w-1/3">
             <div className="relative aspect-square overflow-hidden rounded-xl">
               <Image
-                src={nftImage || "/placeholder.svg?height=300&width=300"}
+                src={
+                  nftImage ||
+                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=300"
+                }
                 alt={nftName}
                 fill
                 className="object-cover"

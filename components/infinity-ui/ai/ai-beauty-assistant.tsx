@@ -168,7 +168,7 @@ const AIBeautyAssistant = () => {
     setTimeout(() => {
       const aiResponses = [
         "Based on your skin concerns with dryness, I recommend incorporating a hyaluronic acid serum into your routine. Products like the Hydrating Serum from Glow Essentials would be perfect for your combination skin type.",
-        "Looking at your beauty profile, I notice you're interested in anti-aging products. The Vitamin C Brightening Cream would be an excellent addition to your morning routine to help with fine lines and protect against environmental damage.",
+        "Looking at your beauty profile, I notice you&apos;re interested in anti-aging products. The Vitamin C Brightening Cream would be an excellent addition to your morning routine to help with fine lines and protect against environmental damage.",
         "For your concern about hyperpigmentation, I suggest using products with ingredients like niacinamide, vitamin C, and alpha arbutin. The Vitamin C Brightening Cream in our recommended products would be a great start.",
         "Based on the selfie you shared, I can see some dehydration around your cheek area. Try incorporating more hydrating products and perhaps a weekly hydrating mask like the Overnight Repair Mask from Glow Essentials.",
         "Your current routine is missing a good exfoliant, which could help with the texture concerns you mentioned. The Gentle Exfoliating Toner would be perfect to use 2-3 times per week.",
@@ -1003,7 +1003,10 @@ const AIBeautyAssistant = () => {
           >
             <div className="relative h-48 w-full overflow-hidden">
               <Image
-                src={product.imageUrl || "/default-image.jpg"}
+                src={
+                  product.imageUrl ||
+                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                }
                 alt={product.name}
                 fill
                 className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
@@ -1149,7 +1152,10 @@ const AIBeautyAssistant = () => {
                           >
                             <div className="flex">
                               <Image
-                                src={product.imageUrl || "/default-image.jpg"}
+                                src={
+                                  product.imageUrl ||
+                                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                                }
                                 alt={product.name}
                                 width={80}
                                 height={80}
@@ -1311,7 +1317,10 @@ const AIBeautyAssistant = () => {
           >
             <div className="relative h-48 w-full overflow-hidden">
               <Image
-                src={entry.image || "/default-image.jpg"}
+                src={
+                  entry.image ||
+                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                }
                 alt="Skin journal entry"
                 fill
                 className="h-full w-full object-cover"
@@ -1381,7 +1390,10 @@ const AIBeautyAssistant = () => {
                       >
                         <div className="relative mr-2 h-8 w-8 flex-shrink-0 overflow-hidden rounded-md">
                           <Image
-                            src={product.imageUrl || "/default-image.jpg"}
+                            src={
+                              product.imageUrl ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={product.name}
                             fill
                             className="h-full w-full object-cover"
@@ -1499,7 +1511,10 @@ const AIBeautyAssistant = () => {
             >
               {userProfile.avatar ? (
                 <Image
-                  src={userProfile.avatar || "/images/default-avatar.png"}
+                  src={
+                    userProfile.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={userProfile.name}
                   fill
                   className="h-full w-full object-cover"
@@ -1732,7 +1747,10 @@ const AIBeautyAssistant = () => {
               <div className="flex flex-col md:flex-row md:gap-6">
                 <div className="relative mb-4 h-64 w-full overflow-hidden rounded-xl md:mb-0 md:h-auto md:w-1/3">
                   <Image
-                    src={selectedProduct.imageUrl || "/default-image.jpg"}
+                    src={
+                      selectedProduct.imageUrl ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     fill
                     alt={selectedProduct.name}
                     className="h-full w-full object-cover"
@@ -2043,7 +2061,10 @@ const AIBeautyAssistant = () => {
                         <div className="relative mb-6 h-64 w-64 overflow-hidden rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-600">
                           {uploadedImage ? (
                             <Image
-                              src={uploadedImage || "/default-image.jpg"}
+                              src={
+                                uploadedImage ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt="Uploaded selfie"
                               fill
                               className="h-full w-full object-cover"
@@ -2148,7 +2169,10 @@ const AIBeautyAssistant = () => {
               <div className="flex flex-col md:flex-row md:gap-6">
                 <div className="relative mb-4 h-64 w-full overflow-hidden rounded-xl md:mb-0 md:h-auto md:w-1/2">
                   <Image
-                    src={uploadedImage || "/images/default-avatar.png"}
+                    src={
+                      uploadedImage ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                    }
                     alt="Uploaded selfie"
                     fill
                     className="h-full w-full object-cover"
@@ -2236,7 +2260,10 @@ const AIBeautyAssistant = () => {
                     >
                       <div className="flex">
                         <Image
-                          src={product.imageUrl || "/images/default-avatar.png"}
+                          src={
+                            product.imageUrl ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                          }
                           alt={product.name}
                           width={80}
                           height={80}

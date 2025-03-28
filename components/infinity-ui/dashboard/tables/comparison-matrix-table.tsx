@@ -97,7 +97,7 @@ const defaultProducts: Product[] = [
     id: "p1",
     name: "Product A",
     description: "Enterprise solution with advanced features",
-    logo: "/default-image.jpg",
+    logo: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     features: {
       f1: true,
       f2: true,
@@ -115,7 +115,7 @@ const defaultProducts: Product[] = [
     id: "p2",
     name: "Product B",
     description: "Mid-tier solution with essential features",
-    logo: "/default-image.jpg",
+    logo: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     features: {
       f1: true,
       f2: true,
@@ -133,7 +133,7 @@ const defaultProducts: Product[] = [
     id: "p3",
     name: "Product C",
     description: "Budget-friendly option for small teams",
-    logo: "/default-image.jpg",
+    logo: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     features: {
       f1: true,
       f2: true,
@@ -151,7 +151,7 @@ const defaultProducts: Product[] = [
     id: "p4",
     name: "Product D",
     description: "Specialized solution for specific use cases",
-    logo: "/default-image.jpg",
+    logo: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     features: {
       f1: false,
       f2: true,
@@ -242,7 +242,10 @@ const ComparisonMatrixTable = ({
                   >
                     <div className="flex flex-col items-center">
                       <Image
-                        src={product.logo || "/default-image.jpg"}
+                        src={
+                          product.logo ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={product.name}
                         width={32}
                         height={32}

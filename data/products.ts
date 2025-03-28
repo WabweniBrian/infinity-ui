@@ -30,8 +30,10 @@ export const products: Product[] = [
     originalPrice: 119.99,
     rating: 4.8,
     reviewCount: 124,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Home Office",
     tags: ["lighting", "desk", "modern"],
     isNew: true,
@@ -51,8 +53,10 @@ export const products: Product[] = [
     price: 349.99,
     rating: 4.9,
     reviewCount: 87,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Furniture",
     tags: ["chair", "office", "ergonomic"],
     isFeatured: true,
@@ -71,8 +75,10 @@ export const products: Product[] = [
     originalPrice: 299.99,
     rating: 4.7,
     reviewCount: 215,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Electronics",
     tags: ["audio", "wireless", "headphones"],
     isOnSale: true,
@@ -91,8 +97,10 @@ export const products: Product[] = [
     price: 129.99,
     rating: 4.5,
     reviewCount: 63,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Smart Home",
     tags: ["smart home", "tech", "automation"],
     isNew: true,
@@ -105,8 +113,10 @@ export const products: Product[] = [
     price: 59.99,
     rating: 4.6,
     reviewCount: 42,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Kitchen",
     tags: ["coffee", "ceramic", "handmade"],
     stock: 18,
@@ -124,8 +134,10 @@ export const products: Product[] = [
     originalPrice: 99.99,
     rating: 4.4,
     reviewCount: 178,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Electronics",
     tags: ["audio", "bluetooth", "portable"],
     isOnSale: true,
@@ -144,8 +156,10 @@ export const products: Product[] = [
     price: 189.99,
     rating: 4.9,
     reviewCount: 56,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Accessories",
     tags: ["watch", "analog", "minimalist"],
     isFeatured: true,
@@ -164,8 +178,10 @@ export const products: Product[] = [
     price: 69.99,
     rating: 4.7,
     reviewCount: 31,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Home Decor",
     tags: ["blanket", "organic", "sustainable"],
     stock: 24,
@@ -184,8 +200,10 @@ export const products: Product[] = [
     originalPrice: 249.99,
     rating: 4.8,
     reviewCount: 42,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Accessories",
     tags: ["backpack", "leather", "travel"],
     isOnSale: true,
@@ -204,8 +222,10 @@ export const products: Product[] = [
     originalPrice: 149.99,
     rating: 4.6,
     reviewCount: 93,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Fitness",
     tags: ["fitness", "tech", "health"],
     isOnSale: true,
@@ -224,8 +244,10 @@ export const products: Product[] = [
     price: 49.99,
     rating: 4.5,
     reviewCount: 28,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Home Decor",
     tags: ["vase", "ceramic", "handmade"],
     isNew: true,
@@ -243,8 +265,10 @@ export const products: Product[] = [
     price: 199.99,
     rating: 4.9,
     reviewCount: 17,
-    image: "/placeholder.svg?height=400&width=400",
-    hoverImage: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    hoverImage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     category: "Footwear",
     tags: ["sneakers", "limited", "designer"],
     isLimitedEdition: true,

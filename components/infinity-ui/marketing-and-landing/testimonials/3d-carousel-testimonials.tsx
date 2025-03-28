@@ -22,7 +22,8 @@ const testimonials: Testimonial[] = [
     name: "Sarah Johnson",
     role: "Marketing Director",
     company: "TechVision Inc.",
-    image: "/images/default-avatar.png",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "The team delivered beyond our expectations. Our website traffic increased by 150% within three months of launch, and our conversion rate has doubled. Their strategic approach to design and user experience has transformed our digital presence.",
     rating: 5,
@@ -33,7 +34,8 @@ const testimonials: Testimonial[] = [
     name: "Michael Chen",
     role: "Founder & CEO",
     company: "Innovate Solutions",
-    image: "/images/default-avatar.png",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "Working with this agency has been a game-changer for our startup. They understood our vision perfectly and created a brand identity that resonates with our target audience. Their attention to detail and creative problem-solving is unmatched.",
     rating: 5,
@@ -44,7 +46,8 @@ const testimonials: Testimonial[] = [
     name: "Emily Rodriguez",
     role: "Product Manager",
     company: "Elevate Digital",
-    image: "/images/default-avatar.png",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "The redesign of our app resulted in a 70% increase in user engagement and a significant decrease in bounce rate. Their team's expertise in UX/UI design and development has helped us create an intuitive, seamless experience for our users.",
     rating: 4,
@@ -55,9 +58,10 @@ const testimonials: Testimonial[] = [
     name: "David Thompson",
     role: "Operations Director",
     company: "Global Retail Group",
-    image: "/images/default-avatar.png",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
-      "Their e-commerce solution has revolutionized our online sales. We've seen a 200% increase in mobile conversions and a 45% reduction in cart abandonment. The intuitive admin dashboard makes managing our online store effortless.",
+      "Their e-commerce solution has revolutionized our online sales. We&apos;ve seen a 200% increase in mobile conversions and a 45% reduction in cart abandonment. The intuitive admin dashboard makes managing our online store effortless.",
     rating: 5,
     color: "amber",
   },
@@ -66,7 +70,8 @@ const testimonials: Testimonial[] = [
     name: "Sophia Patel",
     role: "Creative Director",
     company: "Artisan Studios",
-    image: "/images/default-avatar.png",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "As a design-focused company, we had high expectations, and they exceeded every one of them. Their collaborative approach ensured our brand's unique personality shines through while delivering a website that performs exceptionally well.",
     rating: 5,
@@ -150,7 +155,7 @@ const Carousel3DTestimonials = () => {
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         <motion.div
           className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-blue-50 to-purple-50"
@@ -254,7 +259,7 @@ const Carousel3DTestimonials = () => {
                             <Image
                               src={
                                 testimonial.image ||
-                                "/images/default-avatar.png"
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                               }
                               alt={testimonial.name}
                               fill

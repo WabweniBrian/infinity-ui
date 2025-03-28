@@ -69,20 +69,29 @@ const garmentImages = {
 // Sample pattern and graphic images
 const designAssets = {
   patterns: {
-    geometric: "/default-image.jpg",
-    abstract: "/default-image.jpg",
-    floral: "/default-image.jpg",
-    stripes: "/default-image.jpg",
-    dots: "/default-image.jpg",
-    camouflage: "/default-image.jpg",
+    geometric:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    abstract:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    floral:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    stripes:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    dots: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    camouflage:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   },
   graphics: {
-    mountain: "/default-image.jpg",
-    wave: "/default-image.jpg",
-    star: "/default-image.jpg",
-    "abstract-shape": "/default-image.jpg",
-    animal: "/default-image.jpg",
-    plant: "/default-image.jpg",
+    mountain:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    wave: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    star: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    "abstract-shape":
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    animal:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    plant:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   },
 };
 
@@ -177,7 +186,8 @@ const AIFashionDesigner = () => {
             selected: false,
           },
         ],
-        thumbnail: "/default-image.jpg",
+        thumbnail:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         saved: true,
       },
       {
@@ -206,7 +216,8 @@ const AIFashionDesigner = () => {
             color: "#FFFFFF",
           },
         ],
-        thumbnail: "/default-image.jpg",
+        thumbnail:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         saved: true,
       },
       {
@@ -234,7 +245,8 @@ const AIFashionDesigner = () => {
             selected: false,
           },
         ],
-        thumbnail: "/default-image.jpg",
+        thumbnail:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         saved: true,
       },
     ];
@@ -253,7 +265,8 @@ const AIFashionDesigner = () => {
           selected: false,
         },
       ],
-      thumbnail: "/default-image.jpg",
+      thumbnail:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       saved: false,
     };
 
@@ -385,7 +398,7 @@ const AIFashionDesigner = () => {
 
       const designToAdd = design || currentDesign;
 
-      // Remove any future history if we're not at the end
+      // Remove any future history if we&apos;re not at the end
       const newHistory = designHistory.slice(0, historyIndex + 1);
 
       // Add current design to history
@@ -576,7 +589,8 @@ const AIFashionDesigner = () => {
         : "AI Generated Design",
       type: garmentType as "tshirt" | "hoodie" | "dress" | "pants" | "jacket",
       elements: newElements,
-      thumbnail: "/default-image.jpg",
+      thumbnail:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       saved: false,
     };
 
@@ -902,7 +916,7 @@ const AIFashionDesigner = () => {
                                 <Image
                                   src={
                                     garmentImages[currentDesign.type] ||
-                                    "/default-image.jpg"
+                                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                                   }
                                   alt={currentDesign.type}
                                   width={600}
@@ -942,7 +956,7 @@ const AIFashionDesigner = () => {
                                     <div
                                       className="h-40 w-40 bg-contain bg-center bg-no-repeat opacity-70"
                                       style={{
-                                        backgroundImage: `url(${designAssets.patterns[element.value as keyof typeof designAssets.patterns] || "/default-image.jpg"})`,
+                                        backgroundImage: `url(${designAssets.patterns[element.value as keyof typeof designAssets.patterns] || "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"})`,
                                       }}
                                     ></div>
                                   );
@@ -951,7 +965,7 @@ const AIFashionDesigner = () => {
                                     <div
                                       className="h-40 w-40 bg-contain bg-center bg-no-repeat"
                                       style={{
-                                        backgroundImage: `url(${designAssets.graphics[element.value as keyof typeof designAssets.graphics] || "/default-image.jpg"})`,
+                                        backgroundImage: `url(${designAssets.graphics[element.value as keyof typeof designAssets.graphics] || "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"})`,
                                       }}
                                     ></div>
                                   );
@@ -1347,7 +1361,10 @@ const AIFashionDesigner = () => {
                             >
                               <div className="relative h-16 w-12 overflow-hidden rounded-md border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/50">
                                 <Image
-                                  src={design.thumbnail || "/default-image.jpg"}
+                                  src={
+                                    design.thumbnail ||
+                                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                                  }
                                   alt={design.name}
                                   fill
                                   className="h-full w-full object-cover"

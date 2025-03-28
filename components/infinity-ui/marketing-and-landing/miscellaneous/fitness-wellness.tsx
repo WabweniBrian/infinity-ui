@@ -35,7 +35,8 @@ const FitnessWellnessSection = () => {
       duration: "30 min",
       difficulty: "Intermediate",
       calories: "400-500",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypop4OZznTMstyAN5nWO1VuQDxjmXLf6dJzBC8i",
       color: "from-rose-500 to-pink-500",
     },
     {
@@ -45,7 +46,8 @@ const FitnessWellnessSection = () => {
       duration: "45 min",
       difficulty: "All Levels",
       calories: "300-400",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAACsOym4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
       color: "from-blue-500 to-indigo-500",
     },
     {
@@ -55,7 +57,8 @@ const FitnessWellnessSection = () => {
       duration: "60 min",
       difficulty: "Beginner",
       calories: "200-300",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9yporapO5xsRM6SezdhwEl4xm7yqiGfjgZWu9KB2",
       color: "from-emerald-500 to-teal-500",
     },
   ];
@@ -66,7 +69,8 @@ const FitnessWellnessSection = () => {
       description:
         "A balanced nutrition plan focused on whole foods, lean proteins, and complex carbohydrates to fuel your body optimally.",
       features: ["Personalized Macros", "Grocery Lists", "Meal Prep Guides"],
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypox4JWquJtFC1a2S06AJNu9MsdPXG8D5oerTbl",
       color: "from-amber-500 to-orange-500",
     },
     {
@@ -78,7 +82,8 @@ const FitnessWellnessSection = () => {
         "Nutrient Timing",
         "Supplement Guidance",
       ],
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypox4JJ582tFC1a2S06AJNu9MsdPXG8D5oerTbl",
       color: "from-emerald-500 to-teal-500",
     },
     {
@@ -90,7 +95,8 @@ const FitnessWellnessSection = () => {
         "Hydration Protocols",
         "Competition Prep",
       ],
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZmdLOEh2BRxjvs0lePWdUT3JIKoAfbgqLw8z",
       color: "from-blue-500 to-indigo-500",
     },
   ];
@@ -101,7 +107,8 @@ const FitnessWellnessSection = () => {
       description:
         "Learn effective techniques to manage stress, improve sleep quality, and enhance overall wellbeing.",
       benefits: ["Reduced Anxiety", "Better Sleep", "Improved Focus"],
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypopwEsQYTMstyAN5nWO1VuQDxjmXLf6dJzBC8i",
       color: "from-purple-500 to-violet-500",
     },
     {
@@ -113,7 +120,8 @@ const FitnessWellnessSection = () => {
         "Emotional Balance",
         "Reduced Reactivity",
       ],
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo4lTEMQdV8HBnj2sim5N7M41k9TADhtKvdpry",
       color: "from-blue-500 to-indigo-500",
     },
     {
@@ -121,7 +129,8 @@ const FitnessWellnessSection = () => {
       description:
         "A comprehensive approach to wellness addressing physical, mental, and emotional aspects of health.",
       benefits: ["Work-Life Balance", "Sustainable Habits", "Personal Growth"],
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoo13eG0VLSQVjXshg7KPt3AIzyxE815TGrRlo",
       color: "from-emerald-500 to-teal-500",
     },
   ];
@@ -295,7 +304,10 @@ const FitnessWellnessSection = () => {
                     <div className="relative overflow-hidden rounded-xl border border-gray-200/50 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-gray-700/50 dark:bg-gray-800">
                       <div className="relative h-48 w-full">
                         <Image
-                          src={item.image || "/default-image.jpg"}
+                          src={
+                            item.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={item.title}
                           fill
                           className="h-full w-full object-cover"

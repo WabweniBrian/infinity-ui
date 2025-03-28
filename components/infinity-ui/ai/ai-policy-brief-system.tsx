@@ -57,7 +57,8 @@ type View = "dashboard" | "create" | "briefs" | "viewer" | "settings";
 const user: AppUser = {
   name: "Wabweni Brian",
   email: "brian@policyorg.com",
-  avatar: "/images/default-avatar.png",
+  avatar:
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   organization: "Global Policy Institute",
   role: "knowledge_broker",
 };
@@ -246,7 +247,10 @@ const AIPolicyBriefSystem = () => {
             <div className="mb-6 flex items-center">
               <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}
@@ -1692,7 +1696,7 @@ const AIPolicyBriefSystem = () => {
               <div className="mt-4 w-full overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-700">
                 <div className="relative flex aspect-video items-center justify-center">
                   <Image
-                    src="/default-image.jpg"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                     alt="Animation preview"
                     width={320}
                     height={180}
@@ -1757,7 +1761,10 @@ const AIPolicyBriefSystem = () => {
             <div className="flex items-center">
               <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}

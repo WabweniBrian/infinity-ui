@@ -2,9 +2,10 @@
 
 import type React from "react";
 
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { Check, ChevronRight, HelpCircle, X } from "lucide-react";
 import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Check, X, HelpCircle, ChevronRight } from "lucide-react";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const FeaturesComparisonSection = () => {
   const sectionRef = useRef(null);
@@ -144,8 +145,10 @@ const FeaturesComparisonSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gray-50 py-24 dark:bg-gray-900"
+      className="relative min-h-screen overflow-hidden bg-gray-50 py-24 dark:bg-gray-900"
     >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
       {/* Abstract Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         <motion.div

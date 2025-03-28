@@ -49,7 +49,7 @@ const testimonials: Testimonial[] = [
     image:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
-      "The digital marketing strategy they developed has transformed our customer acquisition. We've seen a 200% increase in qualified leads and a 45% reduction in cost per acquisition.",
+      "The digital marketing strategy they developed has transformed our customer acquisition. We&apos;ve seen a 200% increase in qualified leads and a 45% reduction in cost per acquisition.",
     signature: "Sophia Martinez",
     rating: 5,
   },
@@ -122,7 +122,7 @@ const HandwrittenTestimonials = () => {
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         {/* Notebook lines */}
         <div className="absolute inset-0 flex flex-col">
@@ -132,7 +132,7 @@ const HandwrittenTestimonials = () => {
         </div>
 
         {/* Paper texture */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=400')] bg-repeat opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-repeat opacity-[0.03]" />
 
         <motion.div
           className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-amber-100/50 to-orange-100/50"
@@ -258,7 +258,10 @@ const HandwrittenTestimonials = () => {
                     <div className="mr-4">
                       <div className="realtive h-16 w-16 overflow-hidden rounded-full border-2 border-amber-200">
                         <Image
-                          src={currentTestimonial.image || "/placeholder.svg"}
+                          src={
+                            currentTestimonial.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={currentTestimonial.name}
                           fill
                           className="h-full w-full object-cover"

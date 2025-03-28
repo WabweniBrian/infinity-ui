@@ -112,7 +112,7 @@ const EarlyAccessCta = () => {
                 <motion.div variants={itemVariants} className="mb-6">
                   <div className="relative mx-auto h-[200px] w-full max-w-sm overflow-hidden rounded-lg border border-white/20 bg-white/10 p-2 backdrop-blur-md">
                     <Image
-                      src="/placeholder.svg?height=400&width=600&text=Product+Preview"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp&text=Product+Preview"
                       alt="Product preview"
                       fill
                       className="rounded object-cover"
@@ -245,7 +245,7 @@ const EarlyAccessCta = () => {
                             className="h-8 w-8 overflow-hidden rounded-full border-2 border-white"
                           >
                             <Image
-                              src={`/placeholder.svg?height=32&width=32&text=${i + 1}`}
+                              src={`https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=32&width=32&text=${i + 1}`}
                               alt={`User ${i + 1}`}
                               width={32}
                               height={32}

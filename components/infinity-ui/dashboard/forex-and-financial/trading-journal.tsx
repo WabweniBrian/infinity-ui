@@ -1503,7 +1503,7 @@ const TradingJournal = () => {
                                               <Image
                                                 src={
                                                   screenshot ||
-                                                  "/placeholder.svg"
+                                                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                                                 }
                                                 alt={`Trade screenshot ${index + 1}`}
                                                 fill

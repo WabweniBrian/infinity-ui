@@ -110,7 +110,7 @@ const VintagePostcardTestimonials = () => {
       className="relative overflow-hidden bg-amber-50 py-24"
     >
       {/* Background texture */}
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=200&width=200')] bg-repeat opacity-[0.03]" />
+      <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-repeat opacity-[0.03]" />
 
       {/* Decorative elements */}
       <div className="absolute right-10 top-10 opacity-20">
@@ -199,12 +199,12 @@ const VintagePostcardTestimonials = () => {
                       {/* Front side (image and greeting) */}
                       <div className="relative border-r border-amber-200 bg-white p-6">
                         {/* Vintage texture overlay */}
-                        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.05]" />
+                        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.05]" />
 
                         {/* Location image placeholder */}
                         <div className="relative mb-4 h-40 overflow-hidden rounded border border-amber-200">
                           <Image
-                            src="/images/default-image.jpg"
+                            src="/imageshttps://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                             alt={`Greetings from ${testimonial.location}`}
                             className="h-full w-full object-cover"
                           />
@@ -256,7 +256,7 @@ const VintagePostcardTestimonials = () => {
                           <div
                             className={`relative h-20 w-16 ${stampColor.bg} flex items-center justify-center overflow-hidden rounded-sm border border-dashed border-amber-300`}
                           >
-                            <div className="absolute inset-0 bg-[url('/placeholder.svg?height=50&width=50')] bg-repeat opacity-[0.05]" />
+                            <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50')] bg-repeat opacity-[0.05]" />
                             <div className={`text-center ${stampColor.text}`}>
                               <Stamp className="mx-auto mb-1 h-8 w-8" />
                               <p className="font-handwritten text-xs">

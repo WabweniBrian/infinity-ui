@@ -280,7 +280,10 @@ const PhotographyHero = () => {
                     >
                       <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl">
                         <Image
-                          src={image.src || "/default-image.jpg"}
+                          src={
+                            image.src ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={image.alt}
                           fill
                           className="object-cover transition-all duration-700 hover:scale-105"

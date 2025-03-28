@@ -164,10 +164,10 @@ export default function AIPersonalTutor() {
     setTimeout(() => {
       const aiResponses = [
         "Based on your question, I recommend focusing on supervised learning algorithms first. The key concepts to understand are training data, features, labels, and model evaluation metrics like accuracy and precision.",
-        "I've analyzed your learning patterns and noticed you're making great progress in JavaScript! To continue improving, I suggest practicing more with async/await patterns and exploring modern frameworks.",
-        "Looking at your current goals, I see you're aiming to complete the Machine Learning course by May 30th. You're 65% through the course, which is excellent progress! Would you like me to create a study plan to help you complete it on time?",
+        "I've analyzed your learning patterns and noticed you&apos;re making great progress in JavaScript! To continue improving, I suggest practicing more with async/await patterns and exploring modern frameworks.",
+        "Looking at your current goals, I see you&apos;re aiming to complete the Machine Learning course by May 30th. You&apos;re 65% through the course, which is excellent progress! Would you like me to create a study plan to help you complete it on time?",
         "I've found some great resources that might help with your current studies. There's an excellent article on neural networks that complements your Machine Learning course, and I've also identified some practice exercises for algorithm implementation.",
-        "Based on your learning history, I notice you haven't practiced UX Design concepts recently. Would you like to schedule some time to review these concepts, or would you prefer to focus on your current priorities in Machine Learning and JavaScript?",
+        "Based on your learning history, I notice you haven&apos;t practiced UX Design concepts recently. Would you like to schedule some time to review these concepts, or would you prefer to focus on your current priorities in Machine Learning and JavaScript?",
       ];
 
       const randomResponse =
@@ -418,7 +418,10 @@ export default function AIPersonalTutor() {
             <div className="flex items-center">
               <div className="relative mr-4 h-12 w-12 flex-shrink-0 overflow-hidden rounded-lg">
                 <Image
-                  src={courses[0].image || "/default-image.jpg"}
+                  src={
+                    courses[0].image ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                  }
                   alt={courses[0].title}
                   fill
                   className="h-full w-full object-cover"
@@ -760,7 +763,10 @@ export default function AIPersonalTutor() {
           >
             <div className="relative h-40 w-full overflow-hidden">
               <Image
-                src={course.image || "/default-image.jpg"}
+                src={
+                  course.image ||
+                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                }
                 alt={course.title}
                 fill
                 className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
@@ -939,7 +945,10 @@ export default function AIPersonalTutor() {
                       >
                         <div className="relative mr-2 h-8 w-8 flex-shrink-0 overflow-hidden rounded-md">
                           <Image
-                            src={course.image || "/default-image.jpg"}
+                            src={
+                              course.image ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={course.title}
                             fill
                             className="h-full w-full object-cover"
@@ -1965,7 +1974,10 @@ export default function AIPersonalTutor() {
               <div className="flex flex-col md:flex-row md:gap-6">
                 <div className="relative mb-4 h-48 w-full overflow-hidden rounded-xl md:mb-0 md:h-auto md:w-1/3">
                   <Image
-                    src={selectedCourse.image || "/default-image.jpg"}
+                    src={
+                      selectedCourse.image ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={selectedCourse.title}
                     fill
                     className="h-full w-full object-cover"

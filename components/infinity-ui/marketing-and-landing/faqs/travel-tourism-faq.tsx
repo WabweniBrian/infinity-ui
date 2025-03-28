@@ -60,7 +60,7 @@ const faqCategories: FAQCategory[] = [
         id: 4,
         question: "Do you offer customized itineraries?",
         answer:
-          "Yes, we specialize in creating customized itineraries tailored to your interests, budget, and travel style. Our travel consultants will work with you to design a personalized experience, whether you're interested in culinary tours, adventure activities, cultural immersion, or relaxation. We can also accommodate special requests such as anniversary celebrations, family reunions, or accessibility requirements.",
+          "Yes, we specialize in creating customized itineraries tailored to your interests, budget, and travel style. Our travel consultants will work with you to design a personalized experience, whether you&apos;re interested in culinary tours, adventure activities, cultural immersion, or relaxation. We can also accommodate special requests such as anniversary celebrations, family reunions, or accessibility requirements.",
       },
     ],
   },
@@ -73,7 +73,7 @@ const faqCategories: FAQCategory[] = [
         id: 5,
         question: "What travel documents do I need?",
         answer:
-          "Required travel documents vary by destination. For international travel, you'll typically need a passport valid for at least six months beyond your return date. Some countries also require visas, which we can help you obtain. For certain destinations, proof of vaccinations may be necessary. We provide detailed document requirements during the booking process and recommend checking official government websites for the most current information.",
+          "Required travel documents vary by destination. For international travel, you&apos;ll typically need a passport valid for at least six months beyond your return date. Some countries also require visas, which we can help you obtain. For certain destinations, proof of vaccinations may be necessary. We provide detailed document requirements during the booking process and recommend checking official government websites for the most current information.",
       },
       {
         id: 6,
@@ -98,7 +98,7 @@ const faqCategories: FAQCategory[] = [
         id: 8,
         question: "Are meals included in my package?",
         answer:
-          "Meal inclusions vary by package and property. All-inclusive resorts typically cover all meals and beverages, while other packages might include breakfast only or no meals. Your itinerary will clearly indicate which meals are included. For packages without meals, our destination guides provide restaurant recommendations for all budgets, and we're happy to make reservations for special dining experiences.",
+          "Meal inclusions vary by package and property. All-inclusive resorts typically cover all meals and beverages, while other packages might include breakfast only or no meals. Your itinerary will clearly indicate which meals are included. For packages without meals, our destination guides provide restaurant recommendations for all budgets, and we&apos;re happy to make reservations for special dining experiences.",
       },
     ],
   },
@@ -124,7 +124,7 @@ const TravelTourismFAQ = () => {
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* World map background */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] bg-center bg-no-repeat opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=800&width=1200')] bg-center bg-no-repeat opacity-[0.03]" />
 
         {/* Gradient circles */}
         <motion.div

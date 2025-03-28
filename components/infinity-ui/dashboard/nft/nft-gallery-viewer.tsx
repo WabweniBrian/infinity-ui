@@ -269,7 +269,8 @@ const NFTGalleryViewer = ({
                     <div className="relative aspect-square">
                       <Image
                         src={
-                          item.image || "/placeholder.svg?height=100&width=100"
+                          item.image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                         }
                         alt={item.name}
                         fill
@@ -313,7 +314,8 @@ const NFTGalleryViewer = ({
               <div className="relative">
                 <Image
                   src={
-                    currentItem.image || "/placeholder.svg?height=600&width=600"
+                    currentItem.image ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=600"
                   }
                   alt={currentItem.name}
                   width={600}

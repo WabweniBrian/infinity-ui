@@ -251,7 +251,10 @@ const AboutBentoGrid = () => {
                           className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-80 transition-opacity duration-300 group-hover/card:opacity-100`}
                         ></div>
                         <Image
-                          src={member.image || "/images/default-avatar.png"}
+                          src={
+                            member.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                          }
                           alt={member.name}
                           fill
                           className="absolute inset-0 h-full w-full object-cover mix-blend-overlay"

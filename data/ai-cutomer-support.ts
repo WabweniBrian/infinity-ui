@@ -272,7 +272,7 @@ export const tickets: Ticket[] = [
     id: "TKT-1002",
     subject: "Billing discrepancy on my latest invoice",
     description:
-      "My latest invoice shows charges for services I didn't use. I'm being charged for the premium plan but I downgraded to the basic plan last month.",
+      "My latest invoice shows charges for services I didn&apos;t use. I'm being charged for the premium plan but I downgraded to the basic plan last month.",
     status: "pending",
     priority: "medium",
     category: "Billing",
@@ -316,7 +316,7 @@ export const tickets: Ticket[] = [
         id: "MSG-3001",
         sender: "customer",
         content:
-          "My latest invoice shows charges for services I didn't use. I'm being charged for the premium plan but I downgraded to the basic plan last month.",
+          "My latest invoice shows charges for services I didn&apos;t use. I'm being charged for the premium plan but I downgraded to the basic plan last month.",
         timestamp: "2023-04-09T10:15:00Z",
       },
       {
@@ -794,7 +794,7 @@ export const knowledgeBase: KnowledgeBaseArticle[] = [
     id: "KB-1001",
     title: "How to Reset Your Password",
     content:
-      "This article guides you through the process of resetting your password if you've forgotten it or need to change it for security reasons...",
+      "This article guides you through the process of resetting your password if you&apos;ve forgotten it or need to change it for security reasons...",
     category: "Account Management",
     tags: ["password", "reset", "account", "login"],
     views: 1245,

@@ -196,7 +196,7 @@ const AIImageGenerator = () => {
     const sampleGeneratedImages: GeneratedImage[] = [
       {
         id: "img-1",
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt: "A futuristic cityscape with flying cars and neon lights",
         timestamp: "2023-06-15T14:30:00Z",
         isFavorite: true,
@@ -205,7 +205,7 @@ const AIImageGenerator = () => {
       },
       {
         id: "img-2",
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt: "A serene mountain landscape with a lake at sunset",
         timestamp: "2023-06-14T10:15:00Z",
         isFavorite: false,
@@ -214,7 +214,7 @@ const AIImageGenerator = () => {
       },
       {
         id: "img-3",
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt: "A magical forest with glowing plants and mystical creatures",
         timestamp: "2023-06-13T16:45:00Z",
         isFavorite: true,
@@ -223,7 +223,7 @@ const AIImageGenerator = () => {
       },
       {
         id: "img-4",
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt: "An astronaut standing on an alien planet with two moons",
         timestamp: "2023-06-12T09:20:00Z",
         isFavorite: false,
@@ -232,7 +232,7 @@ const AIImageGenerator = () => {
       },
       {
         id: "img-5",
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt:
           "A cyberpunk character with neon accessories and futuristic background",
         timestamp: "2023-06-11T20:10:00Z",
@@ -387,7 +387,7 @@ const AIImageGenerator = () => {
 
       newImages.push({
         id: `img-${Date.now()}-${i}`,
-        url: `/default-image.jpg`,
+        url: `https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp`,
         prompt: prompt,
         timestamp: new Date().toISOString(),
         isFavorite: false,
@@ -444,7 +444,7 @@ const AIImageGenerator = () => {
     const moreImages: GeneratedImage[] = [
       {
         id: `img-${Date.now()}-1`,
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt: "A steampunk airship flying over Victorian London",
         timestamp: new Date().toISOString(),
         isFavorite: false,
@@ -453,7 +453,7 @@ const AIImageGenerator = () => {
       },
       {
         id: `img-${Date.now()}-2`,
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt: "A cozy cabin in the woods during winter with snow falling",
         timestamp: new Date().toISOString(),
         isFavorite: false,
@@ -462,7 +462,7 @@ const AIImageGenerator = () => {
       },
       {
         id: `img-${Date.now()}-3`,
-        url: "/placeholder.svg?height=768&width=512",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=768&width=512",
         prompt: "A fantasy character with magical abilities casting a spell",
         timestamp: new Date().toISOString(),
         isFavorite: false,
@@ -471,7 +471,7 @@ const AIImageGenerator = () => {
       },
       {
         id: `img-${Date.now()}-4`,
-        url: "/default-image.jpg",
+        url: "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         prompt:
           "A futuristic laboratory with advanced technology and holograms",
         timestamp: new Date().toISOString(),
@@ -1044,7 +1044,10 @@ const AIImageGenerator = () => {
                               >
                                 <div className="relative aspect-square overflow-hidden">
                                   <Image
-                                    src={image.url || "/placeholder.svg"}
+                                    src={
+                                      image.url ||
+                                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                                    }
                                     alt={image.prompt}
                                     fill
                                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -1144,7 +1147,10 @@ const AIImageGenerator = () => {
                         <>
                           <div className="mb-4 overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700">
                             <Image
-                              src={currentImage.url || "/placeholder.svg"}
+                              src={
+                                currentImage.url ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt={currentImage.prompt}
                               width={600}
                               height={600}

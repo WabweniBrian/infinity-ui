@@ -314,7 +314,10 @@ const EcoSustainabilityHero = () => {
                       <div className="flex h-full flex-col">
                         <div className="relative mb-4 h-64 w-full overflow-hidden rounded-lg">
                           <Image
-                            src={product.image || "/default-image.jpg"}
+                            src={
+                              product.image ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            }
                             alt={product.name}
                             fill
                             className="object-cover"

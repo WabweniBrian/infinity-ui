@@ -55,13 +55,13 @@ const faqCategories: FAQCategory[] = [
         id: 3,
         question: "What is your return policy?",
         answer:
-          "We offer a 30-day satisfaction guarantee. If you're not completely satisfied with your purchase, you can return it within 30 days for a full refund or exchange. Items must be unused and in their original packaging with all tags attached.",
+          "We offer a 30-day satisfaction guarantee. If you&apos;re not completely satisfied with your purchase, you can return it within 30 days for a full refund or exchange. Items must be unused and in their original packaging with all tags attached.",
       },
       {
         id: 4,
         question: "How do I initiate a return?",
         answer:
-          "To initiate a return, log into your account, go to your order history, and select the 'Return Item' option next to the relevant product. You'll receive a prepaid shipping label via email. Alternatively, you can contact our customer service team for assistance.",
+          "To initiate a return, log into your account, go to your order history, and select the 'Return Item' option next to the relevant product. You&apos;ll receive a prepaid shipping label via email. Alternatively, you can contact our customer service team for assistance.",
       },
     ],
   },
@@ -93,7 +93,7 @@ const faqCategories: FAQCategory[] = [
         id: 7,
         question: "Are your products true to size?",
         answer:
-          "Yes, our products are designed to be true to standard US sizing. We provide detailed size guides for each product category. If you're between sizes, we generally recommend sizing up for a more comfortable fit.",
+          "Yes, our products are designed to be true to standard US sizing. We provide detailed size guides for each product category. If you&apos;re between sizes, we generally recommend sizing up for a more comfortable fit.",
       },
       {
         id: 8,

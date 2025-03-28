@@ -12,6 +12,7 @@ import {
   User2,
 } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const TestimonialsSection = () => {
   const sectionRef = useRef(null);
@@ -25,7 +26,8 @@ const TestimonialsSection = () => {
       author: "Alexandra Chen",
       position: "CTO at TechNova",
       rating: 5,
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "alexchen",
         linkedin: "alexandra-chen",
@@ -38,7 +40,8 @@ const TestimonialsSection = () => {
       author: "Marcus Williams",
       position: "Product Director at Elevate",
       rating: 5,
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "marcusw",
         linkedin: "marcus-williams",
@@ -51,7 +54,8 @@ const TestimonialsSection = () => {
       author: "Sophia Rodriguez",
       position: "Engineering Lead at Apex",
       rating: 4,
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "sophiar",
         linkedin: "sophia-rodriguez",
@@ -73,8 +77,10 @@ const TestimonialsSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
+      className="relative min-h-screen overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
       {/* Abstract Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 right-0 h-96 w-96 rounded-full bg-gradient-to-b from-violet-100/40 to-transparent blur-3xl dark:from-violet-900/20 dark:to-transparent"></div>
@@ -251,7 +257,7 @@ const TestimonialsSection = () => {
                                   <Image
                                     src={
                                       testimonials[activeIndex].image ||
-                                      "/images/default-avatar.png"
+                                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                                     }
                                     alt={testimonials[activeIndex].author}
                                     width={80}

@@ -92,7 +92,10 @@ export const UserDetailsModal = ({
             <div className="flex items-center">
               <div className="relative mr-4 h-12 w-12 overflow-hidden rounded-full">
                 <Image
-                  src={user.image || "/images/default-avatar.png"}
+                  src={
+                    user.image ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   fill
                   className="object-cover"

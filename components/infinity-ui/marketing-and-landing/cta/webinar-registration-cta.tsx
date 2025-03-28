@@ -181,7 +181,10 @@ const WebinarRegistrationCta = () => {
                     <div key={index} className="flex items-center gap-4">
                       <div className="h-14 w-14 overflow-hidden rounded-full border-2 border-white/30">
                         <Image
-                          src={speaker.image || "/images/default-avatar.png"}
+                          src={
+                            speaker.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                          }
                           alt={speaker.name}
                           width={80}
                           height={80}

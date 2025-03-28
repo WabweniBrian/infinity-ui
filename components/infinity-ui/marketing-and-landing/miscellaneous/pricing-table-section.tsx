@@ -1,14 +1,16 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { motion, useInView } from "framer-motion"
-import { Check, X, ArrowRight, Sparkles, Shield, Zap } from "lucide-react"
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { Check, X, ArrowRight, Sparkles, Shield, Zap } from "lucide-react";
 
 const PricingTableSection = () => {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly")
-  const [hoveredPlan, setHoveredPlan] = useState<number | null>(null)
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">(
+    "monthly",
+  );
+  const [hoveredPlan, setHoveredPlan] = useState<number | null>(null);
 
   const plans = [
     {
@@ -28,7 +30,8 @@ const PricingTableSection = () => {
         { name: "API access", included: false },
       ],
       color: "from-blue-500 to-cyan-500",
-      bgPattern: "radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.1) 0%, transparent 40%)",
+      bgPattern:
+        "radial-gradient(circle at 10% 90%, rgba(59, 130, 246, 0.1) 0%, transparent 40%)",
       popular: false,
     },
     {
@@ -48,7 +51,8 @@ const PricingTableSection = () => {
         { name: "API access", included: false },
       ],
       color: "from-violet-500 to-purple-500",
-      bgPattern: "radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.1) 0%, transparent 40%)",
+      bgPattern:
+        "radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.1) 0%, transparent 40%)",
       popular: true,
     },
     {
@@ -68,28 +72,42 @@ const PricingTableSection = () => {
         { name: "API access", included: true },
       ],
       color: "from-emerald-500 to-teal-500",
-      bgPattern: "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 40%)",
+      bgPattern:
+        "radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 40%)",
       popular: false,
     },
-  ]
+  ];
 
   return (
     <section
       ref={sectionRef}
-      className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-gray-900"
+      className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24 dark:from-gray-950 dark:to-gray-900"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0">
         {/* Gradient Orbs */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-violet-400/30 to-purple-400/30 rounded-full blur-[120px] opacity-50 dark:opacity-20 -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-blue-400/30 to-cyan-400/30 rounded-full blur-[100px] opacity-50 dark:opacity-20 translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute right-0 top-0 h-[800px] w-[800px] -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-br from-violet-400/30 to-purple-400/30 opacity-50 blur-[120px] dark:opacity-20"></div>
+        <div className="absolute bottom-0 left-0 h-[600px] w-[600px] -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-tr from-blue-400/30 to-cyan-400/30 opacity-50 blur-[100px] dark:opacity-20"></div>
 
         {/* Animated Patterns */}
         <div className="absolute inset-0 opacity-[0.15] dark:opacity-[0.05]">
           <svg width="100%" height="100%">
             <defs>
-              <pattern id="pricing-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M0 0H40V40" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
+              <pattern
+                id="pricing-grid"
+                x="0"
+                y="0"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M0 0H40V40"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  strokeDasharray="4 4"
+                />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#pricing-grid)" />
@@ -121,53 +139,54 @@ const PricingTableSection = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <div className="inline-flex items-center justify-center mb-4">
-            <span className="w-12 h-1 bg-violet-500 rounded-full"></span>
-            <span className="mx-2 text-violet-500 font-medium">PRICING</span>
-            <span className="w-12 h-1 bg-violet-500 rounded-full"></span>
+          <div className="mb-4 inline-flex items-center justify-center">
+            <span className="h-1 w-12 rounded-full bg-violet-500"></span>
+            <span className="mx-2 font-medium text-violet-500">PRICING</span>
+            <span className="h-1 w-12 rounded-full bg-violet-500"></span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="mb-6 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
             Simple, transparent
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+            <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
               {" "}
               pricing
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10">
-            Choose the perfect plan for your needs. All plans include core features with no hidden fees.
+          <p className="mx-auto mb-10 max-w-3xl text-xl text-gray-600 dark:text-gray-300">
+            Choose the perfect plan for your needs. All plans include core
+            features with no hidden fees.
           </p>
 
-          <div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800 rounded-xl mb-8">
+          <div className="mb-8 inline-flex rounded-xl bg-gray-100 p-1 dark:bg-gray-800">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`rounded-lg px-6 py-2 text-sm font-medium transition-all ${
                 billingCycle === "monthly"
-                  ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm"
-                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  ? "bg-white text-gray-900 shadow-sm dark:bg-gray-700 dark:text-white"
+                  : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               }`}
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle("annual")}
-              className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`rounded-lg px-6 py-2 text-sm font-medium transition-all ${
                 billingCycle === "annual"
-                  ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm"
-                  : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  ? "bg-white text-gray-900 shadow-sm dark:bg-gray-700 dark:text-white"
+                  : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               }`}
             >
               <span className="flex items-center">
                 Annual
-                <span className="ml-2 text-xs py-0.5 px-1.5 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-400 rounded">
+                <span className="ml-2 rounded bg-green-100 px-1.5 py-0.5 text-xs text-green-700 dark:bg-green-900/50 dark:text-green-400">
                   Save 20%
                 </span>
               </span>
@@ -175,55 +194,66 @@ const PricingTableSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-3">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="relative group"
+              className="group relative"
               onMouseEnter={() => setHoveredPlan(index)}
               onMouseLeave={() => setHoveredPlan(null)}
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl blur-lg`}
+                className={`absolute inset-0 bg-gradient-to-br ${plan.color} rounded-3xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100`}
               ></div>
 
               <div
-                className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden h-full group-hover:border-transparent transition-colors duration-300 shadow-lg"
+                className="relative h-full overflow-hidden rounded-3xl border border-gray-200/50 bg-white p-8 shadow-lg transition-colors duration-300 group-hover:border-transparent dark:border-gray-700/50 dark:bg-gray-800"
                 style={{ backgroundImage: plan.bgPattern }}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 right-0">
+                  <div className="absolute right-0 top-0">
                     <div className="relative">
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-violet-500 to-purple-500 transform rotate-45 translate-x-12 -translate-y-12"></div>
-                      <div className="absolute top-[22px] right-[2px] transform -rotate-45">
-                        <span className="text-xs font-bold text-white">POPULAR</span>
+                      <div className="absolute right-0 top-0 h-24 w-24 -translate-y-12 translate-x-12 rotate-45 transform bg-gradient-to-br from-violet-500 to-purple-500"></div>
+                      <div className="absolute right-[2px] top-[22px] -rotate-45 transform">
+                        <span className="text-xs font-bold text-white">
+                          POPULAR
+                        </span>
                       </div>
                     </div>
                   </div>
                 )}
 
-                <div className="relative z-10 h-full flex flex-col">
+                <div className="relative z-10 flex h-full flex-col">
                   <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{plan.name}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm">{plan.description}</p>
+                    <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+                      {plan.name}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {plan.description}
+                    </p>
                   </div>
 
                   <div className="mb-6">
                     <div className="flex items-end">
                       <span className="text-4xl font-bold text-gray-900 dark:text-white">
-                        ${billingCycle === "monthly" ? plan.monthlyPrice : Math.round(plan.annualPrice / 12)}
+                        $
+                        {billingCycle === "monthly"
+                          ? plan.monthlyPrice
+                          : Math.round(plan.annualPrice / 12)}
                       </span>
-                      <span className="text-gray-600 dark:text-gray-400 ml-2">/month</span>
+                      <span className="ml-2 text-gray-600 dark:text-gray-400">
+                        /month
+                      </span>
                     </div>
 
                     {billingCycle === "annual" && (
-                      <div className="mt-2 text-sm text-green-600 dark:text-green-400 flex items-center">
+                      <div className="mt-2 flex items-center text-sm text-green-600 dark:text-green-400">
                         <span className="flex items-center">
                           <svg
-                            className="w-4 h-4 mr-1"
+                            className="mr-1 h-4 w-4"
                             viewBox="0 0 24 24"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -239,16 +269,16 @@ const PricingTableSection = () => {
                     )}
                   </div>
 
-                  <div className="space-y-4 mb-8 flex-1">
+                  <div className="mb-8 flex-1 space-y-4">
                     {plan.features.map((feature, i) => (
                       <div key={i} className="flex items-start">
                         {feature.included ? (
-                          <div className="w-5 h-5 rounded-full bg-gradient-to-r from-violet-500 to-purple-500 flex-shrink-0 flex items-center justify-center mt-0.5">
-                            <Check className="w-3 h-3 text-white" />
+                          <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-violet-500 to-purple-500">
+                            <Check className="h-3 w-3 text-white" />
                           </div>
                         ) : (
-                          <div className="w-5 h-5 rounded-full bg-gray-200 dark:bg-gray-700 flex-shrink-0 flex items-center justify-center mt-0.5">
-                            <X className="w-3 h-3 text-gray-400 dark:text-gray-500" />
+                          <div className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700">
+                            <X className="h-3 w-3 text-gray-400 dark:text-gray-500" />
                           </div>
                         )}
                         <span
@@ -262,14 +292,14 @@ const PricingTableSection = () => {
 
                   <div className="mt-auto">
                     <button
-                      className={`w-full py-3 px-4 rounded-xl font-medium flex items-center justify-center transition-all ${
+                      className={`flex w-full items-center justify-center rounded-xl px-4 py-3 font-medium transition-all ${
                         plan.popular
-                          ? "bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white shadow-lg shadow-violet-500/30"
-                          : "bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white"
+                          ? "bg-gradient-to-r from-violet-600 to-purple-600 text-white shadow-lg shadow-violet-500/30 hover:from-violet-700 hover:to-purple-700"
+                          : "bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
                       }`}
                     >
                       Get started
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </button>
                   </div>
                 </div>
@@ -285,22 +315,28 @@ const PricingTableSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="relative"
         >
-          <div className="absolute -inset-4 bg-gradient-to-r from-violet-500/10 to-purple-500/10 rounded-3xl blur-xl"></div>
-          <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Compare Plan Features</h3>
-              <p className="text-gray-600 dark:text-gray-300">See which plan is right for you</p>
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 blur-xl"></div>
+          <div className="relative rounded-3xl border border-gray-200/50 bg-white p-8 shadow-xl dark:border-gray-700/50 dark:bg-gray-800">
+            <div className="mb-8 text-center">
+              <h3 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">
+                Compare Plan Features
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                See which plan is right for you
+              </p>
             </div>
 
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr>
-                    <th className="text-left py-4 px-4 font-medium text-gray-500 dark:text-gray-400">Feature</th>
+                    <th className="px-4 py-4 text-left font-medium text-gray-500 dark:text-gray-400">
+                      Feature
+                    </th>
                     {plans.map((plan, index) => (
-                      <th key={index} className="text-center py-4 px-4">
+                      <th key={index} className="px-4 py-4 text-center">
                         <span
-                          className={`inline-block py-1 px-3 rounded-full text-white text-sm font-medium bg-gradient-to-r ${plan.color}`}
+                          className={`inline-block rounded-full bg-gradient-to-r px-3 py-1 text-sm font-medium text-white ${plan.color}`}
                         >
                           {plan.name}
                         </span>
@@ -310,25 +346,51 @@ const PricingTableSection = () => {
                 </thead>
                 <tbody>
                   {[
-                    { name: "Components", starter: "Basic", professional: "Advanced", enterprise: "All + Custom" },
-                    { name: "Updates", starter: "Monthly", professional: "Weekly", enterprise: "Daily" },
+                    {
+                      name: "Components",
+                      starter: "Basic",
+                      professional: "Advanced",
+                      enterprise: "All + Custom",
+                    },
+                    {
+                      name: "Updates",
+                      starter: "Monthly",
+                      professional: "Weekly",
+                      enterprise: "Daily",
+                    },
                     {
                       name: "Support",
                       starter: "Community",
                       professional: "Business Hours",
                       enterprise: "24/7 Dedicated",
                     },
-                    { name: "Team Members", starter: "3", professional: "10", enterprise: "Unlimited" },
+                    {
+                      name: "Team Members",
+                      starter: "3",
+                      professional: "10",
+                      enterprise: "Unlimited",
+                    },
                   ].map((feature, index) => (
-                    <tr key={index} className={index % 2 === 0 ? "bg-gray-50 dark:bg-gray-900/50" : ""}>
-                      <td className="py-4 px-4 font-medium text-gray-900 dark:text-white">
+                    <tr
+                      key={index}
+                      className={
+                        index % 2 === 0 ? "bg-gray-50 dark:bg-gray-900/50" : ""
+                      }
+                    >
+                      <td className="px-4 py-4 font-medium text-gray-900 dark:text-white">
                         <div className="flex items-center">
-                          {index === 0 && <Sparkles className="w-5 h-5 mr-2 text-violet-500" />}
-                          {index === 1 && <Zap className="w-5 h-5 mr-2 text-blue-500" />}
-                          {index === 2 && <Shield className="w-5 h-5 mr-2 text-emerald-500" />}
+                          {index === 0 && (
+                            <Sparkles className="mr-2 h-5 w-5 text-violet-500" />
+                          )}
+                          {index === 1 && (
+                            <Zap className="mr-2 h-5 w-5 text-blue-500" />
+                          )}
+                          {index === 2 && (
+                            <Shield className="mr-2 h-5 w-5 text-emerald-500" />
+                          )}
                           {index === 3 && (
                             <svg
-                              className="w-5 h-5 mr-2 text-amber-500"
+                              className="mr-2 h-5 w-5 text-amber-500"
                               viewBox="0 0 24 24"
                               fill="none"
                               xmlns="http://www.w3.org/2000/svg"
@@ -345,11 +407,15 @@ const PricingTableSection = () => {
                           {feature.name}
                         </div>
                       </td>
-                      <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">{feature.starter}</td>
-                      <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300 bg-violet-50/50 dark:bg-violet-900/10">
+                      <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300">
+                        {feature.starter}
+                      </td>
+                      <td className="bg-violet-50/50 px-4 py-4 text-center text-gray-700 dark:bg-violet-900/10 dark:text-gray-300">
                         {feature.professional}
                       </td>
-                      <td className="py-4 px-4 text-center text-gray-700 dark:text-gray-300">{feature.enterprise}</td>
+                      <td className="px-4 py-4 text-center text-gray-700 dark:text-gray-300">
+                        {feature.enterprise}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -365,46 +431,59 @@ const PricingTableSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-8">
+          <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+            Frequently Asked Questions
+          </h3>
+          <p className="mb-8 text-gray-600 dark:text-gray-300">
             Have more questions?{" "}
-            <a href="#" className="text-violet-600 dark:text-violet-400 font-medium hover:underline">
+            <a
+              href="#"
+              className="font-medium text-violet-600 hover:underline dark:text-violet-400"
+            >
               Contact our sales team
             </a>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-4xl mx-auto">
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 text-left md:grid-cols-2">
             {[
               {
                 question: "Can I upgrade or downgrade my plan later?",
                 answer:
-                  "Yes, you can change your plan at any time. When you upgrade, you'll be charged the prorated difference. When you downgrade, you'll receive credit towards your next bill.",
+                  "Yes, you can change your plan at any time. When you upgrade, you&apos;ll be charged the prorated difference. When you downgrade, you&apos;ll receive credit towards your next bill.",
               },
               {
                 question: "Is there a free trial available?",
-                answer: "Yes, we offer a 14-day free trial on all plans. No credit card required to start your trial.",
+                answer:
+                  "Yes, we offer a 14-day free trial on all plans. No credit card required to start your trial.",
               },
               {
                 question: "What payment methods do you accept?",
-                answer: "We accept all major credit cards, PayPal, and bank transfers for annual plans.",
+                answer:
+                  "We accept all major credit cards, PayPal, and bank transfers for annual plans.",
               },
               {
                 question: "Can I get a refund if I'm not satisfied?",
                 answer:
-                  "We offer a 30-day money-back guarantee. If you're not completely satisfied, contact our support team for a full refund.",
+                  "We offer a 30-day money-back guarantee. If you&apos;re not completely satisfied, contact our support team for a full refund.",
               },
             ].map((faq, index) => (
-              <div key={index} className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-6">
-                <h4 className="font-medium text-gray-900 dark:text-white mb-2">{faq.question}</h4>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">{faq.answer}</p>
+              <div
+                key={index}
+                className="rounded-xl bg-gray-50 p-6 dark:bg-gray-900/50"
+              >
+                <h4 className="mb-2 font-medium text-gray-900 dark:text-white">
+                  {faq.question}
+                </h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default PricingTableSection
-
+export default PricingTableSection;

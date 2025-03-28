@@ -140,7 +140,7 @@ const SocialProofNewsletter = () => {
                         <Image
                           src={
                             testimonials[currentTestimonial].image ||
-                            "/placeholder.svg"
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                           }
                           width={48}
                           height={48}

@@ -230,8 +230,8 @@ export const UserPurchases = ({ userPurchases, user }: UserPurchasesProps) => {
           </h3>
           <p className="mt-2 text-gray-500 dark:text-gray-400">
             {searchTerm || statusFilter.length > 0
-              ? "Try adjusting your filters to find what you're looking for."
-              : "You haven't made any purchases yet."}
+              ? "Try adjusting your filters to find what you&apos;re looking for."
+              : "You haven&apos;t made any purchases yet."}
           </p>
           {!searchTerm && statusFilter.length === 0 && (
             <Button className="mx-auto mt-4 w-fit">

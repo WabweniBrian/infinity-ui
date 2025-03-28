@@ -26,7 +26,7 @@ const testimonials: TimelineTestimonial[] = [
     image:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
-      "The migration to cloud infrastructure was seamless. Our systems now scale automatically with demand, and we've seen a 40% reduction in operational costs.",
+      "The migration to cloud infrastructure was seamless. Our systems now scale automatically with demand, and we&apos;ve seen a 40% reduction in operational costs.",
     date: "January 2023",
     rating: 5,
     color: "blue",
@@ -65,7 +65,7 @@ const testimonials: TimelineTestimonial[] = [
     image:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
-      "The digital marketing strategy transformed our lead generation. We've seen a 200% increase in qualified leads and a 45% reduction in cost per acquisition.",
+      "The digital marketing strategy transformed our lead generation. We&apos;ve seen a 200% increase in qualified leads and a 45% reduction in cost per acquisition.",
     date: "August 2023",
     rating: 4,
     color: "amber",
@@ -104,7 +104,7 @@ const TimelineTestimonials = () => {
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         <motion.div
           className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50"
@@ -297,7 +297,10 @@ const TimelineTestimonials = () => {
                         >
                           <div className="relative h-12 w-12 overflow-hidden rounded-full">
                             <Image
-                              src={testimonial.image || "/placeholder.svg"}
+                              src={
+                                testimonial.image ||
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                              }
                               alt={testimonial.name}
                               fill
                               className="h-full w-full object-cover"

@@ -452,7 +452,7 @@ const PricingTableSection = () => {
               {
                 question: "Can I upgrade or downgrade my plan later?",
                 answer:
-                  "Yes, you can change your plan at any time. When you upgrade, you'll be charged the prorated difference. When you downgrade, you'll receive credit towards your next bill.",
+                  "Yes, you can change your plan at any time. When you upgrade, you&apos;ll be charged the prorated difference. When you downgrade, you&apos;ll receive credit towards your next bill.",
               },
               {
                 question: "Is there a free trial available?",
@@ -467,7 +467,7 @@ const PricingTableSection = () => {
               {
                 question: "Can I get a refund if I'm not satisfied?",
                 answer:
-                  "We offer a 30-day money-back guarantee. If you're not completely satisfied, contact our support team for a full refund.",
+                  "We offer a 30-day money-back guarantee. If you&apos;re not completely satisfied, contact our support team for a full refund.",
               },
             ].map((faq, index) => (
               <div

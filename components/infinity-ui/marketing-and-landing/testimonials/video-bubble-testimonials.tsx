@@ -227,7 +227,10 @@ const VideoBubbleTestimonials = () => {
                   className="absolute inset-0"
                 >
                   <Image
-                    src={currentTestimonial.thumbnail || "/placeholder.svg"}
+                    src={
+                      currentTestimonial.thumbnail ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={`${currentTestimonial.name} video thumbnail`}
                     fill
                     className="h-full w-full object-cover"

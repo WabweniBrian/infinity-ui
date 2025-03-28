@@ -299,7 +299,8 @@ const mealSuggestions: MealSuggestion[] = [
       "Mix protein powder into oatmeal",
       "Top with almond butter and blueberries",
     ],
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   },
   {
     name: "Lean Muscle Lunch",
@@ -320,7 +321,8 @@ const mealSuggestions: MealSuggestion[] = [
       "Steam broccoli until tender-crisp",
       "Drizzle with olive oil and lemon juice",
     ],
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   },
   {
     name: "Recovery Smoothie",
@@ -342,7 +344,8 @@ const mealSuggestions: MealSuggestion[] = [
       "Add ice if desired for thickness",
       "Consume within 30 minutes after workout",
     ],
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   },
 ];
 
@@ -497,7 +500,7 @@ const AIFitnessCoach = () => {
     // Simulate AI response generation with streaming effect
     const responses = [
       "Based on your fitness goals and current level, I recommend focusing on a progressive strength training program combined with moderate cardio 3-4 times per week.",
-      "Looking at your workout history, I notice you've been consistent with upper body training but might need more focus on lower body exercises for balanced development.",
+      "Looking at your workout history, I notice you&apos;ve been consistent with upper body training but might need more focus on lower body exercises for balanced development.",
       "Your recent progress is impressive! I've analyzed your strength gains and recommend increasing weights by 5-10% for your next workout cycle.",
       "I've created a customized HIIT workout that aligns with your goal of improving cardiovascular endurance while maintaining muscle mass.",
     ];
@@ -577,7 +580,8 @@ const AIFitnessCoach = () => {
       fat: Math.floor(Math.random() * 15) + 5,
       ingredients: ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
       instructions: ["Step 1", "Step 2", "Step 3"],
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     };
 
     mealSuggestions.push(newMeal);
@@ -590,7 +594,7 @@ const AIFitnessCoach = () => {
     // Simulate AI analyzing form
     setTimeout(() => {
       setFormFeedback(
-        "Your squat form looks good! Keep your chest up a bit more and ensure your knees track over your toes. I notice you're shifting weight to your toes - try to keep weight in mid-foot to heel.",
+        "Your squat form looks good! Keep your chest up a bit more and ensure your knees track over your toes. I notice you&apos;re shifting weight to your toes - try to keep weight in mid-foot to heel.",
       );
     }, 3000);
   };
@@ -1212,7 +1216,10 @@ const AIFitnessCoach = () => {
             <div className="sm:flex">
               <div className="relative h-24 w-full flex-shrink-0 sm:w-24">
                 <Image
-                  src={message.mealSuggestion.image || "/default-image.jpg"}
+                  src={
+                    message.mealSuggestion.image ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                  }
                   alt={message.mealSuggestion.name}
                   className="h-full w-full object-cover"
                   width={96}
@@ -2063,7 +2070,10 @@ const AIFitnessCoach = () => {
                     transition={{ delay: 0.2 }}
                   >
                     <Image
-                      src={selectedMeal.image || "/default-image.jpg"}
+                      src={
+                        selectedMeal.image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                      }
                       alt={selectedMeal.name}
                       className="h-full w-full object-cover"
                       width={200}
@@ -2278,7 +2288,7 @@ const AIFitnessCoach = () => {
                     transition={{ delay: 0.2 }}
                   >
                     <Image
-                      src="/default-image.jpg"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                       alt={selectedExercise.name}
                       className="h-full w-full object-cover"
                       width={200}
@@ -2380,7 +2390,7 @@ const AIFitnessCoach = () => {
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Image
-                      src="/default-image.jpg"
+                      src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                       alt="Camera feed"
                       className="h-full w-full object-cover"
                       width={500}

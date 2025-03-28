@@ -205,7 +205,8 @@ type View =
 const user: User = {
   name: "Wabweni Brian",
   email: "brian@digitalcreative.com",
-  avatar: "/images/default-avatar.png",
+  avatar:
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   businessName: "Digital Creative Co.",
   plan: "premium",
 };
@@ -219,7 +220,8 @@ const socialAccounts: SocialAccount[] = [
     engagement: 3.8,
     profileUrl: "https://instagram.com/digitalcreativeco",
     connected: true,
-    avatar: "/images/default-avatar.png",
+    avatar:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   },
   {
     id: "2",
@@ -229,7 +231,8 @@ const socialAccounts: SocialAccount[] = [
     engagement: 2.1,
     profileUrl: "https://twitter.com/digitalcreative",
     connected: true,
-    avatar: "/images/default-avatar.png",
+    avatar:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   },
   {
     id: "3",
@@ -239,7 +242,8 @@ const socialAccounts: SocialAccount[] = [
     engagement: 1.7,
     profileUrl: "https://linkedin.com/company/digitalcreativeco",
     connected: true,
-    avatar: "/images/default-avatar.png",
+    avatar:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   },
   {
     id: "4",
@@ -249,7 +253,8 @@ const socialAccounts: SocialAccount[] = [
     engagement: 5.2,
     profileUrl: "https://tiktok.com/@digitalcreativeco",
     connected: true,
-    avatar: "/images/default-avatar.png",
+    avatar:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   },
 ];
 
@@ -261,7 +266,9 @@ const contentPosts: ContentPost[] = [
       "Introducing our new summer collection with vibrant colors and innovative designs.",
     contentType: "carousel",
     platforms: ["instagram", "facebook"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "published",
     publishedDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2), // 2 days ago
     performance: {
@@ -285,7 +292,9 @@ const contentPosts: ContentPost[] = [
       "5 essential design principles every creative should know. Swipe through for tips!",
     contentType: "carousel",
     platforms: ["instagram", "linkedin"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "scheduled",
     scheduledDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 1), // 1 day in future
     tags: ["design", "tips", "creative"],
@@ -301,7 +310,9 @@ const contentPosts: ContentPost[] = [
       "How we helped @techstartup increase their engagement by 200% in just 3 months.",
     contentType: "video",
     platforms: ["linkedin", "twitter"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "draft",
     tags: ["success", "case study", "results"],
     color: "#3b82f6",
@@ -315,7 +326,9 @@ const contentPosts: ContentPost[] = [
     description: "Take a peek into our creative process and studio space!",
     contentType: "reel",
     platforms: ["instagram", "tiktok"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "published",
     publishedDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5), // 5 days ago
     performance: {
@@ -338,7 +351,9 @@ const contentPosts: ContentPost[] = [
       "Our analysis of the top 10 trends shaping the industry this year.",
     contentType: "carousel",
     platforms: ["linkedin", "twitter", "facebook"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "scheduled",
     scheduledDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3), // 3 days in future
     tags: ["trends", "industry", "analysis"],
@@ -354,7 +369,9 @@ const contentPosts: ContentPost[] = [
       "Hear what our customers are saying about our latest product release.",
     contentType: "video",
     platforms: ["youtube", "facebook", "linkedin"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "published",
     publishedDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 1), // 1 day ago
     performance: {
@@ -377,7 +394,9 @@ const contentPosts: ContentPost[] = [
     description: "Step-by-step guide on how to use our new feature set.",
     contentType: "video",
     platforms: ["youtube", "instagram"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "draft",
     tags: ["tutorial", "howto", "product"],
     color: "#f59e0b",
@@ -391,7 +410,9 @@ const contentPosts: ContentPost[] = [
     description: "Meet the talented individuals behind our latest innovation.",
     contentType: "carousel",
     platforms: ["instagram", "linkedin"],
-    mediaUrls: ["/default-image.jpg"],
+    mediaUrls: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
     status: "scheduled",
     scheduledDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2), // 2 days in future
     tags: ["team", "spotlight", "people"],
@@ -581,7 +602,7 @@ const insightCards: InsightCard[] = [
   {
     id: "3",
     title: "Audience Growth",
-    description: "You've gained 1,450 new followers this month",
+    description: "You&apos;ve gained 1,450 new followers this month",
     icon: <Users size={20} />,
     color: "#3b82f6",
   },
@@ -802,7 +823,10 @@ const AISocialMediaAssistant = () => {
             <div className="mb-6 flex items-center">
               <div className="relative mr-3 h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-purple-600 to-pink-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}
@@ -1121,7 +1145,10 @@ const AISocialMediaAssistant = () => {
       {post.mediaUrls.length > 0 && (
         <div className="mt-3 overflow-hidden rounded-lg">
           <Image
-            src={post.mediaUrls[0] || "/default-image.jpg"}
+            src={
+              post.mediaUrls[0] ||
+              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+            }
             alt={post.title}
             width={400}
             height={300}
@@ -1875,7 +1902,7 @@ const AISocialMediaAssistant = () => {
                 {selectedRecommendation.type === "content" &&
                   "Our analysis of your content performance shows that educational content receives 2.3x more engagement than promotional content. Creating more tutorials, how-to guides, and informative carousels will likely increase your overall engagement rate and follower growth."}
                 {selectedRecommendation.type === "timing" &&
-                  "We've analyzed your audience's activity patterns and found that posts published between 7-9 PM receive 35% higher engagement than posts at other times. This is when your specific audience is most active and likely to interact with your content."}
+                  "We&apos;ve analyzed your audience's activity patterns and found that posts published between 7-9 PM receive 35% higher engagement than posts at other times. This is when your specific audience is most active and likely to interact with your content."}
                 {selectedRecommendation.type === "audience" &&
                   "Your audience demographics have shifted over the past 3 months, with a significant increase in the 25-34 age group. This demographic typically engages more with professional development content, career advice, and industry insights."}
                 {selectedRecommendation.type === "hashtag" &&
@@ -3335,7 +3362,10 @@ const AISocialMediaAssistant = () => {
             <div className="flex items-center">
               <div className="relative mr-3 h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-green-600 to-emerald-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}

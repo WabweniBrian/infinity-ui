@@ -215,7 +215,10 @@ const TravelAdventureHero = () => {
                 >
                   <div className="relative mb-3 h-[200px] w-full overflow-hidden rounded-xl">
                     <Image
-                      src={destination.image || "/default-image.jpg"}
+                      src={
+                        destination.image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                      }
                       alt={destination.name}
                       fill
                       className="object-cover transition-all duration-700 hover:scale-110"

@@ -21,7 +21,8 @@ const testimonials: Testimonial[] = [
     name: "Sarah Johnson",
     role: "Marketing Director",
     company: "Brand Innovators",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     content:
       "The creative approach they brought to our marketing materials completely transformed our campaign. We saw engagement increase by 200% within the first month!",
     rotation: -3,
@@ -31,7 +32,8 @@ const testimonials: Testimonial[] = [
     name: "Michael Chen",
     role: "Startup Founder",
     company: "TechLaunch",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     content:
       "As a startup, we needed a partner who could move quickly without sacrificing quality. They delivered our MVP in record time, helping us secure our next round of funding.",
     rotation: 2,
@@ -41,7 +43,8 @@ const testimonials: Testimonial[] = [
     name: "Emma Rodriguez",
     role: "E-commerce Director",
     company: "Retail Innovations",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     content:
       "The e-commerce solution they built for us increased our conversion rate by 45% and average order value by 30%. The ROI has been incredible.",
     rotation: -2,
@@ -51,7 +54,8 @@ const testimonials: Testimonial[] = [
     name: "David Thompson",
     role: "Creative Director",
     company: "Design Studio",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     content:
       "Working with this team was a breath of fresh air! They understood our vision immediately and delivered a website that perfectly captures our brand's personality.",
     rotation: 3,
@@ -61,7 +65,8 @@ const testimonials: Testimonial[] = [
     name: "Olivia Wilson",
     role: "Product Owner",
     company: "SaaS Platform",
-    image: "/placeholder.svg?height=400&width=400",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     content:
       "Their attention to detail and user-focused design philosophy helped us simplify our complex product. Our users love the new interface!",
     rotation: -1,
@@ -93,7 +98,7 @@ const PolaroidStackTestimonials = () => {
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.02]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.02]" />
 
         {/* Vintage camera */}
         <motion.div
@@ -206,7 +211,10 @@ const PolaroidStackTestimonials = () => {
                       {/* Image */}
                       <div className="relative mb-4 aspect-square overflow-hidden bg-gray-100">
                         <Image
-                          src={testimonial.image || "/placeholder.svg"}
+                          src={
+                            testimonial.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={testimonial.name}
                           fill
                           className="h-full w-full object-cover"

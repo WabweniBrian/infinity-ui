@@ -170,9 +170,9 @@ const AIMedicalAssistant = () => {
       const aiResponses = [
         "Based on your symptoms, you might be experiencing tension headaches. These are often caused by stress, poor posture, or eye strain. Over-the-counter pain relievers like ibuprofen can help manage the pain. Make sure to stay hydrated and consider stress-reduction techniques.",
         "Your symptoms could be related to seasonal allergies. Antihistamines like loratadine can help relieve symptoms such as sneezing, runny nose, and itchy eyes. It's also helpful to avoid known allergens when possible.",
-        "The joint pain you're describing could be related to inflammation. Anti-inflammatory medications like ibuprofen may help reduce pain and swelling. If symptoms persist, it would be advisable to consult with a healthcare provider.",
-        "For your described symptoms, it's important to monitor your blood pressure regularly. If you're experiencing dizziness along with headaches, this could be related to blood pressure fluctuations. Medications like lisinopril are commonly prescribed for hypertension management.",
-        "The combination of fatigue and joint pain could be related to several conditions. It's important to ensure you're getting adequate rest and proper nutrition. If symptoms persist, a healthcare provider might recommend blood tests to check for underlying conditions.",
+        "The joint pain you&apos;re describing could be related to inflammation. Anti-inflammatory medications like ibuprofen may help reduce pain and swelling. If symptoms persist, it would be advisable to consult with a healthcare provider.",
+        "For your described symptoms, it's important to monitor your blood pressure regularly. If you&apos;re experiencing dizziness along with headaches, this could be related to blood pressure fluctuations. Medications like lisinopril are commonly prescribed for hypertension management.",
+        "The combination of fatigue and joint pain could be related to several conditions. It's important to ensure you&apos;re getting adequate rest and proper nutrition. If symptoms persist, a healthcare provider might recommend blood tests to check for underlying conditions.",
       ];
 
       const randomResponse =

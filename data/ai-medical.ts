@@ -124,7 +124,8 @@ export const sampleMedications: Medication[] = [
       "May cause stomach bleeding",
     ],
     interactions: ["Blood thinners", "Aspirin", "ACE inhibitors", "Diuretics"],
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     manufacturer: "Various",
     price: 8.99,
     currency: "$",
@@ -151,7 +152,8 @@ export const sampleMedications: Medication[] = [
       "Certain blood thinners",
       "Other antibiotics",
     ],
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     manufacturer: "Various",
     price: 12.99,
     currency: "$",
@@ -173,7 +175,8 @@ export const sampleMedications: Medication[] = [
       "Use caution when driving",
     ],
     interactions: ["Ketoconazole", "Erythromycin", "Cimetidine"],
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     manufacturer: "Various",
     price: 9.99,
     currency: "$",
@@ -200,7 +203,8 @@ export const sampleMedications: Medication[] = [
       "Lithium",
       "NSAIDs",
     ],
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     manufacturer: "Various",
     price: 14.99,
     currency: "$",
@@ -227,7 +231,8 @@ export const sampleMedications: Medication[] = [
       "Furosemide",
       "Nifedipine",
     ],
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     manufacturer: "Various",
     price: 11.99,
     currency: "$",
@@ -312,7 +317,7 @@ export const sampleChatMessages: ChatMessage[] = [
     id: "msg3",
     role: "assistant",
     content:
-      "I'm sorry to hear you've been experiencing frequent headaches. This could be due to various factors such as stress, dehydration, eye strain, or tension. For persistent headaches, over-the-counter pain relievers might help. Here are some options:",
+      "I'm sorry to hear you&apos;ve been experiencing frequent headaches. This could be due to various factors such as stress, dehydration, eye strain, or tension. For persistent headaches, over-the-counter pain relievers might help. Here are some options:",
     timestamp: new Date(Date.now() - 86200000).toISOString(),
     medicationSuggestions: [sampleMedications[0]],
   },

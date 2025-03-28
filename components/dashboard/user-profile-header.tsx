@@ -28,7 +28,10 @@ export const UserProfileHeader = ({ user }: UserProfileHeaderProps) => {
         <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
           <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-md">
             <Image
-              src={user?.image || "/images/default-avatar.png"}
+              src={
+                user?.image ||
+                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+              }
               alt={user?.name!}
               fill
               className="object-cover"

@@ -103,7 +103,7 @@ const AnimatedDropdownNavbar = () => {
         {
           name: "Integrations",
           description:
-            "Connect with third-party tools that you're already using",
+            "Connect with third-party tools that you&apos;re already using",
           href: "#",
           icon: (
             <svg

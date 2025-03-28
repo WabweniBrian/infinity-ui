@@ -190,7 +190,7 @@ export default function AICustomerSupport() {
       // Simulate typing effect
       const response = suggestion
         ? suggestion.content
-        : "Thank you for contacting our support team. I understand your concern and will help you resolve this issue promptly. Could you please provide more details about what you're experiencing?";
+        : "Thank you for contacting our support team. I understand your concern and will help you resolve this issue promptly. Could you please provide more details about what you&apos;re experiencing?";
       let displayedResponse = "";
 
       const typingInterval = setInterval(() => {
@@ -867,7 +867,10 @@ export default function AICustomerSupport() {
               <div className="flex items-center">
                 <div className="relative mr-3">
                   <Image
-                    src={agent.avatar || "/placeholder.svg"}
+                    src={
+                      agent.avatar ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                    }
                     alt={agent.name}
                     width={40}
                     height={40}
@@ -1220,7 +1223,7 @@ export default function AICustomerSupport() {
                             <Image
                               src={
                                 ticket.customer.avatar ||
-                                "/images/default-avatar.png"
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                               }
                               fill
                               alt={ticket.customer.name}
@@ -1371,7 +1374,7 @@ export default function AICustomerSupport() {
                             <Image
                               src={
                                 selectedTicket.customer.avatar ||
-                                "/images/default-avatar.png"
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                               }
                               fill
                               alt={selectedTicket.customer.name}
@@ -1459,7 +1462,7 @@ export default function AICustomerSupport() {
                                   <Image
                                     src={
                                       selectedTicket.customer.avatar ||
-                                      "/images/default-avatar.png"
+                                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                                     }
                                     fill
                                     alt={selectedTicket.customer.name}
@@ -1470,7 +1473,7 @@ export default function AICustomerSupport() {
                                   <Image
                                     src={
                                       selectedTicket.assignee.avatar ||
-                                      "/images/default-avatar.png"
+                                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                                     }
                                     fill
                                     alt={selectedTicket.assignee.name}
@@ -1987,7 +1990,7 @@ export default function AICustomerSupport() {
                       <Image
                         src={
                           selectedTicket.customer.avatar ||
-                          "/images/default-avatar.png"
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                         }
                         width={64}
                         height={64}
@@ -2229,7 +2232,10 @@ export default function AICustomerSupport() {
               <div className="flex items-center">
                 <div className="relative mr-3">
                   <Image
-                    src={agent.avatar || "/images/default-avatar.png"}
+                    src={
+                      agent.avatar ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                    }
                     alt={agent.name}
                     width={48}
                     height={48}
@@ -3678,7 +3684,10 @@ export default function AICustomerSupport() {
               <div className="flex items-center">
                 <div className="relative mr-4">
                   <Image
-                    src={selectedAgent.avatar || "/images/default-avatar.png"}
+                    src={
+                      selectedAgent.avatar ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                    }
                     width={64}
                     height={64}
                     alt={selectedAgent.name}

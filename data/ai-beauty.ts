@@ -211,7 +211,8 @@ export const sampleProducts: BeautyProduct[] = [
     price: 48,
     currency: "$",
     size: "30ml",
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     rating: 4.7,
     reviewCount: 1243,
     ingredients: [
@@ -244,7 +245,8 @@ export const sampleProducts: BeautyProduct[] = [
     price: 65,
     currency: "$",
     size: "50ml",
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     rating: 4.5,
     reviewCount: 856,
     ingredients: [
@@ -276,7 +278,8 @@ export const sampleProducts: BeautyProduct[] = [
     price: 32,
     currency: "$",
     size: "200ml",
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     rating: 4.6,
     reviewCount: 723,
     ingredients: [
@@ -307,7 +310,8 @@ export const sampleProducts: BeautyProduct[] = [
     price: 42,
     currency: "$",
     size: "30ml",
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     rating: 4.4,
     reviewCount: 1089,
     ingredients: [
@@ -338,7 +342,8 @@ export const sampleProducts: BeautyProduct[] = [
     price: 55,
     currency: "$",
     size: "75ml",
-    imageUrl: "/default-image.jpg",
+    imageUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     rating: 4.8,
     reviewCount: 645,
     ingredients: [
@@ -365,7 +370,8 @@ export const sampleUserProfile: UserProfile = {
   id: "user-001",
   name: "Emma Johnson",
   email: "emma.johnson@example.com",
-  avatar: "/images/default-avatar.png",
+  avatar:
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   preferences: {
     skinType: "combination",
     skinConcerns: ["dullness", "pores", "aging"],
@@ -384,7 +390,8 @@ export const sampleUserProfile: UserProfile = {
     {
       id: "journal-001",
       date: "2023-04-10T08:30:00Z",
-      image: "/default-image.jpg",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       notes:
         "Skin feeling dehydrated today, noticing some redness around nose.",
       concerns: ["dryness", "redness"],

@@ -33,7 +33,7 @@ const FaqAccordionSection = () => {
     {
       question: "Is Infinity UI accessible?",
       answer:
-        "Accessibility is a core principle of Infinity UI. All components are built following WCAG guidelines and are thoroughly tested for keyboard navigation, screen reader compatibility, and proper focus management. We're committed to ensuring that interfaces built with Infinity UI are usable by everyone.",
+        "Accessibility is a core principle of Infinity UI. All components are built following WCAG guidelines and are thoroughly tested for keyboard navigation, screen reader compatibility, and proper focus management. We&apos;re committed to ensuring that interfaces built with Infinity UI are usable by everyone.",
     },
     {
       question: "What kind of support do you offer?",

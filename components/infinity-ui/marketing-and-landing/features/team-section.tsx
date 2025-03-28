@@ -11,6 +11,7 @@ import {
   User2,
 } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const TeamSection = () => {
   const sectionRef = useRef(null);
@@ -22,7 +23,8 @@ const TeamSection = () => {
       name: "Alex Johnson",
       role: "Founder & CEO",
       bio: "Alex has over 15 years of experience in software development and product management. Prior to founding our company, he led engineering teams at Google and Meta.",
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "alexjohnson",
         linkedin: "alex-johnson",
@@ -34,7 +36,8 @@ const TeamSection = () => {
       name: "Sarah Chen",
       role: "Chief Design Officer",
       bio: "Sarah is an award-winning designer with a background in human-computer interaction. She's passionate about creating intuitive and beautiful user experiences.",
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "sarahchen",
         linkedin: "sarah-chen",
@@ -46,7 +49,8 @@ const TeamSection = () => {
       name: "Marcus Rodriguez",
       role: "CTO",
       bio: "Marcus brings deep technical expertise in cloud architecture and distributed systems. He previously founded two successful tech startups.",
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "marcusrz",
         linkedin: "marcus-rodriguez",
@@ -58,7 +62,8 @@ const TeamSection = () => {
       name: "Amina Patel",
       role: "VP of Marketing",
       bio: "Amina has led successful marketing campaigns for Fortune 500 companies. Her data-driven approach has consistently delivered exceptional growth.",
-      image: "/images/default-avatar.png",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       social: {
         twitter: "aminapatel",
         linkedin: "amina-patel",
@@ -104,8 +109,11 @@ const TeamSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
+      className="relative min-h-screen overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
+
       {/* Abstract Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         <svg
@@ -236,7 +244,7 @@ const TeamSection = () => {
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
                       backgroundImage:
-                        "url('/placeholder.svg?height=600&width=400')",
+                        "url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=400')",
                     }}
                   ></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -351,7 +359,10 @@ const TeamSection = () => {
                     className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 transition-opacity duration-300 group-hover:opacity-20`}
                   ></div>
                   <Image
-                    src={member.image || "/images/default-avatar.png"}
+                    src={
+                      member.image ||
+                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                    }
                     alt={member.name}
                     width={100}
                     height={100}
@@ -483,7 +494,7 @@ const TeamSection = () => {
                   className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
                   style={{
                     backgroundImage:
-                      "url('/placeholder.svg?height=600&width=800')",
+                      "url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')",
                   }}
                 ></div>
 

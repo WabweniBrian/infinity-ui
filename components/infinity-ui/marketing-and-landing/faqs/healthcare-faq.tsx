@@ -27,7 +27,7 @@ const faqGroups = [
         id: 2,
         question: "Do I need a referral to see a specialist?",
         answer:
-          "Referral requirements depend on your insurance plan. Many HMO plans require a referral from your primary care physician before seeing a specialist. PPO plans typically don't require referrals. We recommend checking with your insurance provider about their specific referral policies.",
+          "Referral requirements depend on your insurance plan. Many HMO plans require a referral from your primary care physician before seeing a specialist. PPO plans typically don&apos;t require referrals. We recommend checking with your insurance provider about their specific referral policies.",
       },
     ],
   },
@@ -75,13 +75,13 @@ const faqGroups = [
         id: 7,
         question: "How does billing work?",
         answer:
-          "We bill your insurance directly for services provided. After your visit, we submit a claim to your insurance company. Once processed, you'll receive an explanation of benefits (EOB) from your insurance, followed by our bill for any remaining patient responsibility (copays, deductibles, or non-covered services).",
+          "We bill your insurance directly for services provided. After your visit, we submit a claim to your insurance company. Once processed, you&apos;ll receive an explanation of benefits (EOB) from your insurance, followed by our bill for any remaining patient responsibility (copays, deductibles, or non-covered services).",
       },
       {
         id: 8,
         question: "Do you offer payment plans?",
         answer:
-          "Yes, we offer flexible payment plans for patients who need assistance managing their healthcare costs. Please speak with our billing department to discuss your situation and set up a payment arrangement that works for your budget. We're committed to making quality healthcare accessible to all our patients.",
+          "Yes, we offer flexible payment plans for patients who need assistance managing their healthcare costs. Please speak with our billing department to discuss your situation and set up a payment arrangement that works for your budget. We&apos;re committed to making quality healthcare accessible to all our patients.",
       },
     ],
   },

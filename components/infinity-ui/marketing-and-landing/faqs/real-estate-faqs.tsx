@@ -148,7 +148,7 @@ const RealEstateFAQ = () => {
         />
 
         {/* Blueprint pattern */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-[length:100px_100px] opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-[length:100px_100px] opacity-[0.03]" />
       </div>
 
       <div className="container relative z-10 mx-auto max-w-6xl px-4">

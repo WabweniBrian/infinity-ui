@@ -34,18 +34,20 @@ const SocialProofCta = () => {
   const testimonials = [
     {
       quote:
-        "This product completely transformed our workflow. We've seen a 40% increase in productivity since implementing it.",
+        "This product completely transformed our workflow. We&apos;ve seen a 40% increase in productivity since implementing it.",
       author: "Sarah Johnson",
       role: "Marketing Director, TechCorp",
-      avatar: "/placeholder.svg?height=64&width=64&text=SJ",
+      avatar:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=64&width=64&text=SJ",
       rating: 5,
     },
     {
       quote:
-        "The customer support is exceptional. Any time we've had an issue, the team has responded quickly and effectively.",
+        "The customer support is exceptional. Any time we&apos;ve had an issue, the team has responded quickly and effectively.",
       author: "Michael Rodriguez",
       role: "CTO, Innovate Inc.",
-      avatar: "/placeholder.svg?height=64&width=64&text=MR",
+      avatar:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=64&width=64&text=MR",
       rating: 5,
     },
     {
@@ -53,7 +55,8 @@ const SocialProofCta = () => {
         "I was skeptical at first, but after using it for a month, I can't imagine going back to our old system.",
       author: "Jessica Williams",
       role: "Operations Manager, Global Solutions",
-      avatar: "/placeholder.svg?height=64&width=64&text=JW",
+      avatar:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=64&width=64&text=JW",
       rating: 4,
     },
   ];
@@ -137,7 +140,7 @@ const SocialProofCta = () => {
                             <Image
                               src={
                                 testimonial.avatar ||
-                                "/images/default-avatar.png"
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                               }
                               alt={testimonial.author}
                               width={40}
@@ -201,7 +204,10 @@ const SocialProofCta = () => {
                   {companyLogos.map((logo, index) => (
                     <div key={index} className="h-8">
                       <Image
-                        src={logo || "/default-image.jpg"}
+                        src={
+                          logo ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={`Company ${index + 1}`}
                         width={120}
                         height={40}

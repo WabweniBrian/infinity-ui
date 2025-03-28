@@ -91,17 +91,17 @@ const SketchbookTestimonials = () => {
   const getSketchImage = (sketch: string) => {
     switch (sketch) {
       case "website":
-        return "/placeholder.svg?height=300&width=400&text=Website+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Website+Sketch";
       case "mobile":
-        return "/placeholder.svg?height=300&width=400&text=Mobile+App+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Mobile+App+Sketch";
       case "branding":
-        return "/placeholder.svg?height=300&width=400&text=Brand+Identity+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Brand+Identity+Sketch";
       case "dashboard":
-        return "/placeholder.svg?height=300&width=400&text=Dashboard+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Dashboard+Sketch";
       case "ecommerce":
-        return "/placeholder.svg?height=300&width=400&text=E-commerce+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=E-commerce+Sketch";
       default:
-        return "/placeholder.svg?height=300&width=400&text=Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Sketch";
     }
   };
 
@@ -111,7 +111,7 @@ const SketchbookTestimonials = () => {
       className="relative overflow-hidden bg-gray-50 py-24"
     >
       {/* Paper texture background */}
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=200&width=200')] bg-repeat opacity-[0.05]" />
+      <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-repeat opacity-[0.05]" />
 
       {/* Decorative elements */}
       <div className="absolute right-10 top-10 rotate-12 opacity-20">
@@ -215,7 +215,7 @@ const SketchbookTestimonials = () => {
                             <Image
                               src={
                                 getSketchImage(testimonial.sketch) ||
-                                "/placeholder.svg"
+                                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                               }
                               alt={`${testimonial.sketch} sketch`}
                               width="400"

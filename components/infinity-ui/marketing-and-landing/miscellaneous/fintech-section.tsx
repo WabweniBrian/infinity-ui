@@ -10,6 +10,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const FintechSection = () => {
   const sectionRef = useRef(null);
@@ -76,6 +77,9 @@ const FintechSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-1/3 w-1/3 rounded-full bg-gradient-to-b from-emerald-100/50 to-transparent blur-3xl dark:from-emerald-900/20 dark:to-transparent"></div>
@@ -121,7 +125,7 @@ const FintechSection = () => {
               <div className="absolute -inset-4 rotate-2 transform rounded-3xl bg-gradient-to-r from-emerald-500/20 to-blue-500/20 blur-xl"></div>
               <div className="relative">
                 <Image
-                  src="/placeholder.svg?height=600&width=500"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoT02a9WxINGL43Bmkhwazp7exFWUt06ZryRuJ"
                   alt="Financial Dashboard"
                   width={600}
                   height={600}
@@ -218,7 +222,7 @@ const FintechSection = () => {
               <div className="relative overflow-hidden rounded-3xl">
                 <div className="absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-gradient-to-br from-emerald-500 to-blue-500"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                   alt="Financial Expert"
                   width={600}
                   height={600}

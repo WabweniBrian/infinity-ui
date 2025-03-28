@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Heart, Clock, Users, FileText, ArrowRight } from "lucide-react";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const HealthcareFeatureSection = () => {
   const sectionRef = useRef(null);
@@ -15,7 +16,8 @@ const HealthcareFeatureSection = () => {
       title: "24/7 Availability",
       description:
         "Access healthcare services anytime, anywhere with our round-the-clock virtual care platform.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "from-cyan-500 to-teal-500",
     },
     {
@@ -23,7 +25,8 @@ const HealthcareFeatureSection = () => {
       title: "Specialist Network",
       description:
         "Connect with over 5,000 specialists across 40+ medical fields for comprehensive care.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "from-blue-500 to-indigo-500",
     },
     {
@@ -31,7 +34,8 @@ const HealthcareFeatureSection = () => {
       title: "Digital Records",
       description:
         "Securely store and access your medical history, prescriptions, and test results in one place.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "from-violet-500 to-purple-500",
     },
     {
@@ -39,7 +43,8 @@ const HealthcareFeatureSection = () => {
       title: "Preventive Care",
       description:
         "Personalized wellness plans and reminders to help you stay ahead of health concerns.",
-      image: "/placeholder.svg?height=600&width=800",
+      image:
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       color: "from-rose-500 to-pink-500",
     },
   ];
@@ -47,8 +52,10 @@ const HealthcareFeatureSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gradient-to-b from-teal-50 to-cyan-50 py-24 dark:from-gray-950 dark:to-gray-900"
+      className="relative min-h-screen overflow-hidden bg-gradient-to-b from-teal-50 to-cyan-50 py-24 dark:from-gray-950 dark:to-gray-900"
     >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
       {/* Decorative Elements */}
       <div className="pointer-events-none absolute left-0 top-0 h-full w-full overflow-hidden">
         <svg
@@ -424,7 +431,7 @@ const HealthcareFeatureSection = () => {
                   className="absolute inset-0 bg-cover bg-center opacity-50 mix-blend-overlay"
                   style={{
                     backgroundImage:
-                      "url('/placeholder.svg?height=600&width=400')",
+                      "url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=400')",
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>

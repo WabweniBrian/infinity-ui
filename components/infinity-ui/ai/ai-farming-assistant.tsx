@@ -164,7 +164,8 @@ type View =
 const user: User = {
   name: "Wabweni Farmer",
   email: "wabweni@greenfarms.com",
-  avatar: "/images/default-avatar.png",
+  avatar:
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   farmName: "Green Valley Farms",
   plan: "premium",
 };
@@ -355,7 +356,9 @@ const cropIssues: CropIssue[] = [
     severity: "medium",
     detectedDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 3),
     status: "active",
-    images: ["/default-image.jpg"],
+    images: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
   },
   {
     id: "2",
@@ -365,7 +368,9 @@ const cropIssues: CropIssue[] = [
     severity: "high",
     detectedDate: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5),
     status: "active",
-    images: ["/default-image.jpg"],
+    images: [
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+    ],
   },
 ];
 
@@ -663,7 +668,10 @@ const AIFarmingAssistant = () => {
             <div className="mb-6 flex items-center">
               <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-green-600 to-emerald-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}
@@ -1252,7 +1260,10 @@ const AIFarmingAssistant = () => {
         {issue.images.length > 0 && (
           <div className="mt-3 overflow-hidden rounded-lg">
             <Image
-              src={issue.images[0] || "/default-image.jpg"}
+              src={
+                issue.images[0] ||
+                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+              }
               alt={issue.title}
               width={400}
               height={300}
@@ -3134,7 +3145,10 @@ const AIFarmingAssistant = () => {
             <div className="flex items-center">
               <div className="relative mr-3 h-12 w-12 overflow-hidden rounded-full bg-gradient-to-br from-green-600 to-emerald-600">
                 <Image
-                  src={user.avatar || "/images/default-avatar.png"}
+                  src={
+                    user.avatar ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
+                  }
                   alt={user.name}
                   width={48}
                   height={48}

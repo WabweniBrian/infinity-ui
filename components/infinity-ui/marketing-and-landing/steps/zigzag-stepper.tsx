@@ -12,7 +12,8 @@ const steps = [
     description:
       "We dive deep into understanding your industry, competitors, and target audience to identify opportunities.",
     icon: <Search className="h-6 w-6" />,
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     color: "from-violet-500 to-purple-600",
   },
   {
@@ -21,7 +22,8 @@ const steps = [
     description:
       "Based on our research, we develop a comprehensive strategy that aligns with your business objectives.",
     icon: <Layers className="h-6 w-6" />,
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     color: "from-purple-500 to-fuchsia-600",
   },
   {
@@ -30,7 +32,8 @@ const steps = [
     description:
       "Our creative team crafts visually stunning designs that engage your audience and reflect your brand identity.",
     icon: <PenTool className="h-6 w-6" />,
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     color: "from-fuchsia-500 to-pink-600",
   },
   {
@@ -39,7 +42,8 @@ const steps = [
     description:
       "We build robust solutions with clean code and thoroughly test every aspect to ensure flawless performance.",
     icon: <Monitor className="h-6 w-6" />,
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     color: "from-pink-500 to-rose-600",
   },
   {
@@ -48,7 +52,8 @@ const steps = [
     description:
       "After deployment, we continuously monitor performance and make data-driven optimizations to maximize results.",
     icon: <Send className="h-6 w-6" />,
-    image: "/default-image.jpg",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     color: "from-rose-500 to-red-600",
   },
 ];
@@ -116,7 +121,10 @@ const ZigzagSteps = () => {
                       transition={{ duration: 0.3 }}
                     >
                       <Image
-                        src={step.image || "/default-image.jpg"}
+                        src={
+                          step.image ||
+                          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                        }
                         alt={step.title}
                         width={800}
                         height={450}

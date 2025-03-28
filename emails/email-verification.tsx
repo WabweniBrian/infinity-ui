@@ -62,8 +62,8 @@ export const EmailVerification = ({ url }: { url: string }) => {
             Click me
           </Button>
           <Text className="mt-4 text-left text-lg">
-            If the above didn't work, copy and paste this link into your web
-            browser address bar to verify your email address
+            If the above didn&apos;t work, copy and paste this link into your
+            web browser address bar to verify your email address
           </Text>
           <Link href={url} className="mt-2 text-base text-brand underline">
             {url}

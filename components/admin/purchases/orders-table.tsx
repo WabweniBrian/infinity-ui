@@ -216,7 +216,8 @@ export const OrdersTable = ({
                         <div className="relative mr-3 h-8 w-8 overflow-hidden rounded-full">
                           <Image
                             src={
-                              order.user.image || "/images/default-avatar.png"
+                              order.user.image ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                             }
                             alt={order.user.name}
                             fill

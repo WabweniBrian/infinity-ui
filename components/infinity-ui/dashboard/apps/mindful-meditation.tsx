@@ -161,7 +161,8 @@ const MindfulnessMeditationApp = () => {
         category: "Beginner",
         audioSrc:
           "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
-        imageSrc: "/placeholder.svg?height=300&width=400",
+        imageSrc:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400",
         isFavorite: true,
       },
       {
@@ -173,7 +174,8 @@ const MindfulnessMeditationApp = () => {
         category: "Relaxation",
         audioSrc:
           "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
-        imageSrc: "/placeholder.svg?height=300&width=400",
+        imageSrc:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400",
         isFavorite: false,
       },
       {
@@ -185,7 +187,8 @@ const MindfulnessMeditationApp = () => {
         category: "Compassion",
         audioSrc:
           "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
-        imageSrc: "/placeholder.svg?height=300&width=400",
+        imageSrc:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400",
         isFavorite: true,
       },
       {
@@ -196,7 +199,8 @@ const MindfulnessMeditationApp = () => {
         category: "Energy",
         audioSrc:
           "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
-        imageSrc: "/placeholder.svg?height=300&width=400",
+        imageSrc:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400",
         isFavorite: false,
       },
       {
@@ -207,7 +211,8 @@ const MindfulnessMeditationApp = () => {
         category: "Sleep",
         audioSrc:
           "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
-        imageSrc: "/placeholder.svg?height=300&width=400",
+        imageSrc:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400",
         isFavorite: false,
       },
       {
@@ -218,7 +223,8 @@ const MindfulnessMeditationApp = () => {
         category: "Stress Relief",
         audioSrc:
           "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
-        imageSrc: "/placeholder.svg?height=300&width=400",
+        imageSrc:
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400",
         isFavorite: true,
       },
     ];
@@ -750,7 +756,7 @@ const MindfulnessMeditationApp = () => {
                               <Image
                                 src={
                                   currentMeditation.imageSrc ||
-                                  "/placeholder.svg"
+                                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                                 }
                                 fill
                                 alt={currentMeditation.title}
@@ -1482,7 +1488,10 @@ const MindfulnessMeditationApp = () => {
                           >
                             <div className="relative h-40 w-full overflow-hidden">
                               <Image
-                                src={meditation.imageSrc || "/placeholder.svg"}
+                                src={
+                                  meditation.imageSrc ||
+                                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                                }
                                 alt={meditation.title}
                                 fill
                                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

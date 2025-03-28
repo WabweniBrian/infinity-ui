@@ -58,7 +58,7 @@ const faqCategories: FAQCategory[] = [
         options: [
           "No, all courses require full degree program enrollment",
           "Yes, through our Continuing Education department",
-          "Only if you've previously completed a degree with us",
+          "Only if you&apos;ve previously completed a degree with us",
           "Only during summer sessions",
         ],
         correctOption: 1,
@@ -120,9 +120,9 @@ const faqCategories: FAQCategory[] = [
         id: 6,
         question: "How do I apply for scholarships?",
         answer:
-          "Applying for scholarships is straightforward. When you submit your admission application, you're automatically considered for most merit-based institutional scholarships. For need-based aid, complete the FAFSA (Free Application for Federal Student Aid) as early as possible after October 1. Our separate scholarship application portal opens in November each year for specialized and departmental scholarships—this requires a general application and supplemental materials depending on the specific scholarships. International students should check our International Education Office website for scholarships specifically available to them.",
+          "Applying for scholarships is straightforward. When you submit your admission application, you&apos;re automatically considered for most merit-based institutional scholarships. For need-based aid, complete the FAFSA (Free Application for Federal Student Aid) as early as possible after October 1. Our separate scholarship application portal opens in November each year for specialized and departmental scholarships—this requires a general application and supplemental materials depending on the specific scholarships. International students should check our International Education Office website for scholarships specifically available to them.",
         options: [
-          "You're automatically considered for most scholarships when you apply for admission",
+          "You&apos;re automatically considered for most scholarships when you apply for admission",
           "All scholarships require separate applications submitted directly to each department",
           "Scholarships are only available to continuing students, not new applicants",
           "You must interview with the scholarship committee in person",

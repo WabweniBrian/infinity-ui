@@ -272,7 +272,10 @@ const LuxuryFashionHero = () => {
                     <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
                       <div className="relative h-[350px] w-full">
                         <Image
-                          src={product.image || "/placeholder.svg"}
+                          src={
+                            product.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={product.name}
                           fill
                           className="object-cover"

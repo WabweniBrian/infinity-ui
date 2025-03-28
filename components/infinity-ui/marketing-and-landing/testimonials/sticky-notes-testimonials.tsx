@@ -122,7 +122,7 @@ const StickyNotesTestimonials = () => {
       {/* Cork board background */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-800 to-amber-900">
         {/* Cork texture */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-30 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-30 mix-blend-multiply" />
 
         {/* Board frame */}
         <div className="absolute inset-x-0 top-0 h-4 bg-gray-800" />
@@ -246,7 +246,7 @@ const StickyNotesTestimonials = () => {
                   />
 
                   {/* Texture overlay */}
-                  <div className="pointer-events-none absolute inset-0 bg-[url('/placeholder.svg?height=50&width=50')] bg-repeat opacity-[0.03]" />
+                  <div className="pointer-events-none absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50')] bg-repeat opacity-[0.03]" />
                 </div>
               </motion.div>
             );

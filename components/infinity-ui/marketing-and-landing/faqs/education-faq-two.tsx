@@ -63,7 +63,7 @@ const faqGroups = [
         id: 6,
         question: "How do I apply for scholarships?",
         answer:
-          "All applicants are automatically considered for general merit scholarships based on their admission application. For specialized and departmental scholarships, you'll need to complete our scholarship application through the student portal after being admitted. This single application matches you with all scholarships for which you qualify. Some scholarships require additional materials such as essays or portfolios. The priority deadline for scholarship applications is February 1 for the following academic year.",
+          "All applicants are automatically considered for general merit scholarships based on their admission application. For specialized and departmental scholarships, you&apos;ll need to complete our scholarship application through the student portal after being admitted. This single application matches you with all scholarships for which you qualify. Some scholarships require additional materials such as essays or portfolios. The priority deadline for scholarship applications is February 1 for the following academic year.",
       },
     ],
   },
@@ -106,7 +106,7 @@ const EducationFAQ = () => {
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Book pattern background */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100')] bg-repeat opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.03]" />
 
         {/* Gradient circles */}
         <motion.div

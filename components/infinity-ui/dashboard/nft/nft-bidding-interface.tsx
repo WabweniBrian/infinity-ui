@@ -212,7 +212,10 @@ const NFTBiddingInterface = () => {
             <div className="md:w-1/3">
               <div className="relative mb-4 aspect-square overflow-hidden rounded-xl">
                 <Image
-                  src={nftImage || "/default-image.jpg"}
+                  src={
+                    nftImage ||
+                    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                  }
                   alt={nftName}
                   fill
                   className="object-cover"
@@ -224,7 +227,8 @@ const NFTBiddingInterface = () => {
                   <div className="relative h-5 w-5 overflow-hidden rounded-full">
                     <Image
                       src={
-                        collectionImage || "/placeholder.svg?height=50&width=50"
+                        collectionImage ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50"
                       }
                       alt={collectionName}
                       fill

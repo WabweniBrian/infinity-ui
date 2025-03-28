@@ -81,7 +81,7 @@ const RadialSteps = () => {
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Grid pattern */}
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=80&width=80')] bg-repeat opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=80&width=80')] bg-repeat opacity-[0.03]" />
 
         {/* Gradient orbs */}
         <motion.div

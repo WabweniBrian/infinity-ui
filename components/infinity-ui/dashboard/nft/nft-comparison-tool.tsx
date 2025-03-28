@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeftRight,
   X,
@@ -14,105 +14,111 @@ import {
   DollarSign,
   Tag,
   Layers,
-} from "lucide-react"
+} from "lucide-react";
 
 interface NFTData {
-  id: string
-  name: string
-  image: string
-  collection: string
-  collectionImage: string
-  price: string
-  lastSale?: string
+  id: string;
+  name: string;
+  image: string;
+  collection: string;
+  collectionImage: string;
+  price: string;
+  lastSale?: string;
   attributes: Array<{
-    trait_type: string
-    value: string
-    rarity?: number
-  }>
-  rarityRank?: number
-  rarityScore?: number
-  owner?: string
-  tokenId?: string
+    trait_type: string;
+    value: string;
+    rarity?: number;
+  }>;
+  rarityRank?: number;
+  rarityScore?: number;
+  owner?: string;
+  tokenId?: string;
 }
 
 interface NFTComparisonToolProps {
-  availableNFTs: NFTData[]
-  onClose?: () => void
+  availableNFTs: NFTData[];
+  onClose?: () => void;
 }
 
-const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) => {
-  const [selectedNFTs, setSelectedNFTs] = useState<NFTData[]>([])
-  const [showSearch, setShowSearch] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
-  const [expandedSections, setExpandedSections] = useState<string[]>(["attributes", "price"])
+const NFTComparisonTool = ({
+  availableNFTs,
+  onClose,
+}: NFTComparisonToolProps) => {
+  const [selectedNFTs, setSelectedNFTs] = useState<NFTData[]>([]);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [expandedSections, setExpandedSections] = useState<string[]>([
+    "attributes",
+    "price",
+  ]);
 
   // Filter available NFTs based on search query
   const filteredNFTs = availableNFTs.filter(
     (nft) =>
       nft.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       nft.collection.toLowerCase().includes(searchQuery.toLowerCase()),
-  )
+  );
 
   // Add NFT to comparison
   const addNFT = (nft: NFTData) => {
     if (selectedNFTs.length < 3 && !selectedNFTs.some((n) => n.id === nft.id)) {
-      setSelectedNFTs([...selectedNFTs, nft])
-      setShowSearch(false)
-      setSearchQuery("")
+      setSelectedNFTs([...selectedNFTs, nft]);
+      setShowSearch(false);
+      setSearchQuery("");
     }
-  }
+  };
 
   // Remove NFT from comparison
   const removeNFT = (nftId: string) => {
-    setSelectedNFTs(selectedNFTs.filter((nft) => nft.id !== nftId))
-  }
+    setSelectedNFTs(selectedNFTs.filter((nft) => nft.id !== nftId));
+  };
 
   // Toggle section expansion
   const toggleSection = (section: string) => {
     if (expandedSections.includes(section)) {
-      setExpandedSections(expandedSections.filter((s) => s !== section))
+      setExpandedSections(expandedSections.filter((s) => s !== section));
     } else {
-      setExpandedSections([...expandedSections, section])
+      setExpandedSections([...expandedSections, section]);
     }
-  }
+  };
 
   // Get all unique trait types from selected NFTs
   const getAllTraitTypes = () => {
-    const traitTypes = new Set<string>()
+    const traitTypes = new Set<string>();
     selectedNFTs.forEach((nft) => {
       nft.attributes.forEach((attr) => {
-        traitTypes.add(attr.trait_type)
-      })
-    })
-    return Array.from(traitTypes)
-  }
+        traitTypes.add(attr.trait_type);
+      });
+    });
+    return Array.from(traitTypes);
+  };
 
   // Get trait value for a specific NFT and trait type
   const getTraitValue = (nft: NFTData, traitType: string) => {
-    const trait = nft.attributes.find((attr) => attr.trait_type === traitType)
-    return trait ? trait.value : "-"
-  }
+    const trait = nft.attributes.find((attr) => attr.trait_type === traitType);
+    return trait ? trait.value : "-";
+  };
 
   // Get trait rarity for a specific NFT and trait type
   const getTraitRarity = (nft: NFTData, traitType: string) => {
-    const trait = nft.attributes.find((attr) => attr.trait_type === traitType)
-    return trait && trait.rarity !== undefined ? trait.rarity : null
-  }
+    const trait = nft.attributes.find((attr) => attr.trait_type === traitType);
+    return trait && trait.rarity !== undefined ? trait.rarity : null;
+  };
 
   // Get color based on rarity
   const getRarityColor = (rarity: number | null) => {
-    if (rarity === null) return "text-slate-400"
-    if (rarity <= 1) return "text-yellow-400"
-    if (rarity <= 5) return "text-purple-400"
-    if (rarity <= 15) return "text-blue-400"
-    if (rarity <= 35) return "text-green-400"
-    return "text-slate-400"
-  }
+    if (rarity === null) return "text-slate-400";
+    if (rarity <= 1) return "text-yellow-400";
+    if (rarity <= 5) return "text-purple-400";
+    if (rarity <= 15) return "text-blue-400";
+    if (rarity <= 35) return "text-green-400";
+    return "text-slate-400";
+  };
 
   return (
-    <div className="w-full bg-slate-900 rounded-2xl overflow-hidden border border-slate-800">
+    <div className="w-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
       {/* Header */}
-      <div className="p-4 border-b border-slate-800 flex justify-between items-center">
+      <div className="flex items-center justify-between border-b border-slate-800 p-4">
         <div className="flex items-center gap-2">
           <ArrowLeftRight className="text-blue-400" size={20} />
           <h2 className="text-xl font-bold text-white">NFT Comparison</h2>
@@ -120,7 +126,7 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
 
         {onClose && (
           <button
-            className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="rounded-lg p-2 text-slate-400 transition-colors hover:bg-slate-800 hover:text-white"
             onClick={onClose}
           >
             <X size={18} />
@@ -129,20 +135,23 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
       </div>
 
       {/* NFT Selection */}
-      <div className="p-4 border-b border-slate-800">
+      <div className="border-b border-slate-800 p-4">
         <div className="grid grid-cols-3 gap-4">
           {[0, 1, 2].map((index) => {
-            const nft = selectedNFTs[index]
+            const nft = selectedNFTs[index];
 
             return (
               <div
                 key={`slot-${index}`}
-                className="aspect-square rounded-xl overflow-hidden border border-slate-700 relative"
+                className="relative aspect-square overflow-hidden rounded-xl border border-slate-700"
               >
                 {nft ? (
                   <div className="relative h-full">
                     <Image
-                      src={nft.image || "/placeholder.svg?height=300&width=300"}
+                      src={
+                        nft.image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=300"
+                      }
                       alt={nft.name}
                       fill
                       className="object-cover"
@@ -151,23 +160,32 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80" />
 
                     <div className="absolute bottom-0 left-0 right-0 p-3">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="relative w-5 h-5 rounded-full overflow-hidden">
+                      <div className="mb-1 flex items-center gap-2">
+                        <div className="relative h-5 w-5 overflow-hidden rounded-full">
                           <Image
-                            src={nft.collectionImage || "/placeholder.svg?height=50&width=50"}
+                            src={
+                              nft.collectionImage ||
+                              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50"
+                            }
                             alt={nft.collection}
                             fill
                             className="object-cover"
                           />
                         </div>
-                        <span className="text-xs text-white truncate">{nft.collection}</span>
+                        <span className="truncate text-xs text-white">
+                          {nft.collection}
+                        </span>
                       </div>
-                      <h3 className="text-sm font-medium text-white truncate mb-2">{nft.name}</h3>
+                      <h3 className="mb-2 truncate text-sm font-medium text-white">
+                        {nft.name}
+                      </h3>
 
-                      <div className="flex justify-between items-center">
-                        <div className="text-xs text-slate-300">{nft.price} ETH</div>
+                      <div className="flex items-center justify-between">
+                        <div className="text-xs text-slate-300">
+                          {nft.price} ETH
+                        </div>
                         <motion.button
-                          className="p-1 rounded-full bg-slate-800/80 text-slate-400 hover:text-white"
+                          className="rounded-full bg-slate-800/80 p-1 text-slate-400 hover:text-white"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
                           onClick={() => removeNFT(nft.id)}
@@ -179,18 +197,18 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                   </div>
                 ) : (
                   <motion.button
-                    className="w-full h-full flex flex-col items-center justify-center bg-slate-800/50 hover:bg-slate-800 transition-colors"
+                    className="flex h-full w-full flex-col items-center justify-center bg-slate-800/50 transition-colors hover:bg-slate-800"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => setShowSearch(true)}
                     disabled={showSearch}
                   >
-                    <Plus size={24} className="text-slate-400 mb-2" />
+                    <Plus size={24} className="mb-2 text-slate-400" />
                     <span className="text-sm text-slate-400">Add NFT</span>
                   </motion.button>
                 )}
               </div>
-            )
+            );
           })}
         </div>
       </div>
@@ -199,27 +217,30 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
       <AnimatePresence>
         {showSearch && (
           <motion.div
-            className="p-4 border-b border-slate-800"
+            className="border-b border-slate-800 p-4"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
           >
             <div className="mb-4">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400" size={18} />
+                <Search
+                  className="absolute left-3 top-1/2 -translate-y-1/2 transform text-slate-400"
+                  size={18}
+                />
                 <input
                   type="text"
                   placeholder="Search NFTs by name or collection..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-slate-800/50 border border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white"
+                  className="w-full rounded-xl border border-slate-700 bg-slate-800/50 py-2.5 pl-10 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
                 />
                 <button
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 transform text-slate-400 hover:text-white"
                   onClick={() => {
-                    setShowSearch(false)
-                    setSearchQuery("")
+                    setShowSearch(false);
+                    setSearchQuery("");
                   }}
                 >
                   <X size={18} />
@@ -229,25 +250,32 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
 
             <div className="max-h-60 overflow-y-auto">
               {filteredNFTs.length > 0 ? (
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   {filteredNFTs.map((nft) => (
                     <motion.div
                       key={nft.id}
-                      className={`relative rounded-xl overflow-hidden border ${
+                      className={`relative overflow-hidden rounded-xl border ${
                         selectedNFTs.some((n) => n.id === nft.id)
-                          ? "border-blue-500 opacity-50 cursor-not-allowed"
-                          : "border-slate-700 cursor-pointer hover:border-blue-500"
+                          ? "cursor-not-allowed border-blue-500 opacity-50"
+                          : "cursor-pointer border-slate-700 hover:border-blue-500"
                       }`}
-                      whileHover={{ scale: selectedNFTs.some((n) => n.id === nft.id) ? 1 : 1.03 }}
+                      whileHover={{
+                        scale: selectedNFTs.some((n) => n.id === nft.id)
+                          ? 1
+                          : 1.03,
+                      }}
                       onClick={() => {
                         if (!selectedNFTs.some((n) => n.id === nft.id)) {
-                          addNFT(nft)
+                          addNFT(nft);
                         }
                       }}
                     >
                       <div className="relative aspect-square">
                         <Image
-                          src={nft.image || "/placeholder.svg?height=200&width=200"}
+                          src={
+                            nft.image ||
+                            "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                          }
                           alt={nft.name}
                           fill
                           className="object-cover"
@@ -256,26 +284,35 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80" />
 
                         <div className="absolute bottom-0 left-0 right-0 p-2">
-                          <div className="flex items-center gap-1 mb-1">
-                            <div className="relative w-4 h-4 rounded-full overflow-hidden">
+                          <div className="mb-1 flex items-center gap-1">
+                            <div className="relative h-4 w-4 overflow-hidden rounded-full">
                               <Image
-                                src={nft.collectionImage || "/placeholder.svg?height=50&width=50"}
+                                src={
+                                  nft.collectionImage ||
+                                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50"
+                                }
                                 alt={nft.collection}
                                 fill
                                 className="object-cover"
                               />
                             </div>
-                            <span className="text-xs text-white truncate">{nft.collection}</span>
+                            <span className="truncate text-xs text-white">
+                              {nft.collection}
+                            </span>
                           </div>
-                          <h3 className="text-xs font-medium text-white truncate">{nft.name}</h3>
+                          <h3 className="truncate text-xs font-medium text-white">
+                            {nft.name}
+                          </h3>
                         </div>
                       </div>
                     </motion.div>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <p className="text-slate-400">No NFTs found matching your search</p>
+                <div className="py-8 text-center">
+                  <p className="text-slate-400">
+                    No NFTs found matching your search
+                  </p>
                 </div>
               )}
             </div>
@@ -289,14 +326,18 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
           {/* Price Section */}
           <div className="mb-4">
             <button
-              className="w-full flex items-center justify-between p-3 bg-slate-800/50 rounded-xl text-left"
+              className="flex w-full items-center justify-between rounded-xl bg-slate-800/50 p-3 text-left"
               onClick={() => toggleSection("price")}
             >
               <div className="flex items-center gap-2">
                 <DollarSign size={18} className="text-green-400" />
                 <h3 className="font-medium text-white">Price Comparison</h3>
               </div>
-              {expandedSections.includes("price") ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              {expandedSections.includes("price") ? (
+                <ChevronUp size={18} />
+              ) : (
+                <ChevronDown size={18} />
+              )}
             </button>
 
             <AnimatePresence>
@@ -307,16 +348,27 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="grid grid-cols-3 gap-4 mt-4">
+                  <div className="mt-4 grid grid-cols-3 gap-4">
                     {selectedNFTs.map((nft) => (
-                      <div key={`price-${nft.id}`} className="bg-slate-800/30 rounded-xl p-3">
-                        <div className="text-sm text-slate-400 mb-1">Current Price</div>
-                        <div className="text-lg font-bold text-white mb-2">{nft.price} ETH</div>
+                      <div
+                        key={`price-${nft.id}`}
+                        className="rounded-xl bg-slate-800/30 p-3"
+                      >
+                        <div className="mb-1 text-sm text-slate-400">
+                          Current Price
+                        </div>
+                        <div className="mb-2 text-lg font-bold text-white">
+                          {nft.price} ETH
+                        </div>
 
                         {nft.lastSale && (
                           <>
-                            <div className="text-xs text-slate-400 mb-1">Last Sale</div>
-                            <div className="text-sm text-slate-300">{nft.lastSale} ETH</div>
+                            <div className="mb-1 text-xs text-slate-400">
+                              Last Sale
+                            </div>
+                            <div className="text-sm text-slate-300">
+                              {nft.lastSale} ETH
+                            </div>
                           </>
                         )}
                       </div>
@@ -330,14 +382,18 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
           {/* Rarity Section */}
           <div className="mb-4">
             <button
-              className="w-full flex items-center justify-between p-3 bg-slate-800/50 rounded-xl text-left"
+              className="flex w-full items-center justify-between rounded-xl bg-slate-800/50 p-3 text-left"
               onClick={() => toggleSection("rarity")}
             >
               <div className="flex items-center gap-2">
                 <BarChart2 size={18} className="text-purple-400" />
                 <h3 className="font-medium text-white">Rarity Comparison</h3>
               </div>
-              {expandedSections.includes("rarity") ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              {expandedSections.includes("rarity") ? (
+                <ChevronUp size={18} />
+              ) : (
+                <ChevronDown size={18} />
+              )}
             </button>
 
             <AnimatePresence>
@@ -348,22 +404,35 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="grid grid-cols-3 gap-4 mt-4">
+                  <div className="mt-4 grid grid-cols-3 gap-4">
                     {selectedNFTs.map((nft) => (
-                      <div key={`rarity-${nft.id}`} className="bg-slate-800/30 rounded-xl p-3">
+                      <div
+                        key={`rarity-${nft.id}`}
+                        className="rounded-xl bg-slate-800/30 p-3"
+                      >
                         {nft.rarityRank ? (
                           <>
-                            <div className="text-sm text-slate-400 mb-1">Rarity Rank</div>
-                            <div className="text-lg font-bold text-white mb-2">#{nft.rarityRank}</div>
+                            <div className="mb-1 text-sm text-slate-400">
+                              Rarity Rank
+                            </div>
+                            <div className="mb-2 text-lg font-bold text-white">
+                              #{nft.rarityRank}
+                            </div>
                           </>
                         ) : (
-                          <div className="text-sm text-slate-400 mb-2">Rarity rank not available</div>
+                          <div className="mb-2 text-sm text-slate-400">
+                            Rarity rank not available
+                          </div>
                         )}
 
                         {nft.rarityScore && (
                           <>
-                            <div className="text-xs text-slate-400 mb-1">Rarity Score</div>
-                            <div className="text-sm text-slate-300">{nft.rarityScore.toFixed(2)}</div>
+                            <div className="mb-1 text-xs text-slate-400">
+                              Rarity Score
+                            </div>
+                            <div className="text-sm text-slate-300">
+                              {nft.rarityScore.toFixed(2)}
+                            </div>
                           </>
                         )}
                       </div>
@@ -377,14 +446,18 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
           {/* Attributes Section */}
           <div className="mb-4">
             <button
-              className="w-full flex items-center justify-between p-3 bg-slate-800/50 rounded-xl text-left"
+              className="flex w-full items-center justify-between rounded-xl bg-slate-800/50 p-3 text-left"
               onClick={() => toggleSection("attributes")}
             >
               <div className="flex items-center gap-2">
                 <Tag size={18} className="text-blue-400" />
                 <h3 className="font-medium text-white">Attribute Comparison</h3>
               </div>
-              {expandedSections.includes("attributes") ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              {expandedSections.includes("attributes") ? (
+                <ChevronUp size={18} />
+              ) : (
+                <ChevronDown size={18} />
+              )}
             </button>
 
             <AnimatePresence>
@@ -399,30 +472,54 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-slate-800">
-                          <th className="text-left p-2 text-sm font-medium text-slate-400">Trait</th>
+                          <th className="p-2 text-left text-sm font-medium text-slate-400">
+                            Trait
+                          </th>
                           {selectedNFTs.map((nft) => (
-                            <th key={`header-${nft.id}`} className="text-left p-2 text-sm font-medium text-slate-400">
-                              {nft.name.length > 10 ? `${nft.name.substring(0, 10)}...` : nft.name}
+                            <th
+                              key={`header-${nft.id}`}
+                              className="p-2 text-left text-sm font-medium text-slate-400"
+                            >
+                              {nft.name.length > 10
+                                ? `${nft.name.substring(0, 10)}...`
+                                : nft.name}
                             </th>
                           ))}
                         </tr>
                       </thead>
                       <tbody>
                         {getAllTraitTypes().map((traitType) => (
-                          <tr key={traitType} className="border-b border-slate-800/50">
-                            <td className="p-2 text-sm font-medium text-white">{traitType}</td>
+                          <tr
+                            key={traitType}
+                            className="border-b border-slate-800/50"
+                          >
+                            <td className="p-2 text-sm font-medium text-white">
+                              {traitType}
+                            </td>
                             {selectedNFTs.map((nft) => {
-                              const traitValue = getTraitValue(nft, traitType)
-                              const traitRarity = getTraitRarity(nft, traitType)
+                              const traitValue = getTraitValue(nft, traitType);
+                              const traitRarity = getTraitRarity(
+                                nft,
+                                traitType,
+                              );
 
                               return (
-                                <td key={`${nft.id}-${traitType}`} className="p-2">
-                                  <div className="text-sm text-white">{traitValue}</div>
+                                <td
+                                  key={`${nft.id}-${traitType}`}
+                                  className="p-2"
+                                >
+                                  <div className="text-sm text-white">
+                                    {traitValue}
+                                  </div>
                                   {traitRarity !== null && (
-                                    <div className={`text-xs ${getRarityColor(traitRarity)}`}>{traitRarity}%</div>
+                                    <div
+                                      className={`text-xs ${getRarityColor(traitRarity)}`}
+                                    >
+                                      {traitRarity}%
+                                    </div>
                                   )}
                                 </td>
-                              )
+                              );
                             })}
                           </tr>
                         ))}
@@ -437,14 +534,18 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
           {/* Details Section */}
           <div>
             <button
-              className="w-full flex items-center justify-between p-3 bg-slate-800/50 rounded-xl text-left"
+              className="flex w-full items-center justify-between rounded-xl bg-slate-800/50 p-3 text-left"
               onClick={() => toggleSection("details")}
             >
               <div className="flex items-center gap-2">
                 <Layers size={18} className="text-orange-400" />
                 <h3 className="font-medium text-white">Additional Details</h3>
               </div>
-              {expandedSections.includes("details") ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              {expandedSections.includes("details") ? (
+                <ChevronUp size={18} />
+              ) : (
+                <ChevronDown size={18} />
+              )}
             </button>
 
             <AnimatePresence>
@@ -455,20 +556,31 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="grid grid-cols-3 gap-4 mt-4">
+                  <div className="mt-4 grid grid-cols-3 gap-4">
                     {selectedNFTs.map((nft) => (
-                      <div key={`details-${nft.id}`} className="bg-slate-800/30 rounded-xl p-3">
+                      <div
+                        key={`details-${nft.id}`}
+                        className="rounded-xl bg-slate-800/30 p-3"
+                      >
                         {nft.owner && (
                           <div className="mb-2">
-                            <div className="text-xs text-slate-400 mb-1">Owner</div>
-                            <div className="text-sm text-slate-300 truncate">{nft.owner}</div>
+                            <div className="mb-1 text-xs text-slate-400">
+                              Owner
+                            </div>
+                            <div className="truncate text-sm text-slate-300">
+                              {nft.owner}
+                            </div>
                           </div>
                         )}
 
                         {nft.tokenId && (
                           <div>
-                            <div className="text-xs text-slate-400 mb-1">Token ID</div>
-                            <div className="text-sm text-slate-300 truncate">{nft.tokenId}</div>
+                            <div className="mb-1 text-xs text-slate-400">
+                              Token ID
+                            </div>
+                            <div className="truncate text-sm text-slate-300">
+                              {nft.tokenId}
+                            </div>
                           </div>
                         )}
                       </div>
@@ -481,8 +593,7 @@ const NFTComparisonTool = ({ availableNFTs, onClose }: NFTComparisonToolProps) =
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default NFTComparisonTool
-
+export default NFTComparisonTool;

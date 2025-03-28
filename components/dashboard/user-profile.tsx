@@ -15,7 +15,8 @@ export const UserProfile = () => {
   const [user, setUser] = useState({
     name: "John Doe",
     email: "john@example.com",
-    image: "/placeholder.svg?height=120&width=120",
+    image:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=120&width=120",
     phone: "+1 (555) 123-4567",
     address: "123 Main St, Anytown, USA",
     bio: "UI/UX Designer and Frontend Developer",
@@ -60,7 +61,10 @@ export const UserProfile = () => {
           <div className="flex flex-col items-center">
             <div className="relative mb-4 h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
               <Image
-                src={user.image || "/placeholder.svg"}
+                src={
+                  user.image ||
+                  "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                }
                 alt={user.name}
                 fill
                 className="object-cover"

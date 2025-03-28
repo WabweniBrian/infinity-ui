@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check, X, ArrowRight, Sparkles } from "lucide-react";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const PricingSection = () => {
   const sectionRef = useRef(null);
@@ -72,8 +73,10 @@ const PricingSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
+      className="relative min-h-screen overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Dark mode toggle */}
+      <DarkModeToggle />
       {/* Abstract Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         {/* Radial gradient background */}
@@ -409,7 +412,7 @@ const PricingSection = () => {
               {
                 question: "Can I cancel my subscription at any time?",
                 answer:
-                  "Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your billing period.",
+                  "Yes, you can cancel your subscription at any time. You&apos;ll continue to have access until the end of your billing period.",
               },
               {
                 question: "Do you offer a free trial?",

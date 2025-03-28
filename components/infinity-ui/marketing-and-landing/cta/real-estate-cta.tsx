@@ -98,7 +98,10 @@ const RealEstateCta = () => {
                     className="absolute inset-0"
                   >
                     <Image
-                      src={image || "/placeholder.svg"}
+                      src={
+                        image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                      }
                       alt={`Property image ${index + 1}`}
                       fill
                       className="object-cover"
@@ -163,7 +166,10 @@ const RealEstateCta = () => {
                     onClick={() => setActiveImage(index)}
                   >
                     <Image
-                      src={image || "/default-image.jpg"}
+                      src={
+                        image ||
+                        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                      }
                       alt={`Property thumbnail ${index + 1}`}
                       fill
                       className="object-cover"
