@@ -1,56 +1,68 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
-import { motion, useInView } from "framer-motion"
-import { ArrowRight, Cpu, Database, Globe, Lock, Zap } from "lucide-react"
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight, Cpu, Database, Globe, Lock, Zap } from "lucide-react";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const ProductFeaturesGrid = () => {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null)
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
 
   const features = [
     {
       title: "AI-Powered Insights",
-      description: "Leverage machine learning algorithms to extract actionable insights from your data.",
+      description:
+        "Leverage machine learning algorithms to extract actionable insights from your data.",
       icon: Cpu,
       color: "from-rose-500 to-pink-500",
       position: "col-span-1 md:col-span-2 row-span-1",
     },
     {
       title: "Global CDN",
-      description: "Lightning-fast content delivery across 200+ data centers worldwide.",
+      description:
+        "Lightning-fast content delivery across 200+ data centers worldwide.",
       icon: Globe,
       color: "from-blue-500 to-cyan-500",
       position: "col-span-1 row-span-1",
     },
     {
       title: "Enterprise Security",
-      description: "Bank-grade encryption and advanced threat protection for your data.",
+      description:
+        "Bank-grade encryption and advanced threat protection for your data.",
       icon: Lock,
       color: "from-emerald-500 to-teal-500",
       position: "col-span-1 row-span-1",
     },
     {
       title: "Scalable Infrastructure",
-      description: "Automatically scales to handle millions of users without performance degradation.",
+      description:
+        "Automatically scales to handle millions of users without performance degradation.",
       icon: Database,
       color: "from-amber-500 to-orange-500",
       position: "col-span-1 md:col-span-2 row-span-1",
     },
     {
       title: "Lightning Performance",
-      description: "Optimized for speed with 99.9% uptime guarantee and sub-second response times.",
+      description:
+        "Optimized for speed with 99.9% uptime guarantee and sub-second response times.",
       icon: Zap,
       color: "from-violet-500 to-purple-500",
       position: "col-span-1 md:col-span-2 row-span-1",
     },
-  ]
+  ];
 
   return (
-    <section ref={sectionRef} className="py-24 relative overflow-hidden bg-white dark:bg-gray-950">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
+    >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 via-gray-50 to-white dark:from-gray-900 dark:via-gray-950 dark:to-gray-950"></div>
 
@@ -65,7 +77,14 @@ const ProductFeaturesGrid = () => {
                 patternTransform="rotate(45 0 0)"
                 patternUnits="userSpaceOnUse"
               >
-                <line x1="0" y1="0" x2="0" y2="10" stroke="currentColor" strokeWidth="0.5" />
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="10"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#diagonalHatch)" />
@@ -74,7 +93,7 @@ const ProductFeaturesGrid = () => {
 
         {/* Floating Elements */}
         <motion.div
-          className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-rose-300/20 to-pink-300/20 dark:from-rose-900/10 dark:to-pink-900/10 blur-3xl"
+          className="absolute right-1/4 top-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-rose-300/20 to-pink-300/20 blur-3xl dark:from-rose-900/10 dark:to-pink-900/10"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -86,7 +105,7 @@ const ProductFeaturesGrid = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-blue-300/20 to-cyan-300/20 dark:from-blue-900/10 dark:to-cyan-900/10 blur-3xl"
+          className="absolute bottom-1/4 left-1/4 h-64 w-64 rounded-full bg-gradient-to-r from-blue-300/20 to-cyan-300/20 blur-3xl dark:from-blue-900/10 dark:to-cyan-900/10"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -100,67 +119,75 @@ const ProductFeaturesGrid = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <div className="inline-flex items-center justify-center mb-4">
-            <span className="w-12 h-1 bg-rose-500 rounded-full"></span>
-            <span className="mx-2 text-rose-500 font-medium">PRODUCT FEATURES</span>
-            <span className="w-12 h-1 bg-rose-500 rounded-full"></span>
+          <div className="mb-4 inline-flex items-center justify-center">
+            <span className="h-1 w-12 rounded-full bg-rose-500"></span>
+            <span className="mx-2 font-medium text-rose-500">
+              PRODUCT FEATURES
+            </span>
+            <span className="h-1 w-12 rounded-full bg-rose-500"></span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="mb-6 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl">
             Powerful features for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">modern</span>{" "}
+            <span className="bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent">
+              modern
+            </span>{" "}
             businesses
           </h2>
 
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Our platform combines cutting-edge technology with intuitive design to deliver a seamless experience that
-            drives real business results.
+          <p className="mx-auto max-w-3xl text-xl text-gray-600 dark:text-gray-300">
+            Our platform combines cutting-edge technology with intuitive design
+            to deliver a seamless experience that drives real business results.
           </p>
         </motion.div>
 
         {/* Asymmetrical Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[minmax(200px,auto)]">
+        <div className="grid auto-rows-[minmax(200px,auto)] grid-cols-1 gap-6 md:grid-cols-4">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className={`${feature.position} relative group`}
+              className={`${feature.position} group relative`}
               onMouseEnter={() => setHoveredFeature(index)}
               onMouseLeave={() => setHoveredFeature(null)}
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl blur-lg`}
+                className={`absolute inset-0 bg-gradient-to-br ${feature.color} rounded-3xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-100`}
               ></div>
 
-              <div className="relative h-full bg-white dark:bg-gray-800 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 overflow-hidden group-hover:border-transparent transition-colors duration-300 shadow-lg">
+              <div className="relative h-full overflow-hidden rounded-3xl border border-gray-200/50 bg-white p-8 shadow-lg transition-colors duration-300 group-hover:border-transparent dark:border-gray-700/50 dark:bg-gray-800">
                 <div
-                  className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${feature.color} opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:opacity-10 transition-opacity duration-300`}
+                  className={`absolute right-0 top-0 h-40 w-40 bg-gradient-to-br ${feature.color} -translate-y-1/2 translate-x-1/2 transform rounded-full opacity-5 blur-3xl transition-opacity duration-300 group-hover:opacity-10`}
                 ></div>
 
-                <div className="relative z-10 h-full flex flex-col">
+                <div className="relative z-10 flex h-full flex-col">
                   <div className="mb-6">
                     <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-5deg]`}
+                      className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${feature.color} flex transform items-center justify-center transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-110`}
                     >
-                      <feature.icon className="w-7 h-7 text-white" />
+                      <feature.icon className="h-7 w-7 text-white" />
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 flex-grow">{feature.description}</p>
+                  <h3 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="mb-6 flex-grow text-gray-600 dark:text-gray-300">
+                    {feature.description}
+                  </p>
 
-                  <div className="flex items-center text-gray-500 dark:text-gray-400 group-hover:text-rose-500 dark:group-hover:text-rose-400 transition-colors duration-300">
+                  <div className="flex items-center text-gray-500 transition-colors duration-300 group-hover:text-rose-500 dark:text-gray-400 dark:group-hover:text-rose-400">
                     <span className="font-medium">Learn more</span>
-                    <ArrowRight className="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </div>
               </div>
@@ -173,32 +200,33 @@ const ProductFeaturesGrid = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 relative"
+          className="relative mt-16"
         >
-          <div className="absolute -inset-4 bg-gradient-to-r from-rose-500/20 to-pink-500/20 rounded-3xl blur-xl"></div>
-          <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12 border border-gray-200/50 dark:border-gray-700/50 shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-rose-500/20 to-pink-500/20 blur-xl"></div>
+          <div className="relative rounded-3xl border border-gray-200/50 bg-white p-8 shadow-xl dark:border-gray-700/50 dark:bg-gray-800 md:p-12">
+            <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
               <div>
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                <h3 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
                   Ready to transform your business?
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Join thousands of companies that are already using our platform to drive growth and innovation.
+                <p className="mb-6 text-gray-600 dark:text-gray-300">
+                  Join thousands of companies that are already using our
+                  platform to drive growth and innovation.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <button className="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white rounded-xl font-medium inline-flex items-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-rose-500/25">
+                  <button className="inline-flex transform items-center rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:from-rose-600 hover:to-pink-600 hover:shadow-xl hover:shadow-rose-500/25">
                     Get Started
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </button>
-                  <button className="px-6 py-3 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white rounded-xl font-medium">
+                  <button className="rounded-xl bg-gray-100 px-6 py-3 font-medium text-gray-900 hover:bg-gray-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600">
                     View Demo
                   </button>
                 </div>
               </div>
 
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-rose-500/10 to-pink-500/10 rounded-3xl blur-lg"></div>
-                <div className="relative bg-gradient-to-br from-rose-500/5 to-pink-500/5 dark:from-rose-500/10 dark:to-pink-500/10 rounded-2xl p-6">
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-rose-500/10 to-pink-500/10 blur-lg"></div>
+                <div className="relative rounded-2xl bg-gradient-to-br from-rose-500/5 to-pink-500/5 p-6 dark:from-rose-500/10 dark:to-pink-500/10">
                   <div className="grid grid-cols-2 gap-4">
                     {[
                       { label: "Active Users", value: "10M+" },
@@ -206,11 +234,16 @@ const ProductFeaturesGrid = () => {
                       { label: "Uptime", value: "99.9%" },
                       { label: "Response Time", value: "<100ms" },
                     ].map((stat, index) => (
-                      <div key={index} className="bg-white dark:bg-gray-700 rounded-xl p-4 shadow-sm">
-                        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-pink-500">
+                      <div
+                        key={index}
+                        className="rounded-xl bg-white p-4 shadow-sm dark:bg-gray-700"
+                      >
+                        <div className="bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-2xl font-bold text-transparent">
                           {stat.value}
                         </div>
-                        <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-300">
+                          {stat.label}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -221,8 +254,7 @@ const ProductFeaturesGrid = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ProductFeaturesGrid
-
+export default ProductFeaturesGrid;

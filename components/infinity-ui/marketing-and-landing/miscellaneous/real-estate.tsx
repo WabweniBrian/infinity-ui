@@ -14,6 +14,7 @@ import {
   Phone,
 } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const RealEstateSection = () => {
   const sectionRef = useRef(null);
@@ -31,7 +32,7 @@ const RealEstateSection = () => {
       description:
         "Stunning contemporary villa with panoramic ocean views, infinity pool, gourmet kitchen, and smart home technology throughout. Floor-to-ceiling windows showcase breathtaking sunsets from every room.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo2KKTJmnMDpXfNQxBWlLjIOS4rh86E13UCnAg",
       features: [
         "Ocean View",
         "Infinity Pool",
@@ -51,7 +52,7 @@ const RealEstateSection = () => {
       description:
         "Luxurious penthouse in the heart of the city with private rooftop terrace, floor-to-ceiling windows, and designer finishes. Includes 24/7 concierge service and exclusive access to building amenities.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoGR1BxTOFxW0BEUNidYtMQ9Sya4s1cmfhDkw3",
       features: [
         "Rooftop Terrace",
         "Concierge",
@@ -71,7 +72,7 @@ const RealEstateSection = () => {
       description:
         "Magnificent mountain estate on 15 acres with breathtaking views, custom timber frame construction, and luxury finishes. Features include a gourmet kitchen, wine cellar, and outdoor entertainment areas.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypotdbAnsLHmBVS7qivUbhW9O3P4QGda5nsJNFr",
       features: [
         "Mountain View",
         "15 Acres",
@@ -95,6 +96,9 @@ const RealEstateSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         {/* Gradient Background */}

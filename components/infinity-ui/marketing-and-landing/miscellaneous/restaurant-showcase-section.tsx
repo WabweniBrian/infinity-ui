@@ -26,7 +26,7 @@ const RestaurantShowcaseSection = () => {
         description: "Crispy risotto balls with black truffle and mozzarella",
         price: "$12",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoDcERJM2OeWJqXBEQTpvwrsimgD836Ro5tMP4",
         tags: ["Vegetarian", "Chef's Choice"],
         rating: 4.8,
       },
@@ -35,7 +35,7 @@ const RestaurantShowcaseSection = () => {
         description: "Fresh tuna with avocado, sesame oil, and wonton crisps",
         price: "$16",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoHMzIEl4LPQRizs519hDeHlYBAUcyNFxWk2M6",
         tags: ["Gluten-Free", "Spicy"],
         rating: 4.9,
       },
@@ -44,7 +44,7 @@ const RestaurantShowcaseSection = () => {
         description: "Creamy burrata with heirloom tomatoes and basil oil",
         price: "$14",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo6vbRjPzvhV0osXNSKE3eCpjGD9ukzWbgBlRm",
         tags: ["Vegetarian", "Seasonal"],
         rating: 4.7,
       },
@@ -57,7 +57,7 @@ const RestaurantShowcaseSection = () => {
           "A5 Japanese Wagyu with truffle butter and roasted vegetables",
         price: "$65",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZTTg0Yh2BRxjvs0lePWdUT3JIKoAfbgqLw8z",
         tags: ["Signature Dish", "Gluten-Free"],
         rating: 5.0,
       },
@@ -66,7 +66,7 @@ const RestaurantShowcaseSection = () => {
         description: "Creamy saffron risotto with Maine lobster and herbs",
         price: "$42",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoHZdzry4LPQRizs519hDeHlYBAUcyNFxWk2M6",
         tags: ["Gluten-Free", "Seafood"],
         rating: 4.9,
       },
@@ -76,7 +76,7 @@ const RestaurantShowcaseSection = () => {
           "House-made pappardelle with seasonal wild mushrooms and truffle cream",
         price: "$28",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoa4dT8El5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
         tags: ["Vegetarian", "Seasonal"],
         rating: 4.8,
       },
@@ -88,7 +88,7 @@ const RestaurantShowcaseSection = () => {
         description: "Warm chocolate soufflé with vanilla bean ice cream",
         price: "$14",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomeAiFhMcq2hSYiK0RjVdusB8bOIWnCQy9fpv",
         tags: ["Vegetarian", "15-min Preparation"],
         rating: 4.9,
       },
@@ -97,7 +97,7 @@ const RestaurantShowcaseSection = () => {
         description: "Classic vanilla bean crème brûlée with caramelized sugar",
         price: "$12",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypotj6dsRHmBVS7qivUbhW9O3P4QGda5nsJNFrZ",
         tags: ["Gluten-Free", "Vegetarian"],
         rating: 4.8,
       },
@@ -106,7 +106,7 @@ const RestaurantShowcaseSection = () => {
         description: "Buttery pastry with seasonal fruits and crème pâtissière",
         price: "$10",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBFtS4bLq9k2zJh4F5OKicHTlarv3YGQjpDZb",
         tags: ["Vegetarian", "Seasonal"],
         rating: 4.7,
       },
