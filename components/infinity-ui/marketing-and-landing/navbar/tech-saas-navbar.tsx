@@ -76,7 +76,7 @@ const TechSaasNavbar = () => {
     <header
       className={`border-b border-gray-200 bg-white transition-colors duration-200 dark:border-gray-800 dark:bg-gray-900`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">

@@ -421,7 +421,7 @@ const InteractiveArticle = ({
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
 
         <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto max-w-7xl px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -524,7 +524,7 @@ const InteractiveArticle = ({
       </AnimatePresence>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto max-w-7xl px-4 py-12">
         <div className="flex flex-col gap-12 md:flex-row">
           {/* Desktop Sidebar / Table of Contents */}
           <div className="hidden md:block md:w-1/4 lg:w-1/5">

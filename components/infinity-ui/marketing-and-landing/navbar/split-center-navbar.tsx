@@ -64,7 +64,7 @@ const SplitCenterNavbar = () => {
 
   return (
     <header className="bg-white shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top bar with search and account */}
         <div className="flex h-10 items-center justify-end border-b border-gray-100">
           <div className="flex items-center space-x-4">
@@ -252,7 +252,7 @@ const SplitCenterNavbar = () => {
             transition={{ duration: 0.2 }}
             className="absolute left-0 right-0 top-0 z-20 bg-white p-4 shadow-md"
           >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex items-center">
                 <div className="flex-grow">
                   <div className="relative">

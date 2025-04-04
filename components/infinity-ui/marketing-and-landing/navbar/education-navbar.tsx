@@ -84,7 +84,7 @@ const EducationNavbar = () => {
     <header className="bg-white shadow-sm">
       {/* Top bar with secondary links */}
       <div className="bg-blue-900 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between py-2 text-sm">
             <div className="hidden items-center space-x-6 md:flex">
               <Link href="#" className="transition-colors hover:text-blue-200">
@@ -129,7 +129,7 @@ const EducationNavbar = () => {
       </div>
 
       {/* Main navigation */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -257,7 +257,7 @@ const EducationNavbar = () => {
             transition={{ duration: 0.2 }}
             className="absolute left-0 right-0 top-0 z-20 bg-white p-4 shadow-md"
           >
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex items-center">
                 <div className="flex-grow">
                   <div className="relative">

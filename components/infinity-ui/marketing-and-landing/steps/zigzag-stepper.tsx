@@ -67,7 +67,7 @@ const ZigzagSteps = () => {
       ref={sectionRef}
       className="overflow-hidden bg-gradient-to-b from-violet-50 to-white py-24"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-7xl px-4">
         <motion.div
           className="mx-auto mb-16 max-w-3xl text-center"
           initial={{ opacity: 0, y: 20 }}

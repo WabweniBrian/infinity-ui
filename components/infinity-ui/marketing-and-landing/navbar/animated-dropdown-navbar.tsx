@@ -140,7 +140,7 @@ const AnimatedDropdownNavbar = () => {
 
   return (
     <header className="bg-white shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">

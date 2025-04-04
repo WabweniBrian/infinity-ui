@@ -67,7 +67,7 @@ const CreativeAgencyNavbar = () => {
 
   return (
     <header className="bg-black text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between md:h-24">
           {/* Logo */}
           <div className="flex-shrink-0">

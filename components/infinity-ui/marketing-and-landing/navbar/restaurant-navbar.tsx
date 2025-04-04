@@ -83,7 +83,7 @@ const RestaurantNavbar = () => {
       <div
         className={`transition-all duration-300 ${isScrolled ? "bg-amber-50 py-1" : "bg-amber-100/80 py-2"}`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between text-sm text-amber-900">
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
@@ -107,7 +107,7 @@ const RestaurantNavbar = () => {
       <div
         className={`transition-all duration-300 ${isScrolled ? "py-2" : "py-4"}`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex-shrink-0">

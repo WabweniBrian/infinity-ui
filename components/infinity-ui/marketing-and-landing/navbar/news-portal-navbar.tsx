@@ -128,7 +128,7 @@ const NewsPortalNavbar = () => {
     >
       {/* Top Bar */}
       <div className="bg-red-700 py-1 text-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto max-w-7xl px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center text-xs md:text-sm">
               <Clock className="mr-1 h-3 w-3" />
@@ -175,7 +175,7 @@ const NewsPortalNavbar = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between border-b border-gray-200 py-3">
           {/* Logo */}
           <div className="flex items-center">

@@ -120,7 +120,7 @@ const TravelBookingNavbar = () => {
       animate={isScrolled ? "scrolled" : "initial"}
       variants={navbarVariants}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">

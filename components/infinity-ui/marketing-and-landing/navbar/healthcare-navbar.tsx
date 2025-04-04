@@ -73,7 +73,7 @@ const HealthcareNavbar = () => {
     <header className="bg-white shadow-sm">
       {/* Top bar with contact info */}
       <div className="bg-teal-50 text-teal-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-between py-2 text-sm">
             <div className="flex items-center space-x-4">
               <div className="flex items-center">
@@ -106,7 +106,7 @@ const HealthcareNavbar = () => {
       </div>
 
       {/* Main navigation */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">

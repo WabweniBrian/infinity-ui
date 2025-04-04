@@ -1749,7 +1749,7 @@ const AIFitnessCoach = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 via-indigo-50 to-purple-50 transition-colors dark:from-gray-950 dark:via-indigo-950 dark:to-purple-950 dark:text-white">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto max-w-7xl px-4 py-6">
         <header className="mb-6 flex items-center justify-between">
           <div className="flex items-center">
             {isMobile && (

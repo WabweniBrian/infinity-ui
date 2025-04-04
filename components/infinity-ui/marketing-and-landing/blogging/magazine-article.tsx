@@ -408,7 +408,7 @@ const MagazineArticle = ({
         </motion.div>
 
         <div className="relative z-10 flex h-full flex-col justify-center">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto max-w-7xl px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -432,7 +432,7 @@ const MagazineArticle = ({
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 z-10">
-          <div className="container mx-auto px-4 py-8">
+          <div className="container mx-auto max-w-7xl px-4 py-8">
             <div className="flex flex-wrap items-center justify-between gap-4 text-white/90">
               <div className="flex items-center gap-4">
                 <Image
@@ -502,7 +502,7 @@ const MagazineArticle = ({
       </div>
 
       {/* Article Content */}
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto max-w-7xl px-4 py-16">
         <div className="mx-auto max-w-4xl">
           {/* Article Actions */}
           <div className="sticky top-8 z-20 float-left -ml-16 hidden flex-col items-center gap-4 lg:flex">

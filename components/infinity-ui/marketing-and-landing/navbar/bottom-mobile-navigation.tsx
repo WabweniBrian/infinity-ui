@@ -118,7 +118,7 @@ const BottomMobileNavigation = () => {
   return (
     <div className="relative min-h-screen pb-16 md:pb-0">
       {/* Main content area */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto max-w-7xl px-4 py-8">
         <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-semibold">
             Bottom Mobile Navigation

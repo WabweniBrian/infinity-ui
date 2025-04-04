@@ -150,7 +150,7 @@ const EcommerceMegaMenuNavbar = () => {
     >
       {/* Top Bar */}
       <div className="bg-violet-900 py-1 text-center text-xs text-white md:text-sm">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto max-w-7xl px-4">
           <p className="text-white">
             Free shipping on orders over $50 | Use code{" "}
             <span className="font-bold">WELCOME15</span> for 15% off your first
@@ -159,7 +159,7 @@ const EcommerceMegaMenuNavbar = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto max-w-7xl px-4">
         <div className="flex items-center justify-between border-b py-2 pb-3 md:!border-none md:pb-2">
           {/* Logo */}
           <div className="flex items-center">

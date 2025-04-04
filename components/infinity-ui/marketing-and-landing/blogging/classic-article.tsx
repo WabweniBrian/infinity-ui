@@ -229,7 +229,7 @@ const ClassicArticle = ({
           className="relative z-10 flex h-full flex-col justify-end"
           style={{ opacity: headerOpacity, y: headerTranslateY }}
         >
-          <div className="container mx-auto px-4 pb-16 md:pb-24">
+          <div className="container mx-auto max-w-7xl px-4 pb-16 md:pb-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -289,7 +289,7 @@ const ClassicArticle = ({
       </div>
 
       {/* Article Content */}
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto max-w-7xl px-4 py-12">
         <div className="flex flex-col gap-12 lg:flex-row">
           {/* Sidebar */}
           <div className="lg:w-1/6">

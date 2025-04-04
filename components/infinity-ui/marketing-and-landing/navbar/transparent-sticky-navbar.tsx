@@ -76,7 +76,7 @@ const TransparentStickyNavbar = () => {
         isScrolled ? "bg-white/80 shadow-sm backdrop-blur-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
