@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Github, Twitter } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Github, Twitter } from "lucide-react";
 
 const SignUp1 = () => {
-  const [fullName, setFullName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
     <div className="flex min-h-screen w-full">
@@ -27,7 +27,13 @@ const SignUp1 = () => {
               whileHover={{ scale: 1.05, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M12 2L20 7V17L12 22L4 17V7L12 2Z"
                   stroke="white"
@@ -37,13 +43,20 @@ const SignUp1 = () => {
                 />
               </svg>
             </motion.div>
-            <h1 className="text-3xl font-bold text-gray-900">Create an account</h1>
-            <p className="mt-2 text-gray-600">Join us today and get access to all features</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              Create an account
+            </h1>
+            <p className="mt-2 text-gray-600">
+              Join us today and get access to all features
+            </p>
           </div>
 
           <form className="space-y-6">
             <div>
-              <label htmlFor="fullName" className="mb-1 block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="fullName"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
                 Full Name
               </label>
               <input
@@ -57,7 +70,10 @@ const SignUp1 = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="mb-1 block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
                 Email address
               </label>
               <input
@@ -71,7 +87,10 @@ const SignUp1 = () => {
             </div>
 
             <div>
-              <label htmlFor="password" className="mb-1 block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <input
@@ -85,7 +104,10 @@ const SignUp1 = () => {
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="mb-1 block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="confirmPassword"
+                className="mb-1 block text-sm font-medium text-gray-700"
+              >
                 Confirm Password
               </label>
               <input
@@ -103,15 +125,24 @@ const SignUp1 = () => {
                 id="terms"
                 name="terms"
                 type="checkbox"
-                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                className="form-checkbox h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
               />
-              <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
+              <label
+                htmlFor="terms"
+                className="ml-2 block text-sm text-gray-700"
+              >
                 I agree to the{" "}
-                <Link href="#" className="text-indigo-600 hover:text-indigo-500">
+                <Link
+                  href="#"
+                  className="text-indigo-600 hover:text-indigo-500"
+                >
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link href="#" className="text-indigo-600 hover:text-indigo-500">
+                <Link
+                  href="#"
+                  className="text-indigo-600 hover:text-indigo-500"
+                >
                   Privacy Policy
                 </Link>
               </label>
@@ -134,7 +165,9 @@ const SignUp1 = () => {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="bg-white px-2 text-gray-500">Or continue with</span>
+                <span className="bg-white px-2 text-gray-500">
+                  Or continue with
+                </span>
               </div>
             </div>
 
@@ -160,7 +193,10 @@ const SignUp1 = () => {
 
           <p className="mt-8 text-center text-sm text-gray-600">
             Already have an account?{" "}
-            <Link href="#" className="font-medium text-indigo-600 transition-colors hover:text-indigo-500">
+            <Link
+              href="#"
+              className="font-medium text-indigo-600 transition-colors hover:text-indigo-500"
+            >
               Sign in
             </Link>
           </p>
@@ -218,7 +254,13 @@ const SignUp1 = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <svg width="100%" height="auto" viewBox="0 0 483 322" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              width="100%"
+              height="auto"
+              viewBox="0 0 483 322"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M482 159.964C482 248.278 410.736 320 321.868 320C233.001 320 161.736 248.278 161.736 159.964C161.736 71.6503 233.001 0 321.868 0C410.736 0 482 71.6503 482 159.964Z"
                 fill="white"
@@ -284,13 +326,14 @@ const SignUp1 = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <h2 className="mb-2 text-2xl font-bold">Join our community</h2>
-            <p className="text-white opacity-80">Create an account and get access to all features</p>
+            <p className="text-white opacity-80">
+              Create an account and get access to all features
+            </p>
           </motion.div>
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp1
-
+export default SignUp1;

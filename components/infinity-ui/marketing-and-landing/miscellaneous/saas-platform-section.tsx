@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, BarChart3, Cloud, Shield, Zap } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const SaasPlatformSection = () => {
   const sectionRef = useRef(null);
@@ -70,6 +71,9 @@ const SaasPlatformSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24 dark:from-gray-950 dark:to-gray-900"
     >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-0 top-0 h-1/3 w-1/3 rounded-full bg-gradient-to-b from-sky-100/50 to-transparent blur-3xl dark:from-sky-900/20 dark:to-transparent"></div>
@@ -115,7 +119,7 @@ const SaasPlatformSection = () => {
               <div className="absolute -inset-4 rotate-2 transform rounded-3xl bg-gradient-to-r from-sky-500/20 to-indigo-500/20 blur-xl"></div>
               <div className="relative">
                 <Image
-                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=500"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                   alt="SaaS Dashboard"
                   width={600}
                   height={400}

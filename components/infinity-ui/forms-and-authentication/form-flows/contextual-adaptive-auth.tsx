@@ -308,7 +308,7 @@ const ContextualAdaptiveAuth = () => {
                         id="remember-me"
                         name="remember-me"
                         type="checkbox"
-                        className={`h-4 w-4 rounded border-gray-300 text-${theme.accent}-600 focus:ring-${theme.accent}-500`}
+                        className={`form-checkbox h-4 w-4 rounded border-gray-300 text-${theme.accent}-600 focus:ring-${theme.accent}-500`}
                         style={{ color: theme.accentHex }}
                       />
                       <label
@@ -526,7 +526,7 @@ const ContextualAdaptiveAuth = () => {
                         id="terms"
                         name="terms"
                         type="checkbox"
-                        className={`h-4 w-4 rounded border-gray-300 text-${theme.accent}-600 focus:ring-${theme.accent}-500`}
+                        className={`form-checkbox h-4 w-4 rounded border-gray-300 text-${theme.accent}-600 focus:ring-${theme.accent}-500`}
                         required
                         style={{ color: theme.accentHex }}
                       />

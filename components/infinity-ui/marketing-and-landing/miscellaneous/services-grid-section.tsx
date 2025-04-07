@@ -10,6 +10,7 @@ import {
   Zap,
   Sparkles,
 } from "lucide-react";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const ServicesGridSection = () => {
   const sectionRef = useRef(null);
@@ -84,6 +85,9 @@ const ServicesGridSection = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-white py-24 dark:bg-gray-950"
     >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         {/* Gradient Background */}

@@ -24,14 +24,14 @@ const TestimonialsMosaicGrid = () => {
     {
       content:
         "This platform completely transformed our workflow. The intuitive design and powerful features have boosted our team's productivity by at least 40%. I can't imagine going back to our old systems.",
-      author: "Alexandra Chen",
-      position: "CTO at TechNova",
+      author: "Wabweni Brian",
+      position: "CTO at Wabtech",
       rating: 5,
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBr65FLq9k2zJh4F5OKicHTlarv3YGQjpDZbw",
       social: {
-        twitter: "alexchen",
-        linkedin: "alexandra-chen",
+        twitter: "brianwabweni",
+        linkedin: "wabweni-brian",
       },
       color: "from-violet-500 to-indigo-500",
       size: "col-span-1 md:col-span-2 row-span-1",
@@ -44,7 +44,7 @@ const TestimonialsMosaicGrid = () => {
       position: "Product Director at Elevate",
       rating: 5,
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoNYxkxxevQcXsCAeDKuhTdZ6t5Ln07OGN1iEa",
       social: {
         twitter: "marcusw",
       },
@@ -58,7 +58,7 @@ const TestimonialsMosaicGrid = () => {
       position: "Engineering Lead at Apex",
       rating: 4,
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoHRKBF64LPQRizs519hDeHlYBAUcyNFxWk2M6",
       social: {
         linkedin: "sophia-rodriguez",
       },
@@ -72,7 +72,7 @@ const TestimonialsMosaicGrid = () => {
       position: "IT Manager at GlobalTech",
       rating: 5,
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZPrIJnh2BRxjvs0lePWdUT3JIKoAfbgqLw8z",
       social: {
         twitter: "davidkim",
         linkedin: "david-kim",
@@ -87,7 +87,7 @@ const TestimonialsMosaicGrid = () => {
       position: "CEO at StartupX",
       rating: 5,
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoPGeGY9LRmqDpgTYnlJ0VQxFuAyXbhka81jzw",
       social: {
         linkedin: "emma-johnson",
       },

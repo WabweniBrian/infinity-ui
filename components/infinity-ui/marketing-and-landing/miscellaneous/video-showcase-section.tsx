@@ -44,10 +44,10 @@ const VideoShowcaseSection = () => {
     {
       quote:
         "Infinity UI transformed our design workflow. The components are beautifully crafted and incredibly flexible.",
-      author: "Sarah Johnson",
+      author: "Wabweni Brian",
       position: "Design Director at TechCorp",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBr65FLq9k2zJh4F5OKicHTlarv3YGQjpDZbw",
       color: "from-violet-500 to-purple-500",
     },
     {
@@ -56,7 +56,7 @@ const VideoShowcaseSection = () => {
       author: "Michael Chen",
       position: "Lead Developer at InnovateLabs",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoNYxkxxevQcXsCAeDKuhTdZ6t5Ln07OGN1iEa",
       color: "from-blue-500 to-indigo-500",
     },
     {
@@ -65,7 +65,7 @@ const VideoShowcaseSection = () => {
       author: "Emily Rodriguez",
       position: "Product Manager at NextWave",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxC0nRZtFC1a2S06AJNu9MsdPXG8D5oerTblR",
       color: "from-emerald-500 to-teal-500",
     },
   ];

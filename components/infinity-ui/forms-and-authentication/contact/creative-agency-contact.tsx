@@ -535,7 +535,7 @@ const CreativeAgencyContact = () => {
               <div className="aspect-video overflow-hidden rounded-xl bg-gradient-to-br from-pink-500/20 to-purple-500/20">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <Image
-                    src="/placeholder.svg?height=300&width=500"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                     alt="Creative work showcase"
                     width={500}
                     height={300}

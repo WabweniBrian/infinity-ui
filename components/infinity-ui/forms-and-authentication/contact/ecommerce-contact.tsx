@@ -413,7 +413,7 @@ const EcommerceContact = () => {
               <div className="mb-4 flex items-center gap-4">
                 <div className="relative h-16 w-16 overflow-hidden rounded-lg">
                   <Image
-                    src="/placeholder.svg?height=64&width=64"
+                    src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                     alt="Product support"
                     fill
                     className="object-cover"

@@ -19,7 +19,7 @@ const TravelExplorerSection = () => {
       description:
         "Experience the breathtaking views of white-washed buildings against the deep blue Aegean Sea. Explore ancient ruins, indulge in Mediterranean cuisine, and witness the most spectacular sunsets.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypodhAMl3C1mGvCoVSZFp2YyKNeTHljBX90gxEh",
       rating: 4.9,
       reviews: 1243,
       price: "$1,899",
@@ -38,7 +38,7 @@ const TravelExplorerSection = () => {
       description:
         "Immerse yourself in Japanese culture as you visit ancient temples, traditional tea houses, and stunning bamboo forests. Experience the beauty of cherry blossoms or the vibrant colors of autumn leaves.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQ2pKKiG1kacO0NKLwDbdX3BsVMlQynx9U58R",
       rating: 4.8,
       reviews: 987,
       price: "$2,299",
@@ -57,7 +57,7 @@ const TravelExplorerSection = () => {
       description:
         "Trek through the Andes to discover the ancient Incan citadel set against a backdrop of stunning mountain scenery. Learn about the fascinating history and engineering marvels of this UNESCO World Heritage site.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQjfyrRG1kacO0NKLwDbdX3BsVMlQynx9U58R",
       rating: 4.9,
       reviews: 1567,
       price: "$2,499",

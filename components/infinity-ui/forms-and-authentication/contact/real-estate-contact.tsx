@@ -218,7 +218,7 @@ const RealEstateContact = () => {
             >
               <div className="aspect-video">
                 <Image
-                  src="/placeholder.svg?height=300&width=500"
+                  src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                   alt="Luxury property"
                   fill
                   className="object-cover"

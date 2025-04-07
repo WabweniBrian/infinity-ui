@@ -28,7 +28,7 @@ const TravelDestinationSection = () => {
       description:
         "Experience the magic of Santorini with its stunning sunsets, crystal-clear waters, and charming villages perched on volcanic cliffs. Explore ancient ruins, sample local wines, and relax on unique black sand beaches.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypodhAMl3C1mGvCoVSZFp2YyKNeTHljBX90gxEh",
       rating: 4.9,
       reviews: 1248,
       price: "$1,899",
@@ -48,7 +48,7 @@ const TravelDestinationSection = () => {
       description:
         "Immerse yourself in Japanese culture and history in Kyoto, home to over 1,600 Buddhist temples and 400 Shinto shrines. Wander through bamboo forests, participate in a traditional tea ceremony, and witness the breathtaking cherry blossoms in spring.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQ2pKKiG1kacO0NKLwDbdX3BsVMlQynx9U58R",
       rating: 4.8,
       reviews: 986,
       price: "$2,299",
@@ -68,7 +68,7 @@ const TravelDestinationSection = () => {
       description:
         "Trek through the Andes to discover the mystical ruins of Machu Picchu, an ancient Incan citadel set against a backdrop of stunning mountain scenery. Learn about the fascinating history and engineering marvels of this UNESCO World Heritage site.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQjfyrRG1kacO0NKLwDbdX3BsVMlQynx9U58R",
       rating: 4.9,
       reviews: 1542,
       price: "$2,499",
@@ -88,7 +88,7 @@ const TravelDestinationSection = () => {
       description:
         "Embark on the safari adventure of a lifetime in the vast plains of the Serengeti. Witness the spectacular great migration, spot the Big Five, and experience breathtaking sunsets over the African savanna from luxury tented camps.",
       image:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoVV6VP2JprS62IlXgenFT9i4m3NRbk5yCzYVK",
       rating: 4.9,
       reviews: 876,
       price: "$3,299",

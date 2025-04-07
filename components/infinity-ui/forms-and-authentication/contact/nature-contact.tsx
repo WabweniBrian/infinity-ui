@@ -113,7 +113,7 @@ const NatureContact = () => {
           >
             <div className="relative mb-8 h-64 overflow-hidden rounded-2xl md:h-80">
               <Image
-                src="/placeholder.svg?height=320&width=480"
+                src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
                 alt="Nature illustration"
                 fill
                 className="object-cover"
@@ -225,10 +225,7 @@ const NatureContact = () => {
           </motion.div>
 
           {/* Right Column - Form */}
-          <motion.div
-            animate={controls}
-            className="relative overflow-hidden rounded-2xl border border-green-100 bg-white/80 p-8 shadow-lg backdrop-blur-lg"
-          >
+          <motion.div className="relative overflow-hidden rounded-2xl border border-green-100 bg-white/80 p-8 shadow-lg backdrop-blur-lg">
             {/* Leaf decorations */}
             <div className="absolute -right-6 -top-6 h-16 w-16 rotate-45 transform text-green-200 opacity-50">
               <Leaf className="h-full w-full" />
