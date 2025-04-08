@@ -51,7 +51,9 @@ export default async function PreviewPage({ params }: PreviewPageProps) {
   }
 
   // Dynamically import the component
-  const Component = await loadComponent("infinity-ui/ai/ai-bank-support");
+  const Component = await loadComponent(
+    "infinity-ui/dashboard/apps/advanced-calendar",
+  );
 
   return <Component />;
 }
