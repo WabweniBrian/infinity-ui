@@ -1,11 +1,10 @@
-import MainPagination from "@/components/common/main-pagination";
-import NoResults from "@/components/common/no-results";
-import ComponentCard from "@/components/main/common/component-card";
-import FreeComponentToggle from "@/components/main/common/free-component-toggle";
+import { Suspense } from "react";
 import KeywordsSearch from "@/components/main/common/all-keywords-search";
+import FreeComponentToggle from "@/components/main/common/free-component-toggle";
 import { getComponents } from "@/lib/actions/home/components";
 import { getCurrentUser } from "@/lib/auth";
-import { Suspense } from "react";
+import ComponentsClient from "@/components/main/common/components-client";
+import NoResults from "@/components/common/no-results";
 
 export const metadata = {
   title: "Components",
@@ -15,31 +14,32 @@ export const metadata = {
 
 type Params = {
   searchParams: {
-    page: string;
-    q: string;
-    keyword: string;
-    isfree: string;
+    q?: string;
+    keyword?: string;
+    isfree?: string;
   };
 };
 
-const SearchPage = async ({ searchParams }: Params) => {
+const ITEMS_PER_PAGE = 10;
+
+const ComponentsPage = async ({ searchParams }: Params) => {
   const currentUser = await getCurrentUser();
-  const { page, q, keyword } = searchParams;
+
+  const { q, keyword } = searchParams;
   const isfree = searchParams.isfree
     ? searchParams.isfree === "true"
     : undefined;
-  const limit = 10;
-  const skip = (page ? parseInt(page) - 1 : 0) * limit;
 
+  // Initial fetch for the first page
   const { components, componentsCount } = await getComponents({
     search: q,
-    limit,
-    skip,
+    limit: ITEMS_PER_PAGE,
+    skip: 0,
     keyword,
     isFree: isfree,
   });
 
-  const totalPages = Math.ceil(componentsCount / limit);
+  const hasComponents = components.length > 0;
 
   return (
     <div className="relative bg-background pb-10 pt-20">
@@ -66,32 +66,26 @@ const SearchPage = async ({ searchParams }: Params) => {
           <KeywordsSearch />
         </div>
         <div className="mx-auto max-w-[1360px] px-4">
-          {components.length > 0 ? (
-            <div>
-              <div className="mt-5 space-y-8">
-                {components.map((component) => (
-                  <ComponentCard
-                    component={component}
-                    key={component.id}
-                    currentUser={currentUser}
-                  />
-                ))}
-              </div>
-              {totalPages > 1 && (
-                <div className="mt-6 flex-center-center">
-                  <Suspense fallback={null}>
-                    <MainPagination pages={totalPages} />
-                  </Suspense>
-                </div>
-              )}
-            </div>
-          ) : (
-            <NoResults title="No Components found" className="min-h-[80vh]" />
-          )}
+          <Suspense
+            fallback={
+              <div className="min-h-[80vh] flex-center-center">Loading...</div>
+            }
+          >
+            {hasComponents ? (
+              <ComponentsClient
+                initialComponents={components}
+                initialComponentsCount={componentsCount}
+                currentUser={currentUser}
+                searchParams={searchParams}
+              />
+            ) : (
+              <NoResults title="No Components found" className="min-h-[80vh]" />
+            )}
+          </Suspense>
         </div>
       </div>
     </div>
   );
 };
 
-export default SearchPage;
+export default ComponentsPage;

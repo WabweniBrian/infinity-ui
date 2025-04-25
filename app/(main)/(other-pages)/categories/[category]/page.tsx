@@ -1,15 +1,14 @@
-import MainPagination from "@/components/common/main-pagination";
-import NoResults from "@/components/common/no-results";
-import SearchInput from "@/components/common/search-input";
-import ComponentCard from "@/components/main/common/component-card";
-import KeywordsSearch from "@/components/main/common/keywords-search";
-import { formatWord } from "@/lib/utils";
 import { Suspense } from "react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getComponents } from "@/lib/actions/home/components";
+import SearchInput from "@/components/common/search-input";
+import KeywordsSearch from "@/components/main/common/keywords-search";
 import FreeComponentToggle from "@/components/main/common/free-component-toggle";
+import { formatWord } from "@/lib/utils";
+import { getComponents } from "@/lib/actions/home/components";
 import { getCurrentUser } from "@/lib/auth";
+import ComponentsClient from "@/components/main/common/components-client";
+import NoResults from "@/components/common/no-results";
 
 export async function generateMetadata({
   params,
@@ -31,40 +30,39 @@ type Params = {
     category: string;
   };
   searchParams: {
-    page: string;
-    search: string;
-    keyword: string;
-    isfree: string;
+    search?: string;
+    keyword?: string;
+    isfree?: string;
   };
 };
 
+const ITEMS_PER_PAGE = 10;
+
 const CategoryComponents = async ({ params, searchParams }: Params) => {
   const currentUser = await getCurrentUser();
-  const { page, search, keyword } = searchParams;
+  const { search, keyword } = searchParams;
   const { category } = params;
   const isfree = searchParams.isfree
     ? searchParams.isfree === "true"
     : undefined;
-  const limit = 10;
-  const skip = (page ? parseInt(page) - 1 : 0) * limit;
 
+  // Initial fetch for the first page
   const { components, componentsCount } = await getComponents({
     category,
     search,
-    limit,
-    skip,
+    limit: ITEMS_PER_PAGE,
+    skip: 0,
     keyword,
     isFree: isfree,
   });
 
-  const totalPages = Math.ceil(componentsCount / limit);
+  const hasComponents = components.length > 0;
+  const categoryName = formatWord(category);
 
   return (
     <div className="relative bg-background pb-10 pt-20">
       <header className="bg-gradient-to-r from-cyan-600 to-purple-600 px-4 py-10 text-center text-white">
-        <h1 className="mb-3 text-3xl font-bold md:text-5xl">
-          {formatWord(params.category)}
-        </h1>
+        <h1 className="mb-3 text-3xl font-bold md:text-5xl">{categoryName}</h1>
         <p className="mx-auto max-w-2xl text-xl text-gray-200">
           Modern, responsive UI for your next web project
         </p>
@@ -81,31 +79,28 @@ const CategoryComponents = async ({ params, searchParams }: Params) => {
       </header>
       <div>
         <div className="mx-auto mt-4 max-w-7xl px-3">
-          <KeywordsSearch category={params.category} />
+          <KeywordsSearch category={category} />
         </div>
         <div className="mx-auto max-w-[1360px] px-4">
-          {components.length > 0 ? (
-            <div>
-              <div className="mt-5 space-y-8">
-                {components.map((component) => (
-                  <ComponentCard
-                    component={component}
-                    key={component.id}
-                    currentUser={currentUser}
-                  />
-                ))}
-              </div>
-              {totalPages > 1 && (
-                <div className="mt-6 flex-center-center">
-                  <Suspense fallback={null}>
-                    <MainPagination pages={totalPages} />
-                  </Suspense>
-                </div>
-              )}
-            </div>
-          ) : (
-            <NoResults title="No Components found" className="min-h-[80vh]" />
-          )}
+          <Suspense
+            fallback={
+              <div className="min-h-[80vh] flex-center-center">Loading...</div>
+            }
+          >
+            {hasComponents ? (
+              <ComponentsClient
+                initialComponents={components}
+                initialComponentsCount={componentsCount}
+                currentUser={currentUser}
+                searchParams={searchParams}
+              />
+            ) : (
+              <NoResults
+                title={`No ${categoryName} Components Found`}
+                className="min-h-[80vh]"
+              />
+            )}
+          </Suspense>
         </div>
       </div>
     </div>

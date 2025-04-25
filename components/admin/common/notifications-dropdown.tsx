@@ -66,7 +66,7 @@ const NotificationsDropdown = ({
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="center"
-        className="rounded-2xl dark:border-gray-700 dark:bg-accent"
+        className="max-w-sm rounded-2xl dark:border-gray-700 dark:bg-accent"
       >
         {notifications.length === 0 ? (
           <NoResults
