@@ -47,21 +47,30 @@ const formSchema = z.object({
   zipCode: z.string().optional(),
 });
 
+// Payment methods
 const paymentProviders = [
   {
     id: "paypal",
     name: "PayPal",
     description: "Pay securely using your PayPal account",
-  },
-  {
-    id: "flutterwave",
-    name: "Flutterwave",
-    description: "Fast and secure payments across Africa",
+    supportedMethods: [
+      { id: "visa", name: "Visa", logo: "/images/visa.png" },
+      { id: "mastercard", name: "Mastercard", logo: "/images/mastercard.png" },
+      { id: "amex", name: "American Express", logo: "/images/amex.png" },
+      { id: "discover", name: "Discover", logo: "/images/discover.png" },
+    ],
   },
   {
     id: "pesapal",
     name: "Pesapal",
-    description: "Simple and secure way for local payments",
+    description: "Pay with MTN Mobile money, M-Pesa, Airtel Money, and more",
+    supportedMethods: [
+      { id: "mpesa", name: "M-Pesa", logo: "/images/mpesa.png" },
+      { id: "mtn", name: "MTN Mobile Money", logo: "/images/mtn.png" },
+      { id: "airtel", name: "Airtel Money", logo: "/images/airtel.png" },
+      { id: "visa", name: "Visa", logo: "/images/visa.png" },
+      { id: "mastercard", name: "Mastercard", logo: "/images/mastercard.png" },
+    ],
   },
 ];
 
@@ -146,10 +155,9 @@ export default function Checkout({
       paymentProvider: selectedPaymentProvider!,
       ...billingInfo,
       amount: paymentDetails
-        ? (
-            paymentDetails.details.price +
-            paymentDetails.details.price * 0.01
-          ).toFixed(2)
+        ? (paymentDetails.details.price + paymentDetails.details.price).toFixed(
+            2,
+          )
         : 0,
     };
 
@@ -265,7 +273,7 @@ export default function Checkout({
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+                <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
                   {paymentProviders.map((provider) => (
                     <div
                       key={provider.id}
@@ -292,7 +300,7 @@ export default function Checkout({
                               {provider.id === "flutterwave" && (
                                 <Image
                                   src="/images/flutterwave.png"
-                                  alt="Paypal logo"
+                                  alt="Flutterwave logo"
                                   width={20}
                                   height={20}
                                   className="w-12 object-contain"
@@ -301,7 +309,7 @@ export default function Checkout({
                               {provider.id === "pesapal" && (
                                 <Image
                                   src="/images/pesapal.png"
-                                  alt="Paypal logo"
+                                  alt="Pesapal logo"
                                   width={40}
                                   height={40}
                                   className="w-16 object-contain"
@@ -322,12 +330,38 @@ export default function Checkout({
                           )}
                         </div>
                       </div>
-                      <h3 className="font-medium text-gray-900">
+                      <h3 className="font-medium text-gray-900 dark:text-gray-100">
                         {provider.name}
                       </h3>
                       <p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
                         {provider.description}
                       </p>
+
+                      {/* Payment method logos */}
+                      <div className="mt-3 border-t border-gray-100 pt-3 dark:border-gray-800">
+                        <p className="mb-2 text-xs text-gray-500 dark:text-gray-400">
+                          Supported payment methods:
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {provider.supportedMethods.map((method) => (
+                            <div
+                              key={`${provider.id}-${method.id}`}
+                              className="relative h-8 w-12 rounded bg-white p-1 shadow-sm dark:bg-gray-800"
+                              title={method.name}
+                            >
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <Image
+                                  src={method.logo || "/placeholder.svg"}
+                                  alt={`${method.name} logo`}
+                                  width={40}
+                                  height={24}
+                                  className="max-h-6 w-auto object-contain"
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -340,7 +374,7 @@ export default function Checkout({
                         accept direct bank transfers. To use this payment
                         method, please{" "}
                         <Link
-                          href="/contact"
+                          href="/support"
                           className="font-medium text-brand hover:underline"
                         >
                           contact our team
@@ -436,7 +470,7 @@ export default function Checkout({
                           Tax
                         </span>
                         <span className="text-sm font-medium">
-                          ${(paymentDetails.details.price * 0.01).toFixed(2)}
+                          ${paymentDetails.details.price.toFixed(2)}
                         </span>
                       </div>
                     </div>
@@ -448,7 +482,7 @@ export default function Checkout({
                           $
                           {(
                             paymentDetails.details.price +
-                            paymentDetails.details.price * 0.01
+                            paymentDetails.details.price
                           ).toFixed(2)}
                         </span>
                       </div>

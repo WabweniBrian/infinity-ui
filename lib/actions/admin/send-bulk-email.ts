@@ -62,7 +62,7 @@ export async function sendBulkEmail({
               message,
               recipientName: user.name,
               buttonText: buttonText || "Contact Us",
-              buttonUrl: buttonUrl || "https://infinityui.vercel.app/contact",
+              buttonUrl: buttonUrl || "https://infinityui.vercel.app/support",
             }),
           );
 

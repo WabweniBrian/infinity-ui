@@ -40,7 +40,7 @@ export async function sendEmailToUser({
         message,
         recipientName: name,
         buttonText: "Contact Us",
-        buttonUrl: "https://infinityui.vercel.app/contact",
+        buttonUrl: "https://infinityui.vercel.app/support",
       }),
     );
 

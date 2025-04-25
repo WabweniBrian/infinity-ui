@@ -6,9 +6,10 @@ import Link from "next/link";
 
 const LifetimeDealCTA = () => {
   const features = [
+    "Ulimited licenses for all components",
     "Access to all components and packs (ecommerce, dashboard, marketing, forms)",
-    "Some AI components included (AI apps not included)",
-    "Over 150+ premium modern components",
+    "AI components included",
+    "Over 450+ premium modern components",
     "New components added regularly",
     "Free lifetime updates",
   ];
