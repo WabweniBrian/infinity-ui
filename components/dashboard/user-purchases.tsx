@@ -24,6 +24,7 @@ type UserPurchase = {
   phone: string | null;
   zipCode: string | null;
   orderNumber: string | null;
+  paymentProvider: string | null;
   component: {
     name: string;
   } | null;

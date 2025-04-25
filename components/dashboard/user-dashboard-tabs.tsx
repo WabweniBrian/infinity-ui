@@ -1,11 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { PaymentStatus } from "@prisma/client";
-import { Bell, CreditCard, ShoppingBag, User } from "lucide-react";
-import { UserBilling } from "./user-billing";
-import { UserNotifications } from "./user-notifications";
-import { UserProfile } from "./user-profile";
-import { UserPurchases } from "./user-purchases";
 import { SessionUser } from "@/types";
+import { PaymentStatus } from "@prisma/client";
+import { Bell, ShoppingBag } from "lucide-react";
+import { UserNotifications } from "./user-notifications";
+import { UserPurchases } from "./user-purchases";
 
 type UserPurchase = {
   id: string;
@@ -18,6 +16,7 @@ type UserPurchase = {
   address: string | null;
   phone: string | null;
   zipCode: string | null;
+  paymentProvider: string | null;
   date: Date;
   component: {
     name: string;
@@ -49,8 +48,6 @@ export const UserDashboardTabs = ({
   const tabs = [
     { id: "purchases", label: "My Purchases", icon: ShoppingBag },
     { id: "notifications", label: "Notifications", icon: Bell },
-    // { id: "profile", label: "Profile", icon: User },
-    // { id: "billing", label: "Billing", icon: CreditCard },
   ];
 
   return (
@@ -93,20 +90,6 @@ export const UserDashboardTabs = ({
             user={user}
           />
         </TabsContent>
-
-        {/* <TabsContent
-          value="profile"
-          className="mt-0 focus-visible:outline-none focus-visible:ring-0"
-        >
-          <UserProfile />
-        </TabsContent>
-
-        <TabsContent
-          value="billing"
-          className="mt-0 focus-visible:outline-none focus-visible:ring-0"
-        >
-          <UserBilling />
-        </TabsContent> */}
       </div>
     </Tabs>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/hooks/use-auth";
 import { formatDate } from "@/lib/utils";
 import { SessionUser } from "@/types";
 import type { PaymentStatus } from "@prisma/client";
