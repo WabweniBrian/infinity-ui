@@ -23,6 +23,7 @@ type Order = {
   date: Date;
   status: PaymentStatus;
   orderNumber: string | null;
+  paymentProvider: string | null;
   user: {
     id: string;
     name: string;
@@ -160,6 +161,9 @@ export const OrdersTable = ({
                   Status
                 </th>
                 <th className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                  Provider
+                </th>
+                <th className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
                   Date
                 </th>
                 <th className="px-6 py-3 text-xs font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">
@@ -252,6 +256,9 @@ export const OrdersTable = ({
                       <Badge className={getStatusColor(order.status)}>
                         {order.status}
                       </Badge>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
+                      {order.paymentProvider || "N/A"}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                       {formatDate(order.date)}

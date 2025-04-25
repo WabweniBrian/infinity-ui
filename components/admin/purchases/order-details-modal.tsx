@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatDate } from "@/lib/utils";
-import { Pack, PaymentStatus } from "@prisma/client";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   AlertTriangle,

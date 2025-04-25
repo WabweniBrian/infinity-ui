@@ -39,6 +39,7 @@ export async function getOrders({
     if (search) {
       where.OR = [
         { orderNumber: { contains: search, mode: "insensitive" } },
+        { paymentProvider: { contains: search, mode: "insensitive" } },
         { user: { name: { contains: search, mode: "insensitive" } } },
         { user: { email: { contains: search, mode: "insensitive" } } },
       ];
@@ -108,6 +109,7 @@ export async function getOrders({
           status: true,
           orderNumber: true,
           componentId: true,
+          paymentProvider: true,
           user: {
             select: {
               id: true,
