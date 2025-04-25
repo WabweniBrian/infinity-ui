@@ -87,6 +87,7 @@ export default function Checkout({
     phone: "",
     zipCode: "",
   });
+  const tax = 0.0;
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -154,11 +155,7 @@ export default function Checkout({
       isPack: paymentFor === "pack" || false,
       paymentProvider: selectedPaymentProvider!,
       ...billingInfo,
-      amount: paymentDetails
-        ? (paymentDetails.details.price + paymentDetails.details.price).toFixed(
-            2,
-          )
-        : 0,
+      amount: paymentDetails ? paymentDetails.details.price.toFixed(2) : 0,
     };
 
     console.log("Formatted Data:", formattedData);
@@ -470,7 +467,7 @@ export default function Checkout({
                           Tax
                         </span>
                         <span className="text-sm font-medium">
-                          ${paymentDetails.details.price.toFixed(2)}
+                          ${tax.toFixed(2)}
                         </span>
                       </div>
                     </div>
@@ -479,11 +476,7 @@ export default function Checkout({
                       <div className="flex items-center justify-between">
                         <span className="text-base font-semibold">Total</span>
                         <span className="text-base font-semibold">
-                          $
-                          {(
-                            paymentDetails.details.price +
-                            paymentDetails.details.price
-                          ).toFixed(2)}
+                          ${paymentDetails.details.price.toFixed(2)}
                         </span>
                       </div>
                     </div>
