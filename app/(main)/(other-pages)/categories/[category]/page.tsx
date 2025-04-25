@@ -92,7 +92,10 @@ const CategoryComponents = async ({ params, searchParams }: Params) => {
                 initialComponents={components}
                 initialComponentsCount={componentsCount}
                 currentUser={currentUser}
-                searchParams={searchParams}
+                searchParams={{
+                  ...searchParams,
+                  category,
+                }}
               />
             ) : (
               <NoResults

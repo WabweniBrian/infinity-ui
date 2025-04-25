@@ -15,6 +15,7 @@ interface ComponentsClientProps {
     q?: string;
     keyword?: string;
     isfree?: string;
+    category?: string;
   };
 }
 
@@ -51,6 +52,7 @@ export default function ComponentsClient({
         skip,
         keyword,
         isFree: isFree ? true : undefined,
+        category: searchParams.category,
       });
 
       if (result.components.length > 0) {
@@ -66,7 +68,7 @@ export default function ComponentsClient({
     } finally {
       setLoading(false);
     }
-  }, [components.length, q, keyword, isFree]);
+  }, [components.length, q, keyword, isFree, searchParams.category]);
 
   // Reference for the last element in the list
   const lastComponentRef = useCallback(
