@@ -32,6 +32,7 @@ type UserPurchase = {
   component: {
     name: string;
   } | null;
+  paymentProvider: string | null;
 };
 
 interface PurchaseDetailsModalProps {
@@ -135,10 +136,10 @@ export const PurchaseDetailsModal = ({
                   <div className="space-y-4">
                     <div>
                       <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Payment Method
+                        Payment Provider
                       </p>
                       <p className="text-base font-medium text-gray-900 dark:text-white">
-                        Credit Card
+                        {purchase.paymentProvider || "N/A"}
                       </p>
                     </div>
                     <div>

@@ -45,6 +45,7 @@ const UserDashboard = async () => {
       zipCode: true,
       date: true,
       component: { select: { name: true } },
+      paymentProvider: true,
     },
   });
 
