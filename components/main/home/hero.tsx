@@ -98,31 +98,47 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Sparkles className="h-3.5 w-3.5 text-[#11ACBB]" />
-                <span>250+ Premium UI Components</span>
+                <span>450+ Premium UI Components</span>
               </motion.span>
             </div>
 
             <motion.h1
-              className="mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl xl:text-7xl"
+              className="relative mb-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl xl:text-7xl"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Build Faster,{" "}
-              <span className="bg-gradient-to-r from-[#11ACBB] to-[#F6A71A] bg-clip-text text-transparent dark:from-[#11ACBB] dark:to-[#F6A71A]">
-                Convert More
+              UI That{" "}
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-[#11ACBB] to-[#F6A71A] bg-clip-text text-transparent dark:from-[#11ACBB] dark:to-[#F6A71A]">
+                  Converts More
+                </span>
+                <svg
+                  className="absolute -bottom-1 left-0 h-3 w-full"
+                  viewBox="0 0 200 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M2 15 C50 5, 150 25, 198 10"
+                    stroke="#F6A71A"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
             </motion.h1>
-
             <motion.p
               className="mx-auto mb-8 max-w-xl text-lg text-gray-600 dark:text-gray-300 md:text-xl lg:mx-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Infinity UI delivers a comprehensive library of stunning React &
-              Next.js components to accelerate your development workflow and
-              create beautiful interfaces that convert.
+              Infinity UI helps you craft high-converting, visually stunning
+              interfaces with powerful React & Next.js components — built for
+              speed and success.
             </motion.p>
 
             {/* Feature list */}
@@ -133,6 +149,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.7 }}
             >
               {[
+                "Modern Trends",
                 "Responsive by default",
                 "Dark mode (some components)",
                 "Accessible components",
@@ -140,7 +157,6 @@ const Hero = () => {
                 "TypeScript ready",
                 "Easy customization",
                 "Regular updates",
-                "Premium support",
               ].map((feature, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <div className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#11ACBB] to-[#F6A71A] dark:from-[#11ACBB] dark:to-[#F6A71A]">

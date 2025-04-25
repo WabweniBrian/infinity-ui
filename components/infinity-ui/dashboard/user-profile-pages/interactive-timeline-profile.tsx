@@ -60,9 +60,9 @@ const defaultUserData: UserData = {
   name: "Morgan Chen",
   title: "Full Stack Developer & UX Designer",
   avatar:
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=150&width=150",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   coverPhoto:
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=400&width=1200",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   bio: "Passionate developer with 8+ years of experience building web and mobile applications. Focused on creating intuitive, accessible, and performant user experiences.",
   location: "San Francisco, CA",
   email: "morgan.chen@example.com",
@@ -97,7 +97,7 @@ const defaultUserData: UserData = {
       icon: "Briefcase",
       link: "https://example.com/work",
       media:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=500",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       tags: ["React", "Node.js", "GraphQL", "Team Leadership"],
     },
     {
@@ -110,7 +110,7 @@ const defaultUserData: UserData = {
       icon: "Star",
       link: "https://morganchen.dev",
       media:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=500",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
       tags: ["Next.js", "TailwindCSS", "Framer Motion"],
     },
     {
@@ -228,10 +228,10 @@ const TimelineItem = ({
     >
       {/* Timeline dot */}
       <div
-        className={`absolute left-0 top-0 flex h-6 w-6 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-white transition-all duration-300 ${getCategoryColor(event.category)} ${isActive ? "scale-125" : ""}`}
+        className={`absolute left-0 top-0 flex h-8 w-8 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-white transition-all duration-300 ${getCategoryColor(event.category)} ${isActive ? "scale-125" : ""}`}
         onClick={onClick}
       >
-        {getIconComponent(event.icon)}
+        <span className="!text-white">{getIconComponent(event.icon)}</span>
       </div>
 
       {/* Date */}
@@ -586,6 +586,8 @@ export default function InteractiveTimelineProfile({
                 activeCategory={activeCategory}
                 setActiveCategory={setActiveCategory}
               />
+
+              <p className="my-2">Click on each icon for more details</p>
 
               {/* Timeline Progress Bar */}
               <div className="relative mb-8 h-1 w-full rounded-full bg-gray-100">

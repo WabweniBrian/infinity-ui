@@ -43,7 +43,7 @@ export default function ImmersivePortfolioProfile() {
       description:
         "An immersive journey through a procedurally generated universe. Created with WebGL and Three.js.",
       coverImage:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=1080&width=1920",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo4ZwikoHdV8HBnj2sim5N7M41k9TADhtKvdpr",
       videoUrl: "#",
       year: "2023",
       client: "Sony Music",
@@ -56,7 +56,7 @@ export default function ImmersivePortfolioProfile() {
         title: "PRISM",
         category: "Interactive Installation",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=800&width=1200",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo1AU6X9eZzfEpmIkG3Q9nNcdoiOUZFRY8MTyb",
         year: "2022",
       },
       {
@@ -64,7 +64,7 @@ export default function ImmersivePortfolioProfile() {
         title: "ECHO",
         category: "AR Experience",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=800&width=1200",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoGNgG5BhOFxW0BEUNidYtMQ9Sya4s1cmfhDkw",
         year: "2022",
       },
       {
@@ -72,7 +72,7 @@ export default function ImmersivePortfolioProfile() {
         title: "FLUX",
         category: "Digital Art",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=800&width=1200",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoZgrBlGh2BRxjvs0lePWdUT3JIKoAfbgqLw8z",
         year: "2021",
       },
     ],
@@ -181,7 +181,7 @@ export default function ImmersivePortfolioProfile() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=1080&width=1920"
+            src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo4ZwikoHdV8HBnj2sim5N7M41k9TADhtKvdpr"
             alt="Background"
             width={800}
             height={500}

@@ -87,7 +87,7 @@ const SaasHero = () => {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800 py-20">
+    <div className="relative w-full overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 py-20">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         {/* Grid pattern */}

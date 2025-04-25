@@ -327,7 +327,7 @@ const TeamMemberStory = ({
               {/* Timeline dot */}
               <motion.div
                 style={{ scale: eventProgress }}
-                className="absolute -left-[25px] top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-slate-200 bg-white shadow-md dark:border-slate-700 dark:bg-slate-800"
+                className="absolute -left-[25px] top-0 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-slate-200 bg-white shadow-md dark:border-slate-700 dark:bg-slate-800"
               >
                 {event.icon === "education" && (
                   <GraduationCap className="text-indigo-500" size={20} />

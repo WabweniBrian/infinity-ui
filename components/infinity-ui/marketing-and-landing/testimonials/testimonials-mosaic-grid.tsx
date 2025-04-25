@@ -11,6 +11,7 @@ import {
   User2,
 } from "lucide-react";
 import Image from "next/image";
+import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 const TestimonialsMosaicGrid = () => {
   const sectionRef = useRef(null);
@@ -100,6 +101,9 @@ const TestimonialsMosaicGrid = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-24 dark:from-gray-950 dark:to-gray-900"
     >
+      {/* Darkmode toggle */}
+      <DarkModeToggle />
+
       {/* Background Elements */}
       <div className="pointer-events-none absolute inset-0">
         {/* Gradient Orbs */}

@@ -1,34 +1,13 @@
-import { Fira_Code } from "next/font/google";
-import localFont from "next/font/local";
+import { Fira_Code, DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 
-export const thicccboi = localFont({
-  src: [
-    {
-      path: "../public/fonts/THICCCBOI-Regular.ttf",
-      weight: "400",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-Medium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-SemiBold.ttf",
-      weight: "600",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-Bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-ExtraBold.ttf",
-      weight: "800",
-    },
-    {
-      path: "../public/fonts/THICCCBOI-Black.ttf",
-      weight: "900",
-    },
-  ],
-  variable: "--font-thicccboi",
+export const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+});
+
+export const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
 });
 
 export const firaCode = Fira_Code({

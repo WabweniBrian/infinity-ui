@@ -155,7 +155,7 @@ const GlobalCustomerMap = () => {
         <div className="relative mx-auto mb-16 max-w-5xl">
           <div
             ref={mapRef}
-            className="relative aspect-[2/1] overflow-hidden rounded-xl bg-slate-100 shadow-lg dark:bg-slate-800"
+            className="relative h-[400px] w-full overflow-hidden rounded-xl bg-slate-100 shadow-lg dark:bg-slate-800 md:h-[500px]"
           >
             {/* Map SVG */}
             <svg

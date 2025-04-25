@@ -1,3 +1,4 @@
+import { Pack, PaymentStatus } from "@prisma/client";
 import * as z from "zod";
 
 // User Registration Schema ---------------------------------------------------------------------------------------------------------------
@@ -138,4 +139,41 @@ export const notificationSchema = z.object({
   type: z.string().min(1, "Type is required"),
   userId: z.string().optional(),
   isAdmin: z.boolean().default(false),
+});
+
+// Create Purchase Schema ---------------------------------------------------------------------------------------------------------------
+export const createPurchaseSchema = z.object({
+  userId: z.string().min(1, "User is required"),
+  componentId: z.string().optional(),
+  isBundle: z.boolean().default(false),
+  isPack: z.boolean().default(false),
+  isComponent: z.boolean().default(false),
+  pack: z.nativeEnum(Pack).optional().nullable(),
+  amount: z.number().min(0, "Amount must be a positive number"),
+  address: z.string().optional(),
+  phone: z.string().optional(),
+  status: z.nativeEnum(PaymentStatus).default("PENDING"),
+  zipCode: z.string().optional(),
+  paymentProvider: z.string().optional(),
+});
+
+// Update Purchase Schema ---------------------------------------------------------------------------------------------------------------
+export const updatePurchaseSchema = z.object({
+  userId: z.string().min(1, "User is required"),
+  componentId: z.string().optional(),
+  isBundle: z.boolean().optional(),
+  isPack: z.boolean().optional(),
+  isComponent: z.boolean().optional(),
+  pack: z.nativeEnum(Pack).optional().nullable(),
+  amount: z.number().min(0, "Amount must be a positive number").optional(),
+  address: z.string().optional(),
+  phone: z.string().optional(),
+  status: z.nativeEnum(PaymentStatus).optional(),
+  zipCode: z.string().optional(),
+  paymentProvider: z.string().optional(),
+});
+
+// Update Purchase Status Schema ---------------------------------------------------------------------------------------------------------------
+export const updateStatusSchema = z.object({
+  status: z.nativeEnum(PaymentStatus),
 });

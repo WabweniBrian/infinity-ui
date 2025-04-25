@@ -1,14 +1,22 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { deleteUser } from "@/lib/actions/admin/users";
+import {
+  AlertDialog,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import React, { useTransition } from "react";
 import toast from "react-hot-toast";
 import { ImSpinner2 } from "react-icons/im";
+import { deleteUser } from "@/lib/actions/admin/users";
 
 interface DeleteUserProps {
   deleteModal: boolean;
-  setDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setDeleteModal: (open: boolean) => void;
   currentId: string;
 }
 const DeleteUser = ({
@@ -31,38 +39,32 @@ const DeleteUser = ({
   };
 
   return (
-    <Dialog open={deleteModal} onOpenChange={setDeleteModal}>
-      <DialogContent>
-        <div className="mt-4">
-          <h3 className="text-lg font-bold">Confirm Deletion</h3>
-          <p className="py-4">Are you sure you want to delete this user?</p>
-          <div className="my-4 justify-end gap-3 flex-align-center">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={() => setDeleteModal(false)}
-              autoFocus
-            >
-              Cancel
-            </Button>
-            <Button
-              variant="destructive"
-              onClick={onDelete}
-              disabled={isPending}
-            >
-              {isPending ? (
-                <div className="gap-x-2 flex-align-center">
-                  <ImSpinner2 className="animate-spin" />
-                  <span>Deleting...</span>
-                </div>
-              ) : (
-                "Confirm"
-              )}
-            </Button>
-          </div>
-        </div>
-      </DialogContent>
-    </Dialog>
+    <AlertDialog open={deleteModal} onOpenChange={setDeleteModal}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
+          <AlertDialogDescription className="text-red-500">
+            Are you sure you want to delete this user? This action cannot be
+            undone.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter className="gap-3">
+          <AlertDialogCancel onClick={() => setDeleteModal(false)} autoFocus>
+            Cancel
+          </AlertDialogCancel>
+          <Button variant="destructive" onClick={onDelete} disabled={isPending}>
+            {isPending ? (
+              <div className="flex items-center gap-x-2">
+                <ImSpinner2 className="animate-spin" />
+                <span>Deleting...</span>
+              </div>
+            ) : (
+              "Confirm"
+            )}
+          </Button>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 };
 

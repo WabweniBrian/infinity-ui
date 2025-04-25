@@ -395,7 +395,7 @@ const TechSaasContact = () => {
 
             <motion.div
               variants={itemVariants}
-              className="rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 text-white"
+              className="rounded-xl bg-gradient-to-br from-slate-950 to-slate-900 p-6 text-white"
             >
               <div className="mb-4 flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20">

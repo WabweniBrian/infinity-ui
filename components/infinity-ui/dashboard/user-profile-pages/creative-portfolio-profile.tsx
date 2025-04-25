@@ -42,12 +42,12 @@ export default function CreativePortfolioProfile() {
     name: "Olivia Martinez",
     title: "Visual Designer & Illustrator",
     location: "Barcelona, Spain",
-    email: "olivia@example.com",
+    email: "olivia@creativestudio.com",
     bio: "I create colorful, playful designs that bring joy and solve problems. With over 7 years of experience in branding, illustration, and UI design, I help brands tell their stories through visuals that connect.",
     avatar:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxppOJrtFC1a2S06AJNu9MsdPXG8D5oerTblR",
     cover:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=600&width=1200",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxppOJrtFC1a2S06AJNu9MsdPXG8D5oerTblR",
     social: [
       { name: "Instagram", icon: Instagram, url: "#" },
       { name: "Twitter", icon: Twitter, url: "#" },
@@ -75,7 +75,7 @@ export default function CreativePortfolioProfile() {
         description:
           "A series of botanical illustrations for a plant identification app, featuring detailed hand-drawn elements with digital coloring.",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp&text=🌿",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoXQFIMyaE9ypokK1iYOj830UwuGLFVzJgBhCr",
         color: "from-green-300 to-emerald-500",
       },
       {
@@ -85,7 +85,7 @@ export default function CreativePortfolioProfile() {
         description:
           "Complete brand identity for an electronic music festival, including logo design, typography system, and promotional materials.",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp&text=✨",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoTHibSgJxINGL43Bmkhwazp7exFWUt06ZryRu",
         color: "from-purple-300 to-pink-500",
       },
       {
@@ -95,7 +95,7 @@ export default function CreativePortfolioProfile() {
         description:
           "User interface design for a cooking app that guides users through recipes with interactive elements and playful animations.",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp&text=🍳",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoptmPpo0TMstyAN5nWO1VuQDxjmXLf6dJzBC8",
         color: "from-orange-300 to-red-500",
       },
       {
@@ -105,7 +105,7 @@ export default function CreativePortfolioProfile() {
         description:
           "Visual identity and illustration series for a non-profit organization focused on ocean conservation and education.",
         image:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp&text=🌊",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoH1M3EtL4LPQRizs519hDeHlYBAUcyNFxWk2M",
         color: "from-blue-300 to-cyan-500",
       },
     ],
@@ -118,7 +118,7 @@ export default function CreativePortfolioProfile() {
         content:
           "Olivia's illustrations brought our brand to life in ways we never imagined. Her work has become central to our identity and resonates deeply with our audience.",
         avatar:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo&text=SJ",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       },
       {
         id: 2,
@@ -128,7 +128,7 @@ export default function CreativePortfolioProfile() {
         content:
           "Working with Olivia was a dream. She understood our vision immediately and transformed our app with illustrations that are both beautiful and functional.",
         avatar:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo&text=MF",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       },
       {
         id: 3,
@@ -138,7 +138,7 @@ export default function CreativePortfolioProfile() {
         content:
           "Olivia's passion for our cause shines through in every illustration. Her work has helped us communicate complex environmental issues in an accessible way.",
         avatar:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo&text=EC",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
       },
     ],
   };
@@ -566,7 +566,7 @@ export default function CreativePortfolioProfile() {
                     onClick={() => setSelectedProject(project.id)}
                   >
                     <div className="relative mb-4 overflow-hidden rounded-2xl">
-                      <div className="aspect-w-4 aspect-h-3 relative">
+                      <div className="relative aspect-square w-full">
                         <Image
                           src={
                             project.image ||

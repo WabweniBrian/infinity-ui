@@ -1,8 +1,11 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
+import { sendInvoiceEmail } from "@/lib/send-invoice-email";
+import { generateOrderNumber } from "@/lib/utils";
+import { CreatePurchaseSchemaType, UpdatePurchaseSchemaType } from "@/types";
+import type { Pack, PaymentStatus } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import type { PaymentStatus } from "@prisma/client";
 
 export type OrderSearchParams = {
   search?: string;
@@ -340,6 +343,253 @@ export async function updateOrderStatus(
     revalidatePath("/admin/orders");
     return { success: true };
   } catch (error: any) {
+    return { success: false, message: error.message };
+  }
+}
+
+//------------------------------------------------------ GET FORM EDIT PURCHASE--------------------------------------------------
+export async function getFormEditPurchase(orderId: string) {
+  try {
+    const order = await prisma.purchase.findUnique({
+      where: { id: orderId },
+      select: {
+        id: true,
+        userId: true,
+        componentId: true,
+        isBundle: true,
+        isPack: true,
+        isComponent: true,
+        pack: true,
+        amount: true,
+        status: true,
+        orderNumber: true,
+        address: true,
+        phone: true,
+        zipCode: true,
+        paymentProvider: true,
+      },
+    });
+
+    if (!order) return null;
+
+    return {
+      id: order.id,
+      isBundle: order.isBundle,
+      isPack: order.isPack,
+      isComponent: order.isComponent,
+      pack: order.pack,
+      amount: order.amount,
+      status: order.status,
+      orderNumber: order.orderNumber,
+      userId: order.userId,
+      componentId: order.componentId,
+      address: order.address || null,
+      phone: order.phone || null,
+      zipCode: order.zipCode || null,
+      paymentProvider: order.paymentProvider || null,
+    };
+  } catch (error) {
+    console.error("Error fetching order:", error);
+    return null;
+  }
+}
+
+// ----------------------------------------------------------- GET FORM USERS ----------------------------------------------------
+export async function getFormUsers() {
+  return await prisma.user.findMany({
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+}
+
+// ----------------------------------------------------------- GET FORM COMPONENTS ----------------------------------------------------
+export async function getFormComponents() {
+  return await prisma.component.findMany({
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+}
+
+// -------------------------------------------------- RECORD A NEW ORDER --------------------------------------------------
+export async function recordPurchase(data: CreatePurchaseSchemaType) {
+  try {
+    // Generate a unique order number
+    const orderNumber = generateOrderNumber();
+
+    // Create the purchase record
+    const purchase = await prisma.purchase.create({
+      data: {
+        userId: data.userId,
+        componentId: data.componentId,
+        isBundle: data.isBundle ?? false,
+        isPack: data.isPack ?? false,
+        isComponent: data.isComponent ?? true,
+        pack: data.pack,
+        amount: data.amount,
+        date: new Date(),
+        address: data.address,
+        phone: data.phone,
+        status: data.status || "PENDING",
+        zipCode: data.zipCode,
+        orderNumber,
+        paymentProvider: data.paymentProvider,
+      },
+      select: {
+        id: true,
+        orderNumber: true,
+        amount: true,
+        date: true,
+        status: true,
+        isComponent: true,
+        isBundle: true,
+        isPack: true,
+        pack: true,
+        userId: true,
+        address: true,
+        phone: true,
+        zipCode: true,
+        user: {
+          select: {
+            name: true,
+            email: true,
+            image: true,
+          },
+        },
+        component: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+    });
+
+    // Update userHasPurchased
+    await prisma.user.update({
+      where: { id: data.userId },
+      data: {
+        hasPurchased: true,
+      },
+    });
+
+    // Send confirmation email to the user
+    await sendInvoiceEmail(
+      {
+        id: purchase.id,
+        orderNumber: purchase.orderNumber,
+        amount: purchase.amount,
+        date: purchase.date,
+        status: purchase.status,
+        isComponent: purchase.isComponent,
+        isBundle: purchase.isBundle,
+        isPack: purchase.isPack,
+        address: purchase.address,
+        phone: purchase.phone,
+        zipCode: purchase.zipCode,
+        component: {
+          name: purchase.component?.name || "",
+        },
+      },
+      {
+        name: purchase.user?.name || "User",
+        email: purchase.user?.email || "",
+      },
+    );
+
+    // Create a notification for the user
+    await prisma.notification.create({
+      data: {
+        title: "New Order",
+        userId: data.userId,
+        type: "purchase",
+        message: `Your order ${orderNumber} has been recorded successfully and an invoice has been sent to your email. Please check your inbox at ${purchase.user?.email}.`,
+        isAdmin: false,
+      },
+    });
+
+    revalidatePath("/admin/purchases");
+    return { success: true, purchase };
+  } catch (error: any) {
+    console.error("Error recording purchase:", error);
+    return { success: false, message: error.message };
+  }
+}
+
+// ----------------------------UPDATE A ORDER----------------------------------------------------------------------------------
+export async function updatePurchase(
+  purchaseId: string,
+  data: UpdatePurchaseSchemaType,
+) {
+  try {
+    const purchase = await prisma.purchase.update({
+      where: { id: purchaseId },
+      data: {
+        userId: data.userId,
+        componentId: data.componentId,
+        isBundle: data.isBundle,
+        isPack: data.isPack,
+        isComponent: data.isComponent,
+        pack: data.pack,
+        amount: data.amount,
+        address: data.address,
+        phone: data.phone,
+        status: data.status,
+        zipCode: data.zipCode,
+        paymentProvider: data.paymentProvider,
+      },
+    });
+
+    revalidatePath("/admin/purchases");
+    return { success: true, purchase };
+  } catch (error: any) {
+    console.error("Error updating purchase:", error);
+    return { success: false, message: error.message };
+  }
+}
+
+// ----------------------------UPDATE A ORDER STATUS----------------------------------------------------------------------------------
+export async function updatePurchaseStatus(
+  purchaseId: string,
+  status: PaymentStatus,
+) {
+  try {
+    const purchase = await prisma.purchase.update({
+      where: { id: purchaseId },
+      data: { status },
+      include: {
+        user: {
+          select: {
+            email: true,
+            name: true,
+          },
+        },
+        component: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+
+    // Send notification
+    await prisma.notification.create({
+      data: {
+        title: "Order Status Update",
+        userId: purchase.userId,
+        type: "purchase",
+        message: `Your order ${purchase.orderNumber} status has been updated to ${status}.`,
+        isAdmin: false,
+      },
+    });
+
+    revalidatePath("/admin/purchases");
+    return { success: true, purchase };
+  } catch (error: any) {
+    console.error("Error updating purchase status:", error);
     return { success: false, message: error.message };
   }
 }

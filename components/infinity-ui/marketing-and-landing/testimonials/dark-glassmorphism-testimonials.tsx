@@ -10,7 +10,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
-import DarkModeToggle from "@/components/common/dark-mode-toggle";
 
 type Testimonial = {
   id: number;
@@ -97,9 +96,6 @@ const DarkGlassmorphismTestimonials = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-black py-24 text-white"
     >
-      {/* Dark mode toggle */}
-      <DarkModeToggle />
-
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Grid pattern */}

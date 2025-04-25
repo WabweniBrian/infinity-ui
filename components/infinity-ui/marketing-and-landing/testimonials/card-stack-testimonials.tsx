@@ -124,27 +124,27 @@ const CardStackTestimonials = () => {
       { bg: string; border: string; shadow: string }
     > = {
       blue: {
-        bg: "bg-blue-50 dark:bg-blue-900/30",
+        bg: "bg-blue-50 dark:bg-blue-900",
         border: "border-blue-200 dark:border-blue-700",
         shadow: "shadow-blue-200/50 dark:shadow-blue-900/30",
       },
       purple: {
-        bg: "bg-purple-50 dark:bg-purple-900/30",
+        bg: "bg-purple-50 dark:bg-purple-900",
         border: "border-purple-200 dark:border-purple-700",
         shadow: "shadow-purple-200/50 dark:shadow-purple-900/30",
       },
       teal: {
-        bg: "bg-teal-50 dark:bg-teal-900/30",
+        bg: "bg-teal-50 dark:bg-teal-900",
         border: "border-teal-200 dark:border-teal-700",
         shadow: "shadow-teal-200/50 dark:shadow-teal-900/30",
       },
       amber: {
-        bg: "bg-amber-50 dark:bg-amber-900/30",
+        bg: "bg-amber-50 dark:bg-amber-900",
         border: "border-amber-200 dark:border-amber-700",
         shadow: "shadow-amber-200/50 dark:shadow-amber-900/30",
       },
       rose: {
-        bg: "bg-rose-50 dark:bg-rose-900/30",
+        bg: "bg-rose-50 dark:bg-rose-900",
         border: "border-rose-200 dark:border-rose-700",
         shadow: "shadow-rose-200/50 dark:shadow-rose-900/30",
       },

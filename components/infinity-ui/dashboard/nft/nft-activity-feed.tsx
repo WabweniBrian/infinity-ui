@@ -17,21 +17,13 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const NFTActivityFeed = () => {
   const [activities, setActivities] = useState<ActivityItem[]>(activityData);
   const [activeFilter, setActiveFilter] = useState<ActivityType>("all");
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Handle loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
 
   // Filter activities based on selected type
   const filteredActivities =
@@ -195,7 +187,7 @@ const NFTActivityFeed = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 px-4 py-8 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 px-4 py-8 text-white">
       <div className="mx-auto w-full max-w-[600px] overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-800 p-4">
@@ -315,7 +307,7 @@ const NFTActivityFeed = () => {
                     <div className="flex gap-3">
                       {/* Activity Icon */}
                       <div
-                        className={`rounded-lg p-2 ${getActivityColor(activity.type)}`}
+                        className={`rounded-lg p-2 flex-center-center ${getActivityColor(activity.type)}`}
                       >
                         <ActivityIcon size={16} />
                       </div>

@@ -128,7 +128,7 @@ const reviews: Review[] = [
     date: "2 weeks ago",
     rating: 5,
     comment:
-      "We&apos;ve reduced our processing time by 70% since implementing this solution. The performance is outstanding.",
+      "We've reduced our processing time by 70% since implementing this solution. The performance is outstanding.",
     category: "performance",
   },
   {
@@ -155,7 +155,7 @@ const reviews: Review[] = [
     date: "1 month ago",
     rating: 4,
     comment:
-      "The pricing is very reasonable for the value we&apos;re getting. It's paid for itself many times over already.",
+      "The pricing is very reasonable for the value we're getting. It's paid for itself many times over already.",
     category: "value",
   },
 ];

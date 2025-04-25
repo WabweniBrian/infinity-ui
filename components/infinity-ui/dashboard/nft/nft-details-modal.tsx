@@ -47,7 +47,7 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
         >
           {/* Modal Content */}
           <motion.div
-            className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-b from-slate-900 to-slate-800"
+            className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-b from-slate-950 to-slate-900"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -62,14 +62,14 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
               <X size={20} />
             </button>
 
-            <div className="flex h-full max-h-[90vh] flex-col overflow-y-auto lg:flex-row">
+            <div className="flex h-full max-h-[90vh] flex-col overflow-y-auto overflow-x-hidden lg:flex-row">
               {/* NFT Image Section */}
-              <div className="relative flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 p-4 lg:w-1/2 lg:p-8">
+              <div className="relative flex items-center justify-center bg-gradient-to-br from-slate-950 to-slate-900 p-4 lg:w-1/2 lg:p-8">
                 <div className="relative aspect-square w-full overflow-hidden rounded-xl">
                   {/* Glow effect */}
                   <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-tr from-purple-600/30 to-blue-600/30 blur-sm" />
 
-                  <div className="relative overflow-hidden rounded-xl border border-slate-700/50">
+                  <div className="overflow-hidden rounded-xl border border-slate-700/50">
                     <Image
                       src={
                         nft.image ||
@@ -137,7 +137,7 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
                     {nft.name}
                   </h2>
 
-                  <div className="mb-4 flex items-center justify-between">
+                  <div className="mb-4 items-center justify-between sm:flex">
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-2">
                         <div className="relative h-6 w-6 overflow-hidden rounded-full border-2 border-white">
@@ -186,7 +186,7 @@ const NFTDetailsModal = ({ isOpen, onClose, nft }: NFTDetailsModalProps) => {
 
                     <a
                       href="#"
-                      className="flex items-center gap-1 text-blue-400 transition-colors hover:text-blue-300"
+                      className="mt-3 flex items-center gap-1 text-blue-400 transition-colors hover:text-blue-300 sm:mt-0"
                     >
                       <ExternalLink size={16} />
                       <span className="text-sm">View on chain</span>

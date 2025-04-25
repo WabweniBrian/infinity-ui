@@ -137,7 +137,7 @@ const GlobalMapTestimonials = () => {
 
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-repeat opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoRKzrTTQKqOivkN1uM6C3empEstycaIU2hRAr')] bg-repeat opacity-[0.03]" />
 
         <motion.div
           className="absolute right-0 top-0 h-[600px] w-[600px] -translate-y-1/3 translate-x-1/3 rounded-full bg-gradient-to-br from-blue-900/20 to-purple-900/20 blur-3xl"
@@ -194,11 +194,11 @@ const GlobalMapTestimonials = () => {
         >
           <div className="relative aspect-[16/9]">
             {/* World map background */}
-            <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-center bg-no-repeat opacity-20" />
+            <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoRKzrTTQKqOivkN1uM6C3empEstycaIU2hRAr')] bg-center bg-no-repeat opacity-20" />
 
             {/* Map overlay with grid lines */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-gray-900/50 dark:from-gray-900/50 dark:to-black/50">
-              <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-repeat opacity-[0.1]" />
+              <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoRKzrTTQKqOivkN1uM6C3empEstycaIU2hRAr')] bg-repeat opacity-[0.1]" />
 
               {/* Animated pulse effect */}
               <div className="absolute inset-0 animate-pulse bg-blue-500/5" />

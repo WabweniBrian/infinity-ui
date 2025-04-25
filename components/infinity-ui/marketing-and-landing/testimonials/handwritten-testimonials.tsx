@@ -256,7 +256,7 @@ const HandwrittenTestimonials = () => {
 
                   <div className="flex items-center">
                     <div className="mr-4">
-                      <div className="realtive h-16 w-16 overflow-hidden rounded-full border-2 border-amber-200">
+                      <div className="relative h-16 w-16 overflow-hidden rounded-full border-2 border-amber-200">
                         <Image
                           src={
                             currentTestimonial.image ||

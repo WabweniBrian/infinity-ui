@@ -33,7 +33,7 @@ export default function AdventureGamifiedProfile() {
     nextLevelXp: 5000,
     gold: 1842,
     avatar:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxppOJrtFC1a2S06AJNu9MsdPXG8D5oerTblR",
     joinDate: "Adventuring since 2023",
     stats: {
       strength: 65,
@@ -362,7 +362,7 @@ export default function AdventureGamifiedProfile() {
         </motion.div>
 
         {/* Tabs */}
-        <div className="scrollbar-hide mb-8 flex overflow-x-auto">
+        <div className="hide-scrollbar mb-8 flex overflow-x-auto">
           <div className="flex space-x-1 rounded-lg border border-amber-800/30 bg-amber-950/50 p-1 backdrop-blur-sm">
             {["quests", "map", "achievements", "companions"].map((tab) => (
               <button
@@ -935,6 +935,20 @@ export default function AdventureGamifiedProfile() {
           )}
         </AnimatePresence>
       </div>
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #d97706;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

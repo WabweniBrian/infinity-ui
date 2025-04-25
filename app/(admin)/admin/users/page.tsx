@@ -3,7 +3,6 @@ import { UsersFilters } from "@/components/admin/users/users-filters";
 import { UsersHeader } from "@/components/admin/users/users-header";
 import { UsersTable } from "@/components/admin/users/users-table";
 import { getUsers } from "@/lib/actions/admin/users";
-import { prisma } from "@/lib/prisma";
 
 export const metadata = {
   title: "Users",

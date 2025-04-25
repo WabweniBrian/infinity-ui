@@ -35,13 +35,13 @@ export default function GamifiedProfile() {
   }, []);
 
   const user = {
-    name: "Marcus Chen",
+    name: "Wabz Braize",
     level: 42,
     title: "Code Architect",
     avatar:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     cover:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=400&width=1200",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     xp: {
       current: 7800,
       next: 10000,
@@ -63,7 +63,7 @@ export default function GamifiedProfile() {
         date: "2023-05-15",
         xp: 500,
         badge:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=80&width=80&text=🐛",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoeoxV9gBGZljIQpV8xdfgatbs5J3rcz1Tw6F2",
       },
       {
         id: 2,
@@ -75,7 +75,7 @@ export default function GamifiedProfile() {
         date: "2023-04-22",
         xp: 350,
         badge:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=80&width=80&text=⚡",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo6c1aUbzvhV0osXNSKE3eCpjGD9ukzWbgBlRm",
       },
       {
         id: 3,
@@ -87,7 +87,7 @@ export default function GamifiedProfile() {
         date: "2023-03-10",
         xp: 250,
         badge:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=80&width=80&text=🤝",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoV68jdwFJprS62IlXgenFT9i4m3NRbk5yCzYV",
       },
       {
         id: 4,
@@ -99,7 +99,7 @@ export default function GamifiedProfile() {
         date: "2023-02-05",
         xp: 150,
         badge:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=80&width=80&text=🚀",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypokt52nurPieNLljoZXDu7tSgcd5rJ2sYCBAxK",
       },
       {
         id: 5,
@@ -111,7 +111,7 @@ export default function GamifiedProfile() {
         date: "2023-01-20",
         xp: 100,
         badge:
-          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=80&width=80&text=🌙",
+          "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypokPPeungrPieNLljoZXDu7tSgcd5rJ2sYCBAx",
       },
     ],
     quests: [
@@ -166,7 +166,7 @@ export default function GamifiedProfile() {
       <div className="mx-auto max-w-6xl">
         {/* Header with Level and XP */}
         <div className="relative mb-8 overflow-hidden rounded-3xl">
-          <div className="relative h-48 sm:h-64">
+          <div className="relative h-[400px] sm:h-64">
             <Image
               src={
                 user.cover ||
@@ -242,14 +242,14 @@ export default function GamifiedProfile() {
                 Message
               </motion.button>
               <motion.button
-                className="rounded-full bg-gray-800 p-2 hover:bg-gray-700"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Heart size={16} />
               </motion.button>
               <motion.button
-                className="rounded-full bg-gray-800 p-2 hover:bg-gray-700"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -281,7 +281,7 @@ export default function GamifiedProfile() {
 
         {/* Tabs */}
         <div className="mb-8 rounded-3xl bg-gray-800 p-6">
-          <div className="scrollbar-hide mb-6 flex space-x-2 overflow-x-auto">
+          <div className="hide-scrollbar mb-6 flex space-x-2 overflow-x-auto">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
@@ -1078,6 +1078,20 @@ export default function GamifiedProfile() {
           </AnimatePresence>
         </div>
       </div>
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #6b7280;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

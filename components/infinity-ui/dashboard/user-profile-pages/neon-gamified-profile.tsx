@@ -22,13 +22,13 @@ export default function NeonGamifiedProfile() {
   );
 
   const user = {
-    name: "Alex Raider",
+    name: "Raven Kent",
     handle: "cyberhunter",
     level: 42,
     xp: 8750,
     nextLevelXp: 10000,
     avatar:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxppOJrtFC1a2S06AJNu9MsdPXG8D5oerTblR",
     title: "Neon Stalker",
     joinDate: "Member since 2077",
     stats: {
@@ -159,56 +159,56 @@ export default function NeonGamifiedProfile() {
       name: "V",
       score: 15420,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoHRKBF64LPQRizs519hDeHlYBAUcyNFxWk2M6",
     },
     {
       rank: 2,
       name: "Johnny Silverhand",
       score: 14850,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBr65FLq9k2zJh4F5OKicHTlarv3YGQjpDZbw",
     },
     {
       rank: 3,
       name: "Judy Alvarez",
       score: 12340,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomfLdI2Mcq2hSYiK0RjVdusB8bOIWnCQy9fpv",
     },
     {
       rank: 4,
       name: "Jackie Welles",
       score: 11780,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoPGeGY9LRmqDpgTYnlJ0VQxFuAyXbhka81jzw",
     },
     {
       rank: 5,
       name: "Panam Palmer",
       score: 10950,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoliUxOspZ48VX7AOYcoRIEsnmtwp1xKibFLMd",
     },
     {
       rank: 6,
-      name: "Alex Raider",
+      name: "Raven Kent",
       score: 8750,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxppOJrtFC1a2S06AJNu9MsdPXG8D5oerTblR",
     },
     {
       rank: 7,
       name: "Rogue Amendiares",
       score: 8420,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoNYxkxxevQcXsCAeDKuhTdZ6t5Ln07OGN1iEa",
     },
     {
       rank: 8,
       name: "Takemura",
       score: 7650,
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=50&width=50",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoBr65FLq9k2zJh4F5OKicHTlarv3YGQjpDZbw",
     },
   ];
 

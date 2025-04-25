@@ -43,7 +43,7 @@ const NFTCard = ({
 
   return (
     <motion.div
-      className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-900 to-slate-800"
+      className="relative overflow-hidden rounded-2xl border border-slate-700/50 bg-gradient-to-br from-slate-950 to-slate-900"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

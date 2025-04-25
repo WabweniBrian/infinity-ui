@@ -7,6 +7,7 @@ import { FiMail, FiTrash } from "react-icons/fi";
 import BulkActions from "../common/bulk-actions";
 import DeleteSelectedModal from "../common/deleted-selected-modal";
 import { deleteUsers } from "@/lib/actions/admin/users";
+import { SendBulkEmailModal } from "./send-bulk-email-modal";
 
 interface UsersBulkActionsProps {
   ids: string[];
@@ -15,14 +16,23 @@ interface UsersBulkActionsProps {
 
 const UsersBulkActions = ({ ids, setSelectedIds }: UsersBulkActionsProps) => {
   const [deleteSelectedModal, setDeleteSelectedModal] = useState(false);
+  const [emailModal, setEmailModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const confirmDeleteSelected = () => {
     if (ids.length < 1) {
-      toast.error("Please select at least one row");
+      toast.error("Please select at least one user");
       return;
     }
     setDeleteSelectedModal(true);
+  };
+
+  const openEmailModal = () => {
+    if (ids.length < 1) {
+      toast.error("Please select at least one user");
+      return;
+    }
+    setEmailModal(true);
   };
 
   const handleDeleteSelectedRecords = async () => {
@@ -44,6 +54,11 @@ const UsersBulkActions = ({ ids, setSelectedIds }: UsersBulkActionsProps) => {
     }
   };
 
+  const handleEmailSuccess = () => {
+    setEmailModal(false);
+    toast.success("Emails sent successfully");
+  };
+
   return (
     <>
       <BulkActions
@@ -51,16 +66,26 @@ const UsersBulkActions = ({ ids, setSelectedIds }: UsersBulkActionsProps) => {
           {
             icon: <FiMail />,
             text: "Email Users",
-            onclick: () => alert("Emailing users..."),
+            onclick: openEmailModal,
+            disabled: isLoading,
           },
           {
             icon: <FiTrash />,
             text: "Delete Selected",
-            onclick: () => confirmDeleteSelected(),
+            onclick: confirmDeleteSelected,
             disabled: isLoading,
           },
         ]}
       />
+
+      {emailModal && (
+        <SendBulkEmailModal
+          userIds={ids}
+          userCount={ids.length}
+          onClose={() => setEmailModal(false)}
+          onSuccess={handleEmailSuccess}
+        />
+      )}
 
       <DeleteSelectedModal
         deleteSelectedModal={deleteSelectedModal}

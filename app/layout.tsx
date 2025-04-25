@@ -6,7 +6,7 @@ import { EdgeStoreProvider } from "@/lib/edgestore";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
-import { thicccboi } from "./font";
+import { dmSans, plusJakarta } from "./font";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -99,7 +99,9 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={thicccboi.className}>
+      <body
+        className={`font-sans antialiased ${dmSans.variable} ${plusJakarta.variable}`}
+      >
         <SchemaMarkup
           data={{
             "@context": "https://schema.org",

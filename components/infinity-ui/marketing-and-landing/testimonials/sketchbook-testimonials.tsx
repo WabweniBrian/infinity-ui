@@ -91,17 +91,17 @@ const SketchbookTestimonials = () => {
   const getSketchImage = (sketch: string) => {
     switch (sketch) {
       case "website":
-        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Website+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypohCWwsqAGWuifCYvhNSK74eVO9blJ8s135Irj";
       case "mobile":
-        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Mobile+App+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoCQK9sYL5viIzPn7DJtm4WQfEosSFCkOZuYcj";
       case "branding":
-        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Brand+Identity+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoIEQu0DfJg2woBpC7zun1UTeXvFLckMQhDxO4";
       case "dashboard":
-        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Dashboard+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypomdBGEHMcq2hSYiK0RjVdusB8bOIWnCQy9fpv";
       case "ecommerce":
-        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=E-commerce+Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoeSiFFPBGZljIQpV8xdfgatbs5J3rcz1Tw6F2";
       default:
-        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=300&width=400&text=Sketch";
+        return "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp";
     }
   };
 

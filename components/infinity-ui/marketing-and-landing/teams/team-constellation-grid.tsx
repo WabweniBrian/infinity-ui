@@ -374,9 +374,6 @@ const TeamConstellationGrid = () => {
       onMouseMove={handleMouseMove}
       className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 py-20"
     >
-      {/* Dark mode toggle */}
-      <DarkModeToggle />
-
       {/* Constellation background */}
       <ConstellationBackground />
 

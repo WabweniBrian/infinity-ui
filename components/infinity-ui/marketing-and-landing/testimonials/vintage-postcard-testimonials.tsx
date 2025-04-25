@@ -202,10 +202,11 @@ const VintagePostcardTestimonials = () => {
                         <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo')] bg-repeat opacity-[0.05]" />
 
                         {/* Location image placeholder */}
-                        <div className="relative mb-4 h-40 overflow-hidden rounded border border-amber-200">
+                        <div className="relative mb-4 h-40 w-full overflow-hidden rounded border border-amber-200">
                           <Image
-                            src="/imageshttps://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+                            src="https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5eAFvyjjr1yh2kP4nKicTUMm97NeEzAJCBIo"
                             alt={`Greetings from ${testimonial.location}`}
+                            fill
                             className="h-full w-full object-cover"
                           />
 

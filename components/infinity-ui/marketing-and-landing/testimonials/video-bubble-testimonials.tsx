@@ -31,7 +31,8 @@ const testimonials: VideoTestimonial[] = [
     company: "Nexus Innovations",
     thumbnail:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
-    videoUrl: "#video-1", // Placeholder
+    videoUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQxzTjtG1kacO0NKLwDbdX3BsVMlQynx9U58R",
     quote:
       "The digital transformation strategy they implemented helped us achieve a 200% increase in online engagement.",
     color: "blue",
@@ -43,7 +44,8 @@ const testimonials: VideoTestimonial[] = [
     company: "EcoTech Solutions",
     thumbnail:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
-    videoUrl: "#video-2", // Placeholder
+    videoUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQxzTjtG1kacO0NKLwDbdX3BsVMlQynx9U58R",
     quote:
       "Their team's expertise in sustainable technology solutions was exactly what we needed to bring our vision to life.",
     color: "green",
@@ -55,7 +57,8 @@ const testimonials: VideoTestimonial[] = [
     company: "FinanceFlow",
     thumbnail:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
-    videoUrl: "#video-3", // Placeholder
+    videoUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQxzTjtG1kacO0NKLwDbdX3BsVMlQynx9U58R",
     quote:
       "The user-centered approach to redesigning our app resulted in a 45% increase in user retention.",
     color: "purple",
@@ -67,7 +70,8 @@ const testimonials: VideoTestimonial[] = [
     company: "Global Retail Group",
     thumbnail:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
-    videoUrl: "#video-4", // Placeholder
+    videoUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQxzTjtG1kacO0NKLwDbdX3BsVMlQynx9U58R",
     quote:
       "Our conversion rate increased by 80% within three months of implementing their optimized checkout process.",
     color: "amber",
@@ -79,7 +83,8 @@ const testimonials: VideoTestimonial[] = [
     company: "MediTech Innovations",
     thumbnail:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
-    videoUrl: "#video-5", // Placeholder
+    videoUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoQxzTjtG1kacO0NKLwDbdX3BsVMlQynx9U58R",
     quote:
       "Their healthcare software solution has streamlined our operations and improved patient care significantly.",
     color: "teal",
@@ -215,8 +220,8 @@ const VideoBubbleTestimonials = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative overflow-hidden rounded-2xl shadow-2xl"
           >
-            <div className="aspect-w-16 aspect-h-9 group relative bg-gray-900">
-              {/* Video element (using image as placeholder) */}
+            <div className="group relative aspect-[16/9] bg-gray-900">
+              {/* Video element */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTestimonial.id}
@@ -226,28 +231,13 @@ const VideoBubbleTestimonials = () => {
                   transition={{ duration: 0.4 }}
                   className="absolute inset-0"
                 >
-                  <Image
-                    src={
-                      currentTestimonial.thumbnail ||
-                      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
-                    }
-                    alt={`${currentTestimonial.name} video thumbnail`}
-                    fill
-                    className="h-full w-full object-cover"
-                  />
-
-                  {/* Actual video would be here */}
                   <video
                     ref={videoRef}
                     className="absolute inset-0 h-full w-full object-cover opacity-0"
                     poster={currentTestimonial.thumbnail}
                     muted={isMuted}
-                  >
-                    <source
-                      src={currentTestimonial.videoUrl}
-                      type="video/mp4"
-                    />
-                  </video>
+                    src={currentTestimonial.videoUrl}
+                  />
                 </motion.div>
               </AnimatePresence>
 

@@ -30,9 +30,9 @@ export default function GlassmorphicProfile() {
     joined: "March 2020",
     email: "alex.reynolds@example.com",
     avatar:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     cover:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=400&width=1200",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
     bio: "Award-winning product designer with over 8 years of experience creating intuitive digital experiences for global brands.",
     stats: [
       { label: "Projects", value: 48 },
@@ -103,20 +103,22 @@ export default function GlassmorphicProfile() {
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 p-4 sm:p-8">
       <div className="mx-auto max-w-6xl">
         {/* Cover Image */}
-        <div className="relative mb-24 h-64 w-full overflow-hidden rounded-3xl sm:h-80">
-          <Image
-            src={
-              user.cover ||
-              "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
-            }
-            fill
-            alt="Cover"
-            className="h-full w-full object-cover"
-          />
+        <div className="relative mb-24">
+          <div className="relative h-64 w-full overflow-hidden rounded-3xl sm:h-80">
+            <Image
+              src={
+                user.cover ||
+                "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp"
+              }
+              fill
+              alt="Cover"
+              className="h-full w-full object-cover"
+            />
+          </div>
 
           {/* Avatar */}
           <motion.div
-            className="absolute -bottom-16 left-1/2 -translate-x-1/2 transform"
+            className="absolute -bottom-16 left-1/2 z-20 -translate-x-1/2 transform"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
@@ -192,7 +194,7 @@ export default function GlassmorphicProfile() {
               Follow
             </motion.button>
             <motion.button
-              className="rounded-full bg-white/20 p-2 text-white backdrop-blur-sm"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm"
               whileHover={{
                 scale: 1.1,
                 backgroundColor: "rgba(255,255,255,0.3)",
@@ -202,7 +204,7 @@ export default function GlassmorphicProfile() {
               <Share2 size={16} />
             </motion.button>
             <motion.button
-              className="rounded-full bg-white/20 p-2 text-white backdrop-blur-sm"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm"
               whileHover={{
                 scale: 1.1,
                 backgroundColor: "rgba(255,255,255,0.3)",
@@ -212,7 +214,7 @@ export default function GlassmorphicProfile() {
               <Bookmark size={16} />
             </motion.button>
             <motion.button
-              className="rounded-full bg-white/20 p-2 text-white backdrop-blur-sm"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm"
               whileHover={{
                 scale: 1.1,
                 backgroundColor: "rgba(255,255,255,0.3)",
@@ -259,7 +261,7 @@ export default function GlassmorphicProfile() {
 
         {/* Tabs */}
         <div className="mb-6 rounded-3xl bg-white/10 p-6 backdrop-blur-xl">
-          <div className="scrollbar-hide mb-6 flex space-x-2 overflow-x-auto">
+          <div className="hide-scrollbar mb-6 flex space-x-2 overflow-x-auto">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
@@ -664,6 +666,20 @@ export default function GlassmorphicProfile() {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #6b7280;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

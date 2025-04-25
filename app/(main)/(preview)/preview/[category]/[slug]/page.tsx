@@ -52,7 +52,7 @@ export default async function PreviewPage({ params }: PreviewPageProps) {
 
   // Dynamically import the component
   const Component = await loadComponent(
-    "infinity-ui/dashboard/apps/advanced-calendar",
+    "infinity-ui/marketing-and-landing/social-proof/testimonial-wave-wall",
   );
 
   return <Component />;

@@ -21,8 +21,7 @@ type AudioTestimonial = {
   company: string;
   image: string;
   content: string;
-  audioUrl: string; // In a real implementation, this would be a real audio URL
-  duration: string;
+  audioUrl: string;
   color: string;
 };
 
@@ -35,9 +34,9 @@ const testimonials: AudioTestimonial[] = [
     image:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
-      "The development team&pos;s technical expertise is outstanding. They transformed our legacy system into a modern, scalable platform that&pos;s positioned us for future growth.",
-    audioUrl: "#audio-1", // Placeholder
-    duration: "1:45",
+      "The development team's technical expertise is outstanding. They transformed our legacy system into a modern, scalable platform that's positioned us for future growth.",
+    audioUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
     color: "blue",
   },
   {
@@ -49,8 +48,8 @@ const testimonials: AudioTestimonial[] = [
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "The digital marketing strategy they developed increased our conversion rates by 150% and reduced our customer acquisition cost by 40%. Truly exceptional results.",
-    audioUrl: "#audio-2", // Placeholder
-    duration: "2:10",
+    audioUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
     color: "purple",
   },
   {
@@ -62,8 +61,8 @@ const testimonials: AudioTestimonial[] = [
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "As a startup, we needed a partner who could move quickly without sacrificing quality. They delivered our MVP in record time, helping us secure our next round of funding.",
-    audioUrl: "#audio-3", // Placeholder
-    duration: "1:30",
+    audioUrl:
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoAnZ17om4zc2AfJ7r0YvHaCFP5ERWkxZIX1gU",
     color: "teal",
   },
 ];
@@ -73,6 +72,10 @@ const AudioWaveformTestimonials = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [audioDurations, setAudioDurations] = useState<{
+    [key: number]: number;
+  }>({});
+  const [remainingTime, setRemainingTime] = useState("0:00");
   const audioRef = useRef<HTMLAudioElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number>();
@@ -81,6 +84,72 @@ const AudioWaveformTestimonials = () => {
 
   const currentTestimonial = testimonials[activeIndex];
 
+  // Format time helper function
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  // Get waveform color based on the current testimonial
+  const getWaveformColor = (color: string, opacity: number) => {
+    switch (color) {
+      case "blue":
+        return `rgba(59, 130, 246, ${opacity})`;
+      case "purple":
+        return `rgba(139, 92, 246, ${opacity})`;
+      case "teal":
+        return `rgba(20, 184, 166, ${opacity})`;
+      default:
+        return `rgba(59, 130, 246, ${opacity})`;
+    }
+  };
+
+  // Draw waveform visualization
+  const drawWaveform = useCallback(() => {
+    if (!canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) return;
+
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // Clear canvas
+    ctx.clearRect(0, 0, width, height);
+
+    // Generate random waveform data
+    const bars = 100;
+    const barWidth = width / bars;
+    const progressPosition = (progress / 100) * width;
+
+    for (let i = 0; i < bars; i++) {
+      // Random bar height with higher values in the middle for a natural look
+      const barHeight =
+        Math.sin((i / bars) * Math.PI) *
+        (Math.random() * 0.5 + 0.5) *
+        height *
+        0.8;
+
+      const x = i * barWidth;
+      const y = (height - barHeight) / 2;
+
+      // Color based on progress
+      if (x < progressPosition) {
+        ctx.fillStyle = getWaveformColor(currentTestimonial.color, 1);
+      } else {
+        ctx.fillStyle = getWaveformColor(currentTestimonial.color, 0.3);
+      }
+
+      // Draw bar with rounded corners
+      ctx.beginPath();
+      ctx.roundRect(x, y, barWidth * 0.8, barHeight, 2);
+      ctx.fill();
+    }
+  }, [currentTestimonial.color, progress]);
+
   // Handle audio controls
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -88,7 +157,9 @@ const AudioWaveformTestimonials = () => {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play();
+      audioRef.current.play().catch((err) => {
+        console.error("Error playing audio:", err);
+      });
     }
 
     setIsPlaying(!isPlaying);
@@ -111,107 +182,110 @@ const AudioWaveformTestimonials = () => {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
   };
 
+  // Setup audio event listeners
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setProgress(0);
+      audio.currentTime = 0;
+
+      // Reset remaining time to full duration when ended
+      if (audioDurations[activeIndex]) {
+        setRemainingTime(formatTime(audioDurations[activeIndex]));
+      }
+    };
+
+    const handleTimeUpdate = () => {
+      const currentProgress = (audio.currentTime / audio.duration) * 100 || 0;
+      setProgress(currentProgress);
+
+      // Update remaining time
+      const remaining = audio.duration - audio.currentTime;
+      setRemainingTime(formatTime(remaining));
+    };
+
+    // Handle metadata loaded - get audio duration
+    const handleLoadedMetadata = () => {
+      const duration = audio.duration;
+      setAudioDurations((prev) => ({
+        ...prev,
+        [activeIndex]: duration,
+      }));
+      setRemainingTime(formatTime(duration));
+    };
+
+    audio.addEventListener("ended", handleEnded);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+
+    return () => {
+      audio.removeEventListener("ended", handleEnded);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+    };
+  }, [activeIndex, audioDurations]);
+
   // Reset audio state when changing testimonials
   useEffect(() => {
     setIsPlaying(false);
     setProgress(0);
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
+
+      // If we already have the duration for this audio, update remaining time
+      if (audioDurations[activeIndex]) {
+        setRemainingTime(formatTime(audioDurations[activeIndex]));
+      } else {
+        setRemainingTime("0:00"); // Default until loaded
+      }
     }
-  }, [activeIndex]);
+  }, [activeIndex, audioDurations]);
 
-  // Draw waveform visualization
-  const drawWaveform = useCallback(
-    () =>
-      (
-        ctx: CanvasRenderingContext2D,
-        width: number,
-        height: number,
-        progress: number,
-      ) => {
-        // Clear canvas
-        ctx.clearRect(0, 0, width, height);
-
-        // Generate random waveform data (in a real implementation, this would be actual audio data)
-        const bars = 100;
-        const barWidth = width / bars;
-        const progressPosition = (progress / 100) * width;
-
-        for (let i = 0; i < bars; i++) {
-          // Random bar height with higher values in the middle for a natural look
-          const barHeight =
-            Math.sin((i / bars) * Math.PI) *
-            (Math.random() * 0.5 + 0.5) *
-            height *
-            0.8;
-
-          const x = i * barWidth;
-          const y = (height - barHeight) / 2;
-
-          // Color based on progress
-          if (x < progressPosition) {
-            ctx.fillStyle = getWaveformColor(currentTestimonial.color, 1);
-          } else {
-            ctx.fillStyle = getWaveformColor(currentTestimonial.color, 0.3);
-          }
-
-          // Draw bar with rounded corners
-          ctx.beginPath();
-          ctx.roundRect(x, y, barWidth * 0.8, barHeight, 2);
-          ctx.fill();
-        }
-      },
-    [currentTestimonial.color],
-  );
-
-  // Update progress bar and animate waveform
+  // Initialize canvas dimensions on component mount and window resize
   useEffect(() => {
-    if (!audioRef.current || !canvasRef.current || !isPlaying) return;
-
-    const audio = audioRef.current;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    if (!ctx) return;
-
-    // Set canvas dimensions
-    canvas.width = canvas.clientWidth * window.devicePixelRatio;
-    canvas.height = canvas.clientHeight * window.devicePixelRatio;
-
-    // Update progress
-    const updateProgress = () => {
-      if (!audio) return;
-
-      const currentProgress = (audio.currentTime / audio.duration) * 100 || 0;
-      setProgress(currentProgress);
-
-      // Draw waveform
+    const handleResize = () => {
+      if (!canvasRef.current) return;
+      const canvas = canvasRef.current;
+      // Set the canvas dimensions properly
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      // Redraw after resize
       drawWaveform();
-
-      animationRef.current = requestAnimationFrame(updateProgress);
     };
 
-    animationRef.current = requestAnimationFrame(updateProgress);
+    handleResize(); // Initial setup
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [drawWaveform]);
+
+  // Animate waveform when playing
+  useEffect(() => {
+    // Cancel any existing animation
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
+    if (!isPlaying) return;
+
+    const animate = () => {
+      drawWaveform();
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
 
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [drawWaveform, isPlaying]);
-
-  const getWaveformColor = (color: string, opacity: number) => {
-    switch (color) {
-      case "blue":
-        return `rgba(59, 130, 246, ${opacity})`;
-      case "purple":
-        return `rgba(139, 92, 246, ${opacity})`;
-      case "teal":
-        return `rgba(20, 184, 166, ${opacity})`;
-      default:
-        return `rgba(59, 130, 246, ${opacity})`;
-    }
-  };
+  }, [isPlaying, drawWaveform]);
 
   return (
     <section
@@ -412,7 +486,7 @@ const AudioWaveformTestimonials = () => {
                           </button>
 
                           <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {currentTestimonial.duration}
+                            {remainingTime}
                           </span>
                         </div>
 
@@ -444,7 +518,6 @@ const AudioWaveformTestimonials = () => {
           {/* Hidden audio element */}
           <audio
             ref={audioRef}
-            className="hidden"
             src={currentTestimonial.audioUrl}
             preload="auto"
             muted={isMuted}
@@ -459,7 +532,13 @@ const AudioWaveformTestimonials = () => {
               onClick={() => setActiveIndex(index)}
               className={`h-2.5 w-2.5 rounded-full transition-all ${
                 index === activeIndex
-                  ? `bg-${currentTestimonial.color}-500 scale-125`
+                  ? `${
+                      currentTestimonial.color === "blue"
+                        ? "bg-blue-500"
+                        : currentTestimonial.color === "purple"
+                          ? "bg-purple-500"
+                          : "bg-teal-500"
+                    } scale-125`
                   : "bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500"
               }`}
               aria-label={`Go to testimonial ${index + 1}`}

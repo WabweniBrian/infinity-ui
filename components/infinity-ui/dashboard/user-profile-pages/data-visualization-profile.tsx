@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   Activity,
@@ -61,18 +61,42 @@ interface UserData {
   }[];
 }
 
+type ColorOption =
+  | "slate"
+  | "gray"
+  | "zinc"
+  | "neutral"
+  | "stone"
+  | "red"
+  | "orange"
+  | "amber"
+  | "yellow"
+  | "lime"
+  | "green"
+  | "emerald"
+  | "teal"
+  | "cyan"
+  | "sky"
+  | "blue"
+  | "indigo"
+  | "violet"
+  | "purple"
+  | "fuchsia"
+  | "pink"
+  | "rose";
+
 interface DataVisualizationProfileProps {
   userData?: UserData;
 }
 
 const defaultUserData: UserData = {
-  name: "Jordan Taylor",
+  name: "Wabweni Brian",
   username: "@jordantaylor",
   role: "Digital Marketing Specialist",
   avatar:
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=150&width=150",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   coverPhoto:
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=400&width=1200",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   bio: "Digital marketing specialist with a passion for data-driven strategies. Helping brands tell their stories through engaging content and analytics.",
   memberSince: "Member since 2019",
   location: "New York, NY",
@@ -168,11 +192,43 @@ const RadialProgress = ({
   value: number;
   size?: number;
   strokeWidth?: number;
-  color?: string;
+  color?: ColorOption;
 }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const dash = (value * circumference) / 100;
+
+  // Color mapping for stroke
+  const colorMap = useMemo(() => {
+    const colors: Record<ColorOption, string> = {
+      slate: "#64748b",
+      gray: "#6b7280",
+      zinc: "#71717a",
+      neutral: "#737373",
+      stone: "#78716c",
+      red: "#ef4444",
+      orange: "#f97316",
+      amber: "#f59e0b",
+      yellow: "#eab308",
+      lime: "#84cc16",
+      green: "#22c55e",
+      emerald: "#10b981",
+      teal: "#14b8a6",
+      cyan: "#06b6d4",
+      sky: "#0ea5e9",
+      blue: "#3b82f6",
+      indigo: "#6366f1",
+      violet: "#8b5cf6",
+      purple: "#a855f7",
+      fuchsia: "#d946ef",
+      pink: "#ec4899",
+      rose: "#f43f5e",
+    };
+    return colors;
+  }, []);
+
+  // Get the text color class safely
+  const textColorClass = `text-${color}-500`;
 
   return (
     <div className="relative" style={{ width: size, height: size }}>
@@ -195,7 +251,7 @@ const RadialProgress = ({
           cy={size / 2}
           r={radius}
           fill="transparent"
-          stroke={`var(--${color}-500)`}
+          stroke={colorMap[color]}
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           initial={{ strokeDashoffset: circumference }}
@@ -209,7 +265,7 @@ const RadialProgress = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className={`text-xl font-bold text-${color}-500`}
+          className={`text-xl font-bold ${textColorClass}`}
         >
           {value}%
         </motion.span>
@@ -358,7 +414,7 @@ export default function DataVisualizationProfile({
                 {userData.location} • {userData.memberSince}
               </motion.p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex gap-3 pb-4 md:pb-0">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -381,7 +437,7 @@ export default function DataVisualizationProfile({
       {/* Navigation */}
       <div className="sticky top-0 z-10 border-b border-gray-200 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="scrollbar-hide flex overflow-x-auto">
+          <div className="hide-scrollbar flex overflow-x-auto">
             {[
               "dashboard",
               "activity",
@@ -706,6 +762,21 @@ export default function DataVisualizationProfile({
           </motion.div>
         </motion.div>
       </div>
+
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #6b7280;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

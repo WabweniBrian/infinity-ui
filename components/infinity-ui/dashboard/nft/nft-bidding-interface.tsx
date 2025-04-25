@@ -28,10 +28,10 @@ const NFTBiddingInterface = () => {
 
   const nftName = "Cosmic Voyager #042";
   const nftImage =
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp";
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoxppOJrtFC1a2S06AJNu9MsdPXG8D5oerTblR";
   const collectionName = "Cosmic Series";
   const collectionImage =
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo";
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypowNsYN9UuGsmZFnW0VycwkvQUeR4Mg7aL5o1x";
   const currentBid = "2.7";
   const minBidIncrement = "0.1";
   const currency = "ETH";
@@ -196,7 +196,7 @@ const NFTBiddingInterface = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 px-4 py-8 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 px-4 py-8 text-white">
       <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-800 p-4">
@@ -573,6 +573,17 @@ const NFTBiddingInterface = () => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #6b7280;
+        }
+      `}</style>
     </div>
   );
 };

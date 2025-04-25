@@ -3,8 +3,24 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import { AddPurchaseModal } from "./add-purchase-modal";
 
-export const OrdersHeader = () => {
+type User = {
+  id: string;
+  name: string;
+};
+
+type Component = {
+  id: string;
+  name: string;
+};
+
+interface OrderHeaderProps {
+  users: User[];
+  components: Component[];
+}
+
+export const OrdersHeader = ({ users, components }: OrderHeaderProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -57,10 +73,7 @@ export const OrdersHeader = () => {
             </Tooltip>
           </TooltipProvider> */}
 
-          <Button size="sm" className="h-9 bg-brand hover:bg-brand/90">
-            <Plus size={16} className="mr-2" />
-            Add Order
-          </Button>
+          <AddPurchaseModal users={users} components={components} />
         </div>
       </div>
     </motion.div>

@@ -1,16 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import {
+  AnimatePresence,
   motion,
+  useInView,
   useScroll,
   useTransform,
-  useInView,
-  AnimatePresence,
 } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import Image from "next/image";
-import DarkModeToggle from "@/components/common/dark-mode-toggle";
+import { useEffect, useRef, useState } from "react";
 
 type Testimonial = {
   id: number;
@@ -124,9 +123,6 @@ const ParallaxSliderTestimonials = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-gray-900 py-24 text-white dark:bg-black"
     >
-      {/* Dark mode toggle */}
-      <DarkModeToggle />
-
       {/* Background with parallax effect */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Background image with overlay */}

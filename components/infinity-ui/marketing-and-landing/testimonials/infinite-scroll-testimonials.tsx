@@ -157,7 +157,7 @@ const InfiniteScrollTestimonials = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-gradient-to-b from-indigo-50 via-purple-50 to-pink-50 py-24 dark:from-indigo-950 dark:via-purple-950 dark:to-pink-950"
+      className="relative overflow-hidden bg-gradient-to-b from-indigo-50 via-purple-50 to-pink-50 py-24 dark:from-gray-950 dark:via-purple-950 dark:to-gray-900"
     >
       {/* Dark mode toggle */}
       <DarkModeToggle />

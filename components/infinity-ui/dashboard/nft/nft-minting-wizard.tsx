@@ -48,7 +48,6 @@ const NFTMintingWizard = ({
   collections = [],
   onClose,
 }: NFTMintingWizardProps) => {
-  // Form state
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -760,7 +759,6 @@ const NFTMintingWizard = ({
   );
 };
 
-// Missing component definition
 const Minus = ({ size = 24, ...props }) => {
   return (
     <svg

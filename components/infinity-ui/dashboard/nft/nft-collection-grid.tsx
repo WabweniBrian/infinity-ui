@@ -17,7 +17,7 @@ const NFTCollectionGrid = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 py-8 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 py-8 text-white">
       <div className="mx-auto max-w-6xl px-4">
         {/* Header */}
         <motion.div

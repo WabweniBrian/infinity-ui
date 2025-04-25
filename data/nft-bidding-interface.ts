@@ -16,7 +16,7 @@ export const bidHistoryData: BidHistoryItem[] = [
     bidder: {
       username: "cryptowhale",
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9yporRgI208sRM6SezdhwEl4xm7yqiGfjgZWu9KB",
       isVerified: true,
     },
     amount: "2.7",
@@ -27,7 +27,7 @@ export const bidHistoryData: BidHistoryItem[] = [
     bidder: {
       username: "nftcollector",
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9yporRgI208sRM6SezdhwEl4xm7yqiGfjgZWu9KB",
     },
     amount: "2.5",
     timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
@@ -37,7 +37,7 @@ export const bidHistoryData: BidHistoryItem[] = [
     bidder: {
       username: "artlover",
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9yporRgI208sRM6SezdhwEl4xm7yqiGfjgZWu9KB",
     },
     amount: "2.2",
     timestamp: new Date(Date.now() - 1000 * 60 * 60 * 5), // 5 hours ago
@@ -47,7 +47,7 @@ export const bidHistoryData: BidHistoryItem[] = [
     bidder: {
       username: "digitalinvestor",
       avatar:
-        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
+        "https://ldw366cauu.ufs.sh/f/X5rZLOaE9yporRgI208sRM6SezdhwEl4xm7yqiGfjgZWu9KB",
       isVerified: true,
     },
     amount: "2.0",

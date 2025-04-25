@@ -50,7 +50,7 @@ const Perspective3DNewsletter = () => {
   };
 
   return (
-    <section className="w-full overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800 py-20 text-white">
+    <section className="w-full overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 py-20 text-white">
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="relative">
           {/* 3D perspective container */}

@@ -2,19 +2,22 @@
 
 import RowActions from "@/components/common/row-actions";
 import {
-  getComponents,
+  getFormComponents,
+  getFormEditPurchase,
+  getFormUsers,
   getOrder,
   getOrderById,
-  getUsers,
 } from "@/lib/actions/admin/orders";
 import { getUser } from "@/lib/actions/admin/users";
 import { Pack, PaymentStatus, UserRole } from "@prisma/client";
-import { Download, Eye, Mail } from "lucide-react";
+import { Download, Eye, Mail, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import { SendEmailModal } from "../users/send-email-modal";
-import DeleteUser from "./delete-order-modal";
+import DeleteOrder from "./delete-order-modal";
 import { OrderDetailsModal } from "./order-details-modal";
+import { EditPurchaseModal } from "./edit-purchase-modal";
+import { UpdateStatusModal } from "./update-status-modal";
 
 type TUser = {
   id: string;
@@ -45,6 +48,10 @@ type OrderType = {
   orderNumber: string | null;
   userId: string;
   componentId: string | null;
+  address?: string | null;
+  phone?: string | null;
+  zipCode?: string | null;
+  paymentProvider?: string | null;
 };
 
 interface UserOrderStats {
@@ -65,11 +72,6 @@ interface ComponentData {
   slug: string;
 }
 
-interface UserOrderStats {
-  totalOrders: number;
-  totalSpent: number;
-}
-
 interface Order {
   id: string;
   orderNumber: string;
@@ -86,26 +88,41 @@ interface Order {
   userStats?: UserOrderStats;
 }
 
-const OrderActions = ({ id, userId }: { id: string; userId: string }) => {
+const OrderActions = ({
+  id,
+  userId,
+  status,
+}: {
+  id: string;
+  userId: string;
+  status: PaymentStatus;
+}) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
+  const [statusModal, setStatusModal] = useState(false);
   const [emailModal, setEmailModal] = useState(false);
   const [viewModal, setViewModal] = useState(false);
   const [order, setOrder] = useState<OrderType | null>(null);
   const [singleOrder, setSingleOrder] = useState<Order | null>(null);
   const [user, setUser] = useState<TUser | null>(null);
-  const [users, setUsers] = useState<User[]>([]);
   const [components, setComponents] = useState<Component[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
 
-  const confirmDelete = async () => {
+  const confirmDelete = () => {
     setDeleteModal(true);
   };
 
   const onEdit = async () => {
-    setOrder(await getOrder(id));
-    setUsers(await getUsers());
-    setComponents(await getComponents());
+    setOrder(await getFormEditPurchase(id));
+    setComponents(await getFormComponents());
+    setUsers(await getFormUsers());
     setEditModal(true);
+  };
+
+  const onUpdateStatus = async () => {
+    const orderData = await getOrder(id);
+    setOrder(orderData);
+    setStatusModal(true);
   };
 
   const onEmailUser = async () => {
@@ -128,6 +145,11 @@ const OrderActions = ({ id, userId }: { id: string; userId: string }) => {
             onclick: () => onEdit(),
           },
           {
+            icon: <RefreshCw className="h-4 w-4" />,
+            text: "Update Status",
+            onclick: () => onUpdateStatus(),
+          },
+          {
             icon: <Eye className="h-4 w-4" />,
             text: "View Order",
             onclick: () => onViewOrder(),
@@ -142,7 +164,6 @@ const OrderActions = ({ id, userId }: { id: string; userId: string }) => {
             text: "Download Invoice",
             onclick: () => alert("Downloading invoice...."),
           },
-
           {
             icon: <FiTrash />,
             text: "Delete",
@@ -150,19 +171,47 @@ const OrderActions = ({ id, userId }: { id: string; userId: string }) => {
           },
         ]}
       />
-      <DeleteUser
-        deleteModal={deleteModal}
-        setDeleteModal={setDeleteModal}
-        currentId={id}
-      />
 
-      {emailModal && (
-        <SendEmailModal user={user!} onClose={() => setEmailModal(false)} />
+      {/* Delete Modal */}
+      {deleteModal && (
+        <DeleteOrder
+          deleteModal={deleteModal}
+          setDeleteModal={setDeleteModal}
+          currentId={id}
+        />
       )}
 
-      {viewModal && (
+      {/* Edit Modal */}
+      {editModal && order && (
+        <EditPurchaseModal
+          open={editModal}
+          onOpenChange={setEditModal}
+          order={order}
+          components={components}
+          users={users}
+        />
+      )}
+
+      {/* Update Status Modal */}
+      {statusModal && order && (
+        <UpdateStatusModal
+          open={statusModal}
+          onOpenChange={setStatusModal}
+          orderId={order.id}
+          currentStatus={order.status}
+          orderNumber={order.orderNumber}
+        />
+      )}
+
+      {/* Email Modal */}
+      {emailModal && user && (
+        <SendEmailModal user={user} onClose={() => setEmailModal(false)} />
+      )}
+
+      {/* View Order Modal */}
+      {viewModal && singleOrder && (
         <OrderDetailsModal
-          order={singleOrder!}
+          order={singleOrder}
           onClose={() => setViewModal(false)}
           onEmailUser={onEmailUser}
         />

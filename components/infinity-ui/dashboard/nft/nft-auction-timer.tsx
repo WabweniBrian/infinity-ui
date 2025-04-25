@@ -61,7 +61,7 @@ const NFTAuctionTimer = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 px-4 py-8 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 px-4 py-8 text-white">
       <motion.div
         className={`mx-auto max-w-2xl overflow-hidden rounded-2xl ${isUrgent ? "bg-gradient-to-r from-red-900/40 to-orange-900/40" : "bg-slate-800/50"} border ${isUrgent ? "border-red-500/30" : "border-slate-700/50"}`}
         initial={{ opacity: 0, y: 20 }}

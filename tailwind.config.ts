@@ -33,7 +33,8 @@ const config = {
     extend: {
       fontFamily: {
         mono: ["var(--font-firaCode)"],
-        thicccboi: "var(--font-thicccboi)",
+        sans: ["var(--font-dm-sans)"],
+        heading: ["var(--font-plus-jakarta)"],
       },
       gridTemplateColumns: {
         "250-auto": "250px calc(100% - 250px)",

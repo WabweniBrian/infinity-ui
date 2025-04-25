@@ -10,6 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { AlertCircle, Loader2, Send, X } from "lucide-react";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
+import { sendEmailToUser } from "@/lib/actions/admin/send-general-email";
 
 type User = {
   id: string;
@@ -31,7 +32,7 @@ export const SendEmailModal = ({ user, onClose }: SendEmailModalProps) => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!subject.trim()) {
@@ -47,16 +48,29 @@ export const SendEmailModal = ({ user, onClose }: SendEmailModalProps) => {
     setError(null);
     setIsSending(true);
 
-    // Simulate sending email
-    setTimeout(() => {
-      setIsSending(false);
-      setSuccess(true);
+    try {
+      const result = await sendEmailToUser({
+        email: user.email,
+        name: user.name,
+        subject: subject.trim(),
+        message: message.trim(),
+        userId: user.id,
+      });
 
-      // Close modal after showing success message
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-    }, 1500);
+      if (result.success) {
+        setSuccess(true);
+        // Close modal after showing success message
+        setTimeout(() => {
+          onClose();
+        }, 2000);
+      } else {
+        setError(result.message || "Failed to send email");
+      }
+    } catch (error: any) {
+      setError(error.message || "An error occurred");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (

@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 const url =
   process.env.NODE_ENV === "production"
-    ? "https://bare-auth.vercel.app"
+    ? "https://infinityui.vercel.app"
     : "http://localhost:3000";
 
 export const sendPasswordResetLink = async (email: string, token: string) => {
@@ -21,7 +21,7 @@ export const sendPasswordResetLink = async (email: string, token: string) => {
   const emailHtml = await render(PasswordResetEmail({ url: resetLink }));
 
   const mailOptions = {
-    from: "wabtech.tech@gmail.com",
+    from: `"Infinity UI" <${process.env.NODE_MAILER_EMAIL}>`,
     to: email,
     subject: "Password Reset",
     html: emailHtml,

@@ -257,7 +257,11 @@ export const OrdersTable = ({
                       {formatDate(order.date)}
                     </td>
                     <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
-                      <OrderActions id={order.id} userId={order.userId} />
+                      <OrderActions
+                        id={order.id}
+                        userId={order.userId}
+                        status={order.status}
+                      />
                     </td>
                   </tr>
                 ))

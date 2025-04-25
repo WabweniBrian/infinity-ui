@@ -2,9 +2,12 @@ import {
   categorySchema,
   changePasswordSchema,
   componentSchema,
+  createPurchaseSchema,
   forgotPasswordSchema,
   notificationSchema,
   resetPasswordSchema,
+  updatePurchaseSchema,
+  updateStatusSchema,
   userLoginSchema,
   userProfileSchema,
   userRegistrationSchema,
@@ -26,6 +29,9 @@ export type PasswordChangeSchemaType = z.infer<typeof changePasswordSchema>;
 export type CategorySchemaType = z.infer<typeof categorySchema>;
 export type ComponentSchemaType = z.infer<typeof componentSchema>;
 export type NotificationSchemaType = z.infer<typeof notificationSchema>;
+export type CreatePurchaseSchemaType = z.infer<typeof createPurchaseSchema>;
+export type UpdatePurchaseSchemaType = z.infer<typeof updatePurchaseSchema>;
+export type UpdateStatusSchemaType = z.infer<typeof updateStatusSchema>;
 
 export type AutocompleteSuggestion =
   | SearchSuggestion

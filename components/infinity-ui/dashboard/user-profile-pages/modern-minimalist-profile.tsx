@@ -57,9 +57,9 @@ const defaultUserData: UserData = {
   joinDate: "Joined April 2021",
   bio: "Product designer with 6+ years of experience creating user-centered digital experiences. Passionate about solving complex problems with elegant solutions.",
   avatar:
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=150&width=150",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
   coverPhoto:
-    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp?height=400&width=1200",
+    "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
   stats: {
     projects: 48,
     followers: 2453,
@@ -226,7 +226,7 @@ export default function ModernMinimalistProfile({
 
           {/* Tabs */}
           <div className="border-t border-gray-200">
-            <div className="scrollbar-hide flex overflow-x-auto">
+            <div className="hide-scrollbar flex overflow-x-auto">
               {["overview", "projects", "activity", "settings"].map((tab) => (
                 <button
                   key={tab}
@@ -539,6 +539,20 @@ export default function ModernMinimalistProfile({
           </div>
         </div>
       </div>
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #6b7280;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

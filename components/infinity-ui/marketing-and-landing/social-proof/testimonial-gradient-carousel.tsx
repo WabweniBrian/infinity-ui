@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     role: "CTO",
     company: "Innovate Inc",
     content:
-      "The level of customer support we&apos;ve received has been exceptional. Any questions or issues we&apos;ve had were resolved quickly and professionally. It's rare to find this level of service these days.",
+      "The level of customer support we've received has been exceptional. Any questions or issues we've had were resolved quickly and professionally. It's rare to find this level of service these days.",
     rating: 5,
     image:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
@@ -53,7 +53,7 @@ const testimonials: Testimonial[] = [
     role: "Product Manager",
     company: "DesignHub",
     content:
-      "We&apos;ve seen a significant ROI since implementing this solution. Not only has it streamlined our processes, but it's also helped us identify new opportunities for growth. Highly recommended!",
+      "We've seen a significant ROI since implementing this solution. Not only has it streamlined our processes, but it's also helped us identify new opportunities for growth. Highly recommended!",
     rating: 4,
     image:
       "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",

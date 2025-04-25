@@ -22,7 +22,7 @@ const testimonials: Testimonial[] = [
     role: "Marketing Director",
     company: "Brand Innovators",
     image:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "The creative approach they brought to our marketing materials completely transformed our campaign. We saw engagement increase by 200% within the first month!",
     rotation: -3,
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     role: "Startup Founder",
     company: "TechLaunch",
     image:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "As a startup, we needed a partner who could move quickly without sacrificing quality. They delivered our MVP in record time, helping us secure our next round of funding.",
     rotation: 2,
@@ -44,7 +44,7 @@ const testimonials: Testimonial[] = [
     role: "E-commerce Director",
     company: "Retail Innovations",
     image:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "The e-commerce solution they built for us increased our conversion rate by 45% and average order value by 30%. The ROI has been incredible.",
     rotation: -2,
@@ -55,7 +55,7 @@ const testimonials: Testimonial[] = [
     role: "Creative Director",
     company: "Design Studio",
     image:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "Working with this team was a breath of fresh air! They understood our vision immediately and delivered a website that perfectly captures our brand's personality.",
     rotation: 3,
@@ -66,7 +66,7 @@ const testimonials: Testimonial[] = [
     role: "Product Owner",
     company: "SaaS Platform",
     image:
-      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp",
+      "https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypo5pOGbxjjr1yh2kP4nKicTUMm97NeEzAJCBIo",
     content:
       "Their attention to detail and user-focused design philosophy helped us simplify our complex product. Our users love the new interface!",
     rotation: -1,

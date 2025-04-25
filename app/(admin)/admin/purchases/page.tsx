@@ -2,7 +2,11 @@ import { OrdersFilters } from "@/components/admin/purchases/order-filters";
 import { OrdersStats } from "@/components/admin/purchases/order-stats";
 import { OrdersHeader } from "@/components/admin/purchases/orders-header";
 import { OrdersTable } from "@/components/admin/purchases/orders-table";
-import { getOrders } from "@/lib/actions/admin/orders";
+import {
+  getFormComponents,
+  getFormUsers,
+  getOrders,
+} from "@/lib/actions/admin/orders";
 
 export const metadata = {
   title: "Puchases",
@@ -37,9 +41,12 @@ const OrdersPage = async ({ searchParams }: SearchParams) => {
     skip,
   });
 
+  const users = await getFormUsers();
+  const components = await getFormComponents();
+
   return (
     <div className="space-y-6">
-      <OrdersHeader />
+      <OrdersHeader users={users} components={components} />
       <OrdersStats />
       <OrdersFilters />
       <OrdersTable

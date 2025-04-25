@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 const url =
   process.env.NODE_ENV === "production"
-    ? "https://bare-auth.vercel.app"
+    ? "https://infinityui.vercel.app"
     : "http://localhost:3000";
 
 export const sendEmailVerification = async (email: string) => {
@@ -21,7 +21,7 @@ export const sendEmailVerification = async (email: string) => {
   const emailHtml = await render(EmailVerification({ url: link }));
 
   const mailOptions = {
-    from: "wabtech.tech@gmail.com",
+    from: `"Infinity UI" <${process.env.NODE_MAILER_EMAIL}>`,
     to: email,
     subject: "Email Verification",
     html: emailHtml,

@@ -111,9 +111,6 @@ const MasonryGridTestimonials = () => {
       ref={sectionRef}
       className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 py-24 text-white dark:from-black dark:to-gray-900"
     >
-      {/* Dark mode toggle */}
-      <DarkModeToggle />
-
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://ldw366cauu.ufs.sh/f/X5rZLOaE9ypoanFSiLl5uGEVz3qLUXCjBOmR6fkIWAJ9HPKp')] bg-repeat opacity-[0.03]" />

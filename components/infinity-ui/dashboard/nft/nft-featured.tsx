@@ -14,7 +14,7 @@ const NFTFeatured = () => {
   auctionEndTime.setDate(auctionEndTime.getDate() + 3);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 px-4 py-12 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-950 to-slate-900 px-4 py-12 text-white">
       <div className="mx-auto max-w-sm">
         <h2 className="mb-6 text-2xl font-bold">Featured NFT</h2>
         <div onClick={() => setIsModalOpen(true)} className="cursor-pointer">
@@ -37,6 +37,18 @@ const NFTFeatured = () => {
         onClose={() => setIsModalOpen(false)}
         nft={selectedNFT}
       />
+
+      <style jsx>{`
+        ::-webkit-scrollbar {
+          height: 0.5rem;
+          width: 0.5rem;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 1rem;
+          background-color: #6b7280;
+        }
+      `}</style>
     </div>
   );
 };
