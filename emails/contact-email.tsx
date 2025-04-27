@@ -80,7 +80,7 @@ export const ContactEmail = ({
           <Hr className="my-6 border-t border-t-slate-300" />
 
           <Text className="text-left text-sm text-slate-600">
-            This is a contact email, please response with urgency.
+            This is a contact email, please respond with urgency.
           </Text>
 
           <Text className="mt-4 text-sm text-slate-600">
