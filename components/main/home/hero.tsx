@@ -98,7 +98,7 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Sparkles className="h-3.5 w-3.5 text-[#11ACBB]" />
-                <span>450+ Premium UI Components</span>
+                <span>350+ Modern UI Components</span>
               </motion.span>
             </div>
 

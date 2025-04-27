@@ -5,7 +5,7 @@ const FAQs = () => {
     {
       question: "What is Infinity UI?",
       answer:
-        "Infinity UI is a comprehensive collection of beautifully designed UI components and blocks for React and Next.js applications, powered by Tailwind CSS and shadcn/ui. It provides developers with a wide range of customizable, accessible, and responsive components to build modern web applications quickly and efficiently.",
+        "Infinity UI is a comprehensive collection of beautifully designed UI components and blocks for React and Next.js applications, powered by Tailwind CSS. It provides developers with a wide range of customizable, accessible, and responsive components to build modern web applications quickly and efficiently.",
     },
     {
       question: "What does 'lifetime access' mean?",
@@ -27,11 +27,7 @@ const FAQs = () => {
       answer:
         "No, sharing your account with other users is strictly prohibited. Each developer should have their own license to use Infinity UI.",
     },
-    {
-      question: "Can I upgrade from Solo to Team plan?",
-      answer:
-        "Yes, you can upgrade from the Solo Plan to the Team Plan at any time. Contact our support team for assistance with the upgrade process.",
-    },
+
     {
       question: "Can I use Infinity UI components in multiple projects?",
       answer:
@@ -50,12 +46,12 @@ const FAQs = () => {
     {
       question: "Do you offer refunds?",
       answer:
-        "We offer a 7-day refund policy. If you&apos;re not satisfied with Infinity UI, please email us at support@infinityui.dev within 7 days of your purchase to request a refund.",
+        "Unfortunately, we do not offer refunds once payment has been made unless in extreme situations explained by the customer. For more inquiries about this, please contact us or send an email at support@infinityui.dev",
     },
     {
       question: "Do I need to purchase a license for each project I work on?",
       answer:
-        "No, you don&apos;t have to buy a new Infinity UI plan every time you want to use it on a new project. As long as what you&apos;re building is allowed as per the license, you can build as many sites as you want without ever having to buy an additional license. To find detailed information and examples illustrating permissible and impermissible uses, read through our license.",
+        "No, you don't have to buy a new Infinity UI plan every time you want to use it on a new project. As long as what you're building is allowed as per the license, you can build as many sites as you want without ever having to buy an additional license. To find detailed information and examples illustrating permissible and impermissible uses, read through our license.",
     },
   ];
 

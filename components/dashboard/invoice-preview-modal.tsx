@@ -137,8 +137,7 @@ export const InvoicePreviewModal = ({
               </div>
               <div className="text-right">
                 <div className="text-xl font-bold text-brand">Infinity UI</div>
-                <p className="text-gray-600">Kololo</p>
-                <p className="text-gray-600">Kampala Uganda</p>
+                <p className="text-gray-600">Kololo, Kampala Uganda</p>
                 <p className="text-gray-600">support@infinityui.dev</p>
               </div>
             </div>

@@ -6,10 +6,10 @@ import Link from "next/link";
 
 const LifetimeDealCTA = () => {
   const features = [
-    "Ulimited licenses for all components",
+    "Ulimited user licenses for all components",
     "Access to all components and packs (ecommerce, dashboard, marketing, forms)",
     "AI components included",
-    "Over 450+ premium modern components",
+    "Over 350+ modern components",
     "New components added regularly",
     "Free lifetime updates",
   ];
@@ -53,7 +53,7 @@ const LifetimeDealCTA = () => {
                   className="text-xl text-white/90"
                 >
                   Unlock all components at an exclusive{" "}
-                  <span className="font-bold text-white">65% discount</span>
+                  <span className="font-bold text-white">75% discount</span>
                 </motion.p>
               </div>
 
@@ -121,14 +121,14 @@ const LifetimeDealCTA = () => {
                     Lifetime Deal
                   </h3>
                   <div className="rounded-full bg-yellow-800 px-3 py-1 text-xs font-medium text-yellow-100">
-                    65% OFF
+                    75% OFF
                   </div>
                 </div>
 
                 <div className="mb-4 flex items-end">
-                  <div className="text-4xl font-bold text-white">$199</div>
+                  <div className="text-4xl font-bold text-white">$65</div>
                   <div className="ml-2 text-lg text-white/80 line-through">
-                    $569
+                    $255
                   </div>
                 </div>
 

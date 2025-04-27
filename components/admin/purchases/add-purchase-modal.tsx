@@ -159,7 +159,7 @@ export const AddPurchaseModal = ({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="max-h-[80vh] w-full max-w-2xl overflow-y-auto overflow-x-hidden rounded-xl bg-white shadow-xl dark:bg-gray-800"
+              className="max-h-[80vh] w-full max-w-2xl overflow-y-auto overflow-x-hidden rounded-xl bg-background shadow-xl"
             >
               <div className="flex items-center justify-between border-b border-gray-200 p-6 dark:border-gray-700">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white">

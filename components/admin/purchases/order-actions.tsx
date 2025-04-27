@@ -86,6 +86,9 @@ interface Order {
   user: UserData;
   component: ComponentData | null;
   userStats?: UserOrderStats;
+  address?: string | null;
+  phone?: string | null;
+  zipCode?: string | null;
 }
 
 const OrderActions = ({

@@ -51,6 +51,9 @@ interface Order {
   user: UserData;
   component: ComponentData | null;
   userStats?: UserOrderStats;
+  address?: string | null;
+  phone?: string | null;
+  zipCode?: string | null;
 }
 interface OrderDetailsModalProps {
   order: Order;
@@ -361,9 +364,9 @@ export const OrderDetailsModal = ({
                         Infinity UI
                       </div>
                       <p className="mt-1 text-gray-500 dark:text-gray-400">
-                        123 UI Street, Component City
+                        Kololo, Kampala Uganda
                         <br />
-                        contact@infinityui.com
+                        csupport@infinityui.dev
                       </p>
                     </div>
                   </div>
@@ -377,6 +380,15 @@ export const OrderDetailsModal = ({
                         {order.user.name}
                         <br />
                         {order.user.email}
+                      </p>
+                      {order?.address && (
+                        <p className="text-gray-900 dark:text-white">
+                          {order?.address}{" "}
+                          {order.zipCode && <span>, {order.zipCode} </span>}
+                        </p>
+                      )}
+                      <p className="text-gray-900 dark:text-white">
+                        {order?.phone}
                       </p>
                     </div>
                     <div className="text-right">

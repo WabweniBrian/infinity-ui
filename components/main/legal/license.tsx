@@ -196,8 +196,7 @@ const License = () => {
             here to help, not to engage in intergalactic legal battles.
           </p>
           <p className="mt-4 text-sm text-gray-400 dark:text-gray-500">
-            Last updated: Stardate 2025.15 (or as Earthlings say, January 15,
-            2025)
+            Last updated: Stardate 2025.15 (or as Earthlings say, May 15, 2025)
           </p>
         </motion.div>
       </div>

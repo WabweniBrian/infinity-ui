@@ -87,6 +87,7 @@ export default function Checkout({
     phone: "",
     zipCode: "",
   });
+
   const tax = 0.0;
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -132,12 +133,12 @@ export default function Checkout({
   } else if (paymentFor === "bundle") {
     paymentDetails = {
       type: "bundle",
-      details: { name: "Infinity UI Bundle", price: 149 },
+      details: { name: "Infinity UI Bundle", price: 65 },
     };
   } else if (paymentFor === "pack") {
     paymentDetails = {
       type: "pack",
-      details: { name: "Infinity UI Pack", price: 249 },
+      details: { name: "Infinity UI Pack", price: 80 },
     };
   }
 

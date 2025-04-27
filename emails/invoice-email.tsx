@@ -99,8 +99,7 @@ export const InvoiceEmail = ({ purchase, user }: InvoiceEmailProps) => {
             <Row>
               <Column>
                 <Text style={companyName}>Infinity UI</Text>
-                <Text style={companyDetail}>Kololo</Text>
-                <Text style={companyDetail}>Kampala Uganda</Text>
+                <Text style={companyDetail}>Kololo, Kampala Uganda</Text>
                 <Text style={companyDetail}>support@infinityui.dev</Text>
               </Column>
             </Row>

@@ -207,6 +207,9 @@ export interface OrderType {
   user: UserData;
   component: ComponentData | null;
   userStats?: UserOrderStats;
+  address?: string | null;
+  phone?: string | null;
+  zipCode?: string | null;
 }
 
 export async function getOrderById(
@@ -227,6 +230,9 @@ export async function getOrderById(
         isPack: true,
         pack: true,
         componentId: true,
+        address: true,
+        zipCode: true,
+        phone: true,
         user: {
           select: {
             id: true,
@@ -277,6 +283,9 @@ export async function getOrderById(
       user: order.user as UserData,
       component: order.component,
       userStats: userStats,
+      address: order.address,
+      zipCode: order.zipCode,
+      phone: order.phone,
     };
 
     return result;

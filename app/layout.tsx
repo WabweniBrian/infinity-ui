@@ -66,7 +66,7 @@ export const metadata: Metadata = {
       "Elevate your SaaS startup with Infinity UI! Beautifully Designed React/Next.js UI Blocks",
     images: [
       {
-        url: "https://infinityui.vercel.app/logo.png",
+        url: "https://infinityui.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
     description:
       "Elevate your SaaS startup with Infinity UI! Beautifully Designed React/Next.js UI Blocks",
-    images: ["https://infinityui.vercel.app/logo.png"],
+    images: ["https://infinityui.vercel.app/og-image.png"],
   },
   robots: {
     index: true,
