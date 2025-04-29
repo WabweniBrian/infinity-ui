@@ -102,7 +102,8 @@ export const getComponents = async ({
     ORDER BY 
       rank DESC,
       similarity DESC,
-      "isFeatured" DESC
+      "isFeatured" DESC,
+      "createdAt" DESC
     LIMIT ${limit} OFFSET ${skip};
   `;
 
