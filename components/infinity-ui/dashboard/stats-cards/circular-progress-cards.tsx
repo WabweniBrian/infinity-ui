@@ -34,7 +34,7 @@ const CircularProgressCard = ({
 
   return (
     <motion.div
-      className="flex flex-col rounded-xl border bg-gray-800/50 p-6 shadow-sm dark:border-gray-700"
+      className="flex flex-col rounded-xl border bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800/50"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}

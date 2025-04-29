@@ -35,14 +35,14 @@ const LayeredStatCard = ({
 
   return (
     <motion.div
-      className="group relative rounded-xl border bg-gray-800/50 shadow-sm dark:border-gray-700"
+      className="group relative rounded-xl border bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800/50"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       layout
     >
       {/* Main card */}
-      <div className="relative z-20 rounded-xl border-b border-transparent bg-gray-800/50 p-6 transition-all group-hover:border-slate-200 dark:bg-slate-900 dark:group-hover:border-slate-800">
+      <div className="relative z-20 rounded-xl border-b border-transparent bg-white p-6 transition-all group-hover:border-slate-200 dark:bg-gray-800/50 dark:bg-slate-900 dark:group-hover:border-slate-800">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div

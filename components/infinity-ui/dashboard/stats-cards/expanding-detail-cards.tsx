@@ -36,7 +36,7 @@ const ExpandingDetailCard = ({
 
   return (
     <motion.div
-      className="overflow-hidden rounded-xl border bg-gray-800/50 shadow-sm dark:border-gray-700"
+      className="overflow-hidden rounded-xl border bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800/50"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}

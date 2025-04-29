@@ -32,7 +32,7 @@ const BarStatCard = ({
 }: BarStatCardProps) => {
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-xl border bg-gray-800/50 p-6 shadow-sm transition-all dark:border-gray-700"
+      className="group relative overflow-hidden rounded-xl border bg-white p-6 shadow-sm transition-all dark:border-gray-700 dark:bg-gray-800/50"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}

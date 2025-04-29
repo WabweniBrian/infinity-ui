@@ -77,7 +77,7 @@ const TiltCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="group relative h-full rounded-xl border bg-gray-800/50 p-6 shadow-sm transition-all dark:border-gray-700"
+      className="group relative h-full rounded-xl border bg-white p-6 shadow-sm transition-all dark:border-gray-700 dark:bg-gray-800/50"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
