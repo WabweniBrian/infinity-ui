@@ -100,10 +100,14 @@ export const getComponents = async ({
     SELECT *
     FROM SearchResults
     ORDER BY 
-      rank DESC,
+      CASE WHEN COALESCE(${search}::TEXT, '') = '' THEN
+        "isFeatured" DESC
+      ELSE
+        rank DESC
+      END,
       similarity DESC,
-      "isFeatured"
-    LIMIT ${limit} OFFSET ${skip};
+      "isFeatured" DESC,
+      name ASC;
   `;
 
   // Get the total count
