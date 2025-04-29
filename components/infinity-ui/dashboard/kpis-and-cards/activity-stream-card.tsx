@@ -408,7 +408,7 @@ export default function ActivityStreamCard({
               className={`flex gap-3 rounded-lg border p-3 ${
                 !activity.read
                   ? "border-slate-300 dark:border-slate-600"
-                  : "dark:border-slate-800"
+                  : "dark:border-gray-700"
               }`}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

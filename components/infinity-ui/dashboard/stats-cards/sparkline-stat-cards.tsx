@@ -108,7 +108,7 @@ const SparklineStatCard = ({
 
   return (
     <motion.div
-      className="relative rounded-xl border bg-card p-6 shadow-sm transition-all dark:border-slate-800 dark:bg-slate-900"
+      className="relative rounded-xl border bg-card p-6 shadow-sm transition-all dark:border-gray-700 dark:bg-slate-900"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -215,7 +215,7 @@ export default function SparklineStatCards() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 dark:bg-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 dark:bg-gray-900">
       {/* Darkmode toggle */}
       <DarkModeToggle />
       <div className="mx-auto max-w-6xl">

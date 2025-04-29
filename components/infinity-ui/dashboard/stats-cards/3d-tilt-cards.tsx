@@ -77,7 +77,7 @@ const TiltCard = ({
   return (
     <motion.div
       ref={cardRef}
-      className="group relative h-full rounded-xl border bg-background p-6 shadow-sm transition-all dark:border-slate-800"
+      className="group relative h-full rounded-xl border bg-gray-800/50 p-6 shadow-sm transition-all dark:border-gray-700"
       style={{
         perspective: "1000px",
         transformStyle: "preserve-3d",
@@ -209,7 +209,7 @@ export default function TiltCards() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 dark:bg-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 dark:bg-gray-900">
       {/* Darkmode toggle */}
       <DarkModeToggle />
       <div className="mx-auto max-w-6xl">

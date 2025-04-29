@@ -588,7 +588,7 @@ const MagazineArticle = ({
           </div>
 
           {/* Author Bio */}
-          <div className="mt-16 border-t border-slate-200 pt-8 dark:border-slate-800">
+          <div className="mt-16 border-t border-slate-200 pt-8 dark:border-gray-700">
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
               <Image
                 src={

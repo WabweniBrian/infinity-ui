@@ -296,7 +296,7 @@ export default function FloatingIconCards() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 dark:bg-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 dark:bg-gray-900">
       {/* Darkmode toggle */}
       <DarkModeToggle />
       <div className="mx-auto max-w-6xl">

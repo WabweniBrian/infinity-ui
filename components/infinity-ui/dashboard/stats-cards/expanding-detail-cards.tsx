@@ -36,7 +36,7 @@ const ExpandingDetailCard = ({
 
   return (
     <motion.div
-      className="overflow-hidden rounded-xl border bg-background shadow-sm dark:border-slate-800"
+      className="overflow-hidden rounded-xl border bg-gray-800/50 shadow-sm dark:border-gray-700"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -44,7 +44,7 @@ const ExpandingDetailCard = ({
     >
       <motion.div
         className={`flex cursor-pointer items-center justify-between p-6 ${
-          isExpanded ? "border-b dark:border-slate-800" : ""
+          isExpanded ? "border-b dark:border-gray-700" : ""
         }`}
         onClick={() => setIsExpanded(!isExpanded)}
         whileHover={{ backgroundColor: "rgba(0, 0, 0, 0.02)" }}
@@ -333,7 +333,7 @@ export default function ExpandingDetailCards() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 dark:bg-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 dark:bg-gray-900">
       {/* Darkmode toggle */}
       <DarkModeToggle />
       <div className="mx-auto max-w-6xl">

@@ -340,7 +340,7 @@ const ClassicArticle = ({
 
             {/* Tags */}
             {tags && tags.length > 0 && (
-              <div className="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800">
+              <div className="mt-12 border-t border-slate-200 pt-8 dark:border-gray-700">
                 <h3 className="mb-4 text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Tags
                 </h3>
@@ -361,7 +361,7 @@ const ClassicArticle = ({
             )}
 
             {/* Author Bio */}
-            <div className="mt-12 border-t border-slate-200 pt-8 dark:border-slate-800">
+            <div className="mt-12 border-t border-slate-200 pt-8 dark:border-gray-700">
               <div className="flex flex-col items-start gap-6 sm:flex-row">
                 <Image
                   src={

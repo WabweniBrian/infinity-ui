@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   TrendingUp,
@@ -13,52 +13,72 @@ import {
   DollarSign,
   Users,
   ShoppingCart,
-} from "lucide-react"
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts"
-import { commonChartConfig } from "./chart-utils"
+} from "lucide-react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Cell,
+} from "recharts";
+import { commonChartConfig } from "./chart-utils";
 
-type Period = "daily" | "weekly" | "monthly" | "quarterly" | "yearly"
+type Period = "daily" | "weekly" | "monthly" | "quarterly" | "yearly";
 
 type MetricData = {
-  current: string
-  previous: string
-  change: number
-  currentRaw: number
-  previousRaw: number
-}
+  current: string;
+  previous: string;
+  change: number;
+  currentRaw: number;
+  previousRaw: number;
+};
 
 type ComparativeMetricProps = {
-  title: string
-  icon: React.ReactNode
-  color: string
-  periods: Record<Period, MetricData>
-  defaultPeriod: Period
-}
+  title: string;
+  icon: React.ReactNode;
+  color: string;
+  periods: Record<Period, MetricData>;
+  defaultPeriod: Period;
+};
 
-const ComparativeMetricCard = ({ title, icon, color, periods, defaultPeriod }: ComparativeMetricProps) => {
-  const [selectedPeriod, setSelectedPeriod] = useState<Period>(defaultPeriod)
+const ComparativeMetricCard = ({
+  title,
+  icon,
+  color,
+  periods,
+  defaultPeriod,
+}: ComparativeMetricProps) => {
+  const [selectedPeriod, setSelectedPeriod] = useState<Period>(defaultPeriod);
 
-  const periodOptions: Period[] = ["daily", "weekly", "monthly", "quarterly", "yearly"]
+  const periodOptions: Period[] = [
+    "daily",
+    "weekly",
+    "monthly",
+    "quarterly",
+    "yearly",
+  ];
   const periodLabels: Record<Period, string> = {
     daily: "Day",
     weekly: "Week",
     monthly: "Month",
     quarterly: "Quarter",
     yearly: "Year",
-  }
+  };
 
-  const currentData = periods[selectedPeriod]
-  const isPositive = currentData.change >= 0
+  const currentData = periods[selectedPeriod];
+  const isPositive = currentData.change >= 0;
 
   // Chart data for comparison
   const chartData = [
     { name: "Previous", value: currentData.previousRaw },
     { name: "Current", value: currentData.currentRaw },
-  ]
+  ];
 
   return (
     <motion.div
-      className="rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800"
+      className="rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -96,7 +116,7 @@ const ComparativeMetricCard = ({ title, icon, color, periods, defaultPeriod }: C
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="space-y-1 rounded-lg border p-3 dark:border-slate-800">
+        <div className="space-y-1 rounded-lg border p-3 dark:border-gray-700">
           <p className="flex items-center gap-1 text-xs text-muted-foreground">
             <Calendar className="h-3 w-3" />
             <span>Current {periodLabels[selectedPeriod]}</span>
@@ -115,7 +135,7 @@ const ComparativeMetricCard = ({ title, icon, color, periods, defaultPeriod }: C
           </AnimatePresence>
         </div>
 
-        <div className="space-y-1 rounded-lg border p-3 dark:border-slate-800">
+        <div className="space-y-1 rounded-lg border p-3 dark:border-gray-700">
           <p className="flex items-center gap-1 text-xs text-muted-foreground">
             <Calendar className="h-3 w-3" />
             <span>Previous {periodLabels[selectedPeriod]}</span>
@@ -145,7 +165,11 @@ const ComparativeMetricCard = ({ title, icon, color, periods, defaultPeriod }: C
               color: isPositive ? color : "#ef4444",
             }}
           >
-            {isPositive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
+            {isPositive ? (
+              <TrendingUp className="h-3 w-3" />
+            ) : (
+              <TrendingDown className="h-3 w-3" />
+            )}
             <AnimatePresence mode="wait">
               <motion.span
                 key={`change-${selectedPeriod}`}
@@ -177,7 +201,11 @@ const ComparativeMetricCard = ({ title, icon, color, periods, defaultPeriod }: C
       {/* Visual comparison with Recharts */}
       <div className="mt-4 h-24">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={chartData} layout="vertical" margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
+          <BarChart
+            data={chartData}
+            layout="vertical"
+            margin={{ top: 5, right: 5, bottom: 5, left: 5 }}
+          >
             <XAxis type="number" hide />
             <YAxis dataKey="name" type="category" hide />
             <Tooltip
@@ -187,17 +215,25 @@ const ComparativeMetricCard = ({ title, icon, color, periods, defaultPeriod }: C
                 borderRadius: "0.5rem",
               }}
             />
-            <Bar dataKey="value" radius={[4, 4, 4, 4]} animationDuration={commonChartConfig.animationDuration}>
+            <Bar
+              dataKey="value"
+              radius={[4, 4, 4, 4]}
+              animationDuration={commonChartConfig.animationDuration}
+            >
               {chartData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={index === 0 ? "#94a3b8" : color} opacity={index === 0 ? 0.7 : 1} />
+                <Cell
+                  key={`cell-${index}`}
+                  fill={index === 0 ? "#94a3b8" : color}
+                  opacity={index === 0 ? 0.7 : 1}
+                />
               ))}
             </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
 export default function ComparativePeriodMetrics() {
   const metrics = [
@@ -373,14 +409,18 @@ export default function ComparativePeriodMetrics() {
       },
       defaultPeriod: "quarterly" as Period,
     },
-  ]
+  ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-foreground">Performance Metrics</h2>
-          <p className="text-sm text-muted-foreground">Compare metrics across different time periods</p>
+          <h2 className="text-xl font-bold text-foreground">
+            Performance Metrics
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            Compare metrics across different time periods
+          </p>
         </div>
 
         <button className="rounded-md bg-primary px-3 py-1 text-sm font-medium text-primary-foreground">
@@ -401,40 +441,71 @@ export default function ComparativePeriodMetrics() {
         ))}
       </div>
 
-      <div className="rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800">
-        <h3 className="mb-4 text-lg font-medium text-foreground">Period Comparison Summary</h3>
+      <div className="rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700">
+        <h3 className="mb-4 text-lg font-medium text-foreground">
+          Period Comparison Summary
+        </h3>
 
         <div className="overflow-x-auto">
           <table className="w-full min-w-[600px] border-collapse">
             <thead>
               <tr className="border-b dark:border-slate-700">
-                <th className="py-2 text-left text-sm font-medium text-muted-foreground">Metric</th>
-                <th className="py-2 text-left text-sm font-medium text-muted-foreground">Daily</th>
-                <th className="py-2 text-left text-sm font-medium text-muted-foreground">Weekly</th>
-                <th className="py-2 text-left text-sm font-medium text-muted-foreground">Monthly</th>
-                <th className="py-2 text-left text-sm font-medium text-muted-foreground">Quarterly</th>
-                <th className="py-2 text-left text-sm font-medium text-muted-foreground">Yearly</th>
+                <th className="py-2 text-left text-sm font-medium text-muted-foreground">
+                  Metric
+                </th>
+                <th className="py-2 text-left text-sm font-medium text-muted-foreground">
+                  Daily
+                </th>
+                <th className="py-2 text-left text-sm font-medium text-muted-foreground">
+                  Weekly
+                </th>
+                <th className="py-2 text-left text-sm font-medium text-muted-foreground">
+                  Monthly
+                </th>
+                <th className="py-2 text-left text-sm font-medium text-muted-foreground">
+                  Quarterly
+                </th>
+                <th className="py-2 text-left text-sm font-medium text-muted-foreground">
+                  Yearly
+                </th>
               </tr>
             </thead>
             <tbody>
               {metrics.map((metric, index) => (
                 <tr key={index} className="border-b dark:border-slate-700">
-                  <td className="py-3 text-sm font-medium text-foreground">{metric.title}</td>
-                  {(["daily", "weekly", "monthly", "quarterly", "yearly"] as Period[]).map((period) => {
-                    const data = metric.periods[period]
-                    const isPositive = data.change >= 0
+                  <td className="py-3 text-sm font-medium text-foreground">
+                    {metric.title}
+                  </td>
+                  {(
+                    [
+                      "daily",
+                      "weekly",
+                      "monthly",
+                      "quarterly",
+                      "yearly",
+                    ] as Period[]
+                  ).map((period) => {
+                    const data = metric.periods[period];
+                    const isPositive = data.change >= 0;
 
                     return (
                       <td key={period} className="py-3">
                         <div className="flex items-center gap-1">
-                          <span className="text-sm text-foreground">{data.current}</span>
-                          <span className="text-xs" style={{ color: isPositive ? "#10b981" : "#ef4444" }}>
+                          <span className="text-sm text-foreground">
+                            {data.current}
+                          </span>
+                          <span
+                            className="text-xs"
+                            style={{
+                              color: isPositive ? "#10b981" : "#ef4444",
+                            }}
+                          >
                             {isPositive ? "↑" : "↓"}
                             {Math.abs(data.change)}%
                           </span>
                         </div>
                       </td>
-                    )
+                    );
                   })}
                 </tr>
               ))}
@@ -443,6 +514,5 @@ export default function ComparativePeriodMetrics() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

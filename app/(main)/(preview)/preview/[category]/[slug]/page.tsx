@@ -51,7 +51,9 @@ export default async function PreviewPage({ params }: PreviewPageProps) {
   }
 
   // Dynamically import the component
-  const Component = await loadComponent(componentData.Componentpath);
+  const Component = await loadComponent(
+    "infinity-ui/dashboard/sidebars/ai-assistant-sidebar",
+  );
 
   return <Component />;
 }

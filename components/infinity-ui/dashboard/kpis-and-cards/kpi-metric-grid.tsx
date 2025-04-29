@@ -58,7 +58,7 @@ const MetricCard = ({
 
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-xl border p-5 shadow-sm transition-all dark:border-slate-800 ${
+      className={`relative overflow-hidden rounded-xl border p-5 shadow-sm transition-all dark:border-gray-700 ${
         isSelected
           ? "ring-2 dark:bg-slate-800/50"
           : "bg-background dark:bg-slate-900"
@@ -305,7 +305,7 @@ export default function KpiMetricGrid() {
 
       {/* Detailed view */}
       <motion.div
-        className="rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800"
+        className="rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700"
         initial={{ opacity: 0, height: 0 }}
         animate={{ opacity: 1, height: "auto" }}
         transition={{ duration: 0.3 }}
@@ -447,7 +447,7 @@ export default function KpiMetricGrid() {
             return (
               <div
                 key={index}
-                className="rounded-lg border p-3 dark:border-slate-800"
+                className="rounded-lg border p-3 dark:border-gray-700"
               >
                 <p className="text-xs text-muted-foreground">{label}</p>
                 <p className="mt-1 text-lg font-semibold text-foreground">

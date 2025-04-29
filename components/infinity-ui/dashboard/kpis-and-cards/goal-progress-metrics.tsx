@@ -1,29 +1,45 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, CheckCircle2, AlertCircle, Clock, Target, TrendingUp, TrendingDown } from "lucide-react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
-import { commonChartConfig } from "./chart-utils"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronDown,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  Target,
+  TrendingUp,
+  TrendingDown,
+} from "lucide-react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
+import { commonChartConfig } from "./chart-utils";
 
-type GoalStatus = "completed" | "at-risk" | "on-track" | "not-started"
+type GoalStatus = "completed" | "at-risk" | "on-track" | "not-started";
 
 type GoalProgressProps = {
-  title: string
-  description: string
-  target: string
-  current: string
-  percentComplete: number
-  status: GoalStatus
-  dueDate: string
-  owner: string
+  title: string;
+  description: string;
+  target: string;
+  current: string;
+  percentComplete: number;
+  status: GoalStatus;
+  dueDate: string;
+  owner: string;
   updates: {
-    date: string
-    value: string
-    change: number
-    rawValue: number // For chart
-  }[]
-}
+    date: string;
+    value: string;
+    change: number;
+    rawValue: number; // For chart
+  }[];
+};
 
 const statusConfig = {
   completed: {
@@ -46,7 +62,7 @@ const statusConfig = {
     color: "#f97316", // Orange
     label: "Not Started",
   },
-}
+};
 
 const GoalProgressCard = ({
   title,
@@ -59,11 +75,11 @@ const GoalProgressCard = ({
   owner,
   updates,
 }: GoalProgressProps) => {
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const StatusIcon = statusConfig[status].icon
-  const statusColor = statusConfig[status].color
-  const statusLabel = statusConfig[status].label
+  const StatusIcon = statusConfig[status].icon;
+  const statusColor = statusConfig[status].color;
+  const statusLabel = statusConfig[status].label;
 
   // Prepare chart data
   const chartData = updates
@@ -71,11 +87,11 @@ const GoalProgressCard = ({
       date: update.date,
       value: update.rawValue,
     }))
-    .reverse()
+    .reverse();
 
   return (
     <motion.div
-      className="overflow-hidden rounded-xl border bg-background shadow-sm dark:border-slate-800"
+      className="overflow-hidden rounded-xl border bg-background shadow-sm dark:border-gray-700"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -104,7 +120,10 @@ const GoalProgressCard = ({
             onClick={() => setIsExpanded(!isExpanded)}
             className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-slate-100 hover:text-foreground dark:hover:bg-slate-800"
           >
-            <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
               <ChevronDown className="h-5 w-5" />
             </motion.div>
           </button>
@@ -145,7 +164,7 @@ const GoalProgressCard = ({
       <AnimatePresence>
         {isExpanded && (
           <motion.div
-            className="border-t bg-slate-50 px-6 py-4 dark:border-slate-800 dark:bg-slate-900/50"
+            className="border-t bg-slate-50 px-6 py-4 dark:border-gray-700 dark:bg-slate-900/50"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -153,10 +172,12 @@ const GoalProgressCard = ({
           >
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <h4 className="mb-3 text-sm font-medium text-foreground">Progress Updates</h4>
+                <h4 className="mb-3 text-sm font-medium text-foreground">
+                  Progress Updates
+                </h4>
                 <div className="space-y-3">
                   {updates.map((update, index) => {
-                    const isPositive = update.change >= 0
+                    const isPositive = update.change >= 0;
 
                     return (
                       <motion.div
@@ -167,35 +188,53 @@ const GoalProgressCard = ({
                         transition={{ delay: 0.1 + index * 0.05 }}
                       >
                         <div className="flex items-center gap-2">
-                          <div className="h-2 w-2 rounded-full" style={{ backgroundColor: statusColor }} />
-                          <span className="text-xs text-muted-foreground">{update.date}</span>
+                          <div
+                            className="h-2 w-2 rounded-full"
+                            style={{ backgroundColor: statusColor }}
+                          />
+                          <span className="text-xs text-muted-foreground">
+                            {update.date}
+                          </span>
                         </div>
-                        <div className="font-medium text-foreground">{update.value}</div>
+                        <div className="font-medium text-foreground">
+                          {update.value}
+                        </div>
                         <div
                           className="flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium"
                           style={{
-                            backgroundColor: isPositive ? "#10b98115" : "#ef444415",
+                            backgroundColor: isPositive
+                              ? "#10b98115"
+                              : "#ef444415",
                             color: isPositive ? "#10b981" : "#ef4444",
                           }}
                         >
-                          {isPositive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
+                          {isPositive ? (
+                            <TrendingUp className="h-3 w-3" />
+                          ) : (
+                            <TrendingDown className="h-3 w-3" />
+                          )}
                           <span>
                             {isPositive ? "+" : ""}
                             {update.change}%
                           </span>
                         </div>
                       </motion.div>
-                    )
+                    );
                   })}
                 </div>
               </div>
 
               <div>
-                <h4 className="mb-3 text-sm font-medium text-foreground">Progress Trend</h4>
+                <h4 className="mb-3 text-sm font-medium text-foreground">
+                  Progress Trend
+                </h4>
                 <div className="h-[200px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={chartData}>
-                      <CartesianGrid strokeDasharray="3 3" className={commonChartConfig.gridClassName} />
+                      <CartesianGrid
+                        strokeDasharray="3 3"
+                        className={commonChartConfig.gridClassName}
+                      />
                       <XAxis dataKey="date" />
                       <YAxis />
                       <Tooltip
@@ -229,14 +268,15 @@ const GoalProgressCard = ({
         )}
       </AnimatePresence>
     </motion.div>
-  )
-}
+  );
+};
 
 export default function GoalProgressMetrics() {
   const goals = [
     {
       title: "Increase Monthly Revenue",
-      description: "Grow monthly recurring revenue through new customer acquisition and upsells",
+      description:
+        "Grow monthly recurring revenue through new customer acquisition and upsells",
       target: "$50,000",
       current: "$42,500",
       percentComplete: 85,
@@ -253,7 +293,8 @@ export default function GoalProgressMetrics() {
     },
     {
       title: "Reduce Customer Churn",
-      description: "Decrease monthly customer churn rate through improved retention strategies",
+      description:
+        "Decrease monthly customer churn rate through improved retention strategies",
       target: "5%",
       current: "7.2%",
       percentComplete: 60,
@@ -270,7 +311,8 @@ export default function GoalProgressMetrics() {
     },
     {
       title: "Launch Mobile Application",
-      description: "Develop and launch mobile application for iOS and Android platforms",
+      description:
+        "Develop and launch mobile application for iOS and Android platforms",
       target: "100%",
       current: "100%",
       percentComplete: 100,
@@ -287,7 +329,8 @@ export default function GoalProgressMetrics() {
     },
     {
       title: "Expand to European Market",
-      description: "Research and prepare for expansion into key European markets",
+      description:
+        "Research and prepare for expansion into key European markets",
       target: "100%",
       current: "25%",
       percentComplete: 25,
@@ -302,14 +345,16 @@ export default function GoalProgressMetrics() {
         { date: "Jul 15", value: "0%", change: 0, rawValue: 0 },
       ],
     },
-  ]
+  ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-bold text-foreground">Strategic Goals</h2>
-          <p className="text-sm text-muted-foreground">Track progress on key business objectives</p>
+          <p className="text-sm text-muted-foreground">
+            Track progress on key business objectives
+          </p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -343,8 +388,10 @@ export default function GoalProgressMetrics() {
         ))}
       </div>
 
-      <div className="mt-6 rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800">
-        <h3 className="mb-4 text-lg font-medium text-foreground">Overall Progress</h3>
+      <div className="mt-6 rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700">
+        <h3 className="mb-4 text-lg font-medium text-foreground">
+          Overall Progress
+        </h3>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {[
@@ -353,12 +400,22 @@ export default function GoalProgressMetrics() {
             { label: "At Risk", value: "1", color: "#ef4444" },
             { label: "Not Started", value: "1", color: "#f97316" },
           ].map((stat, index) => (
-            <div key={index} className="rounded-lg border p-4 dark:border-slate-800">
+            <div
+              key={index}
+              className="rounded-lg border p-4 dark:border-gray-700"
+            >
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">{stat.label}</span>
-                <div className="h-3 w-3 rounded-full" style={{ backgroundColor: stat.color }} />
+                <span className="text-sm text-muted-foreground">
+                  {stat.label}
+                </span>
+                <div
+                  className="h-3 w-3 rounded-full"
+                  style={{ backgroundColor: stat.color }}
+                />
               </div>
-              <p className="mt-2 text-2xl font-bold text-foreground">{stat.value}</p>
+              <p className="mt-2 text-2xl font-bold text-foreground">
+                {stat.value}
+              </p>
             </div>
           ))}
         </div>
@@ -402,6 +459,5 @@ export default function GoalProgressMetrics() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

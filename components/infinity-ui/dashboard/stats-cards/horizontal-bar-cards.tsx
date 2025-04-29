@@ -32,7 +32,7 @@ const BarStatCard = ({
 }: BarStatCardProps) => {
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-xl border bg-background p-6 shadow-sm transition-all dark:border-slate-800"
+      className="group relative overflow-hidden rounded-xl border bg-gray-800/50 p-6 shadow-sm transition-all dark:border-gray-700"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -170,7 +170,7 @@ export default function HorizontalBarCards() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 dark:bg-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 dark:bg-gray-900">
       {/* Darkmode toggle */}
       <DarkModeToggle />
       <div className="mx-auto max-w-6xl">

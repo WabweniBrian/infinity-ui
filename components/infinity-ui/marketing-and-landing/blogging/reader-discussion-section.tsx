@@ -168,7 +168,7 @@ const ReaderDiscussionSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-6 dark:border-slate-800 md:flex-row md:items-end">
+          <div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-6 dark:border-gray-700 md:flex-row md:items-end">
             <div>
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">

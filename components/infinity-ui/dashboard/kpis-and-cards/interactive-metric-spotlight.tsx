@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   TrendingUp,
   TrendingDown,
@@ -14,7 +14,7 @@ import {
   Activity,
   Calendar,
   ArrowRight,
-} from "lucide-react"
+} from "lucide-react";
 import {
   LineChart as RechartsLineChart,
   Line,
@@ -26,30 +26,30 @@ import {
   BarChart,
   Bar,
   Cell,
-} from "recharts"
-import { commonChartConfig } from "./chart-utils"
+} from "recharts";
+import { commonChartConfig } from "./chart-utils";
 
 type MetricBreakdown = {
-  label: string
-  value: string
-  percentage: number
-  color: string
-}
+  label: string;
+  value: string;
+  percentage: number;
+  color: string;
+};
 
 type SpotlightMetricProps = {
-  title: string
-  value: string
-  change: number
-  changeLabel: string
-  icon: React.ReactNode
-  color: string
-  description: string
-  breakdown: MetricBreakdown[]
+  title: string;
+  value: string;
+  change: number;
+  changeLabel: string;
+  icon: React.ReactNode;
+  color: string;
+  description: string;
+  breakdown: MetricBreakdown[];
   timeData: {
-    labels: string[]
-    values: number[]
-  }
-}
+    labels: string[];
+    values: number[];
+  };
+};
 
 const SpotlightMetricCard = ({
   title,
@@ -62,16 +62,18 @@ const SpotlightMetricCard = ({
   breakdown,
   timeData,
 }: SpotlightMetricProps) => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [activeTab, setActiveTab] = useState<"breakdown" | "trend">("breakdown")
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeTab, setActiveTab] = useState<"breakdown" | "trend">(
+    "breakdown",
+  );
 
-  const isPositive = change >= 0
+  const isPositive = change >= 0;
 
   // Format data for Recharts
   const chartData = timeData.labels.map((label, index) => ({
     name: label,
     value: timeData.values[index],
-  }))
+  }));
 
   // Format breakdown data for bar chart
   const breakdownChartData = breakdown.map((item) => ({
@@ -79,11 +81,11 @@ const SpotlightMetricCard = ({
     value: Number.parseFloat(item.value.replace(/[^0-9.]/g, "")),
     percentage: item.percentage,
     color: item.color,
-  }))
+  }));
 
   return (
     <motion.div
-      className="overflow-hidden rounded-xl border bg-background shadow-sm dark:border-slate-800"
+      className="overflow-hidden rounded-xl border bg-background shadow-sm dark:border-gray-700"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -116,7 +118,10 @@ const SpotlightMetricCard = ({
             className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-slate-100 hover:text-foreground dark:hover:bg-slate-800"
             aria-label={isExpanded ? "Show less" : "Show more"}
           >
-            <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
               <ChevronDown className="h-5 w-5" />
             </motion.div>
           </button>
@@ -132,7 +137,11 @@ const SpotlightMetricCard = ({
               color: isPositive ? color : "#ef4444",
             }}
           >
-            {isPositive ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
+            {isPositive ? (
+              <TrendingUp className="h-4 w-4" />
+            ) : (
+              <TrendingDown className="h-4 w-4" />
+            )}
             <span>
               {isPositive ? "+" : ""}
               {change}%
@@ -149,13 +158,13 @@ const SpotlightMetricCard = ({
       <AnimatePresence>
         {isExpanded && (
           <motion.div
-            className="border-t bg-slate-50 dark:border-slate-800 dark:bg-slate-900/50"
+            className="border-t bg-slate-50 dark:border-gray-700 dark:bg-slate-900/50"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="border-b dark:border-slate-800">
+            <div className="border-b dark:border-gray-700">
               <div className="flex">
                 <button
                   className={`flex-1 border-b-2 px-4 py-3 text-sm font-medium transition-colors ${
@@ -164,7 +173,8 @@ const SpotlightMetricCard = ({
                       : "border-transparent text-muted-foreground hover:text-foreground"
                   }`}
                   style={{
-                    borderColor: activeTab === "breakdown" ? color : "transparent",
+                    borderColor:
+                      activeTab === "breakdown" ? color : "transparent",
                   }}
                   onClick={() => setActiveTab("breakdown")}
                 >
@@ -196,7 +206,9 @@ const SpotlightMetricCard = ({
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h4 className="mb-4 text-sm font-medium text-foreground">Metric Breakdown</h4>
+                    <h4 className="mb-4 text-sm font-medium text-foreground">
+                      Metric Breakdown
+                    </h4>
 
                     <div className="h-[250px]">
                       <ResponsiveContainer width="100%" height="100%">
@@ -214,8 +226,15 @@ const SpotlightMetricCard = ({
                           <XAxis type="number" />
                           <YAxis dataKey="name" type="category" width={90} />
                           <Tooltip
-                            formatter={(value: number, name: string, props: any) => {
-                              return [`${value} (${props.payload.percentage}%)`, name]
+                            formatter={(
+                              value: number,
+                              name: string,
+                              props: any,
+                            ) => {
+                              return [
+                                `${value} (${props.payload.percentage}%)`,
+                                name,
+                              ];
                             }}
                             contentStyle={{
                               backgroundColor: "var(--background)",
@@ -225,7 +244,9 @@ const SpotlightMetricCard = ({
                           />
                           <Bar
                             dataKey="value"
-                            animationDuration={commonChartConfig.animationDuration}
+                            animationDuration={
+                              commonChartConfig.animationDuration
+                            }
                             radius={[0, 4, 4, 0]}
                           >
                             {breakdownChartData.map((entry, index) => (
@@ -244,12 +265,17 @@ const SpotlightMetricCard = ({
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <h4 className="mb-4 text-sm font-medium text-foreground">Time Trend</h4>
+                    <h4 className="mb-4 text-sm font-medium text-foreground">
+                      Time Trend
+                    </h4>
 
                     <div className="h-[250px]">
                       <ResponsiveContainer width="100%" height="100%">
                         <RechartsLineChart data={chartData}>
-                          <CartesianGrid strokeDasharray="3 3" className={commonChartConfig.gridClassName} />
+                          <CartesianGrid
+                            strokeDasharray="3 3"
+                            className={commonChartConfig.gridClassName}
+                          />
                           <XAxis dataKey="name" />
                           <YAxis />
                           <Tooltip
@@ -266,7 +292,9 @@ const SpotlightMetricCard = ({
                             strokeWidth={3}
                             dot={{ fill: color, r: 4 }}
                             activeDot={{ r: 6, fill: color }}
-                            animationDuration={commonChartConfig.animationDuration}
+                            animationDuration={
+                              commonChartConfig.animationDuration
+                            }
                           />
                         </RechartsLineChart>
                       </ResponsiveContainer>
@@ -286,8 +314,8 @@ const SpotlightMetricCard = ({
         )}
       </AnimatePresence>
     </motion.div>
-  )
-}
+  );
+};
 
 export default function InteractiveMetricSpotlight() {
   const metrics = [
@@ -300,9 +328,24 @@ export default function InteractiveMetricSpotlight() {
       color: "#6366f1", // Indigo
       description: "Total revenue across all channels and products",
       breakdown: [
-        { label: "Subscription", value: "$980K", percentage: 67.6, color: "#818cf8" },
-        { label: "One-time Sales", value: "$320K", percentage: 22.1, color: "#a5b4fc" },
-        { label: "Services", value: "$150K", percentage: 10.3, color: "#c7d2fe" },
+        {
+          label: "Subscription",
+          value: "$980K",
+          percentage: 67.6,
+          color: "#818cf8",
+        },
+        {
+          label: "One-time Sales",
+          value: "$320K",
+          percentage: 22.1,
+          color: "#a5b4fc",
+        },
+        {
+          label: "Services",
+          value: "$150K",
+          percentage: 10.3,
+          color: "#c7d2fe",
+        },
       ],
       timeData: {
         labels: ["Q1", "Q2", "Q3", "Q4", "Q1", "Q2"],
@@ -318,9 +361,24 @@ export default function InteractiveMetricSpotlight() {
       color: "#ec4899", // Pink
       description: "New customers acquired in the current period",
       breakdown: [
-        { label: "Organic Search", value: "3,850", percentage: 45.1, color: "#f472b6" },
-        { label: "Social Media", value: "2,240", percentage: 26.2, color: "#f9a8d4" },
-        { label: "Referrals", value: "1,320", percentage: 15.5, color: "#fbcfe8" },
+        {
+          label: "Organic Search",
+          value: "3,850",
+          percentage: 45.1,
+          color: "#f472b6",
+        },
+        {
+          label: "Social Media",
+          value: "2,240",
+          percentage: 26.2,
+          color: "#f9a8d4",
+        },
+        {
+          label: "Referrals",
+          value: "1,320",
+          percentage: 15.5,
+          color: "#fbcfe8",
+        },
         { label: "Direct", value: "1,132", percentage: 13.2, color: "#fce7f3" },
       ],
       timeData: {
@@ -355,24 +413,43 @@ export default function InteractiveMetricSpotlight() {
       color: "#10b981", // Emerald
       description: "Overall customer satisfaction score",
       breakdown: [
-        { label: "Very Satisfied", value: "68.3%", percentage: 68.3, color: "#34d399" },
-        { label: "Satisfied", value: "24.2%", percentage: 24.2, color: "#6ee7b7" },
+        {
+          label: "Very Satisfied",
+          value: "68.3%",
+          percentage: 68.3,
+          color: "#34d399",
+        },
+        {
+          label: "Satisfied",
+          value: "24.2%",
+          percentage: 24.2,
+          color: "#6ee7b7",
+        },
         { label: "Neutral", value: "5.8%", percentage: 5.8, color: "#a7f3d0" },
-        { label: "Dissatisfied", value: "1.7%", percentage: 1.7, color: "#d1fae5" },
+        {
+          label: "Dissatisfied",
+          value: "1.7%",
+          percentage: 1.7,
+          color: "#d1fae5",
+        },
       ],
       timeData: {
         labels: ["Q1", "Q2", "Q3", "Q4", "Q1", "Q2"],
         values: [87.5, 88.2, 89.0, 90.1, 91.8, 92.5],
       },
     },
-  ]
+  ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-foreground">Key Metrics Spotlight</h2>
-          <p className="text-sm text-muted-foreground">Interactive deep-dive into critical business metrics</p>
+          <h2 className="text-xl font-bold text-foreground">
+            Key Metrics Spotlight
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            Interactive deep-dive into critical business metrics
+          </p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -406,6 +483,5 @@ export default function InteractiveMetricSpotlight() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-

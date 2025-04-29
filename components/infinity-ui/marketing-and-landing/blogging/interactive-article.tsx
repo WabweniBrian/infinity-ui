@@ -552,7 +552,7 @@ const InteractiveArticle = ({
                 </nav>
               </div>
 
-              <div className="border-t border-slate-200 pt-6 dark:border-slate-800">
+              <div className="border-t border-slate-200 pt-6 dark:border-gray-700">
                 <h3 className="mb-4 text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Share
                 </h3>
@@ -616,7 +616,7 @@ const InteractiveArticle = ({
               </div>
 
               {/* Comment Section Teaser */}
-              <div className="mt-16 border-t border-slate-200 pt-8 dark:border-slate-800">
+              <div className="mt-16 border-t border-slate-200 pt-8 dark:border-gray-700">
                 <h3 className="mb-6 text-2xl font-bold text-slate-900 dark:text-white">
                   Join the Conversation
                 </h3>

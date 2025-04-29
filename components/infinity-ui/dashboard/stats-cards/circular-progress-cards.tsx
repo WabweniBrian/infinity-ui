@@ -34,7 +34,7 @@ const CircularProgressCard = ({
 
   return (
     <motion.div
-      className="flex flex-col rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800"
+      className="flex flex-col rounded-xl border bg-gray-800/50 p-6 shadow-sm dark:border-gray-700"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
@@ -155,7 +155,7 @@ export default function CircularProgressCards() {
   ];
 
   return (
-    <div className="min-h-screen bg-white px-4 py-10 dark:bg-slate-900">
+    <div className="min-h-screen bg-white px-4 py-10 dark:bg-gray-900">
       {/* Darkmode toggle */}
       <DarkModeToggle />
       <div className="mx-auto max-w-6xl">

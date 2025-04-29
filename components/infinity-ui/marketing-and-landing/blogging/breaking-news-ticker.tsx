@@ -92,7 +92,7 @@ const BreakingNewsTicker = () => {
   return (
     <section
       ref={ref}
-      className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-900"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -154,7 +154,7 @@ const BreakingNewsTicker = () => {
           </div>
 
           {/* Controls */}
-          <div className="flex flex-shrink-0 items-center border-l border-slate-200 px-2 py-2 dark:border-slate-800">
+          <div className="flex flex-shrink-0 items-center border-l border-slate-200 px-2 py-2 dark:border-gray-700">
             <button
               onClick={prevNews}
               className="p-1.5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"

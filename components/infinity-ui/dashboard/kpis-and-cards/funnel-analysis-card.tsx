@@ -91,7 +91,7 @@ export default function FunnelAnalysisCard({
 
       <div className="mt-4 space-y-2">
         {stepsWithConversion.map((step, index) => (
-          <div key={index} className="rounded-lg border dark:border-slate-800">
+          <div key={index} className="rounded-lg border dark:border-gray-700">
             <div
               className="flex cursor-pointer items-center justify-between p-3"
               onClick={() =>
@@ -141,7 +141,7 @@ export default function FunnelAnalysisCard({
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="border-t px-4 py-3 dark:border-slate-800"
+                  className="border-t px-4 py-3 dark:border-gray-700"
                 >
                   <div className="flex items-center gap-2">
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />

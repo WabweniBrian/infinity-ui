@@ -89,7 +89,7 @@ export const DashboardCard: React.FC<
   return (
     <div {...props}>
       <motion.div
-        className={`relative overflow-hidden rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800 ${className}`}
+        className={`relative overflow-hidden rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700 ${className}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}

@@ -275,7 +275,7 @@ export default function FeatureTogglePricingSection() {
                   {filteredFeatures.map((feature) => (
                     <div
                       key={feature.id}
-                      className="border-b border-slate-100 py-2 dark:border-slate-800"
+                      className="border-b border-slate-100 py-2 dark:border-gray-700"
                     >
                       <div className="flex justify-between">
                         <div>

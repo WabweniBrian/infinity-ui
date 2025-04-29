@@ -1,16 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import {
-  Play,
+  ChevronLeft,
+  ChevronRight,
   Pause,
+  Play,
   Volume2,
   VolumeX,
-  ChevronRight,
-  ChevronLeft,
 } from "lucide-react";
-import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 type VideoTestimonial = {
   id: number;

@@ -1,41 +1,63 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronRight, TrendingUp, TrendingDown, BarChart, PieChart, LineChart, Activity } from "lucide-react"
-import { PieChart as RechartsPieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from "recharts"
-import { chartColors, commonChartConfig } from "./chart-utils"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronRight,
+  TrendingUp,
+  TrendingDown,
+  BarChart,
+  PieChart,
+  LineChart,
+  Activity,
+} from "lucide-react";
+import {
+  PieChart as RechartsPieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  Legend,
+} from "recharts";
+import { chartColors, commonChartConfig } from "./chart-utils";
 
 type MetricNode = {
-  id: string
-  title: string
-  value: string
-  change: number
-  icon: React.ReactNode
-  color: string
-  chartData?: any[]
-  children?: MetricNode[]
-}
+  id: string;
+  title: string;
+  value: string;
+  change: number;
+  icon: React.ReactNode;
+  color: string;
+  chartData?: any[];
+  children?: MetricNode[];
+};
 
 type HierarchicalMetricProps = {
-  node: MetricNode
-  level: number
-  expanded: Record<string, boolean>
-  toggleExpand: (id: string) => void
-}
+  node: MetricNode;
+  level: number;
+  expanded: Record<string, boolean>;
+  toggleExpand: (id: string) => void;
+};
 
-const HierarchicalMetric = ({ node, level, expanded, toggleExpand }: HierarchicalMetricProps) => {
-  const hasChildren = node.children && node.children.length > 0
-  const isExpanded = expanded[node.id]
-  const isPositive = node.change >= 0
+const HierarchicalMetric = ({
+  node,
+  level,
+  expanded,
+  toggleExpand,
+}: HierarchicalMetricProps) => {
+  const hasChildren = node.children && node.children.length > 0;
+  const isExpanded = expanded[node.id];
+  const isPositive = node.change >= 0;
 
   return (
     <div>
       <motion.div
         className={`flex cursor-pointer items-center justify-between rounded-lg border p-4 ${
-          level === 0 ? "bg-background shadow-sm dark:border-slate-800" : "bg-background dark:border-slate-800"
+          level === 0
+            ? "bg-background shadow-sm dark:border-gray-700"
+            : "bg-background dark:border-gray-700"
         }`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -45,7 +67,10 @@ const HierarchicalMetric = ({ node, level, expanded, toggleExpand }: Hierarchica
       >
         <div className="flex items-center gap-3">
           {hasChildren && (
-            <motion.div animate={{ rotate: isExpanded ? 90 : 0 }} transition={{ duration: 0.3 }}>
+            <motion.div
+              animate={{ rotate: isExpanded ? 90 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
               <ChevronRight className="h-4 w-4 text-muted-foreground" />
             </motion.div>
           )}
@@ -65,9 +90,13 @@ const HierarchicalMetric = ({ node, level, expanded, toggleExpand }: Hierarchica
           </div>
 
           <div>
-            <h3 className="text-sm font-medium text-foreground">{node.title}</h3>
+            <h3 className="text-sm font-medium text-foreground">
+              {node.title}
+            </h3>
             <p className="text-xs text-muted-foreground">
-              {hasChildren ? `${node.children?.length} sub-metrics` : "Leaf metric"}
+              {hasChildren
+                ? `${node.children?.length} sub-metrics`
+                : "Leaf metric"}
             </p>
           </div>
         </div>
@@ -82,7 +111,11 @@ const HierarchicalMetric = ({ node, level, expanded, toggleExpand }: Hierarchica
               color: isPositive ? node.color : "#ef4444",
             }}
           >
-            {isPositive ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
+            {isPositive ? (
+              <TrendingUp className="h-3 w-3" />
+            ) : (
+              <TrendingDown className="h-3 w-3" />
+            )}
             <span>
               {isPositive ? "+" : ""}
               {node.change}%
@@ -94,7 +127,7 @@ const HierarchicalMetric = ({ node, level, expanded, toggleExpand }: Hierarchica
       <AnimatePresence>
         {hasChildren && isExpanded && (
           <motion.div
-            className="ml-6 mt-2 space-y-2 border-l pl-4 dark:border-slate-800"
+            className="ml-6 mt-2 space-y-2 border-l pl-4 dark:border-gray-700"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
@@ -113,8 +146,8 @@ const HierarchicalMetric = ({ node, level, expanded, toggleExpand }: Hierarchica
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
 export default function HierarchicalKpiDashboard() {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
@@ -122,14 +155,14 @@ export default function HierarchicalKpiDashboard() {
     users: false,
     engagement: false,
     performance: false,
-  })
+  });
 
   const toggleExpand = (id: string) => {
     setExpanded((prev) => ({
       ...prev,
       [id]: !prev[id],
-    }))
-  }
+    }));
+  };
 
   const metrics: MetricNode[] = [
     {
@@ -306,32 +339,36 @@ export default function HierarchicalKpiDashboard() {
         },
       ],
     },
-  ]
+  ];
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-bold text-foreground">KPI Hierarchy</h2>
-          <p className="text-sm text-muted-foreground">Explore metrics from high-level to detailed breakdowns</p>
+          <p className="text-sm text-muted-foreground">
+            Explore metrics from high-level to detailed breakdowns
+          </p>
         </div>
 
         <div className="flex items-center gap-2">
           <button
             className="rounded-md border px-3 py-1 text-sm font-medium text-foreground hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800"
             onClick={() => {
-              const allExpanded = Object.values(expanded).every(Boolean)
-              const newState = !allExpanded
+              const allExpanded = Object.values(expanded).every(Boolean);
+              const newState = !allExpanded;
 
-              const newExpanded: Record<string, boolean> = {}
+              const newExpanded: Record<string, boolean> = {};
               metrics.forEach((metric) => {
-                newExpanded[metric.id] = newState
-              })
+                newExpanded[metric.id] = newState;
+              });
 
-              setExpanded(newExpanded)
+              setExpanded(newExpanded);
             }}
           >
-            {Object.values(expanded).every(Boolean) ? "Collapse All" : "Expand All"}
+            {Object.values(expanded).every(Boolean)
+              ? "Collapse All"
+              : "Expand All"}
           </button>
 
           <button className="rounded-md bg-primary px-3 py-1 text-sm font-medium text-primary-foreground">
@@ -342,16 +379,26 @@ export default function HierarchicalKpiDashboard() {
 
       <div className="space-y-4">
         {metrics.map((metric) => (
-          <HierarchicalMetric key={metric.id} node={metric} level={0} expanded={expanded} toggleExpand={toggleExpand} />
+          <HierarchicalMetric
+            key={metric.id}
+            node={metric}
+            level={0}
+            expanded={expanded}
+            toggleExpand={toggleExpand}
+          />
         ))}
       </div>
 
-      <div className="rounded-xl border bg-background p-6 shadow-sm dark:border-slate-800">
-        <h3 className="mb-4 text-lg font-medium text-foreground">KPI Overview</h3>
+      <div className="rounded-xl border bg-background p-6 shadow-sm dark:border-gray-700">
+        <h3 className="mb-4 text-lg font-medium text-foreground">
+          KPI Overview
+        </h3>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
-            <h4 className="mb-3 text-sm font-medium text-foreground">Revenue Breakdown</h4>
+            <h4 className="mb-3 text-sm font-medium text-foreground">
+              Revenue Breakdown
+            </h4>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <RechartsPieChart>
@@ -364,14 +411,26 @@ export default function HierarchicalKpiDashboard() {
                     fill="#8884d8"
                     dataKey="value"
                     animationDuration={commonChartConfig.animationDuration}
-                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent }) =>
+                      `${name}: ${(percent * 100).toFixed(0)}%`
+                    }
                   >
                     {metrics[0].chartData?.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={chartColors.primary[index % chartColors.primary.length]} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={
+                          chartColors.primary[
+                            index % chartColors.primary.length
+                          ]
+                        }
+                      />
                     ))}
                   </Pie>
                   <Tooltip
-                    formatter={(value: number) => [`$${(value / 1000).toFixed(0)}K`, "Value"]}
+                    formatter={(value: number) => [
+                      `$${(value / 1000).toFixed(0)}K`,
+                      "Value",
+                    ]}
                     contentStyle={{
                       backgroundColor: "var(--background)",
                       borderColor: "var(--border)",
@@ -385,7 +444,9 @@ export default function HierarchicalKpiDashboard() {
           </div>
 
           <div>
-            <h4 className="mb-3 text-sm font-medium text-foreground">User Metrics</h4>
+            <h4 className="mb-3 text-sm font-medium text-foreground">
+              User Metrics
+            </h4>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <RechartsPieChart>
@@ -398,14 +459,22 @@ export default function HierarchicalKpiDashboard() {
                     fill="#8884d8"
                     dataKey="value"
                     animationDuration={commonChartConfig.animationDuration}
-                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                    label={({ name, percent }) =>
+                      `${name}: ${(percent * 100).toFixed(0)}%`
+                    }
                   >
                     {metrics[1].chartData?.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={chartColors.pink[index % chartColors.pink.length]} />
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={chartColors.pink[index % chartColors.pink.length]}
+                      />
                     ))}
                   </Pie>
                   <Tooltip
-                    formatter={(value: number) => [`${(value / 1000).toFixed(1)}K`, "Users"]}
+                    formatter={(value: number) => [
+                      `${(value / 1000).toFixed(1)}K`,
+                      "Users",
+                    ]}
                     contentStyle={{
                       backgroundColor: "var(--background)",
                       borderColor: "var(--border)",
@@ -423,19 +492,27 @@ export default function HierarchicalKpiDashboard() {
           {metrics.map((metric) => (
             <div
               key={metric.id}
-              className="rounded-lg border p-4 dark:border-slate-800"
+              className="rounded-lg border p-4 dark:border-gray-700"
               style={{ borderLeftColor: metric.color, borderLeftWidth: "3px" }}
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm text-muted-foreground">{metric.title}</span>
-                <div className="h-3 w-3 rounded-full" style={{ backgroundColor: metric.color }} />
+                <span className="text-sm text-muted-foreground">
+                  {metric.title}
+                </span>
+                <div
+                  className="h-3 w-3 rounded-full"
+                  style={{ backgroundColor: metric.color }}
+                />
               </div>
               <div className="mt-2 flex items-baseline justify-between">
-                <p className="text-2xl font-bold text-foreground">{metric.value}</p>
+                <p className="text-2xl font-bold text-foreground">
+                  {metric.value}
+                </p>
                 <div
                   className={`flex items-center gap-1 rounded-full px-1.5 py-0.5 text-xs font-medium`}
                   style={{
-                    backgroundColor: metric.change >= 0 ? `${metric.color}15` : "#ef444425",
+                    backgroundColor:
+                      metric.change >= 0 ? `${metric.color}15` : "#ef444425",
                     color: metric.change >= 0 ? metric.color : "#ef4444",
                   }}
                 >
@@ -455,6 +532,5 @@ export default function HierarchicalKpiDashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
