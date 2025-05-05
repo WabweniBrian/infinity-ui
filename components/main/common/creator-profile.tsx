@@ -21,7 +21,7 @@ export default function CreatorProfile() {
         transition={{ duration: 0.5 }}
         className="mb-6 text-center"
       >
-        <h2 className="text-xl font-medium text-gray-800 dark:text-gray-200">
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 md:text-5xl">
           Made with 💖 by:
         </h2>
       </motion.div>
