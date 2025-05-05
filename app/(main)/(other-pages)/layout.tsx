@@ -14,7 +14,7 @@ const HomeLayout = async ({ children }: { children: React.ReactNode }) => {
     <>
       <Navbar categories={categories} user={user} />
       <main className="min-h-screen">{children}</main>
-      <Footer categories={categories} />
+      <Footer />
     </>
   );
 };
