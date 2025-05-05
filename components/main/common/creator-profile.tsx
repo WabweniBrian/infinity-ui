@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import {
@@ -63,12 +64,10 @@ export default function CreatorProfile() {
               className="mb-6"
             >
               <div className="h-28 w-28 overflow-hidden rounded-full border-2 border-gray-100 dark:border-zinc-800">
-                <Image
+                <img
                   src="/brian.png"
                   alt="Wabweni Brian"
-                  width={112}
-                  height={112}
-                  className="object-cover object-top"
+                  className="h-full w-full object-cover object-top"
                 />
               </div>
             </motion.div>
