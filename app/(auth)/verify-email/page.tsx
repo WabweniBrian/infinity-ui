@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { useRouter, useSearchParams } from "next/navigation";
+import { notFound, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import { ImSpinner } from "react-icons/im";
 
 const Verify = () => {
+  return notFound();
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);

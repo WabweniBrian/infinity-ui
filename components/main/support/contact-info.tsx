@@ -18,7 +18,7 @@ export default function ContactInformation() {
         <ContactItem
           icon={<Phone className="h-5 w-5 text-primary" />}
           title="Call Us"
-          description="Monday to Friday, 9am-5pm:"
+          description="Monday to Friday, 9am-5pm (EAT):"
           contact="+256775894639"
           href="tel:+256775894639"
         />
@@ -26,7 +26,7 @@ export default function ContactInformation() {
         <ContactItem
           icon={<Clock className="h-5 w-5 text-primary" />}
           title="Response Time"
-          description="We aim to respond to all inquiries within 24 hours."
+          description="We aim to respond to all inquiries within 2-3 business days."
         />
       </div>
     </div>

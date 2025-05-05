@@ -98,7 +98,7 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <Sparkles className="h-3.5 w-3.5 text-[#11ACBB]" />
-                <span>350+ Modern UI Components</span>
+                <span>100% Open Source & Free to Use</span>
               </motion.span>
             </div>
 
@@ -108,10 +108,10 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              UI That{" "}
+              350+ Free{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-[#11ACBB] to-[#F6A71A] bg-clip-text text-transparent dark:from-[#11ACBB] dark:to-[#F6A71A]">
-                  Converts More
+                  Modern UI Components
                 </span>
                 <svg
                   className="absolute -bottom-1 left-0 h-3 w-full"

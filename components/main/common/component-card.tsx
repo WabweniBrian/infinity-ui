@@ -45,17 +45,18 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
   // Check if component requires premium access (not free)
-  const requiresAccess = !component.isFree;
+  // const requiresAccess = !component.isFree;
+  const requiresAccess = false;
 
   // Check if user has access to this component
-  const hasAccess =
-    // Free components are accessible to everyone
-    component.isFree ||
-    // Premium components with no price are part of a bundle subscription
-    (!component.isFree && !component.price && currentUser?.hasPurchased) ||
-    // Components with individual prices are accessible if purchased individually
-    (component.price &&
-      currentUser?.purchasedComponents?.includes(component.id));
+  const hasAccess = true;
+  // Free components are accessible to everyone
+  // component.isFree ||
+  // Premium components with no price are part of a bundle subscription
+  // (!component.isFree && !component.price && currentUser?.hasPurchased) ||
+  // Components with individual prices are accessible if purchased individually
+  // (component.price &&
+  // currentUser?.purchasedComponents?.includes(component.id));
 
   const changePreviewSize = (componentId: string, size: PreviewSize) => {
     setPreviewSizes((prev) => ({
@@ -174,7 +175,7 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
             </div>
           </div>
 
-          <div className="my-3 flex items-center">
+          {/* <div className="my-3 flex items-center">
             {component.isFree && (
               <span className="rounded-md bg-gradient-to-r from-rose-500 to-pink-600 px-3 py-1 text-sm font-bold text-white shadow-sm transition-all hover:shadow-md dark:from-green-600 dark:to-emerald-700">
                 FREE
@@ -201,7 +202,7 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
                 PREMIUM
               </span>
             )}
-          </div>
+          </div> */}
           {component.description && (
             <p className="my-4">{component.description}</p>
           )}

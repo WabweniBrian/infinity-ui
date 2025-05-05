@@ -1,7 +1,7 @@
 import BackToTopButton from "@/components/common/back-button";
+import KoFiWidget from "@/components/common/kofi-widget";
 import { SchemaMarkup } from "@/components/common/schema-markup";
 import { ThemeProvider } from "@/components/common/theme-provider";
-import ThemeSwicher from "@/components/common/theme-switcher";
 import { EdgeStoreProvider } from "@/lib/edgestore";
 import type { Metadata, Viewport } from "next";
 import NextTopLoader from "nextjs-toploader";
@@ -143,6 +143,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <ThemeSwicher />
           </div> */}
         </ThemeProvider>
+
+        {/* Ko-fi Widget - Client Component */}
+        <KoFiWidget username="brianwabweni" />
       </body>
     </html>
   );

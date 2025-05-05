@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import React from "react";
 
 const VerifyMessage = ({
@@ -6,6 +6,7 @@ const VerifyMessage = ({
 }: {
   searchParams: { email: string };
 }) => {
+  return notFound();
   if (!searchParams.email) redirect("/sign-up");
 
   return (

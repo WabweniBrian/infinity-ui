@@ -5,58 +5,47 @@ const FAQs = () => {
     {
       question: "What is Infinity UI?",
       answer:
-        "Infinity UI is a comprehensive collection of beautifully designed UI components and blocks for React and Next.js applications, powered by Tailwind CSS. It provides developers with a wide range of customizable, accessible, and responsive components to build modern web applications quickly and efficiently.",
+        "Infinity UI is a comprehensive collection of beautifully designed UI components and blocks for React and Next.js applications, powered by Tailwind CSS. It provides developers with a wide range of customizable, accessible, and responsive components to build modern web applications quickly and efficiently. Best of all, it's completely free to use!",
     },
     {
-      question: "What does 'lifetime access' mean?",
+      question: "Is Infinity UI free?",
       answer:
-        "Lifetime access means that once you purchase Infinity UI, you have perpetual access to the components included in your plan or pack. This includes the ability to use these components in your projects indefinitely, as well as receive updates and improvements to those components.",
+        "Yes! Infinity UI is 100% free to use. All components, updates, and improvements are available without any cost. You can freely use them in personal, commercial, and open-source projects. If you find it helpful, consider supporting the project through donations. Link for donations: https://ko-fi.com/brianwabweni.",
     },
     {
       question: "Can I use Infinity UI for commercial projects?",
       answer:
-        "Yes, you can use Infinity UI components in commercial projects. Our license allows for both personal and commercial use.",
+        "Absolutely! Infinity UI components are free for both personal and commercial use. Feel free to use them in your commercial applications without any restrictions.",
     },
     {
-      question: "What is a 'user license'?",
+      question: "Can I share Infinity UI with others?",
       answer:
-        "A user license determines how many individual developers can use Infinity UI within your organization. For example, the Solo Plan includes a single user license, while the Team Plan includes licenses for up to 30 users.",
+        "Yes, you can share Infinity UI with anyone. Since it's open and free, you can freely pass it along to other developers or use it in team projects. No licensing restrictions apply!",
     },
     {
-      question: "Can I share my account with another user?",
+      question: "Can I use Infinity UI in open-source projects?",
       answer:
-        "No, sharing your account with other users is strictly prohibited. Each developer should have their own license to use Infinity UI.",
-    },
-
-    {
-      question: "Can I use Infinity UI components in multiple projects?",
-      answer:
-        "Yes, you can use Infinity UI components in multiple projects. There's no limit to the number of projects you can create with your license.",
+        "Yes! Infinity UI is open-source, and you are welcome to use it in your open-source projects as long as you don't claim it as your own or redistribute it without proper attribution.",
     },
     {
-      question: "Can I use Infinity UI in open source projects?",
+      question: "How can I support the Infinity UI project?",
       answer:
-        "Yes, you can use Infinity UI in open source projects. However, please ensure that you comply with our license terms and do not redistribute Infinity UI itself as open source.",
+        "If you find Infinity UI helpful, you can support the project through donations via Ko-fi. Your support helps keep the project alive and encourages further development. Every contribution counts! https://ko-fi.com/brianwabweni.",
     },
     {
-      question: "Can I use Infinity UI for client projects?",
+      question: "Can I redistribute Infinity UI as my own library?",
       answer:
-        "Yes, you can use Infinity UI for client projects. Your license allows you to use the components in projects you build for clients.",
+        "No. While Infinity UI is free to use and modify, please do not redistribute it as your own product or library. Give proper credit and link back to the official project. Sharing is encouraged — but claiming it as your own work is not.",
     },
     {
-      question: "Do you offer refunds?",
+      question: "Can I modify or customize Infinity UI components?",
       answer:
-        "Unfortunately, we do not offer refunds once payment has been made unless in extreme situations explained by the customer. For more inquiries about this, please contact us or send an email at support@infinityui.dev",
-    },
-    {
-      question: "Do I need to purchase a license for each project I work on?",
-      answer:
-        "No, you don't have to buy a new Infinity UI plan every time you want to use it on a new project. As long as what you're building is allowed as per the license, you can build as many sites as you want without ever having to buy an additional license. To find detailed information and examples illustrating permissible and impermissible uses, read through our license.",
+        "Yes! Since Infinity UI is open-source, you're free to modify and customize the components to suit your needs. ",
     },
   ];
 
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto max-w-3xl py-20">
       <h2 className="mb-8 text-center text-3xl font-bold">
         Frequently Asked Questions
       </h2>
