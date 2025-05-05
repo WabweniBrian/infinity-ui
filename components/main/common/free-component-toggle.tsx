@@ -26,6 +26,8 @@ const FreeComponentToggle = ({ className = "" }) => {
     router.push(`${pathname}?${query}`);
   };
 
+  return null;
+
   return (
     <div className="flex items-center space-x-2">
       <Switch
