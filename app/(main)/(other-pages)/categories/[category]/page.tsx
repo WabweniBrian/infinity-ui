@@ -99,7 +99,7 @@ const CategoryComponents = async ({ params, searchParams }: Params) => {
               />
             ) : (
               <NoResults
-                title={`No ${categoryName} Components Found`}
+                title={"Components Coming Soon!"}
                 className="min-h-[80vh]"
               />
             )}

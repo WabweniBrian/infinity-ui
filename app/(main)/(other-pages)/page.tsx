@@ -9,8 +9,9 @@ const Home = ({ searchParams }: { searchParams: { search: string } }) => {
       <div className="bg-gradient-to-br from-cyan-50 to-blue-50 px-3 py-20 dark:from-gray-950 dark:to-cyan-950">
         <CreatorProfile />
       </div>
-
-      <FAQs />
+      <div className="px-3">
+        <FAQs />
+      </div>
     </>
   );
 };
