@@ -100,7 +100,7 @@ export const InvoiceEmail = ({ purchase, user }: InvoiceEmailProps) => {
               <Column>
                 <Text style={companyName}>Infinity UI</Text>
                 <Text style={companyDetail}>Kololo, Kampala Uganda</Text>
-                <Text style={companyDetail}>support@infinityui.dev</Text>
+                <Text style={companyDetail}>wabtech.tech@gmail.com</Text>
               </Column>
             </Row>
           </Section>
@@ -248,7 +248,7 @@ export const InvoiceEmail = ({ purchase, user }: InvoiceEmailProps) => {
             <Text style={noteText}>
               Thank you for your purchase! If you have any questions about this
               invoice, please contact our support team at
-              support@infinityui.dev.
+              wabtech.tech@gmail.com.
             </Text>
           </Section>
 

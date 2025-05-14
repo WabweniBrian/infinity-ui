@@ -11,8 +11,8 @@ export default function ContactInformation() {
           icon={<Mail className="h-5 w-5 text-primary" />}
           title="Email Us"
           description="For general inquiries:"
-          contact="support@infinityui.dev"
-          href="mailto:support@infinityui.dev"
+          contact="wabtech.tech@gmail.com"
+          href="mailto:wabtech.tech@gmail.com"
         />
 
         <ContactItem

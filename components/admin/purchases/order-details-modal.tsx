@@ -366,7 +366,7 @@ export const OrderDetailsModal = ({
                       <p className="mt-1 text-gray-500 dark:text-gray-400">
                         Kololo, Kampala Uganda
                         <br />
-                        csupport@infinityui.dev
+                        cwabtech.tech@gmail.com
                       </p>
                     </div>
                   </div>
