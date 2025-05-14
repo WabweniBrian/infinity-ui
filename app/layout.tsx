@@ -14,7 +14,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://infinityui.vercel.app"),
+  metadataBase: new URL("https://infinityui.wabtech.tech"),
   title: "📌 Infinity UI - Beautiful UI That Converts More",
   description:
     "🚀 Infinity UI offers modern, high-converting UI components designed for seamless user experiences. Build faster, enhance engagement, and boost conversions with stunning, accessible design",
@@ -59,14 +59,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://infinityui.vercel.app",
+    url: "https://infinityui.wabtech.tech",
     siteName: "Infinity UI",
     title: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
     description:
       "Elevate your SaaS startup with Infinity UI! Beautifully Designed React/Next.js UI Blocks",
     images: [
       {
-        url: "https://infinityui.vercel.app/og-image.png",
+        url: "https://infinityui.wabtech.tech/og-image.png",
         width: 1200,
         height: 630,
         alt: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "Infinity UI - Beautifully Designed React/Next.js UI Blocks",
     description:
       "Elevate your SaaS startup with Infinity UI! Beautifully Designed React/Next.js UI Blocks",
-    images: ["https://infinityui.vercel.app/og-image.png"],
+    images: ["https://infinityui.wabtech.tech/og-image.png"],
   },
   robots: {
     index: true,
@@ -107,8 +107,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Infinity UI",
-            url: "https://infinityui.vercel.app",
-            logo: "https://infinityui.vercel.app/logo.png",
+            url: "https://infinityui.wabtech.tech",
+            logo: "https://infinityui.wabtech.tech/logo.png",
             sameAs: [
               "https://www.facebook.com/infinity-ui",
               "https://www.twitter.com/infinity-ui",

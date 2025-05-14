@@ -46,7 +46,7 @@ export const PasswordResetEmail = ({ url }: { url: string }) => {
         >
           <Text className="my-2 text-2xl font-bold">Password Reset</Text>
           <Img
-            src="https://wabtech-admin.vercel.app/logo.png"
+            src="https://infinityui.wabtech.tech/logo.png"
             alt="Test"
             height="80"
             width="80"
@@ -69,7 +69,7 @@ export const PasswordResetEmail = ({ url }: { url: string }) => {
             {url}
           </Link>
           <Text className="mt-4 border-t border-t-slate-500 pt-3 text-sm text-slate-600">
-            Copyright ©{new Date().getFullYear()} InfinityUI
+            Copyright ©{new Date().getFullYear()} Infinity UI
           </Text>
         </Container>
       </Tailwind>

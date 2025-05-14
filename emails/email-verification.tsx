@@ -46,7 +46,7 @@ export const EmailVerification = ({ url }: { url: string }) => {
         >
           <Text className="my-2 text-2xl font-bold">Email Verification</Text>
           <Img
-            src="https://wabtech-admin.vercel.app/logo.png"
+            src="https://infinityui.wabtech.tech/logo.png"
             alt="Test"
             height="80"
             width="80"

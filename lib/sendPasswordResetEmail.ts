@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 const url =
   process.env.NODE_ENV === "production"
-    ? "https://infinityui.vercel.app"
+    ? "https://infinityui.wabtech.tech"
     : "http://localhost:3000";
 
 export const sendPasswordResetLink = async (email: string, token: string) => {

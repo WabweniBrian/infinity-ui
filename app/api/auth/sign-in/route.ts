@@ -21,12 +21,6 @@ export async function POST(request: Request) {
       },
     });
 
-    // Update last login
-    await prisma.user.update({
-      where: { email },
-      data: { lastLogin: new Date() },
-    });
-
     if (!user || !user.password) {
       return new NextResponse("Invalid credentials", { status: 400 });
     }
@@ -51,6 +45,12 @@ export async function POST(request: Request) {
     });
 
     setAuthCookie(token);
+
+    // Update last login
+    await prisma.user.update({
+      where: { email },
+      data: { lastLogin: new Date() },
+    });
 
     const redirectUrl = user.role === "Admin" ? "/admin" : "/dashboard";
     const finalCallbackUrl =

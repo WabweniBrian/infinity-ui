@@ -30,15 +30,3 @@ function ErrorPage({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export default ErrorPage;
-
-const subjects = [
-  {
-    subjectName: "Mathematics",
-    fomartiveScore: 20, // average of the formative score from other terms i.e term 1, 2 & 3 out of 20%
-    schoolBasedScore: 80, // seprate exam done at the end of year and it contibutes 80%, in the model of marks below, the type is set to SCHOOL_BASED
-    totalScore: 100, // addition of formative score + schoolBased score
-    grade: "A*", // gotten from GradeDescriptor table
-    descriptor: "Achieved grate in all topics", // same as above - gotten from GradeDescriptor table,
-    teacher: "W.B",
-  },
-];

@@ -45,7 +45,7 @@ If you find **Infinity UI** helpful, please consider supporting me on Ko-fi. Eve
 
 ## 📸 Preview
 
-![Infinity UI Preview](https://infinityui.vercel.app/og-image.png)
+![Infinity UI Preview](https://infinityui.wabtech.tech/og-image.png)
 
 ---
 

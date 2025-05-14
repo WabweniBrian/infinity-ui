@@ -56,7 +56,7 @@ export const GeneralEmail = ({
       >
         <Container className="rounded-lg bg-slate-100 p-8 text-center shadow">
           <Img
-            src="https://infinityui.vercel.app/logo.png"
+            src="https://infinityui.wabtech.tech/logo.png"
             alt="Company Logo"
             height="80"
             width="80"

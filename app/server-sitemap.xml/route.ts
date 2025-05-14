@@ -2,7 +2,7 @@ import { getComponents, getCategories } from "@/lib/actions/sitemap";
 import type { ISitemapField } from "next-sitemap";
 import { getServerSideSitemap } from "next-sitemap";
 
-const BASE_URL = "https://infinityui.vercel.app";
+const BASE_URL = "https://infinityui.wabtech.tech";
 
 export async function GET(request: Request) {
   const components = await getComponents();
