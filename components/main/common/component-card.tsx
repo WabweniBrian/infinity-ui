@@ -342,7 +342,7 @@ const ComponentCard = ({ component, currentUser }: ComponentCardProps) => {
                       value={snippet.id}
                       className="mt-0 min-h-[600px] bg-gray-950"
                     >
-                      <div className="sticky right-4 top-0 z-20 -mt-6 flex justify-end gap-2">
+                      <div className="sticky right-4 top-0 z-40 -mt-6 flex justify-end gap-2">
                         <Button
                           size={"icon"}
                           onClick={() =>
