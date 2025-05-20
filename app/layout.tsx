@@ -8,6 +8,7 @@ import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 import { dmSans, plusJakarta } from "./font";
 import "./globals.css";
+import Script from "next/script";
 
 export const viewport: Viewport = {
   themeColor: "#11ACBB",
@@ -99,6 +100,21 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google Tag Manager */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6M1HWSZST8"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6M1HWSZST8');
+          `}
+        </Script>
+      </head>
       <body
         className={`font-sans antialiased ${dmSans.variable} ${plusJakarta.variable}`}
       >
